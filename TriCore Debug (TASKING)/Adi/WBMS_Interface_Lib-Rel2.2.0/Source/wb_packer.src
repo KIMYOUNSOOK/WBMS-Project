@@ -1,0 +1,2051 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc8416a --dep-file=Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc38x -D__CPU_TC38X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc38x -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0 -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\API -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\Include -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\inc -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\inc\\\\HAL -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\inc\\\\application -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\configuration_files -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\container_files -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\container_files\\\\bms_scripts -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\otap_files -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Cmic -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Configurations -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Sfr\\\\TC38A -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Sfr\\\\TC38A\\\\_Reg -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Ssw\\\\TC38A -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Ssw\\\\TC38A\\\\Tricore -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Asclin -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Dma -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Dma\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Gtm -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Mtu -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Pms -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Pms\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Port -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Port\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Qspi -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Scu -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Scu\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Src -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Src\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Stm -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Stm\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_Impl -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_Lib -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_PinMap -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.src ../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c"
+	.compiler_name		"ctc"
+	;source	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c'
+
+	
+$TC162
+	
+	.sdecl	'.text.wb_packer.wb_packer_uint8',code,cluster('wb_packer_uint8')
+	.sect	'.text.wb_packer.wb_packer_uint8'
+	.align	2
+	
+	.global	wb_packer_uint8
+; Function wb_packer_uint8
+.L33:
+wb_packer_uint8:	.type	func
+	jz.a	a4,.L2
+.L113:
+	jnz.a	a5,.L3
+.L2:
+	j	.L4
+.L3:
+	ld.hu	d15,[a4]4
+.L114:
+	mov.u	d0,#65535
+.L115:
+	jge.u	d15,d0,.L5
+.L116:
+	ld.bu	d15,[a4]6
+.L117:
+	jne	d15,#0,.L6
+.L118:
+	ld.a	a15,[a4]
+.L119:
+	ld.hu	d15,[a4]4
+.L120:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]
+.L121:
+	st.b	[a5],d15
+.L122:
+	j	.L7
+.L6:
+	ld.a	a15,[a4]
+.L123:
+	ld.hu	d15,[a4]4
+.L124:
+	addsc.a	a15,a15,d15,#0
+.L125:
+	ld.bu	d15,[a5]
+.L126:
+	st.b	[a15],d15
+.L7:
+	ld.hu	d15,[a4]4
+.L127:
+	add	d15,#1
+	st.h	[a4]4,d15
+.L5:
+.L4:
+	ret
+.L71:
+	
+__wb_packer_uint8_function_end:
+	.size	wb_packer_uint8,__wb_packer_uint8_function_end-wb_packer_uint8
+.L50:
+	; End of function
+	
+	.sdecl	'.text.wb_packer.wb_packer_uint16',code,cluster('wb_packer_uint16')
+	.sect	'.text.wb_packer.wb_packer_uint16'
+	.align	2
+	
+	.global	wb_packer_uint16
+; Function wb_packer_uint16
+.L35:
+wb_packer_uint16:	.type	func
+	jz.a	a4,.L8
+.L132:
+	jnz.a	a5,.L9
+.L8:
+	j	.L10
+.L9:
+	ld.hu	d15,[a4]4
+.L133:
+	mov.u	d0,#65534
+.L134:
+	jge.u	d15,d0,.L11
+.L135:
+	ld.bu	d15,[a4]6
+.L136:
+	jne	d15,#0,.L12
+.L137:
+	ld.a	a15,[a4]
+.L138:
+	ld.hu	d15,[a4]4
+.L139:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]
+.L140:
+	insert	d15,d15,#0,#16,#16
+.L141:
+	sh	d0,d15,#8
+.L142:
+	mov.u	d15,#65280
+.L143:
+	and	d0,d15
+.L144:
+	ld.a	a15,[a4]
+.L145:
+	ld.hu	d15,[a4]4
+.L146:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+.L147:
+	insert	d15,d15,#0,#16,#16
+.L148:
+	and	d15,#255
+.L149:
+	or	d0,d15
+.L150:
+	insert	d15,d0,#0,#16,#16
+.L151:
+	st.h	[a5],d15
+.L152:
+	j	.L13
+.L12:
+	ld.a	a15,[a4]
+.L153:
+	ld.hu	d15,[a4]4
+.L154:
+	addsc.a	a15,a15,d15,#0
+.L155:
+	ld.hu	d15,[a5]0
+.L156:
+	mov.u	d0,#65280
+.L157:
+	and	d15,d0
+.L158:
+	sha	d15,#-8
+.L159:
+	and	d15,#255
+.L160:
+	st.b	[a15],d15
+.L161:
+	ld.a	a15,[a4]
+.L162:
+	ld.hu	d15,[a4]4
+.L163:
+	addsc.a	a15,a15,d15,#0
+.L164:
+	ld.hu	d15,[a5]0
+.L165:
+	and	d15,#255
+.L166:
+	and	d15,#255
+.L167:
+	st.b	[a15]1,d15
+.L13:
+	ld.hu	d15,[a4]4
+.L168:
+	add	d15,#2
+	st.h	[a4]4,d15
+.L11:
+.L10:
+	ret
+.L76:
+	
+__wb_packer_uint16_function_end:
+	.size	wb_packer_uint16,__wb_packer_uint16_function_end-wb_packer_uint16
+.L55:
+	; End of function
+	
+	.sdecl	'.text.wb_packer.wb_packer_uint32',code,cluster('wb_packer_uint32')
+	.sect	'.text.wb_packer.wb_packer_uint32'
+	.align	2
+	
+	.global	wb_packer_uint32
+; Function wb_packer_uint32
+.L37:
+wb_packer_uint32:	.type	func
+	jz.a	a4,.L14
+.L173:
+	jnz.a	a5,.L15
+.L14:
+	j	.L16
+.L15:
+	ld.hu	d15,[a4]4
+.L174:
+	mov.u	d0,#65532
+.L175:
+	jge.u	d15,d0,.L17
+.L176:
+	ld.bu	d15,[a4]6
+.L177:
+	jne	d15,#0,.L18
+.L178:
+	ld.a	a15,[a4]
+.L179:
+	ld.hu	d15,[a4]4
+.L180:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]
+.L181:
+	mov	d0,#-1
+.L182:
+	and	d15,d0
+.L183:
+	sh	d15,d15,#24
+.L184:
+	insert	d0,d15,#0,#0,#24
+.L185:
+	ld.a	a15,[a4]
+.L186:
+	ld.hu	d15,[a4]4
+.L187:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+.L188:
+	mov	d1,#-1
+.L189:
+	and	d15,d1
+.L190:
+	sh	d15,d15,#16
+.L191:
+	movh	d1,#255
+.L192:
+	and	d15,d1
+.L193:
+	or	d0,d15
+.L194:
+	ld.a	a15,[a4]
+.L195:
+	ld.hu	d15,[a4]4
+.L196:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]2
+.L197:
+	mov	d1,#-1
+.L198:
+	and	d15,d1
+.L199:
+	sh	d15,d15,#8
+.L200:
+	mov.u	d1,#65280
+.L201:
+	and	d15,d1
+.L202:
+	or	d0,d15
+.L203:
+	ld.a	a15,[a4]
+.L204:
+	ld.hu	d15,[a4]4
+.L205:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+.L206:
+	mov	d1,#-1
+.L207:
+	and	d15,d1
+.L208:
+	and	d15,#255
+.L209:
+	or	d0,d15
+.L210:
+	mov	d15,#-1
+.L211:
+	and	d0,d15
+.L212:
+	st.w	[a5],d0
+.L213:
+	j	.L19
+.L18:
+	ld.a	a15,[a4]
+.L214:
+	ld.hu	d15,[a4]4
+.L215:
+	addsc.a	a15,a15,d15,#0
+.L216:
+	ld.w	d15,[a5]
+.L217:
+	insert	d15,d15,#0,#0,#24
+.L218:
+	extr.u	d15,d15,#24,#8
+.L219:
+	st.b	[a15],d15
+.L220:
+	ld.a	a15,[a4]
+.L221:
+	ld.hu	d15,[a4]4
+.L222:
+	addsc.a	a15,a15,d15,#0
+.L223:
+	ld.w	d15,[a5]
+.L224:
+	movh	d0,#255
+.L225:
+	and	d15,d0
+.L226:
+	extr.u	d15,d15,#16,#8
+.L227:
+	st.b	[a15]1,d15
+.L228:
+	ld.a	a15,[a4]
+.L229:
+	ld.hu	d15,[a4]4
+.L230:
+	addsc.a	a15,a15,d15,#0
+.L231:
+	ld.w	d15,[a5]
+.L232:
+	mov.u	d0,#65280
+.L233:
+	and	d15,d0
+.L234:
+	extr.u	d15,d15,#8,#8
+.L235:
+	st.b	[a15]2,d15
+.L236:
+	ld.a	a15,[a4]
+.L237:
+	ld.hu	d15,[a4]4
+.L238:
+	addsc.a	a15,a15,d15,#0
+.L239:
+	ld.w	d15,[a5]
+.L240:
+	and	d15,#255
+.L241:
+	and	d15,#255
+.L242:
+	st.b	[a15]3,d15
+.L19:
+	ld.hu	d15,[a4]4
+.L243:
+	add	d15,#4
+	st.h	[a4]4,d15
+.L17:
+.L16:
+	ret
+.L81:
+	
+__wb_packer_uint32_function_end:
+	.size	wb_packer_uint32,__wb_packer_uint32_function_end-wb_packer_uint32
+.L60:
+	; End of function
+	
+	.sdecl	'.text.wb_packer.wb_packer_uint64',code,cluster('wb_packer_uint64')
+	.sect	'.text.wb_packer.wb_packer_uint64'
+	.align	2
+	
+	.global	wb_packer_uint64
+; Function wb_packer_uint64
+.L39:
+wb_packer_uint64:	.type	func
+	jz.a	a4,.L20
+.L248:
+	jnz.a	a5,.L21
+.L20:
+	j	.L22
+.L21:
+	ld.hu	d15,[a4]4
+.L249:
+	mov.u	d0,#65528
+.L250:
+	jge.u	d15,d0,.L23
+.L251:
+	ld.bu	d15,[a4]6
+.L252:
+	jne	d15,#0,.L24
+.L253:
+	ld.a	a15,[a4]
+.L254:
+	ld.hu	d15,[a4]4
+.L255:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]
+.L256:
+	mov	e0,#-1
+.L257:
+	and	d15,d0
+.L258:
+	mov	d0,#0
+	sh	d1,d15,#24
+.L259:
+	mov	d2,#0
+	mov	d3,#0
+	addih	d3,d3,#65280
+.L260:
+	and	d0,d2
+	and	d1,d3
+.L261:
+	ld.a	a15,[a4]
+.L262:
+	ld.hu	d15,[a4]4
+.L263:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]1
+.L264:
+	mov	e2,#-1
+.L265:
+	and	d15,d2
+.L266:
+	mov	d2,#0
+	sh	d3,d15,#16
+.L267:
+	mov	d4,#0
+	mov	d5,#0
+	addih	d5,d5,#255
+.L268:
+	and	d2,d4
+	and	d3,d5
+.L269:
+	or	d0,d2
+	or	d1,d3
+.L270:
+	ld.a	a15,[a4]
+.L271:
+	ld.hu	d15,[a4]4
+.L272:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]2
+.L273:
+	mov	e2,#-1
+.L274:
+	and	d15,d2
+.L275:
+	mov	d2,#0
+	sh	d3,d15,#8
+.L276:
+	mov	d4,#0
+	mov.u	d5,#65280
+.L277:
+	and	d2,d4
+	and	d3,d5
+.L278:
+	or	d0,d2
+	or	d1,d3
+.L279:
+	ld.a	a15,[a4]
+.L280:
+	ld.hu	d15,[a4]4
+.L281:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]3
+.L282:
+	mov	e2,#-1
+.L283:
+	and	d3,d15,d2
+.L284:
+	mov	d2,#0
+.L285:
+	mov	d4,#0
+	mov	d5,#255
+.L286:
+	and	d2,d4
+	and	d3,d5
+.L287:
+	or	d4,d0,d2
+	or	d5,d1,d3
+.L288:
+	ld.a	a15,[a4]
+.L289:
+	ld.hu	d15,[a4]4
+.L290:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]4
+	mov	d1,#0
+	mov	d0,d15
+.L291:
+	mov	e2,#-1
+.L292:
+	and	d0,d2
+	and	d1,d3
+.L293:
+	dextr	d1,d1,d0,#24
+	sh	d0,d0,#24
+.L294:
+	mov	d2,#0
+	addih	d2,d2,#65280
+	mov	d3,#0
+.L295:
+	and	d0,d2
+	and	d1,d3
+.L296:
+	or	d4,d0
+	or	d5,d1
+.L297:
+	ld.a	a15,[a4]
+.L298:
+	ld.hu	d15,[a4]4
+.L299:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]5
+	mov	d1,#0
+	mov	d0,d15
+.L300:
+	mov	e2,#-1
+.L301:
+	and	d0,d2
+	and	d1,d3
+.L302:
+	dextr	d1,d1,d0,#16
+	sh	d0,d0,#16
+.L303:
+	mov	d2,#0
+	addih	d2,d2,#255
+	mov	d3,#0
+.L304:
+	and	d0,d2
+	and	d1,d3
+.L305:
+	or	d4,d0
+	or	d5,d1
+.L306:
+	ld.a	a15,[a4]
+.L307:
+	ld.hu	d15,[a4]4
+.L308:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]6
+	mov	d1,#0
+	mov	d0,d15
+.L309:
+	mov	e2,#-1
+.L310:
+	and	d0,d2
+	and	d1,d3
+.L311:
+	dextr	d1,d1,d0,#8
+	sh	d0,d0,#8
+.L312:
+	mov.u	d2,#65280
+	mov	d3,#0
+.L313:
+	and	d0,d2
+	and	d1,d3
+.L314:
+	or	d0,d4
+	or	d1,d5
+.L315:
+	ld.a	a15,[a4]
+.L316:
+	ld.hu	d15,[a4]4
+.L317:
+	addsc.a	a15,a15,d15,#0
+	ld.bu	d15,[a15]7
+	mov	d3,#0
+	mov	d2,d15
+.L318:
+	mov	e4,#-1
+.L319:
+	and	d2,d4
+	and	d3,d5
+.L320:
+	mov	e4,#255
+.L321:
+	and	d2,d4
+	and	d3,d5
+.L322:
+	or	d0,d2
+	or	d1,d3
+.L323:
+	mov	e2,#-1
+.L324:
+	and	d0,d2
+	and	d1,d3
+.L325:
+	st.d	[a5]0,e0
+.L326:
+	j	.L25
+.L24:
+	ld.a	a15,[a4]
+.L327:
+	ld.hu	d15,[a4]4
+.L328:
+	addsc.a	a15,a15,d15,#0
+.L329:
+	ld.d	e0,[a5]0
+.L330:
+	mov	d3,#0
+	addih	d3,d3,#65280
+.L331:
+	and	d1,d3
+.L332:
+	sh	d15,d1,#-24
+.L333:
+	mov	e0,#255
+.L334:
+	and	d15,d0
+.L335:
+	extr.u	d15,d15,#0,#8
+.L336:
+	st.b	[a15],d15
+.L337:
+	ld.a	a15,[a4]
+.L338:
+	ld.hu	d15,[a4]4
+.L339:
+	addsc.a	a15,a15,d15,#0
+.L340:
+	ld.d	e0,[a5]0
+.L341:
+	mov	d3,#0
+	addih	d3,d3,#255
+.L342:
+	and	d1,d3
+.L343:
+	sh	d15,d1,#-16
+.L344:
+	mov	e0,#255
+.L345:
+	and	d15,d0
+.L346:
+	extr.u	d15,d15,#0,#8
+.L347:
+	st.b	[a15]1,d15
+.L348:
+	ld.a	a15,[a4]
+.L349:
+	ld.hu	d15,[a4]4
+.L350:
+	addsc.a	a15,a15,d15,#0
+.L351:
+	ld.d	e0,[a5]0
+.L352:
+	mov.u	d15,#65280
+.L353:
+	and	d1,d15
+.L354:
+	sh	d1,#-8
+.L355:
+	mov	e2,#255
+.L356:
+	and	d1,d2
+.L357:
+	extr.u	d15,d1,#0,#8
+.L358:
+	st.b	[a15]2,d15
+.L359:
+	ld.a	a15,[a4]
+.L360:
+	ld.hu	d15,[a4]4
+.L361:
+	addsc.a	a15,a15,d15,#0
+.L362:
+	ld.d	e0,[a5]0
+.L363:
+	mov	d15,#255
+.L364:
+	and	d15,d1
+.L365:
+	mov	e0,#255
+.L366:
+	and	d15,d0
+.L367:
+	extr.u	d15,d15,#0,#8
+.L368:
+	st.b	[a15]3,d15
+.L369:
+	ld.a	a15,[a4]
+.L370:
+	ld.hu	d15,[a4]4
+.L371:
+	addsc.a	a15,a15,d15,#0
+.L372:
+	ld.d	e0,[a5]0
+.L373:
+	mov	d2,#0
+	addih	d2,d2,#65280
+	mov	d3,#0
+.L374:
+	and	d0,d2
+	and	d1,d3
+.L375:
+	dextr	d15,d1,d0,#8
+.L376:
+	mov	e0,#255
+.L377:
+	and	d15,d0
+.L378:
+	extr.u	d15,d15,#0,#8
+.L379:
+	st.b	[a15]4,d15
+.L380:
+	ld.a	a15,[a4]
+.L381:
+	ld.hu	d15,[a4]4
+.L382:
+	addsc.a	a15,a15,d15,#0
+.L383:
+	ld.d	e0,[a5]0
+.L384:
+	mov	d2,#0
+	addih	d2,d2,#255
+	mov	d3,#0
+.L385:
+	and	d0,d2
+	and	d1,d3
+.L386:
+	dextr	d15,d1,d0,#16
+.L387:
+	mov	e0,#255
+.L388:
+	and	d15,d0
+.L389:
+	extr.u	d15,d15,#0,#8
+.L390:
+	st.b	[a15]5,d15
+.L391:
+	ld.a	a15,[a4]
+.L392:
+	ld.hu	d15,[a4]4
+.L393:
+	addsc.a	a15,a15,d15,#0
+.L394:
+	ld.d	e0,[a5]0
+.L395:
+	mov.u	d2,#65280
+	mov	d3,#0
+.L396:
+	and	d0,d2
+	and	d1,d3
+.L397:
+	dextr	d15,d1,d0,#24
+.L398:
+	mov	e0,#255
+.L399:
+	and	d15,d0
+.L400:
+	extr.u	d15,d15,#0,#8
+.L401:
+	st.b	[a15]6,d15
+.L402:
+	ld.a	a15,[a4]
+.L403:
+	ld.hu	d15,[a4]4
+.L404:
+	addsc.a	a15,a15,d15,#0
+.L405:
+	ld.d	e0,[a5]0
+.L406:
+	mov	e2,#255
+.L407:
+	and	d0,d2
+.L408:
+	mov	e2,#255
+.L409:
+	and	d0,d2
+.L410:
+	extr.u	d15,d0,#0,#8
+.L411:
+	st.b	[a15]7,d15
+.L25:
+	ld.hu	d15,[a4]4
+.L412:
+	add	d15,d15,#8
+	st.h	[a4]4,d15
+.L23:
+.L22:
+	ret
+.L86:
+	
+__wb_packer_uint64_function_end:
+	.size	wb_packer_uint64,__wb_packer_uint64_function_end-wb_packer_uint64
+.L65:
+	; End of function
+	
+	.sdecl	'.text.wb_packer.wb_packer_block',code,cluster('wb_packer_block')
+	.sect	'.text.wb_packer.wb_packer_block'
+	.align	2
+	
+	.global	wb_packer_block
+; Function wb_packer_block
+.L41:
+wb_packer_block:	.type	func
+	mov.aa	a15,a4
+.L101:
+	mov	d8,d4
+.L102:
+	jz.a	a15,.L26
+.L417:
+	jnz.a	a5,.L27
+.L26:
+	j	.L28
+.L27:
+	ld.hu	d15,[a15]4
+.L418:
+	add	d15,d8
+.L419:
+	mov.u	d0,#65535
+.L420:
+	jge	d15,d0,.L29
+.L421:
+	ld.bu	d15,[a15]6
+.L422:
+	jne	d15,#0,.L30
+.L423:
+	ld.a	a2,[a15]
+.L424:
+	ld.hu	d15,[a15]4
+.L425:
+	addsc.a	a2,a2,d15,#0
+.L426:
+	mov.aa	a4,a5
+.L99:
+	mov.aa	a5,a2
+.L100:
+	mov	d4,d8
+	call	memcpy
+.L98:
+	j	.L31
+.L30:
+	ld.a	a2,[a15]
+.L427:
+	ld.hu	d15,[a15]4
+.L428:
+	addsc.a	a4,a2,d15,#0
+.L104:
+	mov	d4,d8
+	call	memcpy
+.L31:
+	ld.hu	d15,[a15]4
+.L429:
+	add	d8,d15
+.L103:
+	st.h	[a15]4,d8
+.L29:
+.L28:
+	ret
+.L91:
+	
+__wb_packer_block_function_end:
+	.size	wb_packer_block,__wb_packer_block_function_end-wb_packer_block
+.L70:
+	; End of function
+	
+	.calls	'wb_packer_block','memcpy'
+	.calls	'wb_packer_uint8','',0
+	.calls	'wb_packer_uint16','',0
+	.calls	'wb_packer_uint32','',0
+	.calls	'wb_packer_uint64','',0
+	.extern	memcpy
+	.calls	'wb_packer_block','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L43:
+	.word	759
+	.half	3
+	.word	.L44
+	.byte	4
+.L42:
+	.byte	1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L45
+	.byte	2
+	.byte	'void',0,3
+	.word	214
+	.byte	4
+	.word	220
+	.byte	5
+	.word	214
+	.byte	3
+	.word	230
+	.byte	4
+	.word	235
+	.byte	6
+	.byte	'unsigned int',0,4,7,7
+	.byte	'memcpy',0,1,53,17
+	.word	220
+	.byte	1,1,1,1,8,1,53,33
+	.word	225
+	.byte	8,1,53,56
+	.word	240
+	.byte	8,1,53,68
+	.word	245
+	.byte	0,6
+	.byte	'unsigned char',0,1,8
+.L94:
+	.byte	3
+	.word	305
+.L96:
+	.byte	6
+	.byte	'unsigned short int',0,2,7,9,2,11,9,1,10
+	.byte	'WB_PACK_READ',0,0,10
+	.byte	'WB_PACK_WRITE',0,1,0,11
+	.byte	'wb_packer',0,2,21,8,8,12
+	.byte	'buf',0
+	.word	322
+	.byte	4,2,35,0,12
+	.byte	'index',0
+	.word	327
+	.byte	2,2,35,4,12
+	.byte	'direction',0
+	.word	349
+	.byte	1,2,35,6,0,3
+	.word	386
+.L72:
+	.byte	5
+	.word	449
+.L74:
+	.byte	5
+	.word	322
+.L77:
+	.byte	5
+	.word	449
+	.byte	3
+	.word	327
+.L79:
+	.byte	5
+	.word	469
+.L82:
+	.byte	5
+	.word	449
+	.byte	3
+	.word	245
+.L84:
+	.byte	5
+	.word	484
+.L87:
+	.byte	5
+	.word	449
+	.byte	6
+	.byte	'unsigned long long int',0,8,7,3
+	.word	499
+.L89:
+	.byte	5
+	.word	525
+.L92:
+	.byte	5
+	.word	449
+	.byte	13
+	.byte	'__size_t',0,3,1,1
+	.word	245
+	.byte	14,1,3
+	.word	557
+	.byte	13
+	.byte	'__codeptr',0,3,1,1
+	.word	559
+	.byte	6
+	.byte	'int',0,4,5,13
+	.byte	'__intptr_t',0,3,1,1
+	.word	582
+	.byte	13
+	.byte	'__uintptr_t',0,3,1,1
+	.word	245
+	.byte	13
+	.byte	'uint8_t',0,4,242,1,41
+	.word	305
+	.byte	13
+	.byte	'uint16_t',0,4,246,1,41
+	.word	327
+	.byte	13
+	.byte	'uint32_t',0,4,254,1,41
+	.word	245
+	.byte	13
+	.byte	'uint64_t',0,4,134,2,41
+	.word	499
+	.byte	13
+	.byte	'size_t',0,1,29,25
+	.word	245
+	.byte	13
+	.byte	'wb_pack_direction_t',0,2,15,3
+	.word	349
+	.byte	13
+	.byte	'wb_packer_t',0,2,19,26
+	.word	386
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L44:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,59,0,3,8,0,0,3,15,0,73,19,0,0,4,55,0,73,19,0,0,5,38,0
+	.byte	73,19,0,0,6,36,0,3,8,11,15,62,15,0,0,7,46,1,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,8
+	.byte	5,0,58,15,59,15,57,15,73,19,0,0,9,4,1,58,15,59,15,57,15,11,15,0,0,10,40,0,3,8,28,13,0,0,11,19,1,3,8,58
+	.byte	15,59,15,57,15,11,15,0,0,12,13,0,3,8,73,19,11,15,56,9,0,0,13,22,0,3,8,58,15,59,15,57,15,73,19,0,0,14,21
+	.byte	0,54,15,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L45:
+	.word	.L106-.L105
+.L105:
+	.half	3
+	.word	.L108-.L107
+.L107:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'C:\\Infineon\\AURIX-Studio-1.9.8\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
+	.byte	'C:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\Include',0
+	.byte	0
+	.byte	'string.h',0,1,0,0
+	.byte	'wb_packer.h',0,2,0,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0,0,0,0
+	.byte	'stdint.h',0,1,0,0,0
+.L108:
+.L106:
+	.sdecl	'.debug_info',debug,cluster('wb_packer_uint8')
+	.sect	'.debug_info'
+.L46:
+	.word	301
+	.half	3
+	.word	.L47
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L49,.L48
+	.byte	2
+	.word	.L42
+	.byte	3
+	.byte	'wb_packer_uint8',0,1,22,6,1,1,1
+	.word	.L33,.L71,.L32
+	.byte	4
+	.byte	'packer',0,1,22,43
+	.word	.L72,.L73
+	.byte	4
+	.byte	'prop',0,1,23,39
+	.word	.L74,.L75
+	.byte	5
+	.word	.L33,.L71
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_packer_uint8')
+	.sect	'.debug_abbrev'
+.L47:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_packer_uint8')
+	.sect	'.debug_line'
+.L48:
+	.word	.L110-.L109
+.L109:
+	.half	3
+	.word	.L112-.L111
+.L111:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0,0,0,0,0
+.L112:
+	.byte	5,9,7,0,5,2
+	.word	.L33
+	.byte	3,25,1,5,41,7,9
+	.half	.L113-.L33
+	.byte	1,5,32,7,9
+	.half	.L2-.L113
+	.byte	1,5,20,9
+	.half	.L3-.L2
+	.byte	3,7,1,5,30,9
+	.half	.L114-.L3
+	.byte	1,5,9,9
+	.half	.L115-.L114
+	.byte	1,5,23,7,9
+	.half	.L116-.L115
+	.byte	3,3,1,5,13,9
+	.half	.L117-.L116
+	.byte	1,5,31,7,9
+	.half	.L118-.L117
+	.byte	3,3,1,5,44,9
+	.half	.L119-.L118
+	.byte	1,5,37,9
+	.half	.L120-.L119
+	.byte	1,5,23,9
+	.half	.L121-.L120
+	.byte	1,5,52,9
+	.half	.L122-.L121
+	.byte	1,5,23,9
+	.half	.L6-.L122
+	.byte	3,5,1,5,36,9
+	.half	.L123-.L6
+	.byte	1,5,29,9
+	.half	.L124-.L123
+	.byte	1,5,47,9
+	.half	.L125-.L124
+	.byte	1,5,45,9
+	.half	.L126-.L125
+	.byte	1,5,19,9
+	.half	.L7-.L126
+	.byte	3,4,1,5,26,9
+	.half	.L127-.L7
+	.byte	1,5,1,9
+	.half	.L4-.L127
+	.byte	3,3,1,7,9
+	.half	.L50-.L4
+	.byte	0,1,1
+.L110:
+	.sdecl	'.debug_ranges',debug,cluster('wb_packer_uint8')
+	.sect	'.debug_ranges'
+.L49:
+	.word	-1,.L33,0,.L50-.L33,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_packer_uint16')
+	.sect	'.debug_info'
+.L51:
+	.word	302
+	.half	3
+	.word	.L52
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L54,.L53
+	.byte	2
+	.word	.L42
+	.byte	3
+	.byte	'wb_packer_uint16',0,1,53,6,1,1,1
+	.word	.L35,.L76,.L34
+	.byte	4
+	.byte	'packer',0,1,53,44
+	.word	.L77,.L78
+	.byte	4
+	.byte	'prop',0,1,54,41
+	.word	.L79,.L80
+	.byte	5
+	.word	.L35,.L76
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_packer_uint16')
+	.sect	'.debug_abbrev'
+.L52:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_packer_uint16')
+	.sect	'.debug_line'
+.L53:
+	.word	.L129-.L128
+.L128:
+	.half	3
+	.word	.L131-.L130
+.L130:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0,0,0,0,0
+.L131:
+	.byte	5,9,7,0,5,2
+	.word	.L35
+	.byte	3,56,1,5,41,7,9
+	.half	.L132-.L35
+	.byte	1,5,32,7,9
+	.half	.L8-.L132
+	.byte	1,5,19,9
+	.half	.L9-.L8
+	.byte	3,7,1,5,29,9
+	.half	.L133-.L9
+	.byte	1,5,9,9
+	.half	.L134-.L133
+	.byte	1,5,23,7,9
+	.half	.L135-.L134
+	.byte	3,3,1,5,13,9
+	.half	.L136-.L135
+	.byte	1,5,35,7,9
+	.half	.L137-.L136
+	.byte	3,3,1,5,48,9
+	.half	.L138-.L137
+	.byte	1,5,41,9
+	.half	.L139-.L138
+	.byte	1,5,62,9
+	.half	.L140-.L139
+	.byte	1,5,73,9
+	.half	.L141-.L140
+	.byte	1,5,82,9
+	.half	.L142-.L141
+	.byte	1,5,80,9
+	.half	.L143-.L142
+	.byte	1,5,35,9
+	.half	.L144-.L143
+	.byte	3,1,1,5,48,9
+	.half	.L145-.L144
+	.byte	1,5,41,9
+	.half	.L146-.L145
+	.byte	1,5,62,9
+	.half	.L147-.L146
+	.byte	1,5,80,9
+	.half	.L148-.L147
+	.byte	1,5,91,9
+	.half	.L149-.L148
+	.byte	3,127,1,5,92,9
+	.half	.L150-.L149
+	.byte	3,1,1,5,23,9
+	.half	.L151-.L150
+	.byte	3,127,1,5,101,9
+	.half	.L152-.L151
+	.byte	3,1,1,5,23,9
+	.half	.L12-.L152
+	.byte	3,5,1,5,36,9
+	.half	.L153-.L12
+	.byte	1,5,29,9
+	.half	.L154-.L153
+	.byte	1,5,65,9
+	.half	.L155-.L154
+	.byte	1,5,73,9
+	.half	.L156-.L155
+	.byte	1,5,71,9
+	.half	.L157-.L156
+	.byte	1,5,82,9
+	.half	.L158-.L157
+	.byte	1,5,89,9
+	.half	.L159-.L158
+	.byte	1,5,50,9
+	.half	.L160-.L159
+	.byte	1,5,23,9
+	.half	.L161-.L160
+	.byte	3,1,1,5,36,9
+	.half	.L162-.L161
+	.byte	1,5,29,9
+	.half	.L163-.L162
+	.byte	1,5,65,9
+	.half	.L164-.L163
+	.byte	1,5,71,9
+	.half	.L165-.L164
+	.byte	1,5,89,9
+	.half	.L166-.L165
+	.byte	1,5,50,9
+	.half	.L167-.L166
+	.byte	1,5,19,9
+	.half	.L13-.L167
+	.byte	3,4,1,5,27,9
+	.half	.L168-.L13
+	.byte	1,5,1,9
+	.half	.L10-.L168
+	.byte	3,3,1,7,9
+	.half	.L55-.L10
+	.byte	0,1,1
+.L129:
+	.sdecl	'.debug_ranges',debug,cluster('wb_packer_uint16')
+	.sect	'.debug_ranges'
+.L54:
+	.word	-1,.L35,0,.L55-.L35,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_packer_uint32')
+	.sect	'.debug_info'
+.L56:
+	.word	302
+	.half	3
+	.word	.L57
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L59,.L58
+	.byte	2
+	.word	.L42
+	.byte	3
+	.byte	'wb_packer_uint32',0,1,86,6,1,1,1
+	.word	.L37,.L81,.L36
+	.byte	4
+	.byte	'packer',0,1,86,44
+	.word	.L82,.L83
+	.byte	4
+	.byte	'prop',0,1,87,41
+	.word	.L84,.L85
+	.byte	5
+	.word	.L37,.L81
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_packer_uint32')
+	.sect	'.debug_abbrev'
+.L57:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_packer_uint32')
+	.sect	'.debug_line'
+.L58:
+	.word	.L170-.L169
+.L169:
+	.half	3
+	.word	.L172-.L171
+.L171:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0,0,0,0,0
+.L172:
+	.byte	5,9,7,0,5,2
+	.word	.L37
+	.byte	3,217,0,1,5,41,7,9
+	.half	.L173-.L37
+	.byte	1,5,32,7,9
+	.half	.L14-.L173
+	.byte	1,5,19,9
+	.half	.L15-.L14
+	.byte	3,7,1,5,29,9
+	.half	.L174-.L15
+	.byte	1,5,9,9
+	.half	.L175-.L174
+	.byte	1,5,23,7,9
+	.half	.L176-.L175
+	.byte	3,3,1,5,13,9
+	.half	.L177-.L176
+	.byte	1,5,35,7,9
+	.half	.L178-.L177
+	.byte	3,3,1,5,48,9
+	.half	.L179-.L178
+	.byte	1,5,41,9
+	.half	.L180-.L179
+	.byte	1,5,64,9
+	.half	.L181-.L180
+	.byte	1,5,62,9
+	.half	.L182-.L181
+	.byte	1,5,77,9
+	.half	.L183-.L182
+	.byte	1,5,85,9
+	.half	.L184-.L183
+	.byte	1,5,35,9
+	.half	.L185-.L184
+	.byte	3,1,1,5,48,9
+	.half	.L186-.L185
+	.byte	1,5,41,9
+	.half	.L187-.L186
+	.byte	1,5,64,9
+	.half	.L188-.L187
+	.byte	1,5,62,9
+	.half	.L189-.L188
+	.byte	1,5,77,9
+	.half	.L190-.L189
+	.byte	1,5,87,9
+	.half	.L191-.L190
+	.byte	1,5,85,9
+	.half	.L192-.L191
+	.byte	1,5,100,9
+	.half	.L193-.L192
+	.byte	3,127,1,5,35,9
+	.half	.L194-.L193
+	.byte	3,2,1,5,48,9
+	.half	.L195-.L194
+	.byte	1,5,41,9
+	.half	.L196-.L195
+	.byte	1,5,64,9
+	.half	.L197-.L196
+	.byte	1,5,62,9
+	.half	.L198-.L197
+	.byte	1,5,77,9
+	.half	.L199-.L198
+	.byte	1,5,87,9
+	.half	.L200-.L199
+	.byte	1,5,85,9
+	.half	.L201-.L200
+	.byte	1,5,100,9
+	.half	.L202-.L201
+	.byte	3,127,1,5,35,9
+	.half	.L203-.L202
+	.byte	3,2,1,5,48,9
+	.half	.L204-.L203
+	.byte	1,5,41,9
+	.half	.L205-.L204
+	.byte	1,5,64,9
+	.half	.L206-.L205
+	.byte	1,5,62,9
+	.half	.L207-.L206
+	.byte	1,5,85,9
+	.half	.L208-.L207
+	.byte	1,5,100,9
+	.half	.L209-.L208
+	.byte	3,127,1,5,103,9
+	.half	.L210-.L209
+	.byte	3,1,1,5,101,9
+	.half	.L211-.L210
+	.byte	1,5,23,9
+	.half	.L212-.L211
+	.byte	3,125,1,5,114,9
+	.half	.L213-.L212
+	.byte	3,3,1,5,23,9
+	.half	.L18-.L213
+	.byte	3,5,1,5,36,9
+	.half	.L214-.L18
+	.byte	1,5,29,9
+	.half	.L215-.L214
+	.byte	1,5,65,9
+	.half	.L216-.L215
+	.byte	1,5,71,9
+	.half	.L217-.L216
+	.byte	1,5,94,9
+	.half	.L218-.L217
+	.byte	1,5,50,9
+	.half	.L219-.L218
+	.byte	1,5,23,9
+	.half	.L220-.L219
+	.byte	3,1,1,5,36,9
+	.half	.L221-.L220
+	.byte	1,5,29,9
+	.half	.L222-.L221
+	.byte	1,5,65,9
+	.half	.L223-.L222
+	.byte	1,5,73,9
+	.half	.L224-.L223
+	.byte	1,5,71,9
+	.half	.L225-.L224
+	.byte	1,5,94,9
+	.half	.L226-.L225
+	.byte	1,5,50,9
+	.half	.L227-.L226
+	.byte	1,5,23,9
+	.half	.L228-.L227
+	.byte	3,1,1,5,36,9
+	.half	.L229-.L228
+	.byte	1,5,29,9
+	.half	.L230-.L229
+	.byte	1,5,65,9
+	.half	.L231-.L230
+	.byte	1,5,73,9
+	.half	.L232-.L231
+	.byte	1,5,71,9
+	.half	.L233-.L232
+	.byte	1,5,94,9
+	.half	.L234-.L233
+	.byte	1,5,50,9
+	.half	.L235-.L234
+	.byte	1,5,23,9
+	.half	.L236-.L235
+	.byte	3,1,1,5,36,9
+	.half	.L237-.L236
+	.byte	1,5,29,9
+	.half	.L238-.L237
+	.byte	1,5,65,9
+	.half	.L239-.L238
+	.byte	1,5,71,9
+	.half	.L240-.L239
+	.byte	1,5,94,9
+	.half	.L241-.L240
+	.byte	1,5,50,9
+	.half	.L242-.L241
+	.byte	1,5,19,9
+	.half	.L19-.L242
+	.byte	3,4,1,5,27,9
+	.half	.L243-.L19
+	.byte	1,5,1,9
+	.half	.L16-.L243
+	.byte	3,3,1,7,9
+	.half	.L60-.L16
+	.byte	0,1,1
+.L170:
+	.sdecl	'.debug_ranges',debug,cluster('wb_packer_uint32')
+	.sect	'.debug_ranges'
+.L59:
+	.word	-1,.L37,0,.L60-.L37,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_packer_uint64')
+	.sect	'.debug_info'
+.L61:
+	.word	302
+	.half	3
+	.word	.L62
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L64,.L63
+	.byte	2
+	.word	.L42
+	.byte	3
+	.byte	'wb_packer_uint64',0,1,123,6,1,1,1
+	.word	.L39,.L86,.L38
+	.byte	4
+	.byte	'packer',0,1,123,44
+	.word	.L87,.L88
+	.byte	4
+	.byte	'prop',0,1,124,41
+	.word	.L89,.L90
+	.byte	5
+	.word	.L39,.L86
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_packer_uint64')
+	.sect	'.debug_abbrev'
+.L62:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_packer_uint64')
+	.sect	'.debug_line'
+.L63:
+	.word	.L245-.L244
+.L244:
+	.half	3
+	.word	.L247-.L246
+.L246:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0,0,0,0,0
+.L247:
+	.byte	5,9,7,0,5,2
+	.word	.L39
+	.byte	3,254,0,1,5,41,7,9
+	.half	.L248-.L39
+	.byte	1,5,32,7,9
+	.half	.L20-.L248
+	.byte	1,5,19,9
+	.half	.L21-.L20
+	.byte	3,7,1,5,29,9
+	.half	.L249-.L21
+	.byte	1,5,9,9
+	.half	.L250-.L249
+	.byte	1,5,23,7,9
+	.half	.L251-.L250
+	.byte	3,3,1,5,13,9
+	.half	.L252-.L251
+	.byte	1,5,35,7,9
+	.half	.L253-.L252
+	.byte	3,3,1,5,48,9
+	.half	.L254-.L253
+	.byte	1,5,41,9
+	.half	.L255-.L254
+	.byte	1,5,64,9
+	.half	.L256-.L255
+	.byte	1,5,62,9
+	.half	.L257-.L256
+	.byte	1,5,85,9
+	.half	.L258-.L257
+	.byte	1,5,95,9
+	.half	.L259-.L258
+	.byte	1,5,93,9
+	.half	.L260-.L259
+	.byte	1,5,35,9
+	.half	.L261-.L260
+	.byte	3,1,1,5,48,9
+	.half	.L262-.L261
+	.byte	1,5,41,9
+	.half	.L263-.L262
+	.byte	1,5,64,9
+	.half	.L264-.L263
+	.byte	1,5,62,9
+	.half	.L265-.L264
+	.byte	1,5,85,9
+	.half	.L266-.L265
+	.byte	1,5,95,9
+	.half	.L267-.L266
+	.byte	1,5,93,9
+	.half	.L268-.L267
+	.byte	1,5,116,9
+	.half	.L269-.L268
+	.byte	3,127,1,5,35,9
+	.half	.L270-.L269
+	.byte	3,2,1,5,48,9
+	.half	.L271-.L270
+	.byte	1,5,41,9
+	.half	.L272-.L271
+	.byte	1,5,64,9
+	.half	.L273-.L272
+	.byte	1,5,62,9
+	.half	.L274-.L273
+	.byte	1,5,85,9
+	.half	.L275-.L274
+	.byte	1,5,95,9
+	.half	.L276-.L275
+	.byte	1,5,93,9
+	.half	.L277-.L276
+	.byte	1,5,116,9
+	.half	.L278-.L277
+	.byte	3,127,1,5,35,9
+	.half	.L279-.L278
+	.byte	3,2,1,5,48,9
+	.half	.L280-.L279
+	.byte	1,5,41,9
+	.half	.L281-.L280
+	.byte	1,5,64,9
+	.half	.L282-.L281
+	.byte	1,5,62,9
+	.half	.L283-.L282
+	.byte	1,5,85,9
+	.half	.L284-.L283
+	.byte	1,5,95,9
+	.half	.L285-.L284
+	.byte	1,5,93,9
+	.half	.L286-.L285
+	.byte	1,5,116,9
+	.half	.L287-.L286
+	.byte	3,127,1,5,35,9
+	.half	.L288-.L287
+	.byte	3,2,1,5,48,9
+	.half	.L289-.L288
+	.byte	1,5,41,9
+	.half	.L290-.L289
+	.byte	1,5,64,9
+	.half	.L291-.L290
+	.byte	1,5,62,9
+	.half	.L292-.L291
+	.byte	1,5,85,9
+	.half	.L293-.L292
+	.byte	1,5,95,9
+	.half	.L294-.L293
+	.byte	1,5,93,9
+	.half	.L295-.L294
+	.byte	1,5,116,9
+	.half	.L296-.L295
+	.byte	3,127,1,5,35,9
+	.half	.L297-.L296
+	.byte	3,2,1,5,48,9
+	.half	.L298-.L297
+	.byte	1,5,41,9
+	.half	.L299-.L298
+	.byte	1,5,64,9
+	.half	.L300-.L299
+	.byte	1,5,62,9
+	.half	.L301-.L300
+	.byte	1,5,85,9
+	.half	.L302-.L301
+	.byte	1,5,95,9
+	.half	.L303-.L302
+	.byte	1,5,93,9
+	.half	.L304-.L303
+	.byte	1,5,116,9
+	.half	.L305-.L304
+	.byte	3,127,1,5,35,9
+	.half	.L306-.L305
+	.byte	3,2,1,5,48,9
+	.half	.L307-.L306
+	.byte	1,5,41,9
+	.half	.L308-.L307
+	.byte	1,5,64,9
+	.half	.L309-.L308
+	.byte	1,5,62,9
+	.half	.L310-.L309
+	.byte	1,5,85,9
+	.half	.L311-.L310
+	.byte	1,5,95,9
+	.half	.L312-.L311
+	.byte	1,5,93,9
+	.half	.L313-.L312
+	.byte	1,5,116,9
+	.half	.L314-.L313
+	.byte	3,127,1,5,35,9
+	.half	.L315-.L314
+	.byte	3,2,1,5,48,9
+	.half	.L316-.L315
+	.byte	1,5,41,9
+	.half	.L317-.L316
+	.byte	1,5,64,9
+	.half	.L318-.L317
+	.byte	1,5,62,9
+	.half	.L319-.L318
+	.byte	1,5,95,9
+	.half	.L320-.L319
+	.byte	1,5,93,9
+	.half	.L321-.L320
+	.byte	1,5,116,9
+	.half	.L322-.L321
+	.byte	3,127,1,5,119,9
+	.half	.L323-.L322
+	.byte	3,1,1,5,117,9
+	.half	.L324-.L323
+	.byte	1,5,23,9
+	.half	.L325-.L324
+	.byte	3,121,1,5,138,1,9
+	.half	.L326-.L325
+	.byte	3,7,1,5,23,9
+	.half	.L24-.L326
+	.byte	3,5,1,5,36,9
+	.half	.L327-.L24
+	.byte	1,5,29,9
+	.half	.L328-.L327
+	.byte	1,5,65,9
+	.half	.L329-.L328
+	.byte	1,5,73,9
+	.half	.L330-.L329
+	.byte	1,5,71,9
+	.half	.L331-.L330
+	.byte	1,5,94,9
+	.half	.L332-.L331
+	.byte	1,5,104,9
+	.half	.L333-.L332
+	.byte	1,5,102,9
+	.half	.L334-.L333
+	.byte	1,5,52,9
+	.half	.L335-.L334
+	.byte	1,5,50,9
+	.half	.L336-.L335
+	.byte	1,5,23,9
+	.half	.L337-.L336
+	.byte	3,3,1,5,36,9
+	.half	.L338-.L337
+	.byte	1,5,29,9
+	.half	.L339-.L338
+	.byte	1,5,65,9
+	.half	.L340-.L339
+	.byte	1,5,73,9
+	.half	.L341-.L340
+	.byte	1,5,71,9
+	.half	.L342-.L341
+	.byte	1,5,94,9
+	.half	.L343-.L342
+	.byte	1,5,104,9
+	.half	.L344-.L343
+	.byte	1,5,102,9
+	.half	.L345-.L344
+	.byte	1,5,52,9
+	.half	.L346-.L345
+	.byte	1,5,50,9
+	.half	.L347-.L346
+	.byte	1,5,23,9
+	.half	.L348-.L347
+	.byte	3,3,1,5,36,9
+	.half	.L349-.L348
+	.byte	1,5,29,9
+	.half	.L350-.L349
+	.byte	1,5,65,9
+	.half	.L351-.L350
+	.byte	1,5,73,9
+	.half	.L352-.L351
+	.byte	1,5,71,9
+	.half	.L353-.L352
+	.byte	1,5,94,9
+	.half	.L354-.L353
+	.byte	1,5,104,9
+	.half	.L355-.L354
+	.byte	1,5,102,9
+	.half	.L356-.L355
+	.byte	1,5,52,9
+	.half	.L357-.L356
+	.byte	1,5,50,9
+	.half	.L358-.L357
+	.byte	1,5,23,9
+	.half	.L359-.L358
+	.byte	3,3,1,5,36,9
+	.half	.L360-.L359
+	.byte	1,5,29,9
+	.half	.L361-.L360
+	.byte	1,5,65,9
+	.half	.L362-.L361
+	.byte	1,5,73,9
+	.half	.L363-.L362
+	.byte	1,5,71,9
+	.half	.L364-.L363
+	.byte	1,5,104,9
+	.half	.L365-.L364
+	.byte	1,5,102,9
+	.half	.L366-.L365
+	.byte	1,5,52,9
+	.half	.L367-.L366
+	.byte	1,5,50,9
+	.half	.L368-.L367
+	.byte	1,5,23,9
+	.half	.L369-.L368
+	.byte	3,3,1,5,36,9
+	.half	.L370-.L369
+	.byte	1,5,29,9
+	.half	.L371-.L370
+	.byte	1,5,65,9
+	.half	.L372-.L371
+	.byte	1,5,73,9
+	.half	.L373-.L372
+	.byte	1,5,71,9
+	.half	.L374-.L373
+	.byte	1,5,94,9
+	.half	.L375-.L374
+	.byte	1,5,104,9
+	.half	.L376-.L375
+	.byte	1,5,102,9
+	.half	.L377-.L376
+	.byte	1,5,52,9
+	.half	.L378-.L377
+	.byte	1,5,50,9
+	.half	.L379-.L378
+	.byte	1,5,23,9
+	.half	.L380-.L379
+	.byte	3,3,1,5,36,9
+	.half	.L381-.L380
+	.byte	1,5,29,9
+	.half	.L382-.L381
+	.byte	1,5,65,9
+	.half	.L383-.L382
+	.byte	1,5,73,9
+	.half	.L384-.L383
+	.byte	1,5,71,9
+	.half	.L385-.L384
+	.byte	1,5,94,9
+	.half	.L386-.L385
+	.byte	1,5,104,9
+	.half	.L387-.L386
+	.byte	1,5,102,9
+	.half	.L388-.L387
+	.byte	1,5,52,9
+	.half	.L389-.L388
+	.byte	1,5,50,9
+	.half	.L390-.L389
+	.byte	1,5,23,9
+	.half	.L391-.L390
+	.byte	3,3,1,5,36,9
+	.half	.L392-.L391
+	.byte	1,5,29,9
+	.half	.L393-.L392
+	.byte	1,5,65,9
+	.half	.L394-.L393
+	.byte	1,5,73,9
+	.half	.L395-.L394
+	.byte	1,5,71,9
+	.half	.L396-.L395
+	.byte	1,5,94,9
+	.half	.L397-.L396
+	.byte	1,5,103,9
+	.half	.L398-.L397
+	.byte	1,5,101,9
+	.half	.L399-.L398
+	.byte	1,5,52,9
+	.half	.L400-.L399
+	.byte	1,5,50,9
+	.half	.L401-.L400
+	.byte	1,5,23,9
+	.half	.L402-.L401
+	.byte	3,3,1,5,36,9
+	.half	.L403-.L402
+	.byte	1,5,29,9
+	.half	.L404-.L403
+	.byte	1,5,65,9
+	.half	.L405-.L404
+	.byte	1,5,73,9
+	.half	.L406-.L405
+	.byte	1,5,71,9
+	.half	.L407-.L406
+	.byte	1,5,103,9
+	.half	.L408-.L407
+	.byte	1,5,101,9
+	.half	.L409-.L408
+	.byte	1,5,52,9
+	.half	.L410-.L409
+	.byte	1,5,50,9
+	.half	.L411-.L410
+	.byte	1,5,19,9
+	.half	.L25-.L411
+	.byte	3,4,1,5,27,9
+	.half	.L412-.L25
+	.byte	1,5,1,9
+	.half	.L22-.L412
+	.byte	3,3,1,7,9
+	.half	.L65-.L22
+	.byte	0,1,1
+.L245:
+	.sdecl	'.debug_ranges',debug,cluster('wb_packer_uint64')
+	.sect	'.debug_ranges'
+.L64:
+	.word	-1,.L39,0,.L65-.L39,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_packer_block')
+	.sect	'.debug_info'
+.L66:
+	.word	324
+	.half	3
+	.word	.L67
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L69,.L68
+	.byte	2
+	.word	.L42
+	.byte	3
+	.byte	'wb_packer_block',0,1,182,1,6,1,1,1
+	.word	.L41,.L91,.L40
+	.byte	4
+	.byte	'packer',0,1,182,1,43
+	.word	.L92,.L93
+	.byte	4
+	.byte	'prop',0,1,183,1,33
+	.word	.L94,.L95
+	.byte	4
+	.byte	'length',0,1,184,1,32
+	.word	.L96,.L97
+	.byte	5
+	.word	.L41,.L91
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_packer_block')
+	.sect	'.debug_abbrev'
+.L67:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_packer_block')
+	.sect	'.debug_line'
+.L68:
+	.word	.L414-.L413
+.L413:
+	.half	3
+	.word	.L416-.L415
+.L415:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_packer.c',0,0,0,0,0
+.L416:
+	.byte	5,6,7,0,5,2
+	.word	.L41
+	.byte	3,181,1,1,5,9,9
+	.half	.L102-.L41
+	.byte	3,5,1,5,41,7,9
+	.half	.L417-.L102
+	.byte	1,5,32,7,9
+	.half	.L26-.L417
+	.byte	1,5,20,9
+	.half	.L27-.L26
+	.byte	3,7,1,5,28,9
+	.half	.L418-.L27
+	.byte	1,5,40,9
+	.half	.L419-.L418
+	.byte	1,5,9,9
+	.half	.L420-.L419
+	.byte	1,5,23,7,9
+	.half	.L421-.L420
+	.byte	3,3,1,5,13,9
+	.half	.L422-.L421
+	.byte	1,5,45,7,9
+	.half	.L423-.L422
+	.byte	3,3,1,5,58,9
+	.half	.L424-.L423
+	.byte	1,5,51,9
+	.half	.L425-.L424
+	.byte	1,5,68,9
+	.half	.L426-.L425
+	.byte	1,5,75,9
+	.half	.L98-.L426
+	.byte	1,5,39,9
+	.half	.L30-.L98
+	.byte	3,5,1,5,52,9
+	.half	.L427-.L30
+	.byte	1,5,45,9
+	.half	.L428-.L427
+	.byte	1,5,68,9
+	.half	.L104-.L428
+	.byte	1,5,19,9
+	.half	.L31-.L104
+	.byte	3,4,1,5,27,9
+	.half	.L429-.L31
+	.byte	1,5,1,9
+	.half	.L28-.L429
+	.byte	3,3,1,7,9
+	.half	.L70-.L28
+	.byte	0,1,1
+.L414:
+	.sdecl	'.debug_ranges',debug,cluster('wb_packer_block')
+	.sect	'.debug_ranges'
+.L69:
+	.word	-1,.L41,0,.L70-.L41,0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_packer_block')
+	.sect	'.debug_loc'
+.L97:
+	.word	-1,.L41,0,.L98-.L41
+	.half	1
+	.byte	84
+	.word	.L102-.L41,.L103-.L41
+	.half	1
+	.byte	88
+	.word	.L30-.L41,.L31-.L41
+	.half	1
+	.byte	84
+	.word	0,0
+.L93:
+	.word	-1,.L41,0,.L99-.L41
+	.half	1
+	.byte	100
+	.word	.L101-.L41,.L91-.L41
+	.half	1
+	.byte	111
+	.word	.L30-.L41,.L104-.L41
+	.half	1
+	.byte	100
+	.word	0,0
+.L95:
+	.word	-1,.L41,0,.L100-.L41
+	.half	1
+	.byte	101
+	.word	.L99-.L41,.L98-.L41
+	.half	1
+	.byte	100
+	.word	.L30-.L41,.L31-.L41
+	.half	1
+	.byte	101
+	.word	0,0
+.L40:
+	.word	-1,.L41,0,.L91-.L41
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_packer_uint16')
+	.sect	'.debug_loc'
+.L78:
+	.word	-1,.L35,0,.L76-.L35
+	.half	1
+	.byte	100
+	.word	0,0
+.L80:
+	.word	-1,.L35,0,.L76-.L35
+	.half	1
+	.byte	101
+	.word	0,0
+.L34:
+	.word	-1,.L35,0,.L76-.L35
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_packer_uint32')
+	.sect	'.debug_loc'
+.L83:
+	.word	-1,.L37,0,.L81-.L37
+	.half	1
+	.byte	100
+	.word	0,0
+.L85:
+	.word	-1,.L37,0,.L81-.L37
+	.half	1
+	.byte	101
+	.word	0,0
+.L36:
+	.word	-1,.L37,0,.L81-.L37
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_packer_uint64')
+	.sect	'.debug_loc'
+.L88:
+	.word	-1,.L39,0,.L86-.L39
+	.half	1
+	.byte	100
+	.word	0,0
+.L90:
+	.word	-1,.L39,0,.L86-.L39
+	.half	1
+	.byte	101
+	.word	0,0
+.L38:
+	.word	-1,.L39,0,.L86-.L39
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_packer_uint8')
+	.sect	'.debug_loc'
+.L73:
+	.word	-1,.L33,0,.L71-.L33
+	.half	1
+	.byte	100
+	.word	0,0
+.L75:
+	.word	-1,.L33,0,.L71-.L33
+	.half	1
+	.byte	101
+	.word	0,0
+.L32:
+	.word	-1,.L33,0,.L71-.L33
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L430:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('wb_packer_uint8')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L430,.L33,.L71-.L33
+	.byte	8,18,8,19,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('wb_packer_uint16')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L430,.L35,.L76-.L35
+	.byte	8,18,8,19,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('wb_packer_uint32')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L430,.L37,.L81-.L37
+	.byte	8,18,8,19,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('wb_packer_uint64')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L430,.L39,.L86-.L39
+	.byte	8,18,8,19,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('wb_packer_block')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L430,.L41,.L91-.L41
+	; Module end

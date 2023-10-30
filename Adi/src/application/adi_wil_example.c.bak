@@ -1,0 +1,124 @@
+/*******************************************************************************
+ * @brief    Platform Application Main function
+ *
+ * @details  Contains main function and high level application architecture.
+ *
+ * Copyright (c) 2021 Analog Devices, Inc. All Rights Reserved.
+ * This software is proprietary and confidential to Analog Devices, Inc. and its licensors.
+ *******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "adi_wil.h"
+#include "adi_wil_example_app_version.h"
+#include "adi_wil_example_wil_config.h"
+#include "adi_wil_example_utilities.h"
+#include "adi_wil_example_functions.h"
+#include "adi_wil_example_printf.h"
+#include "adi_wil_example_acl.h"
+
+
+#define BANNER LINE_END \
+               LINE_END \
+               LINE_END \
+               "******************************************" LINE_END \
+               "WBMS Interface Library Application Example" LINE_END \
+               "           Infineon TriCore Port" LINE_END \
+               "                 - v%s -" LINE_END \
+               "******************************************"
+
+
+
+static adi_wil_configuration_t portConfig[PORT_COUNT];
+
+
+
+int adi_wil_example_Main(void)
+{
+    adi_wil_ex_printf(BANNER, WBMS_WIL_EMBEDDED_EXAMPLE_VERSION);
+
+    adi_wil_example_GetWILSoftwareVersion();
+
+    /* Initialize the WIL */
+    adi_wil_example_ExecuteInitialize();
+
+    /* Start calling processTask periodically */
+    adi_wil_example_PeriodicallyCallProcessTask();
+
+    adi_wil_ex_info("Connect to pack and identify network configurations on each Network Managers...");
+
+    /* Determine whether the two managers on the two SPI ports are in dual manager mode */
+    memset(portConfig, 0, sizeof(portConfig));
+    adi_wil_example_ExecuteQueryDevice(portConfig);
+    adi_wil_ex_info("NEO : Debug here");
+
+#if 1
+    returnOnWilError(adi_wil_example_ExecuteConnect());
+
+    returnOnWilError(adi_wil_example_ExecuteSetMode(ADI_WIL_MODE_STANDBY));
+
+    adi_wil_ex_info("Requesting information from Manager device %s...", adi_wil_DeviceToString(ADI_WIL_DEV_MANAGER_0));
+    adi_wil_example_GetDeviceVersion(ADI_WIL_DEV_MANAGER_0);
+    adi_wil_ex_info("Requesting information from Manager device %s...", adi_wil_DeviceToString(ADI_WIL_DEV_MANAGER_1));
+    adi_wil_example_GetDeviceVersion(ADI_WIL_DEV_MANAGER_1);
+
+    adi_wil_ex_info("Setting user defined ACL");
+    /* write the user's ACL. If this step fails, then the example cannot continue */
+    fatalOnWilError(adi_wil_example_ExecuteSetACL(userAcl.Data, userAcl.iCount));
+
+    /* Display current ACL, allows users to confirm whether ACL is as expected */
+    fatalOnWilError(adi_wil_example_ExecuteGetACL());
+    adi_wil_ex_info("MAC entries in the ACL list as follows...");
+    adi_wil_example_PrintACL();
+
+    if(adi_wil_example_ExecuteJoinNodes())
+    {
+        adi_wil_ex_info("All the nodes in the ACL list have joined the network!");
+    }
+
+    for(uint8_t k = 0; k < adi_wil_example_GetNodeCount(); k++)
+    {
+        adi_wil_device_t eTargetDeviceId = (adi_wil_device_t)k;
+        adi_wil_ex_info("Requesting information from node device %s...", adi_wil_DeviceToString(eTargetDeviceId));
+        adi_wil_example_GetDeviceVersion(eTargetDeviceId);
+    }
+
+    adi_wil_ExecuteEnableNetworkDataCapture(true);
+
+    adi_wil_ex_info("");
+    adi_wil_ex_info("Example is ready to enter Active Mode and begin outputting network data.");
+    adi_wil_ex_info("Network data will be output in a format that can be logged and");
+    adi_wil_ex_info("analyzed later to evaluate network health and performance.");
+    adi_wil_ex_info("Press any key to enter active mode and begin output.");
+    adi_wil_ex_info("Press any key again to stop output and disconnect from network.");
+    adi_wil_ex_info("");
+
+    char gotten;
+    (void)adi_debug_hal_Getch(&gotten);
+
+    /* Set Mode to ACTIVE */
+    fatalOnWilError(adi_wil_example_ExecuteSetMode(ADI_WIL_MODE_ACTIVE));
+
+    /* print header line at start of output, allows LogCLI to parse */
+    adi_wil_ex_printf(LINE_END "Index, App Timestamp, MAC, ASN, Latency, Sequence Number, Channel, RSSI, Two Hop, Port ID, Packet_Id,");
+
+    /* dump network data details until next keypress */
+    for(;!adi_debug_hal_IsGetch(&gotten);)
+    {
+        adi_task_ProcessNetworkData();
+    }
+
+    adi_wil_ex_info("All done. Disconnecting...");
+    fatalOnWilError(adi_wil_example_ExecuteSetMode(ADI_WIL_MODE_STANDBY));
+
+    /* Reset nodes here allows nodes to join new network quickly */
+    fatalOnWilError(adi_wil_example_ExecuteResetDevice(ADI_WIL_DEV_ALL_NODES));
+
+    fatalOnWilError(adi_wil_example_ExecuteDisconnect());
+    
+    adi_wil_example_StopProcessTask();
+
+    fatalOnWilError(adi_wil_example_ExecuteTerminate());
+#endif
+    return 0;
+}

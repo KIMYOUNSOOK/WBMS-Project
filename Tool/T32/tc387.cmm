@@ -1,0 +1,53 @@
+; --------------------------------------------------------------------------------
+; @Title: Generic Flash script file for TC275 devices
+; --------------------------------------------------------------------------------
+
+; --------------------------------------------------------------------------------
+; initialize and start the debugger
+RESet
+SYStem.CPU TC387QP
+DO button-flash.cmm
+DO button-reset.cmm
+
+; --------------------------------------------------------------------------------
+; Flash programming
+; DO tc38x-flash.cmm HEX=JG_EV_TC387.hex ELF=JG_EV_TC387.elf
+DO tc38x-flash.cmm HEX=WBMS_CDD.hex ELF=WBMS_CDD.elf
+
+; --------------------------------------------------------------------------------
+; select trace method
+Trace.Method Onchip
+
+; --------------------------------------------------------------------------------
+; set up MCDS trace
+Trace.OFF
+
+; --------------------------------------------------------------------------------
+; start program execution
+;Go.direct main
+
+; --------------------------------------------------------------------------------
+; start
+WinCLEAR
+
+WinPOS 0% 0% 25% 30%
+System.state
+
+WinPOS 25% 0% 25% 30%
+Register.view
+
+WinPOS 0% 30% 50% 20%
+Break.List
+
+WinPOS 0% 50% 50% 50%
+List.auto
+
+WinPOS 50% 50% 50% 50%
+Frame /Locals /Caller
+
+WinPOS 50% 0% 50% 50%
+Var.Watch %SpotLight 
+;Var.AddWatch ast flags
+
+
+

@@ -1,0 +1,38 @@
+; --------------------------------------------------------------------------------
+; @Title: Template file for creating bitmaps for buttons
+; @Description: Command BITMAPEDIT addmybutton.cmm is for creating own bitmaps.
+; @Keywords: bitmap, BITMAPEDIT, button
+; @Author: MSC
+; @Copyright: (C) 1989-2014 Lauterbach GmbH, licensed for use with TRACE32(R) only
+; --------------------------------------------------------------------------------
+; $Id: addmybutton.cmm 7356 2014-07-07 12:10:02Z mschaeffner $
+
+MENU.ReProgram
+(
+  ADD
+  TOOLBAR
+  (
+    ; The square brackets will later contain the bitmap
+    TOOLITEM "Download" "DO tc38x-flash.cmm HEX=WBMS_CDD.hex ELF=WBMS_CDD.elf"
+    [
+    rrrrrrrrrrr
+    rrrrrrrrrrr
+    rr
+    rr
+    rr
+    rrrrrrrrrrr
+    rrrrrrrrrrr
+    rr
+    rr
+    rr
+    rr
+    rr
+    rr
+    rr
+    rr
+    ]
+  )
+)
+
+ENDDO
+

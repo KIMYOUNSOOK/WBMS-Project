@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChecksumMate>
+	<Info project="Checksum Generator for AURIX"/>
+	<InputFile format="hex" file="..\..\Debug\JG_EV_TC387.hex"/>
+	<OutputFile format="hex" file="..\T32\JG_EV_TC387_CS.hex"/>
+	<AddressRange start="80000000" end="801DFFFF"/>
+	<AddressRange start="802FE000" end="802FEFFF"/>
+	<AddressRange start="80300000" end="803002FF"/>
+	<AddressRange start="80320000" end="80347FFF"/>
+	<AddressRange start="80600000" end="806002FF"/>
+	<AddressRange start="80900000" end="809002FF"/>
+  	<AddressRange start="A0000000" end="A000001F"/>
+  	<AddressRange start="A0300100" end="A03001FF"/>
+  	<AddressRange start="A0600100" end="A06001FF"/>
+  	<AddressRange start="A0900100" end="A09001FF"/>
+  	<AddressRange start="AF400000" end="AF4001FF"/>
+  	<AddressRange start="AF400200" end="AF4003FF"/>
+  	<AddressRange start="AF400600" end="AF4007FF"/>
+  	<AddressRange start="AF401000" end="AF4011FF"/>
+  	<AddressRange start="AF401200" end="AF4013FF"/>
+  	<AddressRange start="AF401400" end="AF4015FF"/>
+  	<AddressRange start="AF401600" end="AF4017FF"/>
+  	<AddressRange start="AF000000" end="AF001FFF"/>
+  	<ChecksumRange start="80000000" end="801DFFFF"/>
+	<ChecksumRange start="802FE000" end="802FEFFF"/>
+	<ChecksumRange start="80300000" end="803002FF"/>
+	<ChecksumRange start="80320000" end="80347FFF"/>
+	<ChecksumRange start="80600000" end="806002FF"/>
+	<ChecksumRange start="80900000" end="809002FF"/>
+  	<ChecksumRange start="A0000000" end="A000001F"/>
+  	<ChecksumRange start="A0300100" end="A03001FF"/>
+  	<ChecksumRange start="A0600100" end="A06001FF"/>
+  	<ChecksumRange start="A0900100" end="A09001FF"/>
+  	<ChecksumRange start="AF400000" end="AF4001FF"/>
+  	<ChecksumRange start="AF400200" end="AF4003FF"/>
+  	<ChecksumRange start="AF400600" end="AF4007FF"/>
+  	<ChecksumRange start="AF401000" end="AF4011FF"/>
+  	<ChecksumRange start="AF401200" end="AF4013FF"/>
+  	<ChecksumRange start="AF401400" end="AF4015FF"/>
+  	<ChecksumRange start="AF401600" end="AF4017FF"/>
+  	<ChecksumRange start="AF000080" end="AF001FFF"/>
+	<ChangeData address="AF000004" data="00,00,00,00,20,20,20,20,20,20,20,20,20,20,00,00,00,00,20,20,20,20,20,20,20,20,20,20"/>
+	<Checksum type="normal" byte="2" fillbyte="00" address="AF000002" createfile="yes"/>
+</ChecksumMate>
+
+

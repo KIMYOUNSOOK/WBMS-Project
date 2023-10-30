@@ -1,0 +1,34 @@
+
+LOCAL &parameters &param_HEX &param_ELF
+ENTRY %LINE &parameters
+
+&param_HEX=STRing.SCANAndExtract(STRing.UPpeR("&parameters"),"HEX=","")
+&param_ELF=STRing.SCANAndExtract(STRing.UPpeR("&parameters"),"ELF=","")
+
+SYStem.RESetTarget
+
+; Prepare flash programming (declarations)
+DO tc38x.cmm CPU=TC387QP PREPAREONLY
+
+; --------------------------------------------------------------------------------
+; Flash programming
+IF "&param_HEX"!=""
+(
+	; ==== Step 1: Program TriCore code ====
+	; Enable flash programming
+	FLASH.ReProgram.ALL
+	
+	Data.LOAD.auto &param_HEX
+
+	IF "&param_ELF"!=""
+	(
+                Data.LOAD.auto &param_ELF /SingleLineAdjacent
+        )
+	
+	; Finally program flash memory
+	FLASH.ReProgram.off
+)
+
+SYStem.Up
+
+ENDDO  

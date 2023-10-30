@@ -1,0 +1,7017 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc14736a --dep-file=Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc38x -D__CPU_TC38X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc38x -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0 -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\API -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\Include -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\inc -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\inc\\\\HAL -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\inc\\\\application -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\configuration_files -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\container_files -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\container_files\\\\bms_scripts -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\otap_files -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Cmic -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Configurations -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Sfr\\\\TC38A -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Sfr\\\\TC38A\\\\_Reg -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Ssw\\\\TC38A -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Ssw\\\\TC38A\\\\Tricore -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Asclin -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Dma -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Dma\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Gtm -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Mtu -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Pms -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Pms\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Port -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Port\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Qspi -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Scu -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Scu\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Src -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Src\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Stm -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Stm\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_Impl -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_Lib -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_PinMap -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.src ../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c"
+	.compiler_name		"ctc"
+	;source	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c'
+
+	
+$TC162
+	
+	.sdecl	'.text.wb_nil.wb_nil_Initialize',code,cluster('wb_nil_Initialize')
+	.sect	'.text.wb_nil.wb_nil_Initialize'
+	.align	2
+	
+	.global	wb_nil_Initialize
+; Function wb_nil_Initialize
+.L186:
+wb_nil_Initialize:	.type	func
+	movh.a	a15,#@his(bIsrDisabled)
+	lea	a15,[a15]@los(bIsrDisabled)
+.L685:
+	mov	d15,#1
+.L686:
+	st.b	[a15],d15
+.L687:
+	call	adi_wil_hal_TickerInit
+.L688:
+	jeq	d2,#0,.L2
+.L689:
+	mov	d2,#1
+.L545:
+	j	.L3
+.L2:
+	call	adi_wil_hal_TmrInit
+.L690:
+	jeq	d2,#0,.L4
+.L691:
+	mov	d2,#1
+.L546:
+	j	.L5
+.L4:
+	movh.a	a4,#@his(bInUseList)
+	lea	a4,[a4]@los(bInUseList)
+.L692:
+	mov	d4,#0
+.L693:
+	mov	d5,#16
+	call	memset
+.L694:
+	movh.a	a4,#@his(wb_nil_TimerCb)
+	lea	a4,[a4]@los(wb_nil_TimerCb)
+	call	adi_wil_hal_TmrStart
+.L695:
+	jeq	d2,#0,.L6
+.L696:
+	mov	d2,#1
+.L547:
+	j	.L7
+.L6:
+	call	adi_wil_hal_TickerStart
+.L697:
+	jeq	d2,#0,.L8
+.L698:
+	mov	d2,#1
+.L548:
+	j	.L9
+.L8:
+	mov	d2,#0
+.L9:
+.L7:
+.L5:
+.L3:
+	movh.a	a15,#@his(bIsrDisabled)
+	lea	a15,[a15]@los(bIsrDisabled)
+.L699:
+	mov	d15,#0
+.L700:
+	st.b	[a15],d15
+.L701:
+	j	.L10
+.L10:
+	ret
+.L392:
+	
+__wb_nil_Initialize_function_end:
+	.size	wb_nil_Initialize,__wb_nil_Initialize_function_end-wb_nil_Initialize
+.L249:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_Terminate',code,cluster('wb_nil_Terminate')
+	.sect	'.text.wb_nil.wb_nil_Terminate'
+	.align	2
+	
+	.global	wb_nil_Terminate
+; Function wb_nil_Terminate
+.L188:
+wb_nil_Terminate:	.type	func
+	movh.a	a15,#@his(bIsrDisabled)
+	lea	a15,[a15]@los(bIsrDisabled)
+.L706:
+	mov	d15,#1
+.L707:
+	st.b	[a15],d15
+.L708:
+	call	adi_wil_hal_TickerStop
+.L709:
+	jeq	d2,#0,.L11
+.L710:
+	mov	d2,#1
+.L549:
+	j	.L12
+.L11:
+	call	adi_wil_hal_TmrStop
+.L711:
+	jeq	d2,#0,.L13
+.L712:
+	mov	d2,#1
+.L550:
+	j	.L14
+.L13:
+	movh.a	a4,#@his(bInUseList)
+	lea	a4,[a4]@los(bInUseList)
+.L713:
+	mov	d4,#0
+.L714:
+	mov	d5,#16
+	call	memset
+.L715:
+	mov	d2,#0
+.L14:
+.L12:
+	j	.L15
+.L15:
+	ret
+.L394:
+	
+__wb_nil_Terminate_function_end:
+	.size	wb_nil_Terminate,__wb_nil_Terminate_function_end-wb_nil_Terminate
+.L254:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_Process',code,cluster('wb_nil_Process')
+	.sect	'.text.wb_nil.wb_nil_Process'
+	.align	2
+	
+	.global	wb_nil_Process
+; Function wb_nil_Process
+.L190:
+wb_nil_Process:	.type	func
+	mov.aa	a12,a4
+.L551:
+	mov.a	a15,#0
+.L753:
+	jne.a	a15,a12,.L16
+.L754:
+	mov	d2,#5
+.L552:
+	j	.L17
+.L16:
+	mov	d8,#0
+.L553:
+	j	.L18
+.L19:
+	mov	d15,#260
+	mul	d15,d8
+	addsc.a	a15,a12,d15,#0
+.L755:
+	ld.bu	d15,[a15]405
+.L756:
+	jeq	d15,#0,.L20
+.L757:
+	mov	d15,#260
+	mul	d15,d8
+	addsc.a	a15,a12,d15,#0
+	lea	a5,[a15]148
+.L758:
+	mov.aa	a4,a12
+.L554:
+	call	wb_nil_ReadFrame
+.L555:
+	mov	d15,#260
+	mul	d15,d8
+	addsc.a	a15,a12,d15,#0
+	lea	a5,[a15]148
+.L759:
+	mov.aa	a4,a12
+.L556:
+	call	wb_nil_ReleaseFrame
+.L20:
+	add	d8,#1
+.L18:
+	jlt.u	d8,#2,.L19
+.L418:
+	lea	a6,[a12]100
+	mov.aa	a4,a12
+.L557:
+	mov.aa	a5,a12
+.L559:
+	call	wb_nil_CheckLinkStatus
+.L558:
+	mov	d2,#0
+.L17:
+	j	.L21
+.L21:
+	ret
+.L414:
+	
+__wb_nil_Process_function_end:
+	.size	wb_nil_Process,__wb_nil_Process_function_end-wb_nil_Process
+.L274:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_ProcessAllPorts',code,cluster('wb_nil_ProcessAllPorts')
+	.sect	'.text.wb_nil.wb_nil_ProcessAllPorts'
+	.align	2
+	
+	.global	wb_nil_ProcessAllPorts
+; Function wb_nil_ProcessAllPorts
+.L192:
+wb_nil_ProcessAllPorts:	.type	func
+	mov	d8,#0
+.L560:
+	j	.L22
+.L23:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L764:
+	addsc.a	a15,a15,d8,#0
+	ld.bu	d15,[a15]
+.L765:
+	jeq	d15,#0,.L24
+.L766:
+	mov.a	a15,#0
+.L767:
+	mul	d15,d8,#4
+.L768:
+	movh.a	a2,#@his(DeviceList)
+	lea	a2,[a2]@los(DeviceList)
+.L769:
+	addsc.a	a2,a2,d15,#0
+	ld.a	a2,[a2]
+.L770:
+	jeq.a	a15,a2,.L25
+.L771:
+	mul	d15,d8,#4
+.L772:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L773:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L774:
+	ld.bu	d15,[a15]145
+.L775:
+	jeq	d15,#0,.L26
+.L776:
+	mul	d15,d8,#4
+.L777:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L778:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a4,[a15]
+	call	wb_nil_Process
+.L779:
+	mul	d15,d8,#4
+.L780:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L781:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a4,[a15]
+	call	wb_wil_QueryDeviceCheckTimeout
+.L26:
+.L25:
+.L24:
+	add	d8,#1
+.L22:
+	mov	d15,#16
+.L782:
+	jlt.u	d8,d15,.L23
+.L421:
+	ret
+.L420:
+	
+__wb_nil_ProcessAllPorts_function_end:
+	.size	wb_nil_ProcessAllPorts,__wb_nil_ProcessAllPorts_function_end-wb_nil_ProcessAllPorts
+.L279:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_SubmitFrame',code,cluster('wb_nil_SubmitFrame')
+	.sect	'.text.wb_nil.wb_nil_SubmitFrame'
+	.align	2
+	
+	.global	wb_nil_SubmitFrame
+; Function wb_nil_SubmitFrame
+.L194:
+wb_nil_SubmitFrame:	.type	func
+	mov.aa	a12,a4
+.L563:
+	mov.aa	a13,a5
+.L564:
+	mov.a	a15,#0
+.L817:
+	jeq.a	a15,a12,.L27
+.L818:
+	mov.a	a15,#0
+.L819:
+	jne.a	a15,a13,.L28
+.L27:
+	mov	d2,#5
+.L565:
+	j	.L29
+.L28:
+	ld.hu	d15,[a13]18
+.L820:
+	mov	d0,#256
+.L821:
+	jlt.u	d0,d15,.L30
+.L822:
+	ld.hu	d0,[a13]16
+.L823:
+	mov	d15,#248
+.L824:
+	jge.u	d15,d0,.L31
+.L30:
+	mov	d2,#5
+.L566:
+	j	.L32
+.L31:
+	ld.a	a15,[a13]
+.L825:
+	ld.hu	d15,[a13]16
+.L826:
+	and	d15,#255
+.L827:
+	st.b	[a15],d15
+.L828:
+	ld.a	a15,[a13]
+.L829:
+	ld.bu	d15,[a12]1449
+.L830:
+	st.b	[a15]1,d15
+.L831:
+	ld.a	a4,[a13]
+.L562:
+	ld.hu	d4,[a13]16
+.L832:
+	add	d4,#4
+.L833:
+	mov	d5,#0
+	call	wb_crc_ComputeCRC32
+.L561:
+	ld.a	a15,[a13]
+.L834:
+	insert	d15,d2,#0,#0,#24
+.L835:
+	extr.u	d15,d15,#24,#8
+.L836:
+	st.b	[a15]252,d15
+.L837:
+	ld.a	a15,[a13]
+.L838:
+	movh	d15,#255
+.L839:
+	and	d15,d2
+.L840:
+	extr.u	d15,d15,#16,#8
+.L841:
+	st.b	[a15]253,d15
+.L842:
+	ld.a	a15,[a13]
+.L843:
+	mov.u	d15,#65280
+.L844:
+	and	d15,d2
+.L845:
+	extr.u	d15,d15,#8,#8
+.L846:
+	st.b	[a15]254,d15
+.L847:
+	ld.a	a15,[a13]
+.L848:
+	and	d15,d2,#255
+.L849:
+	and	d15,#255
+.L850:
+	st.b	[a15]255,d15
+.L851:
+	ld.a	a15,[a13]
+.L852:
+	lea	a2,[a12]681
+.L853:
+	jne.a	a15,a2,.L33
+.L854:
+	mov	d15,#1
+.L855:
+	st.b	[a12]1451,d15
+.L856:
+	j	.L34
+.L33:
+	mov	d15,#1
+.L857:
+	st.b	[a12]1452,d15
+.L34:
+	mov	d2,#0
+.L32:
+.L29:
+	j	.L35
+.L35:
+	ret
+.L430:
+	
+__wb_nil_SubmitFrame_function_end:
+	.size	wb_nil_SubmitFrame,__wb_nil_SubmitFrame_function_end-wb_nil_SubmitFrame
+.L294:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_InitPort',code,cluster('wb_nil_InitPort')
+	.sect	'.text.wb_nil.wb_nil_InitPort'
+	.align	2
+	
+	.global	wb_nil_InitPort
+; Function wb_nil_InitPort
+.L196:
+wb_nil_InitPort:	.type	func
+	mov.aa	a15,a4
+.L568:
+	mov.aa	a12,a5
+.L569:
+	mov.a	a2,#0
+.L720:
+	jne.a	a2,a12,.L36
+.L721:
+	mov	d15,#5
+.L570:
+	j	.L37
+.L36:
+	mov	d4,#0
+.L722:
+	mov	d5,#1460
+	mov.aa	a4,a12
+.L567:
+	call	memset
+.L571:
+	st.a	[a12]668,a15
+.L723:
+	mov	d15,#255
+.L724:
+	st.b	[a12]1449,d15
+.L725:
+	mov	d15,#255
+.L726:
+	st.b	[a12]1194,d15
+.L727:
+	call	adi_wil_hal_TmrStop
+.L728:
+	mov.aa	a4,a12
+.L572:
+	call	wb_nil_AddPort
+.L573:
+	mov	d15,d2
+.L574:
+	movh.a	a4,#@his(wb_nil_TimerCb)
+	lea	a4,[a4]@los(wb_nil_TimerCb)
+	call	adi_wil_hal_TmrStart
+.L37:
+	mov	d2,d15
+.L575:
+	j	.L38
+.L38:
+	ret
+.L396:
+	
+__wb_nil_InitPort_function_end:
+	.size	wb_nil_InitPort,__wb_nil_InitPort_function_end-wb_nil_InitPort
+.L259:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_ClosePort',code,cluster('wb_nil_ClosePort')
+	.sect	'.text.wb_nil.wb_nil_ClosePort'
+	.align	2
+	
+	.global	wb_nil_ClosePort
+; Function wb_nil_ClosePort
+.L198:
+wb_nil_ClosePort:	.type	func
+	mov.aa	a15,a4
+.L577:
+	jnz.a	a15,.L39
+.L733:
+	mov	d15,#5
+.L578:
+	j	.L40
+.L39:
+	call	adi_wil_hal_TmrStop
+.L576:
+	mov.aa	a4,a15
+.L579:
+	call	wb_nil_RemovePort
+.L580:
+	jeq	d2,#0,.L41
+.L734:
+	mov	d15,#0
+.L581:
+	j	.L42
+.L41:
+	mov	d15,#1
+.L42:
+	movh.a	a4,#@his(wb_nil_TimerCb)
+	lea	a4,[a4]@los(wb_nil_TimerCb)
+	call	adi_wil_hal_TmrStart
+.L40:
+	mov	d2,d15
+	j	.L43
+.L43:
+	ret
+.L402:
+	
+__wb_nil_ClosePort_function_end:
+	.size	wb_nil_ClosePort,__wb_nil_ClosePort_function_end-wb_nil_ClosePort
+.L264:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_TxDoneCb',code,cluster('wb_nil_TxDoneCb')
+	.sect	'.text.wb_nil.wb_nil_TxDoneCb'
+	.align	2
+	
+; Function wb_nil_TxDoneCb
+.L200:
+wb_nil_TxDoneCb:	.type	func
+	mov	d8,#0
+.L583:
+	j	.L44
+.L45:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L1104:
+	addsc.a	a15,a15,d8,#0
+	ld.bu	d15,[a15]
+.L1105:
+	jeq	d15,#0,.L46
+.L1106:
+	mov.a	a15,#0
+.L1107:
+	mul	d15,d8,#4
+.L1108:
+	movh.a	a2,#@his(DeviceList)
+	lea	a2,[a2]@los(DeviceList)
+.L1109:
+	addsc.a	a2,a2,d15,#0
+	ld.a	a2,[a2]
+.L1110:
+	jeq.a	a15,a2,.L47
+.L1111:
+	mul	d15,d8,#4
+.L1112:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1113:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L1114:
+	ld.bu	d0,[a15]1460
+.L1115:
+	jne	d0,d4,.L48
+.L1116:
+	mul	d15,d8,#4
+.L1117:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1118:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L1119:
+	ld.bu	d0,[a15]1461
+.L1120:
+	jne	d0,d5,.L49
+.L1121:
+	mul	d15,d8,#4
+.L1122:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1123:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a4,[a15]
+.L1124:
+	call	wb_nil_MarkTxFrameAsTransmitted
+.L582:
+	mul	d15,d8,#4
+.L1125:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1126:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a4,[a15]
+.L1127:
+	call	wb_nil_MarkRxFrameForProcessing
+.L1128:
+	mul	d15,d8,#4
+.L1129:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1130:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L1131:
+	mov	d15,#0
+.L1132:
+	st.b	[a15]1454,d15
+.L1133:
+	j	.L50
+.L49:
+.L48:
+.L47:
+.L46:
+	add	d8,#1
+.L44:
+	mov	d15,#16
+.L1134:
+	jlt.u	d8,d15,.L45
+.L50:
+	ret
+.L492:
+	
+__wb_nil_TxDoneCb_function_end:
+	.size	wb_nil_TxDoneCb,__wb_nil_TxDoneCb_function_end-wb_nil_TxDoneCb
+.L349:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_MarkTxFrameAsTransmitted',code,cluster('wb_nil_MarkTxFrameAsTransmitted')
+	.sect	'.text.wb_nil.wb_nil_MarkTxFrameAsTransmitted'
+	.align	2
+	
+; Function wb_nil_MarkTxFrameAsTransmitted
+.L202:
+wb_nil_MarkTxFrameAsTransmitted:	.type	func
+	ld.a	a15,[a4]672
+.L1139:
+	lea	a2,[a4]681
+.L1140:
+	jne.a	a15,a2,.L51
+.L1141:
+	mov	d15,#0
+.L1142:
+	st.b	[a4]1451,d15
+.L1143:
+	j	.L52
+.L51:
+	ld.a	a15,[a4]672
+.L1144:
+	lea	a2,[a4]937
+.L1145:
+	jne.a	a15,a2,.L53
+.L1146:
+	mov	d15,#0
+.L1147:
+	st.b	[a4]1452,d15
+.L1148:
+	j	.L54
+.L53:
+.L54:
+.L52:
+	ret
+.L496:
+	
+__wb_nil_MarkTxFrameAsTransmitted_function_end:
+	.size	wb_nil_MarkTxFrameAsTransmitted,__wb_nil_MarkTxFrameAsTransmitted_function_end-wb_nil_MarkTxFrameAsTransmitted
+.L354:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_MarkRxFrameForProcessing',code,cluster('wb_nil_MarkRxFrameForProcessing')
+	.sect	'.text.wb_nil.wb_nil_MarkRxFrameForProcessing'
+	.align	2
+	
+; Function wb_nil_MarkRxFrameForProcessing
+.L204:
+wb_nil_MarkRxFrameForProcessing:	.type	func
+	mov	d15,#0
+.L584:
+	j	.L55
+.L56:
+	ld.a	a15,[a4]676
+.L1153:
+	mov	d0,#260
+	mul	d0,d15
+	addsc.a	a2,a4,d0,#0
+	lea	a2,[a2]148
+.L1154:
+	jne.a	a15,a2,.L57
+.L1155:
+	mov	d0,#260
+	mul	d15,d0
+.L585:
+	addsc.a	a15,a4,d15,#0
+.L1156:
+	mov	d15,#1
+.L1157:
+	st.b	[a15]405,d15
+.L1158:
+	j	.L58
+.L57:
+	add	d15,#1
+.L55:
+	jlt.u	d15,#2,.L56
+.L58:
+	ret
+.L499:
+	
+__wb_nil_MarkRxFrameForProcessing_function_end:
+	.size	wb_nil_MarkRxFrameForProcessing,__wb_nil_MarkRxFrameForProcessing_function_end-wb_nil_MarkRxFrameForProcessing
+.L359:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_CheckLinkStatus',code,cluster('wb_nil_CheckLinkStatus')
+	.sect	'.text.wb_nil.wb_nil_CheckLinkStatus'
+	.align	2
+	
+; Function wb_nil_CheckLinkStatus
+.L206:
+wb_nil_CheckLinkStatus:	.type	func
+	mov.aa	a15,a4
+.L589:
+	ld.w	d15,[a6]24
+.L1248:
+	ld.w	d0,[a6]28
+.L590:
+	add	d0,d15
+.L1249:
+	ld.w	d15,[a6]24
+.L1250:
+	jge.u	d0,d15,.L59
+.L1251:
+	mov	d0,#-1
+.L59:
+	ld.bu	d15,[a5]1458
+.L1252:
+	jeq	d15,#0,.L60
+.L1253:
+	ld.w	d15,[a6]20
+.L1254:
+	mov	d1,#200
+.L1255:
+	jlt.u	d1,d15,.L61
+.L60:
+	ld.bu	d15,[a5]1455
+.L1256:
+	jeq	d15,#0,.L62
+.L1257:
+	ld.w	d15,[a6]24
+.L1258:
+	mov	d1,#200
+.L1259:
+	jge.u	d1,d15,.L63
+.L61:
+	mov	d15,#0
+.L1260:
+	st.w	[a6]20,d15
+.L1261:
+	mov	d15,#0
+.L1262:
+	st.w	[a6]24,d15
+.L1263:
+	mov	d15,#0
+.L1264:
+	st.w	[a6]28,d15
+.L1265:
+	mov	d15,#0
+.L1266:
+	st.b	[a5]1458,d15
+.L1267:
+	ld.a	a4,[a5]668
+.L587:
+	mov.aa	a5,a15
+.L586:
+	call	wb_wil_HandlePortDownEvent
+.L588:
+	j	.L64
+.L63:
+.L62:
+	ld.bu	d15,[a5]1458
+.L1268:
+	jne	d15,#0,.L65
+.L1269:
+	mov	d15,#20
+.L1270:
+	jge.u	d15,d0,.L66
+.L1271:
+	mov	d15,#0
+.L1272:
+	st.w	[a6]20,d15
+.L1273:
+	mov	d15,#0
+.L1274:
+	st.w	[a6]24,d15
+.L1275:
+	mov	d15,#0
+.L1276:
+	st.w	[a6]28,d15
+.L1277:
+	mov	d15,#1
+.L1278:
+	st.b	[a5]1458,d15
+.L1279:
+	ld.a	a4,[a5]668
+.L593:
+	mov.aa	a5,a15
+.L592:
+	call	wb_wil_HandlePortAvailableEvent
+.L591:
+	j	.L67
+.L66:
+.L65:
+.L67:
+.L64:
+	ret
+.L534:
+	
+__wb_nil_CheckLinkStatus_function_end:
+	.size	wb_nil_CheckLinkStatus,__wb_nil_CheckLinkStatus_function_end-wb_nil_CheckLinkStatus
+.L384:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_AddPort',code,cluster('wb_nil_AddPort')
+	.sect	'.text.wb_nil.wb_nil_AddPort'
+	.align	2
+	
+; Function wb_nil_AddPort
+.L208:
+wb_nil_AddPort:	.type	func
+	mov.aa	a12,a4
+.L595:
+	mov	d0,#1
+.L596:
+	mov	d8,#1
+.L443:
+	mov	d1,#0
+.L598:
+	j	.L68
+.L69:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L862:
+	addsc.a	a15,a15,d1,#0
+	ld.bu	d15,[a15]
+.L863:
+	jeq	d15,#0,.L70
+.L864:
+	mov.a	a15,#0
+.L865:
+	mul	d15,d1,#4
+.L866:
+	movh.a	a2,#@his(DeviceList)
+	lea	a2,[a2]@los(DeviceList)
+.L867:
+	addsc.a	a2,a2,d15,#0
+	ld.a	a2,[a2]
+.L868:
+	jeq.a	a15,a2,.L71
+.L869:
+	mul	d15,d1,#4
+.L870:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L871:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L872:
+	ld.bu	d2,[a15]1460
+.L873:
+	ld.bu	d15,[a12]1460
+.L874:
+	jne	d15,d2,.L72
+.L875:
+	mov	d0,#0
+.L876:
+	j	.L73
+.L72:
+.L71:
+.L70:
+	add	d1,#1
+.L68:
+	mov	d15,#16
+.L877:
+	jlt.u	d1,d15,.L69
+.L73:
+	mov	d9,#0
+.L599:
+	j	.L74
+.L75:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L878:
+	addsc.a	a15,a15,d9,#0
+	ld.bu	d15,[a15]
+.L879:
+	jne	d15,#0,.L76
+.L880:
+	mov	d8,#0
+.L881:
+	jeq	d0,#0,.L77
+.L882:
+	ld.bu	d4,[a12]1460
+.L883:
+	movh.a	a4,#@his(wb_nil_TxDoneCb)
+.L594:
+	lea	a4,[a4]@los(wb_nil_TxDoneCb)
+	call	adi_wil_hal_SpiInit
+.L597:
+	jeq	d2,#0,.L78
+.L884:
+	mov	d8,#8
+.L78:
+.L77:
+	jne	d8,#0,.L79
+.L885:
+	mul	d15,d9,#4
+.L886:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L887:
+	addsc.a	a15,a15,d15,#0
+.L888:
+	st.a	[a15],a12
+.L889:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L890:
+	addsc.a	a15,a15,d9,#0
+.L891:
+	mov	d15,#1
+.L892:
+	st.b	[a15],d15
+.L79:
+	j	.L80
+.L76:
+	add	d9,#1
+.L74:
+	mov	d15,#16
+.L893:
+	jlt.u	d9,d15,.L75
+.L80:
+	mov	d2,d8
+.L600:
+	j	.L81
+.L81:
+	ret
+.L438:
+	
+__wb_nil_AddPort_function_end:
+	.size	wb_nil_AddPort,__wb_nil_AddPort_function_end-wb_nil_AddPort
+.L299:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_RemovePort',code,cluster('wb_nil_RemovePort')
+	.sect	'.text.wb_nil.wb_nil_RemovePort'
+	.align	2
+	
+; Function wb_nil_RemovePort
+.L210:
+wb_nil_RemovePort:	.type	func
+	mov	d0,#1
+.L601:
+	mov	d8,#0
+.L451:
+	mov	d1,#0
+.L602:
+	j	.L82
+.L83:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L898:
+	addsc.a	a15,a15,d1,#0
+	ld.bu	d15,[a15]
+.L899:
+	jeq	d15,#0,.L84
+.L900:
+	mov.a	a15,#0
+.L901:
+	mul	d15,d1,#4
+.L902:
+	movh.a	a2,#@his(DeviceList)
+	lea	a2,[a2]@los(DeviceList)
+.L903:
+	addsc.a	a2,a2,d15,#0
+	ld.a	a2,[a2]
+.L904:
+	jeq.a	a15,a2,.L85
+.L905:
+	mul	d15,d1,#4
+.L906:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L907:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L908:
+	ld.bu	d2,[a15]1460
+.L909:
+	ld.bu	d15,[a4]1460
+.L910:
+	jne	d15,d2,.L86
+.L911:
+	mul	d15,d1,#4
+.L912:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L913:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L914:
+	ld.bu	d2,[a15]1461
+.L915:
+	ld.bu	d15,[a4]1461
+.L916:
+	jeq	d15,d2,.L87
+.L917:
+	mov	d0,#0
+.L87:
+.L86:
+	mul	d15,d1,#4
+.L918:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L919:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L920:
+	jne.a	a4,a15,.L88
+.L921:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L922:
+	addsc.a	a15,a15,d1,#0
+.L923:
+	mov	d15,#0
+.L924:
+	st.b	[a15],d15
+.L925:
+	mov	d8,#1
+.L88:
+	jeq	d8,#0,.L89
+.L926:
+	jne	d0,#0,.L90
+.L927:
+	j	.L91
+.L90:
+.L89:
+.L85:
+.L84:
+	add	d1,#1
+.L82:
+	mov	d15,#16
+.L928:
+	jlt.u	d1,d15,.L83
+.L91:
+	jeq	d8,#0,.L92
+.L929:
+	jeq	d0,#0,.L93
+.L930:
+	ld.bu	d4,[a4]1460
+	call	adi_wil_hal_SpiClose
+.L93:
+.L92:
+	mov	d2,d8
+.L603:
+	j	.L94
+.L94:
+	ret
+.L446:
+	
+__wb_nil_RemovePort_function_end:
+	.size	wb_nil_RemovePort,__wb_nil_RemovePort_function_end-wb_nil_RemovePort
+.L304:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_CheckForPort',code,cluster('wb_nil_CheckForPort')
+	.sect	'.text.wb_nil.wb_nil_CheckForPort'
+	.align	2
+	
+	.global	wb_nil_CheckForPort
+; Function wb_nil_CheckForPort
+.L212:
+wb_nil_CheckForPort:	.type	func
+	mov	d2,#0
+.L604:
+	mov.a	a15,#0
+.L739:
+	jeq.a	a15,a4,.L95
+.L411:
+	mov	d0,#0
+.L605:
+	j	.L96
+.L97:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L740:
+	addsc.a	a15,a15,d0,#0
+	ld.bu	d15,[a15]
+.L741:
+	jeq	d15,#0,.L98
+.L742:
+	mul	d15,d0,#4
+.L743:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L744:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L745:
+	jne.a	a4,a15,.L99
+.L746:
+	mov	d2,#1
+.L747:
+	j	.L100
+.L99:
+.L98:
+	add	d0,#1
+.L96:
+	mov	d15,#16
+.L748:
+	jlt.u	d0,d15,.L97
+.L100:
+.L95:
+	j	.L101
+.L101:
+	ret
+.L407:
+	
+__wb_nil_CheckForPort_function_end:
+	.size	wb_nil_CheckForPort,__wb_nil_CheckForPort_function_end-wb_nil_CheckForPort
+.L269:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_Login',code,cluster('wb_nil_Login')
+	.sect	'.text.wb_nil.wb_nil_Login'
+	.align	2
+	
+	.global	wb_nil_Login
+; Function wb_nil_Login
+.L214:
+wb_nil_Login:	.type	func
+	mov.a	a15,#0
+.L787:
+	jeq.a	a15,a4,.L102
+.L788:
+	mov	d15,#0
+.L789:
+	st.w	[a4]120,d15
+.L790:
+	mov	d15,#0
+.L791:
+	st.w	[a4]124,d15
+.L792:
+	mov	d15,#0
+.L793:
+	st.w	[a4]128,d15
+.L794:
+	st.b	[a4]1449,d4
+.L795:
+	mov	d15,#1
+.L796:
+	st.b	[a4]1455,d15
+.L797:
+	st.b	[a4]1194,d4
+.L102:
+	ret
+.L423:
+	
+__wb_nil_Login_function_end:
+	.size	wb_nil_Login,__wb_nil_Login_function_end-wb_nil_Login
+.L284:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_Logout',code,cluster('wb_nil_Logout')
+	.sect	'.text.wb_nil.wb_nil_Logout'
+	.align	2
+	
+	.global	wb_nil_Logout
+; Function wb_nil_Logout
+.L216:
+wb_nil_Logout:	.type	func
+	mov.a	a15,#0
+.L802:
+	jeq.a	a15,a4,.L103
+.L803:
+	mov	d15,#0
+.L804:
+	st.w	[a4]120,d15
+.L805:
+	mov	d15,#0
+.L806:
+	st.w	[a4]124,d15
+.L807:
+	mov	d15,#0
+.L808:
+	st.w	[a4]128,d15
+.L809:
+	mov	d15,#255
+.L810:
+	st.b	[a4]1449,d15
+.L811:
+	mov	d15,#0
+.L812:
+	st.b	[a4]1455,d15
+.L103:
+	ret
+.L427:
+	
+__wb_nil_Logout_function_end:
+	.size	wb_nil_Logout,__wb_nil_Logout_function_end-wb_nil_Logout
+.L289:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_Transmit',code,cluster('wb_nil_Transmit')
+	.sect	'.text.wb_nil.wb_nil_Transmit'
+	.align	2
+	
+; Function wb_nil_Transmit
+.L218:
+wb_nil_Transmit:	.type	func
+	mov.aa	a15,a4
+.L607:
+	ld.bu	d15,[a15]1454
+.L981:
+	jne	d15,#0,.L104
+.L982:
+	mov	d15,#1
+.L983:
+	st.b	[a15]1454,d15
+.L984:
+	mov.aa	a4,a15
+	call	wb_wil_SetupTxTransmission
+.L606:
+	mov.aa	a4,a15
+.L608:
+	call	wb_wil_SetupRxTransmission
+.L609:
+	mov.a	a2,#0
+.L985:
+	ld.a	a4,[a15]676
+.L986:
+	jne.a	a2,a4,.L105
+.L987:
+	lea	a4,[a15]116
+	call	wb_wil_IncrementWithRollover32
+.L988:
+	mov	d15,#0
+.L989:
+	st.b	[a15]1454,d15
+.L990:
+	j	.L106
+.L105:
+	ld.bu	d4,[a15]1460
+.L991:
+	ld.bu	d5,[a15]1461
+.L992:
+	ld.a	a4,[a15]672
+.L993:
+	ld.a	a5,[a15]676
+.L994:
+	mov	d6,#256
+	call	adi_wil_hal_SpiTransmit
+.L995:
+	jeq	d2,#0,.L107
+.L996:
+	ld.a	a5,[a15]676
+	mov.aa	a4,a15
+.L610:
+	call	wb_nil_ReleaseFrame
+.L611:
+	lea	a4,[a15]108
+	call	wb_wil_IncrementWithRollover32
+.L997:
+	mov	d15,#0
+.L998:
+	st.b	[a15]1454,d15
+.L999:
+	j	.L108
+.L107:
+	lea	a4,[a15]100
+.L1000:
+	call	wb_wil_IncrementWithRollover32
+.L1001:
+	mov	d15,#1
+.L1002:
+	st.b	[a15]1459,d15
+.L1003:
+	mov	d15,#1
+.L1004:
+	st.b	[a15]1457,d15
+.L108:
+.L106:
+.L104:
+	ret
+.L469:
+	
+__wb_nil_Transmit_function_end:
+	.size	wb_nil_Transmit,__wb_nil_Transmit_function_end-wb_nil_Transmit
+.L324:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_wil_SetupTxTransmission',code,cluster('wb_wil_SetupTxTransmission')
+	.sect	'.text.wb_nil.wb_wil_SetupTxTransmission'
+	.align	2
+	
+; Function wb_wil_SetupTxTransmission
+.L220:
+wb_wil_SetupTxTransmission:	.type	func
+	ld.bu	d15,[a4]1457
+.L1009:
+	jne	d15,#0,.L109
+.L1010:
+	lea	a15,[a4]1193
+.L1011:
+	st.a	[a4]672,a15
+.L1012:
+	j	.L110
+.L109:
+	ld.bu	d15,[a4]1451
+.L1013:
+	jeq	d15,#0,.L111
+.L1014:
+	ld.bu	d15,[a4]1452
+.L1015:
+	jeq	d15,#0,.L112
+.L1016:
+	ld.bu	d15,[a4]1456
+.L1017:
+	jeq	d15,#0,.L113
+.L1018:
+	lea	a15,[a4]937
+.L1019:
+	j	.L114
+.L113:
+	lea	a15,[a4]681
+.L114:
+	st.a	[a4]672,a15
+.L1020:
+	lea	a2,[a4]681
+.L1021:
+	eq.a	d15,a15,a2
+.L1022:
+	st.b	[a4]1456,d15
+.L1023:
+	j	.L115
+.L112:
+	lea	a15,[a4]681
+.L1024:
+	st.a	[a4]672,a15
+.L1025:
+	mov	d15,#1
+.L1026:
+	st.b	[a4]1456,d15
+.L115:
+	j	.L116
+.L111:
+	ld.bu	d15,[a4]1452
+.L1027:
+	jeq	d15,#0,.L117
+.L1028:
+	lea	a15,[a4]937
+.L1029:
+	st.a	[a4]672,a15
+.L1030:
+	mov	d15,#0
+.L1031:
+	st.b	[a4]1456,d15
+.L1032:
+	j	.L118
+.L117:
+	lea	a15,[a4]1193
+.L1033:
+	st.a	[a4]672,a15
+.L118:
+.L116:
+.L110:
+	ret
+.L472:
+	
+__wb_wil_SetupTxTransmission_function_end:
+	.size	wb_wil_SetupTxTransmission,__wb_wil_SetupTxTransmission_function_end-wb_wil_SetupTxTransmission
+.L329:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_wil_SetupRxTransmission',code,cluster('wb_wil_SetupRxTransmission')
+	.sect	'.text.wb_nil.wb_wil_SetupRxTransmission'
+	.align	2
+	
+; Function wb_wil_SetupRxTransmission
+.L222:
+wb_wil_SetupRxTransmission:	.type	func
+	mov.a	a15,#0
+.L1038:
+	st.a	[a4]676,a15
+.L478:
+	mov	d0,#0
+.L612:
+	j	.L119
+.L120:
+	mov	d15,#260
+	mul	d15,d0
+	addsc.a	a15,a4,d15,#0
+.L1039:
+	ld.bu	d15,[a15]404
+.L1040:
+	jne	d15,#0,.L121
+.L1041:
+	mov	d15,#260
+	mul	d15,d0
+	addsc.a	a15,a4,d15,#0
+.L1042:
+	mov	d15,#1
+.L1043:
+	st.b	[a15]404,d15
+.L1044:
+	mov	d15,#260
+	mul	d0,d15
+.L613:
+	addsc.a	a15,a4,d0,#0
+	lea	a15,[a15]148
+.L1045:
+	st.a	[a4]676,a15
+.L1046:
+	j	.L122
+.L121:
+	add	d0,#1
+.L119:
+	jlt.u	d0,#2,.L120
+.L122:
+	ret
+.L475:
+	
+__wb_wil_SetupRxTransmission_function_end:
+	.size	wb_wil_SetupRxTransmission,__wb_wil_SetupRxTransmission_function_end-wb_wil_SetupRxTransmission
+.L334:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_ReadFrame',code,cluster('wb_nil_ReadFrame')
+	.sect	'.text.wb_nil.wb_nil_ReadFrame'
+	.align	2
+	
+; Function wb_nil_ReadFrame
+.L224:
+wb_nil_ReadFrame:	.type	func
+	mov.aa	a12,a4
+.L616:
+	mov.aa	a15,a5
+.L617:
+	ld.bu	d8,[a15]
+.L618:
+	ld.bu	d15,[a15]1
+.L619:
+	jne	d8,#0,.L123
+.L1163:
+	ld.bu	d0,[a12]1449
+.L1164:
+	jne	d15,d0,.L124
+.L1165:
+	lea	a4,[a12]128
+.L615:
+	call	wb_wil_IncrementWithRollover32
+.L614:
+	mov	d15,#0
+.L620:
+	st.w	[a12]120,d15
+.L1166:
+	j	.L125
+.L124:
+	jne	d15,#0,.L126
+.L1167:
+	lea	a4,[a12]112
+.L622:
+	call	wb_wil_IncrementWithRollover32
+.L621:
+	lea	a4,[a12]120
+	call	wb_wil_IncrementWithRollover32
+.L1168:
+	j	.L127
+.L126:
+	lea	a4,[a12]124
+.L623:
+	call	wb_wil_IncrementWithRollover32
+.L127:
+.L125:
+	j	.L128
+.L123:
+	mov.aa	a4,a15
+.L625:
+	mov	d4,d8
+.L627:
+	call	wb_nil_ValidateFrameMetadata
+.L626:
+	jne	d2,#0,.L129
+.L1169:
+	lea	a4,[a12]112
+	call	wb_wil_IncrementWithRollover32
+.L1170:
+	lea	a4,[a12]120
+	call	wb_wil_IncrementWithRollover32
+.L1171:
+	j	.L130
+.L129:
+	mov	d0,#255
+.L1172:
+	jne	d15,d0,.L131
+.L1173:
+	lea	a4,[a12]124
+	call	wb_wil_IncrementWithRollover32
+.L1174:
+	lea	a4,[a12]104
+	call	wb_wil_IncrementWithRollover32
+.L1175:
+	mov	d5,#0
+	mov.aa	a4,a12
+.L628:
+	mov	d4,d8
+.L630:
+	mov.aa	a5,a15
+.L631:
+	call	wb_nil_ProcessFramePayload
+.L629:
+	j	.L132
+.L131:
+	ld.bu	d0,[a12]1449
+.L1176:
+	jeq	d15,d0,.L133
+.L1177:
+	lea	a4,[a12]124
+	call	wb_wil_IncrementWithRollover32
+.L1178:
+	j	.L134
+.L133:
+	lea	a4,[a12]128
+	call	wb_wil_IncrementWithRollover32
+.L1179:
+	lea	a4,[a12]104
+	call	wb_wil_IncrementWithRollover32
+.L1180:
+	mov	d15,#0
+.L624:
+	st.w	[a12]120,d15
+.L1181:
+	mov	d15,#0
+.L1182:
+	st.w	[a12]124,d15
+.L1183:
+	mov	d5,#1
+	mov.aa	a4,a12
+.L632:
+	mov	d4,d8
+.L633:
+	mov.aa	a5,a15
+.L634:
+	call	wb_nil_ProcessFramePayload
+.L134:
+.L132:
+.L130:
+.L128:
+	ret
+.L503:
+	
+__wb_nil_ReadFrame_function_end:
+	.size	wb_nil_ReadFrame,__wb_nil_ReadFrame_function_end-wb_nil_ReadFrame
+.L364:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_ValidateFrameMetadata',code,cluster('wb_nil_ValidateFrameMetadata')
+	.sect	'.text.wb_nil.wb_nil_ValidateFrameMetadata'
+	.align	2
+	
+; Function wb_nil_ValidateFrameMetadata
+.L226:
+wb_nil_ValidateFrameMetadata:	.type	func
+	mov.aa	a15,a4
+.L637:
+	mov	d8,d4
+.L638:
+	mov	d2,#0
+.L639:
+	mov	d0,#0
+.L641:
+	mov	d15,#248
+.L1188:
+	jlt.u	d15,d8,.L135
+.L1189:
+	add	d4,d8,#4
+.L635:
+	mov	d5,#0
+	mov.aa	a4,a15
+	call	wb_crc_ComputeCRC32
+.L636:
+	ld.bu	d0,[a15]252
+.L1190:
+	mov	d1,#-1
+.L1191:
+	and	d0,d1
+.L1192:
+	sh	d0,d0,#24
+.L1193:
+	insert	d0,d0,#0,#0,#24
+.L1194:
+	ld.bu	d15,[a15]253
+.L1195:
+	mov	d1,#-1
+.L1196:
+	and	d15,d1
+.L1197:
+	sh	d15,d15,#16
+.L1198:
+	movh	d1,#255
+.L1199:
+	and	d15,d1
+.L1200:
+	or	d0,d15
+.L1201:
+	ld.bu	d15,[a15]254
+.L1202:
+	mov	d1,#-1
+.L1203:
+	and	d15,d1
+.L1204:
+	sh	d15,d15,#8
+.L1205:
+	mov.u	d1,#65280
+.L1206:
+	and	d15,d1
+.L1207:
+	or	d0,d15
+.L1208:
+	ld.bu	d15,[a15]255
+.L1209:
+	mov	d1,#-1
+.L1210:
+	and	d15,d1
+.L1211:
+	and	d15,#255
+.L1212:
+	or	d0,d15
+.L1213:
+	mov	d15,#-1
+.L642:
+	and	d0,d15
+.L135:
+	mov	d1,#0
+.L1214:
+	mov	d15,#248
+.L1215:
+	jlt.u	d15,d8,.L136
+.L1216:
+	jne	d2,d0,.L137
+.L1217:
+	mov	d1,#1
+.L137:
+.L136:
+	mov	d2,d1
+.L640:
+	j	.L138
+.L138:
+	ret
+.L510:
+	
+__wb_nil_ValidateFrameMetadata_function_end:
+	.size	wb_nil_ValidateFrameMetadata,__wb_nil_ValidateFrameMetadata_function_end-wb_nil_ValidateFrameMetadata
+.L369:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_ProcessFramePayload',code,cluster('wb_nil_ProcessFramePayload')
+	.sect	'.text.wb_nil.wb_nil_ProcessFramePayload'
+	.align	2
+	
+; Function wb_nil_ProcessFramePayload
+.L228:
+wb_nil_ProcessFramePayload:	.type	func
+	sub.a	a10,#24
+.L643:
+	mov.aa	a12,a4
+.L645:
+	mov	d10,d4
+.L646:
+	mov.aa	a13,a5
+.L647:
+	mov	d11,d5
+.L649:
+	movh.a	a15,#@his(.1.ini)
+	lea	a15,[a15]@los(.1.ini)
+	lea	a15,[a15]0
+.L1222:
+	lea	a2,[a10]0
+	mov.a	a4,#4
+.L139:
+	ld.w	d0,[a15+]
+	st.w	[a2+],d0
+	loop	a4,.L139
+.L1223:
+	st.h	[a10]18,d10
+.L1224:
+	mov.aa	a15,a13
+.L644:
+	add.a	a15,#4
+.L648:
+	st.a	[a10],a15
+.L650:
+	mov.aa	a15,a13
+.L651:
+	add.a	a15,#4
+.L1225:
+	st.a	[a10]4,a15
+.L1226:
+	mov	d15,#0
+.L652:
+	jlt.u	d10,#1,.L140
+.L1227:
+	mov	d0,#248
+.L1228:
+	jlt.u	d0,d10,.L141
+.L1229:
+	j	.L142
+.L143:
+	addsc.a	a15,a13,d15,#0
+.L654:
+	ld.bu	d4,[a15]4
+.L655:
+	add	d0,d15,#4
+.L657:
+	addsc.a	a15,a13,d0,#0
+.L658:
+	ld.bu	d8,[a15]1
+.L659:
+	add	d9,d15,#2
+.L653:
+	add	d15,d9,d8
+.L1230:
+	jge.u	d10,d15,.L144
+.L1231:
+	j	.L145
+.L144:
+	st.h	[a10]18,d8
+.L1232:
+	st.h	[a10]8,d9
+.L1233:
+	jeq	d11,#0,.L146
+.L1234:
+	lea	a5,[a10]0
+.L1235:
+	mov.aa	a4,a12
+.L660:
+	call	wb_nil_packet_Process
+.L656:
+	j	.L147
+.L146:
+	lea	a5,[a10]0
+.L1236:
+	mov.aa	a4,a12
+.L661:
+	call	wb_nil_packet_ProcessLoggedOutPacket
+.L147:
+	add	d15,d9,d8
+.L142:
+	jge.u	d10,d15,.L143
+.L145:
+.L141:
+.L140:
+	ret
+.L516:
+	
+__wb_nil_ProcessFramePayload_function_end:
+	.size	wb_nil_ProcessFramePayload,__wb_nil_ProcessFramePayload_function_end-wb_nil_ProcessFramePayload
+.L374:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_ReleaseFrame',code,cluster('wb_nil_ReleaseFrame')
+	.sect	'.text.wb_nil.wb_nil_ReleaseFrame'
+	.align	2
+	
+; Function wb_nil_ReleaseFrame
+.L230:
+wb_nil_ReleaseFrame:	.type	func
+	mov	d15,#0
+.L664:
+	j	.L148
+.L149:
+	mov	d0,#260
+	mul	d0,d15
+	addsc.a	a15,a4,d0,#0
+	lea	a15,[a15]148
+.L1241:
+	jne.a	a15,a5,.L150
+.L1242:
+	mov	d0,#260
+	mul	d15,d0
+.L665:
+	addsc.a	a15,a4,d15,#0
+	lea	a4,[a15]148
+.L663:
+	mov	d4,#0
+.L1243:
+	mov	d5,#260
+	call	memset
+.L662:
+	j	.L151
+.L150:
+	add	d15,#1
+.L148:
+	jlt.u	d15,#2,.L149
+.L151:
+	ret
+.L528:
+	
+__wb_nil_ReleaseFrame_function_end:
+	.size	wb_nil_ReleaseFrame,__wb_nil_ReleaseFrame_function_end-wb_nil_ReleaseFrame
+.L379:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_TimerCb',code,cluster('wb_nil_TimerCb')
+	.sect	'.text.wb_nil.wb_nil_TimerCb'
+	.align	2
+	
+; Function wb_nil_TimerCb
+.L232:
+wb_nil_TimerCb:	.type	func
+	movh.a	a15,#@his(bIsrDisabled)
+	lea	a15,[a15]@los(bIsrDisabled)
+	ld.bu	d15,[a15]
+	jne	d15,#0,.L152
+.L935:
+	call	wb_nil_TransmitOnAvailableDevices
+.L936:
+	call	wb_nil_CheckTransmissibleStatus
+.L152:
+	ret
+.L453:
+	
+__wb_nil_TimerCb_function_end:
+	.size	wb_nil_TimerCb,__wb_nil_TimerCb_function_end-wb_nil_TimerCb
+.L309:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_TransmitOnAvailableDevices',code,cluster('wb_nil_TransmitOnAvailableDevices')
+	.sect	'.text.wb_nil.wb_nil_TransmitOnAvailableDevices'
+	.align	2
+	
+; Function wb_nil_TransmitOnAvailableDevices
+.L234:
+wb_nil_TransmitOnAvailableDevices:	.type	func
+	sub.a	a10,#16
+.L666:
+	mov	d8,#0
+.L458:
+	mov	d9,#0
+.L667:
+	j	.L153
+.L154:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L941:
+	addsc.a	a15,a15,d9,#0
+	ld.bu	d15,[a15]
+.L942:
+	jeq	d15,#0,.L155
+.L943:
+	mov.a	a15,#0
+.L944:
+	mul	d15,d9,#4
+.L945:
+	movh.a	a2,#@his(DeviceList)
+	lea	a2,[a2]@los(DeviceList)
+.L946:
+	addsc.a	a2,a2,d15,#0
+	ld.a	a2,[a2]
+.L947:
+	jne.a	a15,a2,.L156
+.L155:
+	j	.L157
+.L156:
+	mul	d15,d9,#4
+.L948:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L949:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L950:
+	ld.bu	d15,[a15]1459
+.L951:
+	jne	d15,#0,.L158
+.L952:
+	lea	a4,[a10]0
+.L953:
+	mul	d15,d9,#4
+.L954:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L955:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L956:
+	ld.bu	d5,[a15]1460
+	mov	d4,d8
+.L668:
+	call	wb_nil_CheckTransmittedList
+.L669:
+	jne	d2,#0,.L159
+.L957:
+	mul	d15,d9,#4
+.L958:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L959:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a4,[a15]
+	call	wb_nil_Transmit
+.L960:
+	mov	d15,#16
+.L961:
+	jge.u	d8,d15,.L160
+.L962:
+	addsc.a	a15,a10,d8,#0
+.L963:
+	mul	d15,d9,#4
+.L964:
+	movh.a	a2,#@his(DeviceList)
+	lea	a2,[a2]@los(DeviceList)
+.L965:
+	addsc.a	a2,a2,d15,#0
+	ld.a	a2,[a2]
+.L966:
+	ld.bu	d15,[a2]1460
+.L967:
+	st.b	[a15],d15
+.L968:
+	add	d8,#1
+.L160:
+.L159:
+.L158:
+.L157:
+	add	d9,#1
+.L153:
+	mov	d15,#16
+.L969:
+	jlt.u	d9,d15,.L154
+.L459:
+	ret
+.L454:
+	
+__wb_nil_TransmitOnAvailableDevices_function_end:
+	.size	wb_nil_TransmitOnAvailableDevices,__wb_nil_TransmitOnAvailableDevices_function_end-wb_nil_TransmitOnAvailableDevices
+.L314:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_CheckTransmittedList',code,cluster('wb_nil_CheckTransmittedList')
+	.sect	'.text.wb_nil.wb_nil_CheckTransmittedList'
+	.align	2
+	
+; Function wb_nil_CheckTransmittedList
+.L236:
+wb_nil_CheckTransmittedList:	.type	func
+	mov	d2,#0
+.L467:
+	mov	d15,#0
+.L670:
+	j	.L161
+.L162:
+	addsc.a	a15,a4,d15,#0
+	ld.bu	d0,[a15]
+.L974:
+	jne	d0,d5,.L163
+.L975:
+	mov	d2,#1
+.L976:
+	j	.L164
+.L163:
+	add	d15,#1
+.L161:
+	jlt.u	d15,d4,.L162
+.L164:
+	j	.L165
+.L165:
+	ret
+.L461:
+	
+__wb_nil_CheckTransmittedList_function_end:
+	.size	wb_nil_CheckTransmittedList,__wb_nil_CheckTransmittedList_function_end-wb_nil_CheckTransmittedList
+.L319:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_CheckTransmissibleStatus',code,cluster('wb_nil_CheckTransmissibleStatus')
+	.sect	'.text.wb_nil.wb_nil_CheckTransmissibleStatus'
+	.align	2
+	
+; Function wb_nil_CheckTransmissibleStatus
+.L238:
+wb_nil_CheckTransmissibleStatus:	.type	func
+	mov	d8,#0
+.L671:
+	j	.L166
+.L167:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L1051:
+	addsc.a	a15,a15,d8,#0
+	ld.bu	d15,[a15]
+.L1052:
+	jeq	d15,#0,.L168
+.L1053:
+	mov.a	a15,#0
+.L1054:
+	mul	d15,d8,#4
+.L1055:
+	movh.a	a2,#@his(DeviceList)
+	lea	a2,[a2]@los(DeviceList)
+.L1056:
+	addsc.a	a2,a2,d15,#0
+	ld.a	a2,[a2]
+.L1057:
+	jne.a	a15,a2,.L169
+.L168:
+	j	.L170
+.L169:
+	mul	d15,d8,#4
+.L1058:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1059:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L1060:
+	ld.bu	d15,[a15]1459
+.L1061:
+	jeq	d15,#0,.L171
+.L1062:
+	mul	d15,d8,#4
+.L1063:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1064:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L1065:
+	ld.bu	d4,[a15]1460
+	call	wb_nil_CheckSPIForTransmissibleStatusReset
+.L171:
+.L170:
+	add	d8,#1
+.L166:
+	mov	d15,#16
+.L1066:
+	jlt.u	d8,d15,.L167
+.L481:
+	ret
+.L480:
+	
+__wb_nil_CheckTransmissibleStatus_function_end:
+	.size	wb_nil_CheckTransmissibleStatus,__wb_nil_CheckTransmissibleStatus_function_end-wb_nil_CheckTransmissibleStatus
+.L339:
+	; End of function
+	
+	.sdecl	'.text.wb_nil.wb_nil_CheckSPIForTransmissibleStatusReset',code,cluster('wb_nil_CheckSPIForTransmissibleStatusReset')
+	.sect	'.text.wb_nil.wb_nil_CheckSPIForTransmissibleStatusReset'
+	.align	2
+	
+; Function wb_nil_CheckSPIForTransmissibleStatusReset
+.L240:
+wb_nil_CheckSPIForTransmissibleStatusReset:	.type	func
+	sub.a	a10,#16
+.L672:
+	mov	d2,#0
+.L673:
+	mov	d0,#1
+.L488:
+	mov	d1,#0
+.L674:
+	j	.L172
+.L173:
+	movh.a	a15,#@his(bInUseList)
+	lea	a15,[a15]@los(bInUseList)
+.L1071:
+	addsc.a	a15,a15,d1,#0
+	ld.bu	d15,[a15]
+.L1072:
+	jeq	d15,#0,.L174
+.L1073:
+	mov.a	a15,#0
+.L1074:
+	mul	d15,d1,#4
+.L1075:
+	movh.a	a2,#@his(DeviceList)
+	lea	a2,[a2]@los(DeviceList)
+.L1076:
+	addsc.a	a2,a2,d15,#0
+	ld.a	a2,[a2]
+.L1077:
+	jne.a	a15,a2,.L175
+.L174:
+	j	.L176
+.L175:
+	mul	d15,d1,#4
+.L1078:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1079:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L1080:
+	ld.bu	d15,[a15]1460
+.L1081:
+	jne	d15,d4,.L177
+.L1082:
+	mul	d15,d1,#4
+.L1083:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1084:
+	addsc.a	a15,a15,d15,#0
+	ld.a	a15,[a15]
+.L1085:
+	ld.bu	d15,[a15]1459
+.L1086:
+	jne	d15,#0,.L178
+.L1087:
+	mov	d0,#0
+.L1088:
+	j	.L179
+.L178:
+	mov	d15,#16
+.L1089:
+	jge.u	d2,d15,.L180
+.L1090:
+	addsc.a	a15,a10,d2,#0
+.L1091:
+	st.b	[a15],d1
+.L1092:
+	add	d2,#1
+.L180:
+	j	.L181
+.L177:
+.L181:
+.L176:
+	add	d1,#1
+.L172:
+	mov	d15,#16
+.L1093:
+	jlt.u	d1,d15,.L173
+.L179:
+	jeq	d0,#0,.L182
+.L490:
+	mov	d15,#0
+.L675:
+	j	.L183
+.L184:
+	addsc.a	a15,a10,d15,#0
+	ld.bu	d0,[a15]
+.L1094:
+	mul	d0,d0,#4
+.L1095:
+	movh.a	a15,#@his(DeviceList)
+	lea	a15,[a15]@los(DeviceList)
+.L1096:
+	addsc.a	a15,a15,d0,#0
+	ld.a	a15,[a15]
+.L1097:
+	mov	d0,#0
+.L1098:
+	st.b	[a15]1459,d0
+.L1099:
+	add	d15,#1
+.L676:
+	extr.u	d15,d15,#0,#8
+.L183:
+	jlt.u	d15,d2,.L184
+.L182:
+	ret
+.L483:
+	
+__wb_nil_CheckSPIForTransmissibleStatusReset_function_end:
+	.size	wb_nil_CheckSPIForTransmissibleStatusReset,__wb_nil_CheckSPIForTransmissibleStatusReset_function_end-wb_nil_CheckSPIForTransmissibleStatusReset
+.L344:
+	; End of function
+	
+	.sdecl	'.bss.wb_nil.DeviceList',data,cluster('DeviceList')
+	.sect	'.bss.wb_nil.DeviceList'
+	.align	4
+DeviceList:	.type	object
+	.size	DeviceList,64
+	.space	64
+	.sdecl	'.bss.wb_nil.bInUseList',data,cluster('bInUseList')
+	.sect	'.bss.wb_nil.bInUseList'
+bInUseList:	.type	object
+	.size	bInUseList,16
+	.space	16
+	.sdecl	'.bss.wb_nil.bIsrDisabled',data,cluster('bIsrDisabled')
+	.sect	'.bss.wb_nil.bIsrDisabled'
+bIsrDisabled:	.type	object
+	.size	bIsrDisabled,1
+	.space	1
+	.sdecl	'.rodata.wb_nil..1.ini',data,rom
+	.sect	'.rodata.wb_nil..1.ini'
+	.align	4
+.1.ini:	.type	object
+	.size	.1.ini,20
+	.space	20
+	.calls	'__INDIRECT__','wb_nil_TimerCb'
+	.calls	'__INDIRECT__','wb_nil_TxDoneCb'
+	.calls	'wb_nil_Initialize','adi_wil_hal_TickerInit'
+	.calls	'wb_nil_Initialize','adi_wil_hal_TmrInit'
+	.calls	'wb_nil_Initialize','memset'
+	.calls	'wb_nil_Initialize','adi_wil_hal_TmrStart'
+	.calls	'wb_nil_Initialize','adi_wil_hal_TickerStart'
+	.calls	'wb_nil_Terminate','adi_wil_hal_TickerStop'
+	.calls	'wb_nil_Terminate','adi_wil_hal_TmrStop'
+	.calls	'wb_nil_Terminate','memset'
+	.calls	'wb_nil_Process','wb_nil_ReadFrame'
+	.calls	'wb_nil_Process','wb_nil_ReleaseFrame'
+	.calls	'wb_nil_Process','wb_nil_CheckLinkStatus'
+	.calls	'wb_nil_ProcessAllPorts','wb_nil_Process'
+	.calls	'wb_nil_ProcessAllPorts','wb_wil_QueryDeviceCheckTimeout'
+	.calls	'wb_nil_SubmitFrame','wb_crc_ComputeCRC32'
+	.calls	'wb_nil_InitPort','memset'
+	.calls	'wb_nil_InitPort','adi_wil_hal_TmrStop'
+	.calls	'wb_nil_InitPort','wb_nil_AddPort'
+	.calls	'wb_nil_InitPort','adi_wil_hal_TmrStart'
+	.calls	'wb_nil_ClosePort','adi_wil_hal_TmrStop'
+	.calls	'wb_nil_ClosePort','wb_nil_RemovePort'
+	.calls	'wb_nil_ClosePort','adi_wil_hal_TmrStart'
+	.calls	'wb_nil_TxDoneCb','wb_nil_MarkTxFrameAsTransmitted'
+	.calls	'wb_nil_TxDoneCb','wb_nil_MarkRxFrameForProcessing'
+	.calls	'wb_nil_CheckLinkStatus','wb_wil_HandlePortDownEvent'
+	.calls	'wb_nil_CheckLinkStatus','wb_wil_HandlePortAvailableEvent'
+	.calls	'wb_nil_AddPort','adi_wil_hal_SpiInit'
+	.calls	'wb_nil_RemovePort','adi_wil_hal_SpiClose'
+	.calls	'wb_nil_Transmit','wb_wil_SetupTxTransmission'
+	.calls	'wb_nil_Transmit','wb_wil_SetupRxTransmission'
+	.calls	'wb_nil_Transmit','wb_wil_IncrementWithRollover32'
+	.calls	'wb_nil_Transmit','adi_wil_hal_SpiTransmit'
+	.calls	'wb_nil_Transmit','wb_nil_ReleaseFrame'
+	.calls	'wb_nil_ReadFrame','wb_wil_IncrementWithRollover32'
+	.calls	'wb_nil_ReadFrame','wb_nil_ValidateFrameMetadata'
+	.calls	'wb_nil_ReadFrame','wb_nil_ProcessFramePayload'
+	.calls	'wb_nil_ValidateFrameMetadata','wb_crc_ComputeCRC32'
+	.calls	'wb_nil_ProcessFramePayload','wb_nil_packet_Process'
+	.calls	'wb_nil_ProcessFramePayload','wb_nil_packet_ProcessLoggedOutPacket'
+	.calls	'wb_nil_ReleaseFrame','memset'
+	.calls	'wb_nil_TimerCb','wb_nil_TransmitOnAvailableDevices'
+	.calls	'wb_nil_TimerCb','wb_nil_CheckTransmissibleStatus'
+	.calls	'wb_nil_TransmitOnAvailableDevices','wb_nil_CheckTransmittedList'
+	.calls	'wb_nil_TransmitOnAvailableDevices','wb_nil_Transmit'
+	.calls	'wb_nil_CheckTransmissibleStatus','wb_nil_CheckSPIForTransmissibleStatusReset'
+	.calls	'wb_nil_Initialize','',0
+	.calls	'wb_nil_Terminate','',0
+	.calls	'wb_nil_Process','',0
+	.calls	'wb_nil_ProcessAllPorts','',0
+	.calls	'wb_nil_SubmitFrame','',0
+	.calls	'wb_nil_InitPort','',0
+	.calls	'wb_nil_ClosePort','',0
+	.calls	'wb_nil_TxDoneCb','',0
+	.calls	'wb_nil_MarkTxFrameAsTransmitted','',0
+	.calls	'wb_nil_MarkRxFrameForProcessing','',0
+	.calls	'wb_nil_CheckLinkStatus','',0
+	.calls	'wb_nil_AddPort','',0
+	.calls	'wb_nil_RemovePort','',0
+	.calls	'wb_nil_CheckForPort','',0
+	.calls	'wb_nil_Login','',0
+	.calls	'wb_nil_Logout','',0
+	.calls	'wb_nil_Transmit','',0
+	.calls	'wb_wil_SetupTxTransmission','',0
+	.calls	'wb_wil_SetupRxTransmission','',0
+	.calls	'wb_nil_ReadFrame','',0
+	.calls	'wb_nil_ValidateFrameMetadata','',0
+	.calls	'wb_nil_ProcessFramePayload','',24
+	.calls	'wb_nil_ReleaseFrame','',0
+	.calls	'wb_nil_TimerCb','',0
+	.calls	'wb_nil_TransmitOnAvailableDevices','',16
+	.calls	'wb_nil_CheckTransmittedList','',0
+	.calls	'wb_nil_CheckTransmissibleStatus','',0
+	.extern	adi_wil_hal_SpiInit
+	.extern	adi_wil_hal_SpiTransmit
+	.extern	adi_wil_hal_SpiClose
+	.extern	adi_wil_hal_TickerInit
+	.extern	adi_wil_hal_TickerStart
+	.extern	adi_wil_hal_TickerStop
+	.extern	adi_wil_hal_TmrInit
+	.extern	adi_wil_hal_TmrStart
+	.extern	adi_wil_hal_TmrStop
+	.extern	wb_nil_packet_Process
+	.extern	wb_nil_packet_ProcessLoggedOutPacket
+	.extern	wb_wil_IncrementWithRollover32
+	.extern	wb_wil_QueryDeviceCheckTimeout
+	.extern	wb_wil_HandlePortDownEvent
+	.extern	wb_wil_HandlePortAvailableEvent
+	.extern	wb_crc_ComputeCRC32
+	.extern	memset
+	.extern	__INDIRECT__
+	.calls	'wb_nil_CheckSPIForTransmissibleStatusReset','',16
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L242:
+	.word	4339
+	.half	3
+	.word	.L243
+	.byte	4
+.L241:
+	.byte	1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L244
+.L391:
+	.byte	2,1,177,2,9,1,3
+	.byte	'ADI_WIL_ERR_SUCCESS',0,0,3
+	.byte	'ADI_WIL_ERR_FAIL',0,1,3
+	.byte	'ADI_WIL_ERR_API_IN_PROGRESS',0,2,3
+	.byte	'ADI_WIL_ERR_TIMEOUT',0,3,3
+	.byte	'ADI_WIL_ERR_NOT_CONNECTED',0,4,3
+	.byte	'ADI_WIL_ERR_INVALID_PARAMETER',0,5,3
+	.byte	'ADI_WIL_ERR_INVALID_STATE',0,6,3
+	.byte	'ADI_WIL_ERR_NOT_SUPPORTED',0,7,3
+	.byte	'ADI_WIL_ERR_EXTERNAL',0,8,3
+	.byte	'ADI_WIL_ERR_INVALID_MODE',0,9,3
+	.byte	'ADI_WIL_ERR_IN_PROGRESS',0,10,3
+	.byte	'ADI_WIL_ERR_CONFIGURATION_MISMATCH',0,11,3
+	.byte	'ADI_WIL_ERR_CRC',0,12,3
+	.byte	'ADI_WIL_ERR_FILE_REJECTED',0,13,3
+	.byte	'ADI_WIL_ERR_PARTIAL_SUCCESS',0,14,0,4
+	.byte	'adi_wil_pack_internals_t',0,1,255,4,16,1,5
+	.word	616
+.L397:
+	.byte	6
+	.word	647
+	.byte	7
+	.byte	'unsigned short int',0,2,7,8,64
+	.word	657
+	.byte	9,31,0
+.L412:
+	.byte	7
+	.byte	'unsigned char',0,1,8,8,32
+	.word	688
+	.byte	9,31,0,10,2,65,9,100,11
+	.byte	'iValue',0
+	.word	679
+	.byte	64,2,35,0,11
+	.byte	'iCommandId',0
+	.word	705
+	.byte	32,2,35,64,11
+	.byte	'iHead',0
+	.word	688
+	.byte	1,2,35,96,11
+	.byte	'iTail',0
+	.word	688
+	.byte	1,2,35,97,0
+.L435:
+	.byte	7
+	.byte	'unsigned int',0,4,7,10,2,26,9,40,11
+	.byte	'iTxFrameCount',0
+	.word	786
+	.byte	4,2,35,0,11
+	.byte	'iRxFrameCount',0
+	.word	786
+	.byte	4,2,35,4,11
+	.byte	'iTxErrorCount',0
+	.word	786
+	.byte	4,2,35,8,11
+	.byte	'iRxErrorCount',0
+	.word	786
+	.byte	4,2,35,12,11
+	.byte	'iRxBuffAllocErrCount',0
+	.word	786
+	.byte	4,2,35,16,11
+	.byte	'iRunningRxErrorCount',0
+	.word	786
+	.byte	4,2,35,20,11
+	.byte	'iRunningLoggedOutFrameCount',0
+	.word	786
+	.byte	4,2,35,24,11
+	.byte	'iRunningValidFrameCount',0
+	.word	786
+	.byte	4,2,35,28,11
+	.byte	'iAckLostCount',0
+	.word	786
+	.byte	4,2,35,32,11
+	.byte	'iAckTxFailCount',0
+	.word	786
+	.byte	4,2,35,36,0
+.L406:
+	.byte	7
+	.byte	'_Bool',0,1,2,10,2,53,9,8,11
+	.byte	'iTimeStamp',0
+	.word	786
+	.byte	4,2,35,0,11
+	.byte	'iRetries',0
+	.word	688
+	.byte	1,2,35,4,11
+	.byte	'bInProgress',0
+	.word	1078
+	.byte	1,2,35,5,11
+	.byte	'bDeviceExists',0
+	.word	1078
+	.byte	1,2,35,6,11
+	.byte	'bPackLockAcquired',0
+	.word	1078
+	.byte	1,2,35,7,0,8,128,2
+	.word	688
+	.byte	9,255,1,0,12
+	.word	1078
+	.byte	12
+	.word	1078
+	.byte	10,2,77,9,132,2,11
+	.byte	'iData',0
+	.word	1202
+	.byte	128,2,2,35,0,11
+	.byte	'bInUse',0
+	.word	1213
+	.byte	1,3,35,128,2,11
+	.byte	'bReadyForProcessing',0
+	.word	1218
+	.byte	1,3,35,129,2,0,8,136,4
+	.word	1223
+	.byte	9,1,0,5
+	.word	688
+	.byte	2,2,43,9,1,3
+	.byte	'ADI_WIL_MGR_UNKNOWN',0,0,3
+	.byte	'ADI_WIL_MGR_PRIMARY',0,1,3
+	.byte	'ADI_WIL_MGR_SECONDARY',0,2,0,12
+	.word	1078
+	.byte	12
+	.word	1078
+	.byte	12
+	.word	1078
+	.byte	12
+	.word	1078
+	.byte	10,2,91,9,180,11,11
+	.byte	'AckQueue',0
+	.word	714
+	.byte	100,2,35,0,11
+	.byte	'PortStatistics',0
+	.word	802
+	.byte	40,2,35,100,11
+	.byte	'QueryDeviceState',0
+	.word	1087
+	.byte	8,3,35,140,1,11
+	.byte	'RxBuffer',0
+	.word	1293
+	.byte	136,4,3,35,148,1,11
+	.byte	'pPackInternals',0
+	.word	647
+	.byte	4,3,35,156,5,11
+	.byte	'pTx',0
+	.word	1303
+	.byte	4,3,35,160,5,11
+	.byte	'pRx',0
+	.word	1303
+	.byte	4,3,35,164,5,11
+	.byte	'Role',0
+	.word	1308
+	.byte	1,3,35,168,5,11
+	.byte	'UserRequestFrame',0
+	.word	1202
+	.byte	128,2,3,35,169,5,11
+	.byte	'ProcessTaskRequestFrame',0
+	.word	1202
+	.byte	128,2,3,35,169,7,11
+	.byte	'IdleFrame',0
+	.word	1202
+	.byte	128,2,3,35,169,9,11
+	.byte	'iSessionId',0
+	.word	688
+	.byte	1,3,35,169,11,11
+	.byte	'iProtocolVersion',0
+	.word	688
+	.byte	1,3,35,170,11,11
+	.byte	'bUserRequestFramePending',0
+	.word	1382
+	.byte	1,3,35,171,11,11
+	.byte	'bProcessTaskRequestFramePending',0
+	.word	1387
+	.byte	1,3,35,172,11,11
+	.byte	'bConnectionRequestPending',0
+	.word	1392
+	.byte	1,3,35,173,11,11
+	.byte	'bInUse',0
+	.word	1397
+	.byte	1,3,35,174,11,11
+	.byte	'bConnected',0
+	.word	1078
+	.byte	1,3,35,175,11,11
+	.byte	'bPreviousTxWasUserFrame',0
+	.word	1078
+	.byte	1,3,35,176,11,11
+	.byte	'bInitialized',0
+	.word	1078
+	.byte	1,3,35,177,11,11
+	.byte	'bLinkAvailable',0
+	.word	1078
+	.byte	1,3,35,178,11,11
+	.byte	'bTransmitted',0
+	.word	1078
+	.byte	1,3,35,179,11,0,13
+	.byte	'adi_wil_port_t',0,2,120,8,184,11,11
+	.byte	'Internals',0
+	.word	1402
+	.byte	180,11,2,35,0,11
+	.byte	'iSPIDevice',0
+	.word	688
+	.byte	1,3,35,180,11,11
+	.byte	'iChipSelect',0
+	.word	688
+	.byte	1,3,35,181,11,0,5
+	.word	1954
+.L399:
+	.byte	6
+	.word	2039
+	.byte	6
+	.word	1954
+	.byte	5
+	.word	2049
+.L403:
+	.byte	6
+	.word	2054
+.L408:
+	.byte	6
+	.word	2054
+.L415:
+	.byte	6
+	.word	2039
+.L424:
+	.byte	6
+	.word	2039
+.L428:
+	.byte	6
+	.word	2039
+.L431:
+	.byte	6
+	.word	2039
+	.byte	2,3,11,9,1,3
+	.byte	'WB_PACK_READ',0,0,3
+	.byte	'WB_PACK_WRITE',0,1,0,13
+	.byte	'wb_packer',0,3,21,8,8,11
+	.byte	'buf',0
+	.word	1303
+	.byte	4,2,35,0,11
+	.byte	'index',0
+	.word	657
+	.byte	2,2,35,4,11
+	.byte	'direction',0
+	.word	2089
+	.byte	1,2,35,6,0
+.L526:
+	.byte	10,3,28,9,20,11
+	.byte	'origin',0
+	.word	1303
+	.byte	4,2,35,0,11
+	.byte	'packer',0
+	.word	2126
+	.byte	8,2,35,4,11
+	.byte	'initial_offset',0
+	.word	657
+	.byte	2,2,35,12,11
+	.byte	'offset',0
+	.word	657
+	.byte	2,2,35,14,11
+	.byte	'data',0
+	.word	657
+	.byte	2,2,35,16,11
+	.byte	'size',0
+	.word	657
+	.byte	2,2,35,18,0,6
+	.word	2189
+	.byte	5
+	.word	2295
+.L433:
+	.byte	6
+	.word	2300
+	.byte	2,5,25,9,1,3
+	.byte	'ADI_WIL_HAL_ERR_SUCCESS',0,0,3
+	.byte	'ADI_WIL_HAL_ERR_INVALID_PARAM',0,1,3
+	.byte	'ADI_WIL_HAL_ERR_NO_RESOURCES',0,2,3
+	.byte	'ADI_WIL_HAL_ERR_FAILURE',0,3,0,14,1,1,15
+	.word	688
+	.byte	15
+	.word	688
+	.byte	0,5
+	.word	2431
+	.byte	16
+	.byte	'adi_wil_hal_spi_cb_t',0,4,30,16
+	.word	2445
+	.byte	17
+	.byte	'adi_wil_hal_SpiInit',0,4,49,19
+	.word	2310
+	.byte	1,1,1,1,18
+	.byte	'iSPIDevice',0,4,49,47
+	.word	688
+	.byte	18
+	.byte	'pfCb',0,4,49,80
+	.word	2450
+	.byte	0,5
+	.word	2431
+	.byte	6
+	.word	1303
+	.byte	6
+	.word	1303
+	.byte	17
+	.byte	'adi_wil_hal_SpiTransmit',0,4,68,19
+	.word	2310
+	.byte	1,1,1,1,18
+	.byte	'iSPIDevice',0,4,68,51
+	.word	688
+	.byte	18
+	.byte	'iChipSelect',0,4,69,51
+	.word	688
+	.byte	18
+	.byte	'pTx',0,4,70,59
+	.word	2549
+	.byte	18
+	.byte	'pRx',0,4,71,59
+	.word	2554
+	.byte	18
+	.byte	'iLength',0,4,72,52
+	.word	657
+	.byte	0,17
+	.byte	'adi_wil_hal_SpiClose',0,4,85,19
+	.word	2310
+	.byte	1,1,1,1,18
+	.byte	'iSPIDevice',0,4,85,48
+	.word	688
+	.byte	0,19
+	.byte	'adi_wil_hal_TickerInit',0,6,36,19
+	.word	2310
+	.byte	1,1,1,1,19
+	.byte	'adi_wil_hal_TickerStart',0,6,47,19
+	.word	2310
+	.byte	1,1,1,1,19
+	.byte	'adi_wil_hal_TickerStop',0,6,73,19
+	.word	2310
+	.byte	1,1,1,1,19
+	.byte	'adi_wil_hal_TmrInit',0,7,42,19
+	.word	2310
+	.byte	1,1,1,1,20,1,1,5
+	.word	2866
+	.byte	16
+	.byte	'adi_wb_hal_tmr_cb_t',0,7,27,16
+	.word	2869
+	.byte	17
+	.byte	'adi_wil_hal_TmrStart',0,7,58,19
+	.word	2310
+	.byte	1,1,1,1,18
+	.byte	'pfCb',0,7,58,60
+	.word	2874
+	.byte	0,5
+	.word	2866
+	.byte	19
+	.byte	'adi_wil_hal_TmrStop',0,7,69,19
+	.word	2310
+	.byte	1,1,1,1,6
+	.word	2039
+	.byte	5
+	.word	2189
+	.byte	6
+	.word	2991
+	.byte	17
+	.byte	'wb_nil_packet_Process',0,8,24,15
+	.word	211
+	.byte	1,1,1,1,18
+	.byte	'pPort',0,8,24,60
+	.word	2986
+	.byte	18
+	.byte	'pElement',0,8,24,93
+	.word	2996
+	.byte	18
+	.byte	'iMessageId',0,8,24,111
+	.word	688
+	.byte	0,6
+	.word	2039
+	.byte	6
+	.word	2991
+	.byte	17
+	.byte	'wb_nil_packet_ProcessLoggedOutPacket',0,8,26,15
+	.word	211
+	.byte	1,1,1,1,18
+	.byte	'pPort',0,8,26,75
+	.word	3086
+	.byte	18
+	.byte	'pElement',0,8,26,108
+	.word	3091
+	.byte	18
+	.byte	'iMessageId',0,8,26,126
+	.word	688
+	.byte	0,5
+	.word	786
+	.byte	21
+	.byte	'wb_wil_IncrementWithRollover32',0,9,46,6,1,1,1,1,18
+	.byte	'pValue',0,9,46,48
+	.word	3196
+	.byte	0,6
+	.word	2039
+	.byte	21
+	.byte	'wb_wil_QueryDeviceCheckTimeout',0,10,29,6,1,1,1,1,18
+	.byte	'pPort',0,10,29,61
+	.word	3256
+	.byte	0,6
+	.word	647
+	.byte	6
+	.word	2039
+	.byte	21
+	.byte	'wb_wil_HandlePortDownEvent',0,11,28,6,1,1,1,1,18
+	.byte	'pInternals',0,11,28,66
+	.word	3315
+	.byte	18
+	.byte	'pPort',0,11,28,101
+	.word	3320
+	.byte	0,6
+	.word	647
+	.byte	6
+	.word	2039
+	.byte	21
+	.byte	'wb_wil_HandlePortAvailableEvent',0,11,36,6,1,1,1,1,18
+	.byte	'pInternals',0,11,36,71
+	.word	3394
+	.byte	18
+	.byte	'pPort',0,11,36,106
+	.word	3399
+	.byte	0,6
+	.word	688
+	.byte	5
+	.word	3478
+	.byte	6
+	.word	3483
+	.byte	17
+	.byte	'wb_crc_ComputeCRC32',0,12,52,10
+	.word	786
+	.byte	1,1,1,1,18
+	.byte	'pData',0,12,52,53
+	.word	3488
+	.byte	18
+	.byte	'iLength',0,12,53,40
+	.word	786
+	.byte	18
+	.byte	'iSeedValue',0,12,54,40
+	.word	786
+	.byte	0,22
+	.byte	'void',0,5
+	.word	3575
+	.byte	7
+	.byte	'int',0,4,5,17
+	.byte	'memset',0,13,56,17
+	.word	3581
+	.byte	1,1,1,1,23,13,56,33
+	.word	3581
+	.byte	23,13,56,36
+	.word	3586
+	.byte	23,13,56,41
+	.word	786
+	.byte	0
+.L439:
+	.byte	6
+	.word	2039
+.L447:
+	.byte	6
+	.word	2054
+.L455:
+	.byte	8,16
+	.word	688
+	.byte	9,15,0
+.L462:
+	.byte	6
+	.word	3483
+.L470:
+	.byte	6
+	.word	2039
+	.byte	5
+	.word	1402
+.L473:
+	.byte	6
+	.word	3666
+.L476:
+	.byte	6
+	.word	3666
+.L497:
+	.byte	6
+	.word	3666
+.L500:
+	.byte	6
+	.word	3666
+.L504:
+	.byte	6
+	.word	2039
+.L506:
+	.byte	6
+	.word	1303
+.L511:
+	.byte	6
+	.word	3483
+.L517:
+	.byte	6
+	.word	2039
+.L520:
+	.byte	6
+	.word	1303
+.L529:
+	.byte	6
+	.word	2039
+.L531:
+	.byte	6
+	.word	3483
+.L535:
+	.byte	6
+	.word	2039
+.L537:
+	.byte	6
+	.word	3666
+	.byte	5
+	.word	802
+.L539:
+	.byte	6
+	.word	3736
+	.byte	24
+	.byte	'__INDIRECT__',0,14,1,1,1,1,1,16
+	.byte	'__size_t',0,14,1,1
+	.word	786
+	.byte	25,1,5
+	.word	3783
+	.byte	16
+	.byte	'__codeptr',0,14,1,1
+	.word	3785
+	.byte	16
+	.byte	'__intptr_t',0,14,1,1
+	.word	3586
+	.byte	16
+	.byte	'__uintptr_t',0,14,1,1
+	.word	786
+	.byte	16
+	.byte	'uint8_t',0,15,242,1,41
+	.word	688
+	.byte	16
+	.byte	'uint16_t',0,15,246,1,41
+	.word	657
+	.byte	16
+	.byte	'uint32_t',0,15,254,1,41
+	.word	786
+	.byte	7
+	.byte	'unsigned long long int',0,8,7,16
+	.byte	'uint64_t',0,15,134,2,41
+	.word	3900
+	.byte	16
+	.byte	'wb_pack_direction_t',0,3,15,3
+	.word	2089
+	.byte	16
+	.byte	'wb_packer_t',0,3,19,26
+	.word	2126
+	.byte	16
+	.byte	'wb_pack_element_t',0,3,36,3
+	.word	2189
+	.byte	16
+	.byte	'adi_wil_err_t',0,1,194,2,3
+	.word	211
+	.byte	16
+	.byte	'adi_wil_port_t',0,1,245,4,31
+	.word	1954
+	.byte	16
+	.byte	'adi_wil_pack_internals_t',0,1,255,4,41
+	.word	616
+	.byte	16
+	.byte	'adi_wil_hal_err_t',0,5,30,3
+	.word	2310
+	.byte	16
+	.byte	'adi_wil_port_stats_t',0,2,38,3
+	.word	802
+	.byte	16
+	.byte	'adi_wil_mgr_id_t',0,2,48,3
+	.word	1308
+	.byte	16
+	.byte	'adi_wil_query_device_state_t',0,2,60,3
+	.word	1087
+	.byte	16
+	.byte	'adi_wil_ack_queue_t',0,2,72,3
+	.word	714
+	.byte	16
+	.byte	'adi_wil_rx_buffer_t',0,2,82,3
+	.word	1223
+	.byte	16
+	.byte	'adi_wil_port_internal_t',0,2,115,3
+	.word	1402
+	.byte	16
+	.byte	'size_t',0,13,29,25
+	.word	786
+.L542:
+	.byte	8,64
+	.word	2039
+	.byte	9,15,0
+.L543:
+	.byte	8,16
+	.word	1078
+	.byte	9,15,0
+.L544:
+	.byte	12
+	.word	1078
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L243:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,4,1,58,15,59,15,57,15,11,15,0,0,3,40,0,3,8,28,13,0,0,4
+	.byte	19,0,3,8,58,15,59,15,57,15,60,12,0,0,5,15,0,73,19,0,0,6,38,0,73,19,0,0,7,36,0,3,8,11,15,62,15,0,0,8,1
+	.byte	1,11,15,73,19,0,0,9,33,0,47,15,0,0,10,19,1,58,15,59,15,57,15,11,15,0,0,11,13,0,3,8,73,19,11,15,56,9,0
+	.byte	0,12,53,0,73,19,0,0,13,19,1,3,8,58,15,59,15,57,15,11,15,0,0,14,21,1,54,15,39,12,0,0,15,5,0,73,19,0,0,16
+	.byte	22,0,3,8,58,15,59,15,57,15,73,19,0,0,17,46,1,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,18
+	.byte	5,0,3,8,58,15,59,15,57,15,73,19,0,0,19,46,0,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63,12,60,12,0,0,20
+	.byte	21,0,54,15,39,12,0,0,21,46,1,3,8,58,15,59,15,57,15,54,15,39,12,63,12,60,12,0,0,22,59,0,3,8,0,0,23,5,0
+	.byte	58,15,59,15,57,15,73,19,0,0,24,46,0,3,8,58,15,59,15,57,15,54,15,63,12,60,12,0,0,25,21,0,54,15,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L244:
+	.word	.L678-.L677
+.L677:
+	.half	3
+	.word	.L680-.L679
+.L679:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'C:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\API',0
+	.byte	'C:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\Include',0
+	.byte	'C:\\Infineon\\AURIX-Studio-1.9.8\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0,0
+	.byte	'adi_wil_types.h',0,1,0,0
+	.byte	'adi_wil_port.h',0,1,0,0
+	.byte	'wb_packer.h',0,2,0,0
+	.byte	'adi_wil_hal_spi.h',0,1,0,0
+	.byte	'adi_wil_hal.h',0,1,0,0
+	.byte	'adi_wil_hal_ticker.h',0,1,0,0
+	.byte	'adi_wil_hal_tmr.h',0,1,0,0
+	.byte	'wb_nil_packet.h',0,2,0,0
+	.byte	'wb_wil_utils.h',0,2,0,0
+	.byte	'wb_wil_query_device.h',0,2,0,0
+	.byte	'wb_wil_error_notify.h',0,2,0,0
+	.byte	'wb_crc_32.h',0,2,0,0
+	.byte	'string.h',0,3,0,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0
+	.byte	'stdint.h',0,3,0,0,0
+.L680:
+.L678:
+	.sdecl	'.debug_info',debug,cluster('wb_nil_Initialize')
+	.sect	'.debug_info'
+.L245:
+	.word	284
+	.half	3
+	.word	.L246
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L248,.L247
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_Initialize',0,1,120,15
+	.word	.L391
+	.byte	1,1,1
+	.word	.L186,.L392,.L185
+	.byte	4
+	.word	.L186,.L392
+	.byte	5
+	.byte	'rc',0,1,123,19
+	.word	.L391,.L393
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_Initialize')
+	.sect	'.debug_abbrev'
+.L246:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_Initialize')
+	.sect	'.debug_line'
+.L247:
+	.word	.L682-.L681
+.L681:
+	.half	3
+	.word	.L684-.L683
+.L683:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L684:
+	.byte	5,5,7,0,5,2
+	.word	.L186
+	.byte	3,253,0,1,5,20,9
+	.half	.L685-.L186
+	.byte	1,5,18,9
+	.half	.L686-.L685
+	.byte	1,5,59,9
+	.half	.L687-.L686
+	.byte	3,3,1,5,5,9
+	.half	.L688-.L687
+	.byte	1,5,12,7,9
+	.half	.L689-.L688
+	.byte	3,2,1,5,30,9
+	.half	.L545-.L689
+	.byte	1,5,61,9
+	.half	.L2-.L545
+	.byte	3,3,1,5,10,9
+	.half	.L690-.L2
+	.byte	1,5,12,7,9
+	.half	.L691-.L690
+	.byte	3,2,1,5,30,9
+	.half	.L546-.L691
+	.byte	1,5,25,9
+	.half	.L4-.L546
+	.byte	3,5,1,5,41,9
+	.half	.L692-.L4
+	.byte	1,5,44,9
+	.half	.L693-.L692
+	.byte	1,5,63,9
+	.half	.L694-.L693
+	.byte	3,3,1,5,9,9
+	.half	.L695-.L694
+	.byte	1,5,16,7,9
+	.half	.L696-.L695
+	.byte	3,2,1,5,34,9
+	.half	.L547-.L696
+	.byte	1,5,69,9
+	.half	.L6-.L547
+	.byte	3,3,1,5,14,9
+	.half	.L697-.L6
+	.byte	1,5,16,7,9
+	.half	.L698-.L697
+	.byte	3,2,1,5,34,9
+	.half	.L548-.L698
+	.byte	1,5,16,9
+	.half	.L8-.L548
+	.byte	3,5,1,5,5,9
+	.half	.L3-.L8
+	.byte	3,5,1,5,20,9
+	.half	.L699-.L3
+	.byte	1,5,18,9
+	.half	.L700-.L699
+	.byte	1,5,5,9
+	.half	.L701-.L700
+	.byte	3,3,1,5,1,9
+	.half	.L10-.L701
+	.byte	3,1,1,7,9
+	.half	.L249-.L10
+	.byte	0,1,1
+.L682:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_Initialize')
+	.sect	'.debug_ranges'
+.L248:
+	.word	-1,.L186,0,.L249-.L186,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_Terminate')
+	.sect	'.debug_info'
+.L250:
+	.word	285
+	.half	3
+	.word	.L251
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L253,.L252
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_Terminate',0,1,167,1,15
+	.word	.L391
+	.byte	1,1,1
+	.word	.L188,.L394,.L187
+	.byte	4
+	.word	.L188,.L394
+	.byte	5
+	.byte	'rc',0,1,170,1,19
+	.word	.L391,.L395
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_Terminate')
+	.sect	'.debug_abbrev'
+.L251:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_Terminate')
+	.sect	'.debug_line'
+.L252:
+	.word	.L703-.L702
+.L702:
+	.half	3
+	.word	.L705-.L704
+.L704:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L705:
+	.byte	5,5,7,0,5,2
+	.word	.L188
+	.byte	3,172,1,1,5,20,9
+	.half	.L706-.L188
+	.byte	1,5,18,9
+	.half	.L707-.L706
+	.byte	1,5,59,9
+	.half	.L708-.L707
+	.byte	3,3,1,5,5,9
+	.half	.L709-.L708
+	.byte	1,5,12,7,9
+	.half	.L710-.L709
+	.byte	3,2,1,5,30,9
+	.half	.L549-.L710
+	.byte	1,5,61,9
+	.half	.L11-.L549
+	.byte	3,3,1,5,10,9
+	.half	.L711-.L11
+	.byte	1,5,12,7,9
+	.half	.L712-.L711
+	.byte	3,2,1,5,30,9
+	.half	.L550-.L712
+	.byte	1,5,25,9
+	.half	.L13-.L550
+	.byte	3,5,1,5,41,9
+	.half	.L713-.L13
+	.byte	1,5,44,9
+	.half	.L714-.L713
+	.byte	1,5,12,9
+	.half	.L715-.L714
+	.byte	3,3,1,5,5,9
+	.half	.L12-.L715
+	.byte	3,4,1,5,1,9
+	.half	.L15-.L12
+	.byte	3,1,1,7,9
+	.half	.L254-.L15
+	.byte	0,1,1
+.L703:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_Terminate')
+	.sect	'.debug_ranges'
+.L253:
+	.word	-1,.L188,0,.L254-.L188,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_InitPort')
+	.sect	'.debug_info'
+.L255:
+	.word	327
+	.half	3
+	.word	.L256
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L258,.L257
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_InitPort',0,1,183,2,15
+	.word	.L391
+	.byte	1,1,1
+	.word	.L196,.L396,.L195
+	.byte	4
+	.byte	'pInternals',0,1,183,2,65
+	.word	.L397,.L398
+	.byte	4
+	.byte	'pPort',0,1,184,2,55
+	.word	.L399,.L400
+	.byte	5
+	.word	.L196,.L396
+	.byte	6
+	.byte	'rc',0,1,186,2,19
+	.word	.L391,.L401
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_InitPort')
+	.sect	'.debug_abbrev'
+.L256:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_InitPort')
+	.sect	'.debug_line'
+.L257:
+	.word	.L717-.L716
+.L716:
+	.half	3
+	.word	.L719-.L718
+.L718:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L719:
+	.byte	5,15,7,0,5,2
+	.word	.L196
+	.byte	3,182,2,1,5,9,9
+	.half	.L569-.L196
+	.byte	3,7,1,5,5,9
+	.half	.L720-.L569
+	.byte	1,5,12,7,9
+	.half	.L721-.L720
+	.byte	3,2,1,5,43,9
+	.half	.L570-.L721
+	.byte	1,9
+	.half	.L36-.L570
+	.byte	3,4,1,5,46,9
+	.half	.L722-.L36
+	.byte	1,5,41,9
+	.half	.L571-.L722
+	.byte	3,2,1,5,39,9
+	.half	.L723-.L571
+	.byte	3,1,1,5,37,9
+	.half	.L724-.L723
+	.byte	1,5,69,9
+	.half	.L725-.L724
+	.byte	3,1,1,5,67,9
+	.half	.L726-.L725
+	.byte	1,5,36,9
+	.half	.L727-.L726
+	.byte	3,3,1,5,30,9
+	.half	.L728-.L727
+	.byte	3,3,1,5,12,9
+	.half	.L573-.L728
+	.byte	1,5,39,9
+	.half	.L574-.L573
+	.byte	3,3,1,5,5,9
+	.half	.L37-.L574
+	.byte	3,4,1,5,1,9
+	.half	.L38-.L37
+	.byte	3,1,1,7,9
+	.half	.L259-.L38
+	.byte	0,1,1
+.L717:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_InitPort')
+	.sect	'.debug_ranges'
+.L258:
+	.word	-1,.L196,0,.L259-.L196,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_ClosePort')
+	.sect	'.debug_info'
+.L260:
+	.word	304
+	.half	3
+	.word	.L261
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L263,.L262
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_ClosePort',0,1,216,2,15
+	.word	.L391
+	.byte	1,1,1
+	.word	.L198,.L402,.L197
+	.byte	4
+	.byte	'pPort',0,1,216,2,62
+	.word	.L403,.L404
+	.byte	5
+	.word	.L198,.L402
+	.byte	6
+	.byte	'rc',0,1,219,2,19
+	.word	.L391,.L405
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_ClosePort')
+	.sect	'.debug_abbrev'
+.L261:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_ClosePort')
+	.sect	'.debug_line'
+.L262:
+	.word	.L730-.L729
+.L729:
+	.half	3
+	.word	.L732-.L731
+.L731:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L732:
+	.byte	5,15,7,0,5,2
+	.word	.L198
+	.byte	3,215,2,1,5,5,9
+	.half	.L577-.L198
+	.byte	3,6,1,5,12,7,9
+	.half	.L733-.L577
+	.byte	3,2,1,5,43,9
+	.half	.L578-.L733
+	.byte	1,5,36,9
+	.half	.L39-.L578
+	.byte	3,5,1,5,33,9
+	.half	.L576-.L39
+	.byte	3,4,1,5,14,9
+	.half	.L580-.L576
+	.byte	1,5,40,7,9
+	.half	.L734-.L580
+	.byte	1,5,62,9
+	.half	.L581-.L734
+	.byte	1,5,40,9
+	.half	.L41-.L581
+	.byte	1,5,39,9
+	.half	.L42-.L41
+	.byte	3,3,1,5,5,9
+	.half	.L40-.L42
+	.byte	3,4,1,5,1,9
+	.half	.L43-.L40
+	.byte	3,1,1,7,9
+	.half	.L264-.L43
+	.byte	0,1,1
+.L730:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_ClosePort')
+	.sect	'.debug_ranges'
+.L263:
+	.word	-1,.L198,0,.L264-.L198,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_CheckForPort')
+	.sect	'.debug_info'
+.L265:
+	.word	337
+	.half	3
+	.word	.L266
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L268,.L267
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_CheckForPort',0,1,220,4,6
+	.word	.L406
+	.byte	1,1,1
+	.word	.L212,.L407,.L211
+	.byte	4
+	.byte	'pPort',0,1,220,4,56
+	.word	.L408,.L409
+	.byte	5
+	.word	.L212,.L407
+	.byte	6
+	.byte	'bExists',0,1,223,4,10
+	.word	.L406,.L410
+	.byte	5
+	.word	.L411,.L95
+	.byte	6
+	.byte	'i',0,1,232,4,22
+	.word	.L412,.L413
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_CheckForPort')
+	.sect	'.debug_abbrev'
+.L266:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_CheckForPort')
+	.sect	'.debug_line'
+.L267:
+	.word	.L736-.L735
+.L735:
+	.half	3
+	.word	.L738-.L737
+.L737:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L738:
+	.byte	5,13,7,0,5,2
+	.word	.L212
+	.byte	3,225,4,1,5,9,9
+	.half	.L604-.L212
+	.byte	3,3,1,5,5,9
+	.half	.L739-.L604
+	.byte	1,5,24,7,9
+	.half	.L411-.L739
+	.byte	3,3,1,5,51,9
+	.half	.L605-.L411
+	.byte	1,5,17,9
+	.half	.L97-.L605
+	.byte	3,3,1,5,28,9
+	.half	.L740-.L97
+	.byte	1,5,17,9
+	.half	.L741-.L740
+	.byte	1,5,81,7,9
+	.half	.L742-.L741
+	.byte	1,5,70,9
+	.half	.L743-.L742
+	.byte	1,5,81,9
+	.half	.L744-.L743
+	.byte	1,5,42,9
+	.half	.L745-.L744
+	.byte	1,5,25,7,9
+	.half	.L746-.L745
+	.byte	3,3,1,5,17,9
+	.half	.L747-.L746
+	.byte	3,1,1,5,54,9
+	.half	.L98-.L747
+	.byte	3,121,1,5,34,9
+	.half	.L96-.L98
+	.byte	1,5,51,9
+	.half	.L748-.L96
+	.byte	1,5,5,7,9
+	.half	.L95-.L748
+	.byte	3,12,1,5,1,9
+	.half	.L101-.L95
+	.byte	3,1,1,7,9
+	.half	.L269-.L101
+	.byte	0,1,1
+.L736:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_CheckForPort')
+	.sect	'.debug_ranges'
+.L268:
+	.word	-1,.L212,0,.L269-.L212,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_Process')
+	.sect	'.debug_info'
+.L270:
+	.word	327
+	.half	3
+	.word	.L271
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L273,.L272
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_Process',0,1,198,1,15
+	.word	.L391
+	.byte	1,1,1
+	.word	.L190,.L414,.L189
+	.byte	4
+	.byte	'pPort',0,1,198,1,54
+	.word	.L415,.L416
+	.byte	5
+	.word	.L190,.L414
+	.byte	6
+	.byte	'rc',0,1,201,1,19
+	.word	.L391,.L417
+	.byte	5
+	.word	.L16,.L418
+	.byte	6
+	.byte	'i',0,1,210,1,22
+	.word	.L412,.L419
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_Process')
+	.sect	'.debug_abbrev'
+.L271:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_Process')
+	.sect	'.debug_line'
+.L272:
+	.word	.L750-.L749
+.L749:
+	.half	3
+	.word	.L752-.L751
+.L751:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L752:
+	.byte	5,15,7,0,5,2
+	.word	.L190
+	.byte	3,197,1,1,5,9,9
+	.half	.L551-.L190
+	.byte	3,5,1,5,5,9
+	.half	.L753-.L551
+	.byte	1,5,12,7,9
+	.half	.L754-.L753
+	.byte	3,2,1,5,43,9
+	.half	.L552-.L754
+	.byte	1,5,24,9
+	.half	.L16-.L552
+	.byte	3,5,1,5,61,9
+	.half	.L553-.L16
+	.byte	1,5,43,9
+	.half	.L19-.L553
+	.byte	3,2,1,5,46,9
+	.half	.L755-.L19
+	.byte	1,5,13,9
+	.half	.L756-.L755
+	.byte	1,5,69,7,9
+	.half	.L757-.L756
+	.byte	3,3,1,5,72,9
+	.half	.L758-.L757
+	.byte	1,9
+	.half	.L555-.L758
+	.byte	3,3,1,5,82,9
+	.half	.L759-.L555
+	.byte	1,5,64,9
+	.half	.L20-.L759
+	.byte	3,120,1,5,61,9
+	.half	.L18-.L20
+	.byte	1,5,50,7,9
+	.half	.L418-.L18
+	.byte	3,15,1,5,12,9
+	.half	.L558-.L418
+	.byte	3,3,1,5,5,9
+	.half	.L17-.L558
+	.byte	3,3,1,5,1,9
+	.half	.L21-.L17
+	.byte	3,1,1,7,9
+	.half	.L274-.L21
+	.byte	0,1,1
+.L750:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_Process')
+	.sect	'.debug_ranges'
+.L273:
+	.word	-1,.L190,0,.L274-.L190,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_ProcessAllPorts')
+	.sect	'.debug_info'
+.L275:
+	.word	296
+	.half	3
+	.word	.L276
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L278,.L277
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_ProcessAllPorts',0,1,234,1,6,1,1,1
+	.word	.L192,.L420,.L191
+	.byte	4
+	.word	.L192,.L420
+	.byte	4
+	.word	.L192,.L421
+	.byte	5
+	.byte	'i',0,1,237,1,18
+	.word	.L412,.L422
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_ProcessAllPorts')
+	.sect	'.debug_abbrev'
+.L276:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_ProcessAllPorts')
+	.sect	'.debug_line'
+.L277:
+	.word	.L761-.L760
+.L760:
+	.half	3
+	.word	.L763-.L762
+.L762:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L763:
+	.byte	5,20,7,0,5,2
+	.word	.L192
+	.byte	3,236,1,1,5,47,9
+	.half	.L560-.L192
+	.byte	1,5,13,9
+	.half	.L23-.L560
+	.byte	3,3,1,5,24,9
+	.half	.L764-.L23
+	.byte	1,5,13,9
+	.half	.L765-.L764
+	.byte	1,5,32,7,9
+	.half	.L766-.L765
+	.byte	1,5,57,9
+	.half	.L767-.L766
+	.byte	1,5,46,9
+	.half	.L768-.L767
+	.byte	1,5,57,9
+	.half	.L769-.L768
+	.byte	1,5,43,9
+	.half	.L770-.L769
+	.byte	1,5,28,7,9
+	.half	.L771-.L770
+	.byte	3,3,1,5,17,9
+	.half	.L772-.L771
+	.byte	1,5,28,9
+	.half	.L773-.L772
+	.byte	1,5,59,9
+	.half	.L774-.L773
+	.byte	1,5,13,9
+	.half	.L775-.L774
+	.byte	1,5,51,7,9
+	.half	.L776-.L775
+	.byte	3,3,1,5,40,9
+	.half	.L777-.L776
+	.byte	1,5,51,9
+	.half	.L778-.L777
+	.byte	1,5,60,9
+	.half	.L779-.L778
+	.byte	3,3,1,5,49,9
+	.half	.L780-.L779
+	.byte	1,5,60,9
+	.half	.L781-.L780
+	.byte	1,5,50,9
+	.half	.L24-.L781
+	.byte	3,116,1,5,30,9
+	.half	.L22-.L24
+	.byte	1,5,47,9
+	.half	.L782-.L22
+	.byte	1,5,1,7,9
+	.half	.L421-.L782
+	.byte	3,16,1,7,9
+	.half	.L279-.L421
+	.byte	0,1,1
+.L761:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_ProcessAllPorts')
+	.sect	'.debug_ranges'
+.L278:
+	.word	-1,.L192,0,.L279-.L192,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_Login')
+	.sect	'.debug_info'
+.L280:
+	.word	303
+	.half	3
+	.word	.L281
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L283,.L282
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_Login',0,1,247,4,6,1,1,1
+	.word	.L214,.L423,.L213
+	.byte	4
+	.byte	'pPort',0,1,247,4,43
+	.word	.L424,.L425
+	.byte	4
+	.byte	'iSessionId',0,1,247,4,58
+	.word	.L412,.L426
+	.byte	5
+	.word	.L214,.L423
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_Login')
+	.sect	'.debug_abbrev'
+.L281:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_Login')
+	.sect	'.debug_line'
+.L282:
+	.word	.L784-.L783
+.L783:
+	.half	3
+	.word	.L786-.L785
+.L785:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L786:
+	.byte	5,9,7,0,5,2
+	.word	.L214
+	.byte	3,249,4,1,5,5,9
+	.half	.L787-.L214
+	.byte	1,5,64,7,9
+	.half	.L788-.L787
+	.byte	3,3,1,5,62,9
+	.half	.L789-.L788
+	.byte	1,5,71,9
+	.half	.L790-.L789
+	.byte	3,1,1,5,69,9
+	.half	.L791-.L790
+	.byte	1,5,67,9
+	.half	.L792-.L791
+	.byte	3,1,1,5,65,9
+	.half	.L793-.L792
+	.byte	1,5,37,9
+	.half	.L794-.L793
+	.byte	3,3,1,5,39,9
+	.half	.L795-.L794
+	.byte	3,1,1,5,37,9
+	.half	.L796-.L795
+	.byte	1,5,67,9
+	.half	.L797-.L796
+	.byte	3,1,1,5,1,9
+	.half	.L102-.L797
+	.byte	3,2,1,7,9
+	.half	.L284-.L102
+	.byte	0,1,1
+.L784:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_Login')
+	.sect	'.debug_ranges'
+.L283:
+	.word	-1,.L214,0,.L284-.L214,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_Logout')
+	.sect	'.debug_info'
+.L285:
+	.word	280
+	.half	3
+	.word	.L286
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L288,.L287
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_Logout',0,1,136,5,6,1,1,1
+	.word	.L216,.L427,.L215
+	.byte	4
+	.byte	'pPort',0,1,136,5,44
+	.word	.L428,.L429
+	.byte	5
+	.word	.L216,.L427
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_Logout')
+	.sect	'.debug_abbrev'
+.L286:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_Logout')
+	.sect	'.debug_line'
+.L287:
+	.word	.L799-.L798
+.L798:
+	.half	3
+	.word	.L801-.L800
+.L800:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L801:
+	.byte	5,9,7,0,5,2
+	.word	.L216
+	.byte	3,138,5,1,5,5,9
+	.half	.L802-.L216
+	.byte	1,5,64,7,9
+	.half	.L803-.L802
+	.byte	3,3,1,5,62,9
+	.half	.L804-.L803
+	.byte	1,5,71,9
+	.half	.L805-.L804
+	.byte	3,1,1,5,69,9
+	.half	.L806-.L805
+	.byte	1,5,67,9
+	.half	.L807-.L806
+	.byte	3,1,1,5,65,9
+	.half	.L808-.L807
+	.byte	1,5,39,9
+	.half	.L809-.L808
+	.byte	3,3,1,5,37,9
+	.half	.L810-.L809
+	.byte	1,5,39,9
+	.half	.L811-.L810
+	.byte	3,1,1,5,37,9
+	.half	.L812-.L811
+	.byte	1,5,1,9
+	.half	.L103-.L812
+	.byte	3,2,1,7,9
+	.half	.L289-.L103
+	.byte	0,1,1
+.L799:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_Logout')
+	.sect	'.debug_ranges'
+.L288:
+	.word	-1,.L216,0,.L289-.L216,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_SubmitFrame')
+	.sect	'.debug_info'
+.L290:
+	.word	344
+	.half	3
+	.word	.L291
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L293,.L292
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_SubmitFrame',0,1,255,1,15
+	.word	.L391
+	.byte	1,1,1
+	.word	.L194,.L430,.L193
+	.byte	4
+	.byte	'pPort',0,1,255,1,58
+	.word	.L431,.L432
+	.byte	4
+	.byte	'pFrame',0,1,128,2,67
+	.word	.L433,.L434
+	.byte	5
+	.word	.L194,.L430
+	.byte	6
+	.byte	'iCRC',0,1,131,2,14
+	.word	.L435,.L436
+	.byte	6
+	.byte	'rc',0,1,134,2,19
+	.word	.L391,.L437
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_SubmitFrame')
+	.sect	'.debug_abbrev'
+.L291:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_SubmitFrame')
+	.sect	'.debug_line'
+.L292:
+	.word	.L814-.L813
+.L813:
+	.half	3
+	.word	.L816-.L815
+.L815:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L816:
+	.byte	5,15,7,0,5,2
+	.word	.L194
+	.byte	3,254,1,1,5,10,9
+	.half	.L564-.L194
+	.byte	3,9,1,5,9,9
+	.half	.L817-.L564
+	.byte	1,5,35,7,9
+	.half	.L818-.L817
+	.byte	1,5,46,9
+	.half	.L819-.L818
+	.byte	1,5,12,7,9
+	.half	.L27-.L819
+	.byte	3,2,1,5,43,9
+	.half	.L565-.L27
+	.byte	1,5,21,9
+	.half	.L28-.L565
+	.byte	3,2,1,5,30,9
+	.half	.L820-.L28
+	.byte	1,5,14,9
+	.half	.L821-.L820
+	.byte	1,5,21,7,9
+	.half	.L822-.L821
+	.byte	3,1,1,5,30,9
+	.half	.L823-.L822
+	.byte	1,5,28,9
+	.half	.L824-.L823
+	.byte	1,5,12,7,9
+	.half	.L30-.L824
+	.byte	3,2,1,5,43,9
+	.half	.L566-.L30
+	.byte	1,5,15,9
+	.half	.L31-.L566
+	.byte	3,5,1,5,48,9
+	.half	.L825-.L31
+	.byte	1,5,55,9
+	.half	.L826-.L825
+	.byte	1,5,29,9
+	.half	.L827-.L826
+	.byte	1,5,15,9
+	.half	.L828-.L827
+	.byte	3,3,1,5,73,9
+	.half	.L829-.L828
+	.byte	1,5,55,9
+	.half	.L830-.L829
+	.byte	1,5,44,9
+	.half	.L831-.L830
+	.byte	3,3,1,5,54,9
+	.half	.L562-.L831
+	.byte	3,1,1,5,61,9
+	.half	.L832-.L562
+	.byte	1,5,37,9
+	.half	.L833-.L832
+	.byte	3,1,1,5,15,9
+	.half	.L561-.L833
+	.byte	3,3,1,5,73,9
+	.half	.L834-.L561
+	.byte	1,5,96,9
+	.half	.L835-.L834
+	.byte	1,5,53,9
+	.half	.L836-.L835
+	.byte	1,5,15,9
+	.half	.L837-.L836
+	.byte	3,1,1,5,75,9
+	.half	.L838-.L837
+	.byte	1,5,73,9
+	.half	.L839-.L838
+	.byte	1,5,96,9
+	.half	.L840-.L839
+	.byte	1,5,53,9
+	.half	.L841-.L840
+	.byte	1,5,15,9
+	.half	.L842-.L841
+	.byte	3,1,1,5,75,9
+	.half	.L843-.L842
+	.byte	1,5,73,9
+	.half	.L844-.L843
+	.byte	1,5,95,9
+	.half	.L845-.L844
+	.byte	1,5,53,9
+	.half	.L846-.L845
+	.byte	1,5,15,9
+	.half	.L847-.L846
+	.byte	3,1,1,5,73,9
+	.half	.L848-.L847
+	.byte	1,5,95,9
+	.half	.L849-.L848
+	.byte	1,5,53,9
+	.half	.L850-.L849
+	.byte	1,5,19,9
+	.half	.L851-.L850
+	.byte	3,3,1,5,48,9
+	.half	.L852-.L851
+	.byte	1,5,9,9
+	.half	.L853-.L852
+	.byte	1,5,57,7,9
+	.half	.L854-.L853
+	.byte	3,2,1,5,55,9
+	.half	.L855-.L854
+	.byte	1,5,61,9
+	.half	.L856-.L855
+	.byte	1,5,64,9
+	.half	.L33-.L856
+	.byte	3,5,1,5,62,9
+	.half	.L857-.L33
+	.byte	1,5,12,9
+	.half	.L34-.L857
+	.byte	3,4,1,5,5,9
+	.half	.L29-.L34
+	.byte	3,4,1,5,1,9
+	.half	.L35-.L29
+	.byte	3,1,1,7,9
+	.half	.L294-.L35
+	.byte	0,1,1
+.L814:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_SubmitFrame')
+	.sect	'.debug_ranges'
+.L293:
+	.word	-1,.L194,0,.L294-.L194,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_AddPort')
+	.sect	'.debug_info'
+.L295:
+	.word	378
+	.half	3
+	.word	.L296
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L298,.L297
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_AddPort',0,1,225,3,22
+	.word	.L391
+	.byte	1,1
+	.word	.L208,.L438,.L207
+	.byte	4
+	.byte	'pPort',0,1,225,3,61
+	.word	.L439,.L440
+	.byte	5
+	.word	.L208,.L438
+	.byte	6
+	.byte	'rc',0,1,228,3,19
+	.word	.L391,.L441
+	.byte	6
+	.byte	'bNewSPIDevice',0,1,231,3,10
+	.word	.L406,.L442
+	.byte	5
+	.word	.L443,.L73
+	.byte	6
+	.byte	'i',0,1,240,3,18
+	.word	.L412,.L444
+	.byte	0,5
+	.word	.L73,.L80
+	.byte	6
+	.byte	'i',0,1,130,4,18
+	.word	.L412,.L445
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_AddPort')
+	.sect	'.debug_abbrev'
+.L296:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_AddPort')
+	.sect	'.debug_line'
+.L297:
+	.word	.L859-.L858
+.L858:
+	.half	3
+	.word	.L861-.L860
+.L860:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L861:
+	.byte	5,22,7,0,5,2
+	.word	.L208
+	.byte	3,224,3,1,5,19,9
+	.half	.L595-.L208
+	.byte	3,9,1,5,8,9
+	.half	.L596-.L595
+	.byte	3,3,1,5,20,9
+	.half	.L443-.L596
+	.byte	3,3,1,5,47,9
+	.half	.L598-.L443
+	.byte	1,5,13,9
+	.half	.L69-.L598
+	.byte	3,3,1,5,24,9
+	.half	.L862-.L69
+	.byte	1,5,13,9
+	.half	.L863-.L862
+	.byte	1,5,32,7,9
+	.half	.L864-.L863
+	.byte	1,5,57,9
+	.half	.L865-.L864
+	.byte	1,5,46,9
+	.half	.L866-.L865
+	.byte	1,5,57,9
+	.half	.L867-.L866
+	.byte	1,5,43,9
+	.half	.L868-.L867
+	.byte	1,5,28,7,9
+	.half	.L869-.L868
+	.byte	3,3,1,5,17,9
+	.half	.L870-.L869
+	.byte	1,5,28,9
+	.half	.L871-.L870
+	.byte	1,5,31,9
+	.half	.L872-.L871
+	.byte	1,5,52,9
+	.half	.L873-.L872
+	.byte	1,5,13,9
+	.half	.L874-.L873
+	.byte	1,5,31,7,9
+	.half	.L875-.L874
+	.byte	3,3,1,5,17,9
+	.half	.L876-.L875
+	.byte	3,3,1,5,50,9
+	.half	.L70-.L876
+	.byte	3,116,1,5,30,9
+	.half	.L68-.L70
+	.byte	1,5,47,9
+	.half	.L877-.L68
+	.byte	1,5,20,7,9
+	.half	.L73-.L877
+	.byte	3,18,1,5,47,9
+	.half	.L599-.L73
+	.byte	1,5,14,9
+	.half	.L75-.L599
+	.byte	3,4,1,5,25,9
+	.half	.L878-.L75
+	.byte	1,5,14,9
+	.half	.L879-.L878
+	.byte	1,5,16,7,9
+	.half	.L880-.L879
+	.byte	3,3,1,5,13,9
+	.half	.L881-.L880
+	.byte	3,3,1,5,74,7,9
+	.half	.L882-.L881
+	.byte	3,3,1,5,89,9
+	.half	.L883-.L882
+	.byte	1,5,17,9
+	.half	.L597-.L883
+	.byte	1,5,24,7,9
+	.half	.L884-.L597
+	.byte	3,2,1,5,13,9
+	.half	.L77-.L884
+	.byte	3,5,1,5,28,7,9
+	.half	.L885-.L77
+	.byte	3,2,1,5,17,9
+	.half	.L886-.L885
+	.byte	1,5,28,9
+	.half	.L887-.L886
+	.byte	1,5,32,9
+	.half	.L888-.L887
+	.byte	1,5,17,9
+	.half	.L889-.L888
+	.byte	3,1,1,5,28,9
+	.half	.L890-.L889
+	.byte	1,5,34,9
+	.half	.L891-.L890
+	.byte	1,5,32,9
+	.half	.L892-.L891
+	.byte	1,5,13,9
+	.half	.L79-.L892
+	.byte	3,4,1,5,50,9
+	.half	.L76-.L79
+	.byte	3,101,1,5,30,9
+	.half	.L74-.L76
+	.byte	1,5,47,9
+	.half	.L893-.L74
+	.byte	1,5,5,7,9
+	.half	.L80-.L893
+	.byte	3,32,1,5,1,9
+	.half	.L81-.L80
+	.byte	3,1,1,7,9
+	.half	.L299-.L81
+	.byte	0,1,1
+.L859:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_AddPort')
+	.sect	'.debug_ranges'
+.L298:
+	.word	-1,.L208,0,.L299-.L208,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_RemovePort')
+	.sect	'.debug_info'
+.L300:
+	.word	356
+	.half	3
+	.word	.L301
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L303,.L302
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_RemovePort',0,1,165,4,13
+	.word	.L406
+	.byte	1,1
+	.word	.L210,.L446,.L209
+	.byte	4
+	.byte	'pPort',0,1,165,4,61
+	.word	.L447,.L448
+	.byte	5
+	.word	.L210,.L446
+	.byte	6
+	.byte	'bCloseSPI',0,1,168,4,10
+	.word	.L406,.L449
+	.byte	6
+	.byte	'bFound',0,1,171,4,10
+	.word	.L406,.L450
+	.byte	5
+	.word	.L451,.L91
+	.byte	6
+	.byte	'i',0,1,180,4,18
+	.word	.L412,.L452
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_RemovePort')
+	.sect	'.debug_abbrev'
+.L301:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_RemovePort')
+	.sect	'.debug_line'
+.L302:
+	.word	.L895-.L894
+.L894:
+	.half	3
+	.word	.L897-.L896
+.L896:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L897:
+	.byte	5,15,7,0,5,2
+	.word	.L210
+	.byte	3,173,4,1,5,12,9
+	.half	.L601-.L210
+	.byte	3,3,1,5,20,9
+	.half	.L451-.L601
+	.byte	3,3,1,5,47,9
+	.half	.L602-.L451
+	.byte	1,5,13,9
+	.half	.L83-.L602
+	.byte	3,3,1,5,24,9
+	.half	.L898-.L83
+	.byte	1,5,13,9
+	.half	.L899-.L898
+	.byte	1,5,32,7,9
+	.half	.L900-.L899
+	.byte	1,5,57,9
+	.half	.L901-.L900
+	.byte	1,5,46,9
+	.half	.L902-.L901
+	.byte	1,5,57,9
+	.half	.L903-.L902
+	.byte	1,5,43,9
+	.half	.L904-.L903
+	.byte	1,5,29,7,9
+	.half	.L905-.L904
+	.byte	3,3,1,5,18,9
+	.half	.L906-.L905
+	.byte	1,5,29,9
+	.half	.L907-.L906
+	.byte	1,5,32,9
+	.half	.L908-.L907
+	.byte	1,5,53,9
+	.half	.L909-.L908
+	.byte	1,5,17,9
+	.half	.L910-.L909
+	.byte	1,5,29,7,9
+	.half	.L911-.L910
+	.byte	3,1,1,5,18,9
+	.half	.L912-.L911
+	.byte	1,5,29,9
+	.half	.L913-.L912
+	.byte	1,5,32,9
+	.half	.L914-.L913
+	.byte	1,5,54,9
+	.half	.L915-.L914
+	.byte	1,5,46,9
+	.half	.L916-.L915
+	.byte	1,5,27,7,9
+	.half	.L917-.L916
+	.byte	3,3,1,5,37,9
+	.half	.L86-.L917
+	.byte	3,3,1,5,26,9
+	.half	.L918-.L86
+	.byte	1,5,37,9
+	.half	.L919-.L918
+	.byte	1,5,13,9
+	.half	.L920-.L919
+	.byte	1,5,17,7,9
+	.half	.L921-.L920
+	.byte	3,4,1,5,28,9
+	.half	.L922-.L921
+	.byte	1,5,34,9
+	.half	.L923-.L922
+	.byte	1,5,32,9
+	.half	.L924-.L923
+	.byte	1,5,24,9
+	.half	.L925-.L924
+	.byte	3,1,1,5,17,9
+	.half	.L88-.L925
+	.byte	3,5,1,5,28,7,9
+	.half	.L926-.L88
+	.byte	1,5,17,7,9
+	.half	.L927-.L926
+	.byte	3,2,1,5,50,9
+	.half	.L84-.L927
+	.byte	3,103,1,5,30,9
+	.half	.L82-.L84
+	.byte	1,5,47,9
+	.half	.L928-.L82
+	.byte	1,5,9,7,9
+	.half	.L91-.L928
+	.byte	3,32,1,5,19,7,9
+	.half	.L929-.L91
+	.byte	1,5,43,7,9
+	.half	.L930-.L929
+	.byte	3,2,1,5,5,9
+	.half	.L92-.L930
+	.byte	3,3,1,5,1,9
+	.half	.L94-.L92
+	.byte	3,1,1,7,9
+	.half	.L304-.L94
+	.byte	0,1,1
+.L895:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_RemovePort')
+	.sect	'.debug_ranges'
+.L303:
+	.word	-1,.L210,0,.L304-.L210,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_TimerCb')
+	.sect	'.debug_info'
+.L305:
+	.word	261
+	.half	3
+	.word	.L306
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L308,.L307
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_TimerCb',0,1,211,7,13,1,1
+	.word	.L232,.L453,.L231
+	.byte	4
+	.word	.L232,.L453
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_TimerCb')
+	.sect	'.debug_abbrev'
+.L306:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_TimerCb')
+	.sect	'.debug_line'
+.L307:
+	.word	.L932-.L931
+.L931:
+	.half	3
+	.word	.L934-.L933
+.L933:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L934:
+	.byte	5,10,7,0,5,2
+	.word	.L232
+	.byte	3,213,7,1,5,43,9
+	.half	.L935-.L232
+	.byte	3,3,1,5,41,9
+	.half	.L936-.L935
+	.byte	3,4,1,5,1,9
+	.half	.L152-.L936
+	.byte	3,2,1,7,9
+	.half	.L309-.L152
+	.byte	0,1,1
+.L932:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_TimerCb')
+	.sect	'.debug_ranges'
+.L308:
+	.word	-1,.L232,0,.L309-.L232,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_TransmitOnAvailableDevices')
+	.sect	'.debug_info'
+.L310:
+	.word	367
+	.half	3
+	.word	.L311
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L313,.L312
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_TransmitOnAvailableDevices',0,1,225,7,13,1,1
+	.word	.L234,.L454,.L233
+	.byte	4
+	.word	.L234,.L454
+	.byte	5
+	.byte	'iTransmittedList',0,1,228,7,13
+	.word	.L455,.L456
+	.byte	5
+	.byte	'iTransmittedCount',0,1,231,7,14
+	.word	.L435,.L457
+	.byte	4
+	.word	.L458,.L459
+	.byte	5
+	.byte	'i',0,1,237,7,18
+	.word	.L412,.L460
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_TransmitOnAvailableDevices')
+	.sect	'.debug_abbrev'
+.L311:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_TransmitOnAvailableDevices')
+	.sect	'.debug_line'
+.L312:
+	.word	.L938-.L937
+.L937:
+	.half	3
+	.word	.L940-.L939
+.L939:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L940:
+	.byte	5,13,7,0,5,2
+	.word	.L234
+	.byte	3,224,7,1,5,23,9
+	.half	.L666-.L234
+	.byte	3,9,1,5,20,9
+	.half	.L458-.L666
+	.byte	3,3,1,5,47,9
+	.half	.L667-.L458
+	.byte	1,5,14,9
+	.half	.L154-.L667
+	.byte	3,3,1,5,25,9
+	.half	.L941-.L154
+	.byte	1,5,14,9
+	.half	.L942-.L941
+	.byte	1,5,33,7,9
+	.half	.L943-.L942
+	.byte	1,5,58,9
+	.half	.L944-.L943
+	.byte	1,5,47,9
+	.half	.L945-.L944
+	.byte	1,5,58,9
+	.half	.L946-.L945
+	.byte	1,5,44,9
+	.half	.L947-.L946
+	.byte	1,5,29,7,9
+	.half	.L155-.L947
+	.byte	1,9
+	.half	.L156-.L155
+	.byte	3,8,1,5,18,9
+	.half	.L948-.L156
+	.byte	1,5,29,9
+	.half	.L949-.L948
+	.byte	1,5,43,9
+	.half	.L950-.L949
+	.byte	1,5,18,9
+	.half	.L951-.L950
+	.byte	1,5,48,7,9
+	.half	.L952-.L951
+	.byte	3,1,1,5,58,9
+	.half	.L953-.L952
+	.byte	3,2,1,5,47,9
+	.half	.L954-.L953
+	.byte	1,5,58,9
+	.half	.L955-.L954
+	.byte	1,5,61,9
+	.half	.L956-.L955
+	.byte	1,5,18,9
+	.half	.L669-.L956
+	.byte	3,126,1,5,45,7,9
+	.half	.L957-.L669
+	.byte	3,5,1,5,34,9
+	.half	.L958-.L957
+	.byte	1,5,45,9
+	.half	.L959-.L958
+	.byte	1,5,41,9
+	.half	.L960-.L959
+	.byte	3,4,1,5,17,9
+	.half	.L961-.L960
+	.byte	1,5,38,7,9
+	.half	.L962-.L961
+	.byte	3,2,1,5,71,9
+	.half	.L963-.L962
+	.byte	1,5,60,9
+	.half	.L964-.L963
+	.byte	1,5,71,9
+	.half	.L965-.L964
+	.byte	1,5,74,9
+	.half	.L966-.L965
+	.byte	1,5,58,9
+	.half	.L967-.L966
+	.byte	1,5,38,9
+	.half	.L968-.L967
+	.byte	3,1,1,5,50,9
+	.half	.L157-.L968
+	.byte	3,104,1,5,30,9
+	.half	.L153-.L157
+	.byte	1,5,47,9
+	.half	.L969-.L153
+	.byte	1,5,1,7,9
+	.half	.L459-.L969
+	.byte	3,29,1,7,9
+	.half	.L314-.L459
+	.byte	0,1,1
+.L938:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_TransmitOnAvailableDevices')
+	.sect	'.debug_ranges'
+.L313:
+	.word	-1,.L234,0,.L314-.L234,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_CheckTransmittedList')
+	.sect	'.debug_info'
+.L315:
+	.word	409
+	.half	3
+	.word	.L316
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L318,.L317
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_CheckTransmittedList',0,1,140,8,13
+	.word	.L406
+	.byte	1,1
+	.word	.L236,.L461,.L235
+	.byte	4
+	.byte	'pTransmittedList',0,1,140,8,64
+	.word	.L462,.L463
+	.byte	4
+	.byte	'iTransmittedCount',0,1,141,8,51
+	.word	.L435,.L464
+	.byte	4
+	.byte	'iSPIDevice',0,1,142,8,50
+	.word	.L412,.L465
+	.byte	5
+	.word	.L236,.L461
+	.byte	6
+	.byte	'bFound',0,1,145,8,10
+	.word	.L406,.L466
+	.byte	5
+	.word	.L467,.L164
+	.byte	6
+	.byte	'i',0,1,151,8,19
+	.word	.L435,.L468
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_CheckTransmittedList')
+	.sect	'.debug_abbrev'
+.L316:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_CheckTransmittedList')
+	.sect	'.debug_line'
+.L317:
+	.word	.L971-.L970
+.L970:
+	.half	3
+	.word	.L973-.L972
+.L972:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L973:
+	.byte	5,12,7,0,5,2
+	.word	.L236
+	.byte	3,147,8,1,5,21,9
+	.half	.L467-.L236
+	.byte	3,3,1,5,48,9
+	.half	.L670-.L467
+	.byte	1,5,30,9
+	.half	.L162-.L670
+	.byte	3,3,1,5,9,9
+	.half	.L974-.L162
+	.byte	1,5,20,7,9
+	.half	.L975-.L974
+	.byte	3,2,1,5,13,9
+	.half	.L976-.L975
+	.byte	3,1,1,5,51,9
+	.half	.L163-.L976
+	.byte	3,122,1,5,48,9
+	.half	.L161-.L163
+	.byte	1,5,5,7,9
+	.half	.L164-.L161
+	.byte	3,11,1,5,1,9
+	.half	.L165-.L164
+	.byte	3,1,1,7,9
+	.half	.L319-.L165
+	.byte	0,1,1
+.L971:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_CheckTransmittedList')
+	.sect	'.debug_ranges'
+.L318:
+	.word	-1,.L236,0,.L319-.L236,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_Transmit')
+	.sect	'.debug_info'
+.L320:
+	.word	281
+	.half	3
+	.word	.L321
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L323,.L322
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_Transmit',0,1,152,5,13,1,1
+	.word	.L218,.L469,.L217
+	.byte	4
+	.byte	'pPort',0,1,152,5,53
+	.word	.L470,.L471
+	.byte	5
+	.word	.L218,.L469
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_Transmit')
+	.sect	'.debug_abbrev'
+.L321:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_Transmit')
+	.sect	'.debug_line'
+.L322:
+	.word	.L978-.L977
+.L977:
+	.half	3
+	.word	.L980-.L979
+.L979:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L980:
+	.byte	5,13,7,0,5,2
+	.word	.L218
+	.byte	3,151,5,1,5,26,9
+	.half	.L607-.L218
+	.byte	3,3,1,5,10,9
+	.half	.L981-.L607
+	.byte	1,5,35,7,9
+	.half	.L982-.L981
+	.byte	3,3,1,5,33,9
+	.half	.L983-.L982
+	.byte	1,5,43,9
+	.half	.L984-.L983
+	.byte	3,3,1,9
+	.half	.L606-.L984
+	.byte	3,3,1,5,13,9
+	.half	.L609-.L606
+	.byte	3,3,1,5,43,9
+	.half	.L985-.L609
+	.byte	1,5,9,9
+	.half	.L986-.L985
+	.byte	1,5,77,7,9
+	.half	.L987-.L986
+	.byte	3,2,1,5,39,9
+	.half	.L988-.L987
+	.byte	3,3,1,5,37,9
+	.half	.L989-.L988
+	.byte	1,5,99,9
+	.half	.L990-.L989
+	.byte	3,125,1,5,75,9
+	.half	.L105-.L990
+	.byte	3,5,1,5,78,9
+	.half	.L991-.L105
+	.byte	3,1,1,5,89,9
+	.half	.L992-.L991
+	.byte	3,1,1,9
+	.half	.L993-.L992
+	.byte	3,1,1,5,73,9
+	.half	.L994-.L993
+	.byte	3,1,1,5,14,9
+	.half	.L995-.L994
+	.byte	3,124,1,5,57,7,9
+	.half	.L996-.L995
+	.byte	3,7,1,5,77,9
+	.half	.L611-.L996
+	.byte	3,3,1,5,39,9
+	.half	.L997-.L611
+	.byte	3,3,1,5,37,9
+	.half	.L998-.L997
+	.byte	1,5,62,9
+	.half	.L999-.L998
+	.byte	3,122,1,9
+	.half	.L107-.L999
+	.byte	3,11,1,5,77,9
+	.half	.L1000-.L107
+	.byte	1,5,45,9
+	.half	.L1001-.L1000
+	.byte	3,3,1,5,43,9
+	.half	.L1002-.L1001
+	.byte	1,5,45,9
+	.half	.L1003-.L1002
+	.byte	3,3,1,5,43,9
+	.half	.L1004-.L1003
+	.byte	1,5,1,9
+	.half	.L104-.L1004
+	.byte	3,3,1,7,9
+	.half	.L324-.L104
+	.byte	0,1,1
+.L978:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_Transmit')
+	.sect	'.debug_ranges'
+.L323:
+	.word	-1,.L218,0,.L324-.L218,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_wil_SetupTxTransmission')
+	.sect	'.debug_info'
+.L325:
+	.word	297
+	.half	3
+	.word	.L326
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L328,.L327
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_wil_SetupTxTransmission',0,1,203,5,13,1,1
+	.word	.L220,.L472,.L219
+	.byte	4
+	.byte	'pInternals',0,1,203,5,73
+	.word	.L473,.L474
+	.byte	5
+	.word	.L220,.L472
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_wil_SetupTxTransmission')
+	.sect	'.debug_abbrev'
+.L326:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_wil_SetupTxTransmission')
+	.sect	'.debug_line'
+.L327:
+	.word	.L1006-.L1005
+.L1005:
+	.half	3
+	.word	.L1008-.L1007
+.L1007:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1008:
+	.byte	5,20,7,0,5,2
+	.word	.L220
+	.byte	3,204,5,1,5,10,9
+	.half	.L1009-.L220
+	.byte	1,5,38,7,9
+	.half	.L1010-.L1009
+	.byte	3,3,1,5,25,9
+	.half	.L1011-.L1010
+	.byte	1,5,53,9
+	.half	.L1012-.L1011
+	.byte	1,5,24,9
+	.half	.L109-.L1012
+	.byte	3,2,1,5,10,9
+	.half	.L1013-.L109
+	.byte	1,5,23,7,9
+	.half	.L1014-.L1013
+	.byte	3,3,1,5,9,9
+	.half	.L1015-.L1014
+	.byte	1,5,41,7,9
+	.half	.L1016-.L1015
+	.byte	3,3,1,5,31,9
+	.half	.L1017-.L1016
+	.byte	1,5,80,7,9
+	.half	.L1018-.L1017
+	.byte	1,5,110,9
+	.half	.L1019-.L1018
+	.byte	1,5,123,9
+	.half	.L113-.L1019
+	.byte	1,5,29,9
+	.half	.L114-.L113
+	.byte	1,5,82,9
+	.half	.L1020-.L114
+	.byte	3,3,1,5,68,9
+	.half	.L1021-.L1020
+	.byte	1,5,49,9
+	.half	.L1022-.L1021
+	.byte	1,5,145,1,9
+	.half	.L1023-.L1022
+	.byte	3,125,1,5,42,9
+	.half	.L112-.L1023
+	.byte	3,8,1,5,29,9
+	.half	.L1024-.L112
+	.byte	1,5,51,9
+	.half	.L1025-.L1024
+	.byte	3,3,1,5,49,9
+	.half	.L1026-.L1025
+	.byte	1,5,9,9
+	.half	.L115-.L1026
+	.byte	3,122,1,5,24,9
+	.half	.L111-.L115
+	.byte	3,9,1,5,10,9
+	.half	.L1027-.L111
+	.byte	1,5,38,7,9
+	.half	.L1028-.L1027
+	.byte	3,3,1,5,25,9
+	.half	.L1029-.L1028
+	.byte	1,5,47,9
+	.half	.L1030-.L1029
+	.byte	3,3,1,5,45,9
+	.half	.L1031-.L1030
+	.byte	1,5,67,9
+	.half	.L1032-.L1031
+	.byte	3,125,1,5,38,9
+	.half	.L117-.L1032
+	.byte	3,8,1,5,25,9
+	.half	.L1033-.L117
+	.byte	1,5,1,9
+	.half	.L110-.L1033
+	.byte	3,2,1,7,9
+	.half	.L329-.L110
+	.byte	0,1,1
+.L1006:
+	.sdecl	'.debug_ranges',debug,cluster('wb_wil_SetupTxTransmission')
+	.sect	'.debug_ranges'
+.L328:
+	.word	-1,.L220,0,.L329-.L220,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_wil_SetupRxTransmission')
+	.sect	'.debug_info'
+.L330:
+	.word	323
+	.half	3
+	.word	.L331
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L333,.L332
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_wil_SetupRxTransmission',0,1,245,5,13,1,1
+	.word	.L222,.L475,.L221
+	.byte	4
+	.byte	'pInternals',0,1,245,5,73
+	.word	.L476,.L477
+	.byte	5
+	.word	.L222,.L475
+	.byte	5
+	.word	.L478,.L122
+	.byte	6
+	.byte	'i',0,1,251,5,18
+	.word	.L412,.L479
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_wil_SetupRxTransmission')
+	.sect	'.debug_abbrev'
+.L331:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3,8,58
+	.byte	15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_wil_SetupRxTransmission')
+	.sect	'.debug_line'
+.L332:
+	.word	.L1035-.L1034
+.L1034:
+	.half	3
+	.word	.L1037-.L1036
+.L1036:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1037:
+	.byte	5,23,7,0,5,2
+	.word	.L222
+	.byte	3,247,5,1,5,21,9
+	.half	.L1038-.L222
+	.byte	1,5,20,9
+	.half	.L478-.L1038
+	.byte	3,3,1,5,57,9
+	.half	.L612-.L478
+	.byte	1,5,35,9
+	.half	.L120-.L612
+	.byte	3,3,1,5,38,9
+	.half	.L1039-.L120
+	.byte	1,5,14,9
+	.half	.L1040-.L1039
+	.byte	1,5,34,7,9
+	.half	.L1041-.L1040
+	.byte	3,3,1,5,47,9
+	.half	.L1042-.L1041
+	.byte	1,5,45,9
+	.half	.L1043-.L1042
+	.byte	1,5,53,9
+	.half	.L1044-.L1043
+	.byte	3,3,1,5,29,9
+	.half	.L1045-.L1044
+	.byte	1,5,13,9
+	.half	.L1046-.L1045
+	.byte	3,3,1,5,60,9
+	.half	.L121-.L1046
+	.byte	3,116,1,5,57,9
+	.half	.L119-.L121
+	.byte	1,5,1,7,9
+	.half	.L122-.L119
+	.byte	3,15,1,7,9
+	.half	.L334-.L122
+	.byte	0,1,1
+.L1035:
+	.sdecl	'.debug_ranges',debug,cluster('wb_wil_SetupRxTransmission')
+	.sect	'.debug_ranges'
+.L333:
+	.word	-1,.L222,0,.L334-.L222,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_CheckTransmissibleStatus')
+	.sect	'.debug_info'
+.L335:
+	.word	304
+	.half	3
+	.word	.L336
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L338,.L337
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_CheckTransmissibleStatus',0,1,165,8,13,1,1
+	.word	.L238,.L480,.L237
+	.byte	4
+	.word	.L238,.L480
+	.byte	4
+	.word	.L238,.L481
+	.byte	5
+	.byte	'i',0,1,168,8,18
+	.word	.L412,.L482
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_CheckTransmissibleStatus')
+	.sect	'.debug_abbrev'
+.L336:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,11,1,17,1,18,1,0,0,5,52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_CheckTransmissibleStatus')
+	.sect	'.debug_line'
+.L337:
+	.word	.L1048-.L1047
+.L1047:
+	.half	3
+	.word	.L1050-.L1049
+.L1049:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1050:
+	.byte	5,20,7,0,5,2
+	.word	.L238
+	.byte	3,167,8,1,5,47,9
+	.half	.L671-.L238
+	.byte	1,5,14,9
+	.half	.L167-.L671
+	.byte	3,3,1,5,25,9
+	.half	.L1051-.L167
+	.byte	1,5,14,9
+	.half	.L1052-.L1051
+	.byte	1,5,33,7,9
+	.half	.L1053-.L1052
+	.byte	1,5,58,9
+	.half	.L1054-.L1053
+	.byte	1,5,47,9
+	.half	.L1055-.L1054
+	.byte	1,5,58,9
+	.half	.L1056-.L1055
+	.byte	1,5,44,9
+	.half	.L1057-.L1056
+	.byte	1,5,29,7,9
+	.half	.L168-.L1057
+	.byte	1,5,28,9
+	.half	.L169-.L168
+	.byte	3,7,1,5,17,9
+	.half	.L1058-.L169
+	.byte	1,5,28,9
+	.half	.L1059-.L1058
+	.byte	1,5,42,9
+	.half	.L1060-.L1059
+	.byte	1,5,13,9
+	.half	.L1061-.L1060
+	.byte	1,5,71,7,9
+	.half	.L1062-.L1061
+	.byte	3,5,1,5,61,9
+	.half	.L1063-.L1062
+	.byte	1,5,71,9
+	.half	.L1064-.L1063
+	.byte	1,5,74,9
+	.half	.L1065-.L1064
+	.byte	1,5,50,9
+	.half	.L170-.L1065
+	.byte	3,113,1,5,30,9
+	.half	.L166-.L170
+	.byte	1,5,47,9
+	.half	.L1066-.L166
+	.byte	1,5,1,7,9
+	.half	.L481-.L1066
+	.byte	3,19,1,7,9
+	.half	.L339-.L481
+	.byte	0,1,1
+.L1048:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_CheckTransmissibleStatus')
+	.sect	'.debug_ranges'
+.L338:
+	.word	-1,.L238,0,.L339-.L238,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_CheckSPIForTransmissibleStatusReset')
+	.sect	'.debug_info'
+.L340:
+	.word	445
+	.half	3
+	.word	.L341
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L343,.L342
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_CheckSPIForTransmissibleStatusReset',0,1,189,8,13,1,1
+	.word	.L240,.L483,.L239
+	.byte	4
+	.byte	'iSPIDevice',0,1,189,8,65
+	.word	.L412,.L484
+	.byte	5
+	.word	.L240,.L483
+	.byte	6
+	.byte	'iDeviceIndexList',0,1,192,8,13
+	.word	.L455,.L485
+	.byte	6
+	.byte	'iDeviceIndexCount',0,1,195,8,14
+	.word	.L435,.L486
+	.byte	6
+	.byte	'bReset',0,1,199,8,10
+	.word	.L406,.L487
+	.byte	5
+	.word	.L488,.L179
+	.byte	6
+	.byte	'i',0,1,207,8,18
+	.word	.L412,.L489
+	.byte	0,5
+	.word	.L490,.L182
+	.byte	6
+	.byte	'i',0,1,250,8,22
+	.word	.L412,.L491
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_CheckSPIForTransmissibleStatusReset')
+	.sect	'.debug_abbrev'
+.L341:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3,8,58
+	.byte	15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_CheckSPIForTransmissibleStatusReset')
+	.sect	'.debug_line'
+.L342:
+	.word	.L1068-.L1067
+.L1067:
+	.half	3
+	.word	.L1070-.L1069
+.L1069:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1070:
+	.byte	5,13,7,0,5,2
+	.word	.L240
+	.byte	3,188,8,1,5,23,9
+	.half	.L672-.L240
+	.byte	3,13,1,5,12,9
+	.half	.L673-.L672
+	.byte	3,3,1,5,20,9
+	.half	.L488-.L673
+	.byte	3,2,1,5,47,9
+	.half	.L674-.L488
+	.byte	1,5,14,9
+	.half	.L173-.L674
+	.byte	3,3,1,5,25,9
+	.half	.L1071-.L173
+	.byte	1,5,14,9
+	.half	.L1072-.L1071
+	.byte	1,5,33,7,9
+	.half	.L1073-.L1072
+	.byte	1,5,58,9
+	.half	.L1074-.L1073
+	.byte	1,5,47,9
+	.half	.L1075-.L1074
+	.byte	1,5,58,9
+	.half	.L1076-.L1075
+	.byte	1,5,44,9
+	.half	.L1077-.L1076
+	.byte	1,5,29,7,9
+	.half	.L174-.L1077
+	.byte	1,9
+	.half	.L175-.L174
+	.byte	3,5,1,5,18,9
+	.half	.L1078-.L175
+	.byte	1,5,29,9
+	.half	.L1079-.L1078
+	.byte	1,5,32,9
+	.half	.L1080-.L1079
+	.byte	1,5,14,9
+	.half	.L1081-.L1080
+	.byte	1,5,29,7,9
+	.half	.L1082-.L1081
+	.byte	3,3,1,5,18,9
+	.half	.L1083-.L1082
+	.byte	1,5,29,9
+	.half	.L1084-.L1083
+	.byte	1,5,43,9
+	.half	.L1085-.L1084
+	.byte	1,5,18,9
+	.half	.L1086-.L1085
+	.byte	1,5,24,7,9
+	.half	.L1087-.L1086
+	.byte	3,4,1,5,17,9
+	.half	.L1088-.L1087
+	.byte	3,1,1,5,41,9
+	.half	.L178-.L1088
+	.byte	3,7,1,5,17,9
+	.half	.L1089-.L178
+	.byte	1,5,38,7,9
+	.half	.L1090-.L1089
+	.byte	3,2,1,5,58,9
+	.half	.L1091-.L1090
+	.byte	1,5,38,9
+	.half	.L1092-.L1091
+	.byte	3,1,1,5,17,9
+	.half	.L180-.L1092
+	.byte	3,125,1,5,50,9
+	.half	.L176-.L180
+	.byte	3,105,1,5,30,9
+	.half	.L172-.L176
+	.byte	1,5,47,9
+	.half	.L1093-.L172
+	.byte	1,5,5,7,9
+	.half	.L179-.L1093
+	.byte	3,39,1,5,24,7,9
+	.half	.L490-.L179
+	.byte	3,4,1,5,51,9
+	.half	.L675-.L490
+	.byte	1,5,42,9
+	.half	.L184-.L675
+	.byte	3,2,1,5,24,9
+	.half	.L1094-.L184
+	.byte	1,5,13,9
+	.half	.L1095-.L1094
+	.byte	1,5,24,9
+	.half	.L1096-.L1095
+	.byte	1,5,73,9
+	.half	.L1097-.L1096
+	.byte	1,5,71,9
+	.half	.L1098-.L1097
+	.byte	1,5,54,9
+	.half	.L1099-.L1098
+	.byte	3,126,1,5,51,9
+	.half	.L183-.L1099
+	.byte	1,5,1,7,9
+	.half	.L182-.L183
+	.byte	3,5,1,7,9
+	.half	.L344-.L182
+	.byte	0,1,1
+.L1068:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_CheckSPIForTransmissibleStatusReset')
+	.sect	'.debug_ranges'
+.L343:
+	.word	-1,.L240,0,.L344-.L240,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_TxDoneCb')
+	.sect	'.debug_info'
+.L345:
+	.word	337
+	.half	3
+	.word	.L346
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L348,.L347
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_TxDoneCb',0,1,247,2,13,1,1
+	.word	.L200,.L492,.L199
+	.byte	4
+	.byte	'iSPIDevice',0,1,247,2,38
+	.word	.L412,.L493
+	.byte	4
+	.byte	'iChipSelect',0,1,247,2,58
+	.word	.L412,.L494
+	.byte	5
+	.word	.L200,.L492
+	.byte	5
+	.word	.L200,.L50
+	.byte	6
+	.byte	'i',0,1,250,2,18
+	.word	.L412,.L495
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_TxDoneCb')
+	.sect	'.debug_abbrev'
+.L346:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3,8,58
+	.byte	15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_TxDoneCb')
+	.sect	'.debug_line'
+.L347:
+	.word	.L1101-.L1100
+.L1100:
+	.half	3
+	.word	.L1103-.L1102
+.L1102:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1103:
+	.byte	5,20,7,0,5,2
+	.word	.L200
+	.byte	3,249,2,1,5,47,9
+	.half	.L583-.L200
+	.byte	1,5,13,9
+	.half	.L45-.L583
+	.byte	3,3,1,5,24,9
+	.half	.L1104-.L45
+	.byte	1,5,13,9
+	.half	.L1105-.L1104
+	.byte	1,5,32,7,9
+	.half	.L1106-.L1105
+	.byte	1,5,57,9
+	.half	.L1107-.L1106
+	.byte	1,5,46,9
+	.half	.L1108-.L1107
+	.byte	1,5,57,9
+	.half	.L1109-.L1108
+	.byte	1,5,43,9
+	.half	.L1110-.L1109
+	.byte	1,5,29,7,9
+	.half	.L1111-.L1110
+	.byte	3,3,1,5,18,9
+	.half	.L1112-.L1111
+	.byte	1,5,29,9
+	.half	.L1113-.L1112
+	.byte	1,5,32,9
+	.half	.L1114-.L1113
+	.byte	1,5,17,9
+	.half	.L1115-.L1114
+	.byte	1,5,29,7,9
+	.half	.L1116-.L1115
+	.byte	3,1,1,5,18,9
+	.half	.L1117-.L1116
+	.byte	1,5,29,9
+	.half	.L1118-.L1117
+	.byte	1,5,32,9
+	.half	.L1119-.L1118
+	.byte	1,5,46,9
+	.half	.L1120-.L1119
+	.byte	1,5,62,7,9
+	.half	.L1121-.L1120
+	.byte	3,3,1,5,51,9
+	.half	.L1122-.L1121
+	.byte	1,5,62,9
+	.half	.L1123-.L1122
+	.byte	1,5,65,9
+	.half	.L1124-.L1123
+	.byte	1,5,62,9
+	.half	.L582-.L1124
+	.byte	3,3,1,5,51,9
+	.half	.L1125-.L582
+	.byte	1,5,62,9
+	.half	.L1126-.L1125
+	.byte	1,5,65,9
+	.half	.L1127-.L1126
+	.byte	1,5,28,9
+	.half	.L1128-.L1127
+	.byte	3,3,1,5,17,9
+	.half	.L1129-.L1128
+	.byte	1,5,28,9
+	.half	.L1130-.L1129
+	.byte	1,5,52,9
+	.half	.L1131-.L1130
+	.byte	1,5,50,9
+	.half	.L1132-.L1131
+	.byte	1,5,17,9
+	.half	.L1133-.L1132
+	.byte	3,3,1,5,50,9
+	.half	.L46-.L1133
+	.byte	3,109,1,5,30,9
+	.half	.L44-.L46
+	.byte	1,5,47,9
+	.half	.L1134-.L44
+	.byte	1,5,1,7,9
+	.half	.L50-.L1134
+	.byte	3,23,1,7,9
+	.half	.L349-.L50
+	.byte	0,1,1
+.L1101:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_TxDoneCb')
+	.sect	'.debug_ranges'
+.L348:
+	.word	-1,.L200,0,.L349-.L200,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_MarkTxFrameAsTransmitted')
+	.sect	'.debug_info'
+.L350:
+	.word	302
+	.half	3
+	.word	.L351
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L353,.L352
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_MarkTxFrameAsTransmitted',0,1,147,3,13,1,1
+	.word	.L202,.L496,.L201
+	.byte	4
+	.byte	'pInternals',0,1,147,3,78
+	.word	.L497,.L498
+	.byte	5
+	.word	.L202,.L496
+	.byte	0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_MarkTxFrameAsTransmitted')
+	.sect	'.debug_abbrev'
+.L351:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_MarkTxFrameAsTransmitted')
+	.sect	'.debug_line'
+.L352:
+	.word	.L1136-.L1135
+.L1135:
+	.half	3
+	.word	.L1138-.L1137
+.L1137:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1138:
+	.byte	5,19,7,0,5,2
+	.word	.L202
+	.byte	3,149,3,1,5,39,9
+	.half	.L1139-.L202
+	.byte	1,5,5,9
+	.half	.L1140-.L1139
+	.byte	1,5,48,7,9
+	.half	.L1141-.L1140
+	.byte	3,2,1,5,46,9
+	.half	.L1142-.L1141
+	.byte	1,5,53,9
+	.half	.L1143-.L1142
+	.byte	1,5,24,9
+	.half	.L51-.L1143
+	.byte	3,4,1,5,44,9
+	.half	.L1144-.L51
+	.byte	1,5,10,9
+	.half	.L1145-.L1144
+	.byte	1,5,55,7,9
+	.half	.L1146-.L1145
+	.byte	3,2,1,5,53,9
+	.half	.L1147-.L1146
+	.byte	1,5,60,9
+	.half	.L1148-.L1147
+	.byte	1,5,1,9
+	.half	.L52-.L1148
+	.byte	3,6,1,7,9
+	.half	.L354-.L52
+	.byte	0,1,1
+.L1136:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_MarkTxFrameAsTransmitted')
+	.sect	'.debug_ranges'
+.L353:
+	.word	-1,.L202,0,.L354-.L202,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_MarkRxFrameForProcessing')
+	.sect	'.debug_info'
+.L355:
+	.word	328
+	.half	3
+	.word	.L356
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L358,.L357
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_MarkRxFrameForProcessing',0,1,166,3,13,1,1
+	.word	.L204,.L499,.L203
+	.byte	4
+	.byte	'pInternals',0,1,166,3,78
+	.word	.L500,.L501
+	.byte	5
+	.word	.L204,.L499
+	.byte	5
+	.word	.L204,.L58
+	.byte	6
+	.byte	'i',0,1,169,3,18
+	.word	.L412,.L502
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_MarkRxFrameForProcessing')
+	.sect	'.debug_abbrev'
+.L356:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3,8,58
+	.byte	15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_MarkRxFrameForProcessing')
+	.sect	'.debug_line'
+.L357:
+	.word	.L1150-.L1149
+.L1149:
+	.half	3
+	.word	.L1152-.L1151
+.L1151:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1152:
+	.byte	5,20,7,0,5,2
+	.word	.L204
+	.byte	3,168,3,1,5,57,9
+	.half	.L584-.L204
+	.byte	1,5,23,9
+	.half	.L56-.L584
+	.byte	3,3,1,5,54,9
+	.half	.L1153-.L56
+	.byte	1,5,9,9
+	.half	.L1154-.L1153
+	.byte	1,5,34,7,9
+	.half	.L1155-.L1154
+	.byte	3,3,1,5,60,9
+	.half	.L1156-.L1155
+	.byte	1,5,58,9
+	.half	.L1157-.L1156
+	.byte	1,5,13,9
+	.half	.L1158-.L1157
+	.byte	3,3,1,5,60,9
+	.half	.L57-.L1158
+	.byte	3,119,1,5,57,9
+	.half	.L55-.L57
+	.byte	1,5,1,7,9
+	.half	.L58-.L55
+	.byte	3,12,1,7,9
+	.half	.L359-.L58
+	.byte	0,1,1
+.L1150:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_MarkRxFrameForProcessing')
+	.sect	'.debug_ranges'
+.L358:
+	.word	-1,.L204,0,.L359-.L204,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_ReadFrame')
+	.sect	'.debug_info'
+.L360:
+	.word	354
+	.half	3
+	.word	.L361
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L363,.L362
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_ReadFrame',0,1,140,6,13,1,1
+	.word	.L224,.L503,.L223
+	.byte	4
+	.byte	'pPort',0,1,140,6,54
+	.word	.L504,.L505
+	.byte	4
+	.byte	'pData',0,1,141,6,47
+	.word	.L506,.L507
+	.byte	5
+	.word	.L224,.L503
+	.byte	6
+	.byte	'iPayloadLength',0,1,144,6,13
+	.word	.L412,.L508
+	.byte	6
+	.byte	'iSessionId',0,1,147,6,13
+	.word	.L412,.L509
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_ReadFrame')
+	.sect	'.debug_abbrev'
+.L361:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3,8,58
+	.byte	15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_ReadFrame')
+	.sect	'.debug_line'
+.L362:
+	.word	.L1160-.L1159
+.L1159:
+	.half	3
+	.word	.L1162-.L1161
+.L1161:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1162:
+	.byte	5,13,7,0,5,2
+	.word	.L224
+	.byte	3,139,6,1,5,28,9
+	.half	.L617-.L224
+	.byte	3,10,1,5,24,9
+	.half	.L618-.L617
+	.byte	3,1,1,5,5,9
+	.half	.L619-.L618
+	.byte	3,3,1,5,43,7,9
+	.half	.L1163-.L619
+	.byte	3,2,1,5,9,9
+	.half	.L1164-.L1163
+	.byte	1,5,77,7,9
+	.half	.L1165-.L1164
+	.byte	3,2,1,5,68,9
+	.half	.L614-.L1165
+	.byte	3,3,1,5,66,9
+	.half	.L620-.L614
+	.byte	1,5,102,9
+	.half	.L1166-.L620
+	.byte	3,125,1,5,14,9
+	.half	.L124-.L1166
+	.byte	3,5,1,5,77,7,9
+	.half	.L1167-.L124
+	.byte	3,3,1,9
+	.half	.L621-.L1167
+	.byte	3,3,1,5,92,9
+	.half	.L1168-.L621
+	.byte	3,125,1,5,77,9
+	.half	.L126-.L1168
+	.byte	3,7,1,5,9,9
+	.half	.L125-.L126
+	.byte	3,118,1,5,52,9
+	.half	.L123-.L125
+	.byte	3,14,1,5,15,9
+	.half	.L626-.L123
+	.byte	1,5,73,7,9
+	.half	.L1169-.L626
+	.byte	3,3,1,9
+	.half	.L1170-.L1169
+	.byte	3,3,1,5,88,9
+	.half	.L1171-.L1170
+	.byte	3,125,1,5,28,9
+	.half	.L129-.L1171
+	.byte	3,6,1,5,10,9
+	.half	.L1172-.L129
+	.byte	1,5,73,7,9
+	.half	.L1173-.L1172
+	.byte	3,3,1,9
+	.half	.L1174-.L1173
+	.byte	3,1,1,5,67,9
+	.half	.L1175-.L1174
+	.byte	3,3,1,5,102,9
+	.half	.L629-.L1175
+	.byte	3,124,1,5,44,9
+	.half	.L131-.L629
+	.byte	3,7,1,5,10,9
+	.half	.L1176-.L131
+	.byte	1,5,73,7,9
+	.half	.L1177-.L1176
+	.byte	3,3,1,5,102,9
+	.half	.L1178-.L1177
+	.byte	1,5,73,9
+	.half	.L133-.L1178
+	.byte	3,5,1,9
+	.half	.L1179-.L133
+	.byte	3,1,1,5,64,9
+	.half	.L1180-.L1179
+	.byte	3,3,1,5,62,9
+	.half	.L624-.L1180
+	.byte	1,5,71,9
+	.half	.L1181-.L624
+	.byte	3,1,1,5,69,9
+	.half	.L1182-.L1181
+	.byte	1,5,67,9
+	.half	.L1183-.L1182
+	.byte	3,3,1,5,1,9
+	.half	.L128-.L1183
+	.byte	3,2,1,7,9
+	.half	.L364-.L128
+	.byte	0,1,1
+.L1160:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_ReadFrame')
+	.sect	'.debug_ranges'
+.L363:
+	.word	-1,.L224,0,.L364-.L224,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_ValidateFrameMetadata')
+	.sect	'.debug_info'
+.L365:
+	.word	380
+	.half	3
+	.word	.L366
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L368,.L367
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_ValidateFrameMetadata',0,1,216,6,13
+	.word	.L406
+	.byte	1,1
+	.word	.L226,.L510,.L225
+	.byte	4
+	.byte	'pData',0,1,216,6,65
+	.word	.L511,.L512
+	.byte	4
+	.byte	'iPayloadLength',0,1,217,6,51
+	.word	.L412,.L513
+	.byte	5
+	.word	.L226,.L510
+	.byte	6
+	.byte	'iComputedCRC',0,1,220,6,14
+	.word	.L435,.L514
+	.byte	6
+	.byte	'iExtractedCRC',0,1,223,6,14
+	.word	.L435,.L515
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_ValidateFrameMetadata')
+	.sect	'.debug_abbrev'
+.L366:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_ValidateFrameMetadata')
+	.sect	'.debug_line'
+.L367:
+	.word	.L1185-.L1184
+.L1184:
+	.half	3
+	.word	.L1187-.L1186
+.L1186:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1187:
+	.byte	5,13,7,0,5,2
+	.word	.L226
+	.byte	3,215,6,1,5,18,9
+	.half	.L638-.L226
+	.byte	3,10,1,5,19,9
+	.half	.L639-.L638
+	.byte	3,1,1,5,27,9
+	.half	.L641-.L639
+	.byte	3,2,1,5,5,9
+	.half	.L1188-.L641
+	.byte	1,5,71,7,9
+	.half	.L1189-.L1188
+	.byte	3,4,1,5,45,9
+	.half	.L635-.L1189
+	.byte	3,1,1,5,35,9
+	.half	.L636-.L635
+	.byte	3,3,1,5,66,9
+	.half	.L1190-.L636
+	.byte	1,5,64,9
+	.half	.L1191-.L1190
+	.byte	1,5,79,9
+	.half	.L1192-.L1191
+	.byte	1,5,87,9
+	.half	.L1193-.L1192
+	.byte	1,5,35,9
+	.half	.L1194-.L1193
+	.byte	3,1,1,5,66,9
+	.half	.L1195-.L1194
+	.byte	1,5,64,9
+	.half	.L1196-.L1195
+	.byte	1,5,79,9
+	.half	.L1197-.L1196
+	.byte	1,5,89,9
+	.half	.L1198-.L1197
+	.byte	1,5,87,9
+	.half	.L1199-.L1198
+	.byte	1,5,102,9
+	.half	.L1200-.L1199
+	.byte	3,127,1,5,35,9
+	.half	.L1201-.L1200
+	.byte	3,2,1,5,66,9
+	.half	.L1202-.L1201
+	.byte	1,5,64,9
+	.half	.L1203-.L1202
+	.byte	1,5,79,9
+	.half	.L1204-.L1203
+	.byte	1,5,89,9
+	.half	.L1205-.L1204
+	.byte	1,5,87,9
+	.half	.L1206-.L1205
+	.byte	1,5,102,9
+	.half	.L1207-.L1206
+	.byte	3,127,1,5,35,9
+	.half	.L1208-.L1207
+	.byte	3,2,1,5,66,9
+	.half	.L1209-.L1208
+	.byte	1,5,64,9
+	.half	.L1210-.L1209
+	.byte	1,5,87,9
+	.half	.L1211-.L1210
+	.byte	1,5,102,9
+	.half	.L1212-.L1211
+	.byte	3,127,1,5,106,9
+	.half	.L1213-.L1212
+	.byte	3,1,1,5,104,9
+	.half	.L642-.L1213
+	.byte	1,5,61,9
+	.half	.L135-.L642
+	.byte	3,4,1,5,32,9
+	.half	.L1214-.L135
+	.byte	1,5,13,9
+	.half	.L1215-.L1214
+	.byte	1,5,27,7,9
+	.half	.L1216-.L1215
+	.byte	3,1,1,5,61,7,9
+	.half	.L1217-.L1216
+	.byte	3,127,1,5,5,9
+	.half	.L136-.L1217
+	.byte	1,5,1,9
+	.half	.L138-.L136
+	.byte	3,2,1,7,9
+	.half	.L369-.L138
+	.byte	0,1,1
+.L1185:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_ValidateFrameMetadata')
+	.sect	'.debug_ranges'
+.L368:
+	.word	-1,.L226,0,.L369-.L226,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_ProcessFramePayload')
+	.sect	'.debug_info'
+.L370:
+	.word	470
+	.half	3
+	.word	.L371
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L373,.L372
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_ProcessFramePayload',0,1,248,6,13,1,1
+	.word	.L228,.L516,.L227
+	.byte	4
+	.byte	'pPort',0,1,248,6,64
+	.word	.L517,.L518
+	.byte	4
+	.byte	'iPayloadLength',0,1,249,6,49
+	.word	.L412,.L519
+	.byte	4
+	.byte	'pData',0,1,250,6,57
+	.word	.L520,.L521
+	.byte	4
+	.byte	'bLoggedInFrame',0,1,251,6,46
+	.word	.L406,.L522
+	.byte	5
+	.word	.L228,.L516
+	.byte	6
+	.byte	'iProcessedBytes',0,1,253,6,14
+	.word	.L435,.L523
+	.byte	6
+	.byte	'iMessageId',0,1,254,6,13
+	.word	.L412,.L524
+	.byte	6
+	.byte	'iMessageLength',0,1,255,6,13
+	.word	.L412,.L525
+	.byte	6
+	.byte	'Element',0,1,130,7,23
+	.word	.L526,.L527
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_ProcessFramePayload')
+	.sect	'.debug_abbrev'
+.L371:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3,8,58
+	.byte	15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_ProcessFramePayload')
+	.sect	'.debug_line'
+.L372:
+	.word	.L1219-.L1218
+.L1218:
+	.half	3
+	.word	.L1221-.L1220
+.L1220:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1221:
+	.byte	5,13,7,0,5,2
+	.word	.L228
+	.byte	3,247,6,1,5,33,9
+	.half	.L649-.L228
+	.byte	3,10,1,5,31,9
+	.half	.L1222-.L649
+	.byte	1,5,43,9
+	.half	.L1223-.L1222
+	.byte	3,3,1,5,30,9
+	.half	.L1224-.L1223
+	.byte	3,6,1,5,29,9
+	.half	.L644-.L1224
+	.byte	1,5,20,9
+	.half	.L648-.L644
+	.byte	1,5,34,9
+	.half	.L650-.L648
+	.byte	3,1,1,5,33,9
+	.half	.L651-.L650
+	.byte	1,5,24,9
+	.half	.L1225-.L651
+	.byte	1,5,21,9
+	.half	.L1226-.L1225
+	.byte	3,3,1,5,9,9
+	.half	.L652-.L1226
+	.byte	3,3,1,5,28,7,9
+	.half	.L1227-.L652
+	.byte	3,1,1,5,25,9
+	.half	.L1228-.L1227
+	.byte	1,5,49,7,9
+	.half	.L1229-.L1228
+	.byte	3,3,1,5,32,9
+	.half	.L143-.L1229
+	.byte	3,2,1,5,56,9
+	.half	.L655-.L143
+	.byte	3,1,1,5,36,9
+	.half	.L657-.L655
+	.byte	1,5,29,9
+	.half	.L659-.L657
+	.byte	3,3,1,5,34,9
+	.half	.L653-.L659
+	.byte	3,3,1,5,13,9
+	.half	.L1230-.L653
+	.byte	1,5,17,7,9
+	.half	.L1231-.L1230
+	.byte	3,3,1,5,30,9
+	.half	.L144-.L1231
+	.byte	3,6,1,5,38,9
+	.half	.L1232-.L144
+	.byte	3,5,1,5,17,9
+	.half	.L1233-.L1232
+	.byte	3,4,1,5,59,7,9
+	.half	.L1234-.L1233
+	.byte	3,2,1,5,68,9
+	.half	.L1235-.L1234
+	.byte	1,5,79,9
+	.half	.L656-.L1235
+	.byte	1,5,74,9
+	.half	.L146-.L656
+	.byte	3,4,1,5,83,9
+	.half	.L1236-.L146
+	.byte	1,5,33,9
+	.half	.L147-.L1236
+	.byte	3,4,1,5,49,9
+	.half	.L142-.L147
+	.byte	3,91,1,5,1,7,9
+	.half	.L140-.L142
+	.byte	3,41,1,7,9
+	.half	.L374-.L140
+	.byte	0,1,1
+.L1219:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_ProcessFramePayload')
+	.sect	'.debug_ranges'
+.L373:
+	.word	-1,.L228,0,.L374-.L228,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_ReleaseFrame')
+	.sect	'.debug_info'
+.L375:
+	.word	330
+	.half	3
+	.word	.L376
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L378,.L377
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_ReleaseFrame',0,1,193,7,13,1,1
+	.word	.L230,.L528,.L229
+	.byte	4
+	.byte	'pPort',0,1,193,7,57
+	.word	.L529,.L530
+	.byte	4
+	.byte	'pData',0,1,194,7,56
+	.word	.L531,.L532
+	.byte	5
+	.word	.L230,.L528
+	.byte	5
+	.word	.L230,.L151
+	.byte	6
+	.byte	'i',0,1,197,7,18
+	.word	.L412,.L533
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_ReleaseFrame')
+	.sect	'.debug_abbrev'
+.L376:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3,8,58
+	.byte	15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_ReleaseFrame')
+	.sect	'.debug_line'
+.L377:
+	.word	.L1238-.L1237
+.L1237:
+	.half	3
+	.word	.L1240-.L1239
+.L1239:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1240:
+	.byte	5,20,7,0,5,2
+	.word	.L230
+	.byte	3,196,7,1,5,57,9
+	.half	.L664-.L230
+	.byte	1,5,58,9
+	.half	.L149-.L664
+	.byte	3,3,1,5,9,9
+	.half	.L1241-.L149
+	.byte	1,5,55,7,9
+	.half	.L1242-.L1241
+	.byte	3,3,1,5,60,9
+	.half	.L663-.L1242
+	.byte	1,5,63,9
+	.half	.L1243-.L663
+	.byte	1,5,13,9
+	.half	.L662-.L1243
+	.byte	3,3,1,5,60,9
+	.half	.L150-.L662
+	.byte	3,119,1,5,57,9
+	.half	.L148-.L150
+	.byte	1,5,1,7,9
+	.half	.L151-.L148
+	.byte	3,12,1,7,9
+	.half	.L379-.L151
+	.byte	0,1,1
+.L1238:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_ReleaseFrame')
+	.sect	'.debug_ranges'
+.L378:
+	.word	-1,.L230,0,.L379-.L230,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_nil_CheckLinkStatus')
+	.sect	'.debug_info'
+.L380:
+	.word	365
+	.half	3
+	.word	.L381
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L383,.L382
+	.byte	2
+	.word	.L241
+	.byte	3
+	.byte	'wb_nil_CheckLinkStatus',0,1,183,3,13,1,1
+	.word	.L206,.L534,.L205
+	.byte	4
+	.byte	'pPort',0,1,183,3,60
+	.word	.L535,.L536
+	.byte	4
+	.byte	'pInternals',0,1,184,3,69
+	.word	.L537,.L538
+	.byte	4
+	.byte	'pStatistics',0,1,185,3,66
+	.word	.L539,.L540
+	.byte	5
+	.word	.L206,.L534
+	.byte	6
+	.byte	'iLinkUpFrames',0,1,188,3,14
+	.word	.L435,.L541
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_nil_CheckLinkStatus')
+	.sect	'.debug_abbrev'
+.L381:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3,8,58
+	.byte	15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_nil_CheckLinkStatus')
+	.sect	'.debug_line'
+.L382:
+	.word	.L1245-.L1244
+.L1244:
+	.half	3
+	.word	.L1247-.L1246
+.L1246:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0,0,0,0,0
+.L1247:
+	.byte	5,13,7,0,5,2
+	.word	.L206
+	.byte	3,182,3,1,5,33,9
+	.half	.L589-.L206
+	.byte	3,8,1,5,76,9
+	.half	.L1248-.L589
+	.byte	1,5,63,9
+	.half	.L590-.L1248
+	.byte	1,5,36,9
+	.half	.L1249-.L590
+	.byte	3,3,1,5,5,9
+	.half	.L1250-.L1249
+	.byte	1,5,23,7,9
+	.half	.L1251-.L1250
+	.byte	3,2,1,5,20,9
+	.half	.L59-.L1251
+	.byte	3,5,1,5,10,9
+	.half	.L1252-.L59
+	.byte	1,5,52,7,9
+	.half	.L1253-.L1252
+	.byte	1,5,77,9
+	.half	.L1254-.L1253
+	.byte	1,5,75,9
+	.half	.L1255-.L1254
+	.byte	1,5,20,7,9
+	.half	.L60-.L1255
+	.byte	3,1,1,5,10,9
+	.half	.L1256-.L60
+	.byte	1,5,48,7,9
+	.half	.L1257-.L1256
+	.byte	1,5,80,9
+	.half	.L1258-.L1257
+	.byte	1,5,78,9
+	.half	.L1259-.L1258
+	.byte	1,5,45,7,9
+	.half	.L61-.L1259
+	.byte	3,2,1,5,43,9
+	.half	.L1260-.L61
+	.byte	1,5,52,9
+	.half	.L1261-.L1260
+	.byte	3,1,1,5,50,9
+	.half	.L1262-.L1261
+	.byte	1,5,48,9
+	.half	.L1263-.L1262
+	.byte	3,1,1,5,46,9
+	.half	.L1264-.L1263
+	.byte	1,5,38,9
+	.half	.L1265-.L1264
+	.byte	3,1,1,5,36,9
+	.half	.L1266-.L1265
+	.byte	1,5,47,9
+	.half	.L1267-.L1266
+	.byte	3,1,1,5,65,9
+	.half	.L587-.L1267
+	.byte	1,5,47,9
+	.half	.L588-.L587
+	.byte	3,124,1,5,25,9
+	.half	.L62-.L588
+	.byte	3,7,1,5,15,9
+	.half	.L1268-.L62
+	.byte	1,5,62,7,9
+	.half	.L1269-.L1268
+	.byte	1,5,60,9
+	.half	.L1270-.L1269
+	.byte	1,5,45,7,9
+	.half	.L1271-.L1270
+	.byte	3,2,1,5,43,9
+	.half	.L1272-.L1271
+	.byte	1,5,52,9
+	.half	.L1273-.L1272
+	.byte	3,1,1,5,50,9
+	.half	.L1274-.L1273
+	.byte	1,5,48,9
+	.half	.L1275-.L1274
+	.byte	3,1,1,5,46,9
+	.half	.L1276-.L1275
+	.byte	1,5,38,9
+	.half	.L1277-.L1276
+	.byte	3,1,1,5,36,9
+	.half	.L1278-.L1277
+	.byte	1,5,52,9
+	.half	.L1279-.L1278
+	.byte	3,1,1,5,70,9
+	.half	.L593-.L1279
+	.byte	1,5,47,9
+	.half	.L591-.L593
+	.byte	3,124,1,5,1,9
+	.half	.L64-.L591
+	.byte	3,10,1,7,9
+	.half	.L384-.L64
+	.byte	0,1,1
+.L1245:
+	.sdecl	'.debug_ranges',debug,cluster('wb_nil_CheckLinkStatus')
+	.sect	'.debug_ranges'
+.L383:
+	.word	-1,.L206,0,.L384-.L206,0,0
+	.sdecl	'.debug_info',debug,cluster('DeviceList')
+	.sect	'.debug_info'
+.L385:
+	.word	234
+	.half	3
+	.word	.L386
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1,2
+	.word	.L241
+	.byte	3
+	.byte	'DeviceList',0,14,49,25
+	.word	.L542
+	.byte	5,3
+	.word	DeviceList
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('DeviceList')
+	.sect	'.debug_abbrev'
+.L386:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,2,9,0,0,0
+	.sdecl	'.debug_info',debug,cluster('bInUseList')
+	.sect	'.debug_info'
+.L387:
+	.word	234
+	.half	3
+	.word	.L388
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1,2
+	.word	.L241
+	.byte	3
+	.byte	'bInUseList',0,14,52,13
+	.word	.L543
+	.byte	5,3
+	.word	bInUseList
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('bInUseList')
+	.sect	'.debug_abbrev'
+.L388:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,2,9,0,0,0
+	.sdecl	'.debug_info',debug,cluster('bIsrDisabled')
+	.sect	'.debug_info'
+.L389:
+	.word	236
+	.half	3
+	.word	.L390
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_nil.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1,2
+	.word	.L241
+	.byte	3
+	.byte	'bIsrDisabled',0,14,55,22
+	.word	.L544
+	.byte	5,3
+	.word	bIsrDisabled
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('bIsrDisabled')
+	.sect	'.debug_abbrev'
+.L390:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,2,9,0,0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_AddPort')
+	.sect	'.debug_loc'
+.L442:
+	.word	-1,.L208,.L596-.L208,.L597-.L208
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L76-.L208,.L80-.L208
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L444:
+	.word	-1,.L208,.L598-.L208,.L597-.L208
+	.half	1
+	.byte	81
+	.word	.L76-.L208,.L80-.L208
+	.half	1
+	.byte	81
+	.word	0,0
+.L445:
+	.word	-1,.L208,.L599-.L208,.L438-.L208
+	.half	1
+	.byte	89
+	.word	0,0
+.L440:
+	.word	-1,.L208,0,.L594-.L208
+	.half	1
+	.byte	100
+	.word	.L595-.L208,.L438-.L208
+	.half	1
+	.byte	108
+	.word	.L76-.L208,.L80-.L208
+	.half	1
+	.byte	100
+	.word	0,0
+.L441:
+	.word	-1,.L208,.L443-.L208,.L438-.L208
+	.half	1
+	.byte	88
+	.word	.L600-.L208,.L438-.L208
+	.half	1
+	.byte	82
+	.word	0,0
+.L207:
+	.word	-1,.L208,0,.L438-.L208
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_CheckForPort')
+	.sect	'.debug_loc'
+.L410:
+	.word	-1,.L212,.L604-.L212,.L407-.L212
+	.half	1
+	.byte	82
+	.word	0,0
+.L413:
+	.word	-1,.L212,.L605-.L212,.L95-.L212
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L409:
+	.word	-1,.L212,0,.L407-.L212
+	.half	1
+	.byte	100
+	.word	0,0
+.L211:
+	.word	-1,.L212,0,.L407-.L212
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_CheckLinkStatus')
+	.sect	'.debug_loc'
+.L541:
+	.word	-1,.L206,.L590-.L206,.L588-.L206
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L62-.L206,.L591-.L206
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L538:
+	.word	-1,.L206,0,.L586-.L206
+	.half	1
+	.byte	101
+	.word	.L62-.L206,.L592-.L206
+	.half	1
+	.byte	101
+	.word	0,0
+.L536:
+	.word	-1,.L206,0,.L587-.L206
+	.half	1
+	.byte	100
+	.word	.L589-.L206,.L534-.L206
+	.half	1
+	.byte	111
+	.word	.L586-.L206,.L588-.L206
+	.half	1
+	.byte	101
+	.word	.L62-.L206,.L593-.L206
+	.half	1
+	.byte	100
+	.word	.L592-.L206,.L591-.L206
+	.half	1
+	.byte	101
+	.word	0,0
+.L540:
+	.word	-1,.L206,0,.L588-.L206
+	.half	1
+	.byte	102
+	.word	.L62-.L206,.L591-.L206
+	.half	1
+	.byte	102
+	.word	0,0
+.L205:
+	.word	-1,.L206,0,.L534-.L206
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_CheckSPIForTransmissibleStatusReset')
+	.sect	'.debug_loc'
+.L487:
+	.word	-1,.L240,.L488-.L240,.L184-.L240
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L489:
+	.word	-1,.L240,.L674-.L240,.L483-.L240
+	.half	1
+	.byte	81
+	.word	0,0
+.L491:
+	.word	-1,.L240,.L675-.L240,.L676-.L240
+	.half	1
+	.byte	95
+	.word	.L183-.L240,.L182-.L240
+	.half	1
+	.byte	95
+	.word	0,0
+.L486:
+	.word	-1,.L240,.L673-.L240,.L483-.L240
+	.half	1
+	.byte	82
+	.word	0,0
+.L485:
+	.word	-1,.L240,0,.L483-.L240
+	.half	2
+	.byte	145,112
+	.word	0,0
+.L484:
+	.word	-1,.L240,0,.L483-.L240
+	.half	1
+	.byte	84
+	.word	0,0
+.L239:
+	.word	-1,.L240,0,.L672-.L240
+	.half	2
+	.byte	138,0
+	.word	.L672-.L240,.L483-.L240
+	.half	2
+	.byte	138,16
+	.word	.L483-.L240,.L483-.L240
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_CheckTransmissibleStatus')
+	.sect	'.debug_loc'
+.L482:
+	.word	-1,.L238,.L671-.L238,.L480-.L238
+	.half	1
+	.byte	88
+	.word	0,0
+.L237:
+	.word	-1,.L238,0,.L480-.L238
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_CheckTransmittedList')
+	.sect	'.debug_loc'
+.L466:
+	.word	-1,.L236,.L467-.L236,.L461-.L236
+	.half	1
+	.byte	82
+	.word	0,0
+.L468:
+	.word	-1,.L236,.L670-.L236,.L461-.L236
+	.half	1
+	.byte	95
+	.word	0,0
+.L465:
+	.word	-1,.L236,0,.L461-.L236
+	.half	1
+	.byte	85
+	.word	0,0
+.L464:
+	.word	-1,.L236,0,.L461-.L236
+	.half	1
+	.byte	84
+	.word	0,0
+.L463:
+	.word	-1,.L236,0,.L461-.L236
+	.half	1
+	.byte	100
+	.word	0,0
+.L235:
+	.word	-1,.L236,0,.L461-.L236
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_ClosePort')
+	.sect	'.debug_loc'
+.L404:
+	.word	-1,.L198,0,.L576-.L198
+	.half	1
+	.byte	100
+	.word	.L577-.L198,.L402-.L198
+	.half	1
+	.byte	111
+	.word	.L579-.L198,.L580-.L198
+	.half	1
+	.byte	100
+	.word	0,0
+.L405:
+	.word	-1,.L198,.L578-.L198,.L39-.L198
+	.half	1
+	.byte	95
+	.word	.L581-.L198,.L41-.L198
+	.half	1
+	.byte	95
+	.word	.L42-.L198,.L402-.L198
+	.half	1
+	.byte	95
+	.word	0,0
+.L197:
+	.word	-1,.L198,0,.L402-.L198
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_InitPort')
+	.sect	'.debug_loc'
+.L398:
+	.word	-1,.L196,0,.L567-.L196
+	.half	1
+	.byte	100
+	.word	.L568-.L196,.L396-.L196
+	.half	1
+	.byte	111
+	.word	0,0
+.L400:
+	.word	-1,.L196,0,.L567-.L196
+	.half	1
+	.byte	101
+	.word	.L569-.L196,.L396-.L196
+	.half	1
+	.byte	108
+	.word	.L567-.L196,.L571-.L196
+	.half	1
+	.byte	100
+	.word	.L572-.L196,.L573-.L196
+	.half	1
+	.byte	100
+	.word	0,0
+.L401:
+	.word	-1,.L196,.L570-.L196,.L36-.L196
+	.half	1
+	.byte	95
+	.word	.L573-.L196,.L37-.L196
+	.half	1
+	.byte	82
+	.word	.L574-.L196,.L396-.L196
+	.half	1
+	.byte	95
+	.word	.L575-.L196,.L396-.L196
+	.half	1
+	.byte	82
+	.word	0,0
+.L195:
+	.word	-1,.L196,0,.L396-.L196
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_Initialize')
+	.sect	'.debug_loc'
+.L393:
+	.word	-1,.L186,.L545-.L186,.L2-.L186
+	.half	1
+	.byte	82
+	.word	.L546-.L186,.L4-.L186
+	.half	1
+	.byte	82
+	.word	.L547-.L186,.L6-.L186
+	.half	1
+	.byte	82
+	.word	.L548-.L186,.L8-.L186
+	.half	1
+	.byte	82
+	.word	.L3-.L186,.L392-.L186
+	.half	1
+	.byte	82
+	.word	0,0
+.L185:
+	.word	-1,.L186,0,.L392-.L186
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_Login')
+	.sect	'.debug_loc'
+.L426:
+	.word	-1,.L214,0,.L423-.L214
+	.half	1
+	.byte	84
+	.word	0,0
+.L425:
+	.word	-1,.L214,0,.L423-.L214
+	.half	1
+	.byte	100
+	.word	0,0
+.L213:
+	.word	-1,.L214,0,.L423-.L214
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_Logout')
+	.sect	'.debug_loc'
+.L429:
+	.word	-1,.L216,0,.L427-.L216
+	.half	1
+	.byte	100
+	.word	0,0
+.L215:
+	.word	-1,.L216,0,.L427-.L216
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_MarkRxFrameForProcessing')
+	.sect	'.debug_loc'
+.L502:
+	.word	-1,.L204,.L584-.L204,.L585-.L204
+	.half	1
+	.byte	95
+	.word	.L57-.L204,.L58-.L204
+	.half	1
+	.byte	95
+	.word	0,0
+.L501:
+	.word	-1,.L204,0,.L499-.L204
+	.half	1
+	.byte	100
+	.word	0,0
+.L203:
+	.word	-1,.L204,0,.L499-.L204
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_MarkTxFrameAsTransmitted')
+	.sect	'.debug_loc'
+.L498:
+	.word	-1,.L202,0,.L496-.L202
+	.half	1
+	.byte	100
+	.word	0,0
+.L201:
+	.word	-1,.L202,0,.L496-.L202
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_Process')
+	.sect	'.debug_loc'
+.L419:
+	.word	-1,.L190,.L553-.L190,.L17-.L190
+	.half	1
+	.byte	88
+	.word	0,0
+.L416:
+	.word	-1,.L190,0,.L19-.L190
+	.half	1
+	.byte	100
+	.word	.L551-.L190,.L414-.L190
+	.half	1
+	.byte	108
+	.word	.L554-.L190,.L555-.L190
+	.half	1
+	.byte	100
+	.word	.L556-.L190,.L20-.L190
+	.half	1
+	.byte	100
+	.word	.L557-.L190,.L558-.L190
+	.half	1
+	.byte	100
+	.word	.L559-.L190,.L558-.L190
+	.half	1
+	.byte	101
+	.word	0,0
+.L417:
+	.word	-1,.L190,.L552-.L190,.L16-.L190
+	.half	1
+	.byte	82
+	.word	.L17-.L190,.L414-.L190
+	.half	1
+	.byte	82
+	.word	0,0
+.L189:
+	.word	-1,.L190,0,.L414-.L190
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_ProcessAllPorts')
+	.sect	'.debug_loc'
+.L422:
+	.word	-1,.L192,.L560-.L192,.L420-.L192
+	.half	1
+	.byte	88
+	.word	0,0
+.L191:
+	.word	-1,.L192,0,.L420-.L192
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_ProcessFramePayload')
+	.sect	'.debug_loc'
+.L527:
+	.word	-1,.L228,0,.L516-.L228
+	.half	2
+	.byte	145,104
+	.word	0,0
+.L522:
+	.word	-1,.L228,0,.L143-.L228
+	.half	1
+	.byte	85
+	.word	.L649-.L228,.L516-.L228
+	.half	1
+	.byte	91
+	.word	0,0
+.L524:
+	.word	-1,.L228,.L655-.L228,.L656-.L228
+	.half	1
+	.byte	84
+	.word	.L146-.L228,.L147-.L228
+	.half	1
+	.byte	84
+	.word	0,0
+.L525:
+	.word	-1,.L228,.L659-.L228,.L142-.L228
+	.half	1
+	.byte	88
+	.word	0,0
+.L519:
+	.word	-1,.L228,0,.L143-.L228
+	.half	1
+	.byte	84
+	.word	.L646-.L228,.L516-.L228
+	.half	1
+	.byte	90
+	.word	0,0
+.L523:
+	.word	-1,.L228,.L652-.L228,.L653-.L228
+	.half	1
+	.byte	95
+	.word	.L653-.L228,.L142-.L228
+	.half	1
+	.byte	89
+	.word	.L142-.L228,.L140-.L228
+	.half	1
+	.byte	95
+	.word	0,0
+.L521:
+	.word	-1,.L228,0,.L644-.L228
+	.half	1
+	.byte	101
+	.word	.L647-.L228,.L648-.L228
+	.half	1
+	.byte	109
+	.word	.L644-.L228,.L143-.L228
+	.half	1
+	.byte	111
+	.word	.L650-.L228,.L651-.L228
+	.half	1
+	.byte	109
+	.word	.L143-.L228,.L654-.L228
+	.half	1
+	.byte	109
+	.word	.L657-.L228,.L658-.L228
+	.half	1
+	.byte	109
+	.word	0,0
+.L518:
+	.word	-1,.L228,0,.L139-.L228
+	.half	1
+	.byte	100
+	.word	.L645-.L228,.L516-.L228
+	.half	1
+	.byte	108
+	.word	.L660-.L228,.L656-.L228
+	.half	1
+	.byte	100
+	.word	.L661-.L228,.L147-.L228
+	.half	1
+	.byte	100
+	.word	0,0
+.L227:
+	.word	-1,.L228,0,.L643-.L228
+	.half	2
+	.byte	138,0
+	.word	.L643-.L228,.L516-.L228
+	.half	2
+	.byte	138,24
+	.word	.L516-.L228,.L516-.L228
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_ReadFrame')
+	.sect	'.debug_loc'
+.L508:
+	.word	-1,.L224,.L618-.L224,.L503-.L224
+	.half	1
+	.byte	88
+	.word	.L627-.L224,.L626-.L224
+	.half	1
+	.byte	84
+	.word	.L630-.L224,.L629-.L224
+	.half	1
+	.byte	84
+	.word	.L633-.L224,.L128-.L224
+	.half	1
+	.byte	84
+	.word	0,0
+.L509:
+	.word	-1,.L224,.L619-.L224,.L620-.L224
+	.half	1
+	.byte	95
+	.word	.L124-.L224,.L125-.L224
+	.half	1
+	.byte	95
+	.word	.L123-.L224,.L624-.L224
+	.half	1
+	.byte	95
+	.word	0,0
+.L507:
+	.word	-1,.L224,0,.L614-.L224
+	.half	1
+	.byte	101
+	.word	.L617-.L224,.L503-.L224
+	.half	1
+	.byte	111
+	.word	.L124-.L224,.L621-.L224
+	.half	1
+	.byte	101
+	.word	.L126-.L224,.L125-.L224
+	.half	1
+	.byte	101
+	.word	.L123-.L224,.L625-.L224
+	.half	1
+	.byte	101
+	.word	.L625-.L224,.L626-.L224
+	.half	1
+	.byte	100
+	.word	.L631-.L224,.L629-.L224
+	.half	1
+	.byte	101
+	.word	.L634-.L224,.L128-.L224
+	.half	1
+	.byte	101
+	.word	0,0
+.L505:
+	.word	-1,.L224,0,.L615-.L224
+	.half	1
+	.byte	100
+	.word	.L616-.L224,.L503-.L224
+	.half	1
+	.byte	108
+	.word	.L124-.L224,.L622-.L224
+	.half	1
+	.byte	100
+	.word	.L126-.L224,.L623-.L224
+	.half	1
+	.byte	100
+	.word	.L123-.L224,.L625-.L224
+	.half	1
+	.byte	100
+	.word	.L628-.L224,.L629-.L224
+	.half	1
+	.byte	100
+	.word	.L632-.L224,.L128-.L224
+	.half	1
+	.byte	100
+	.word	0,0
+.L223:
+	.word	-1,.L224,0,.L503-.L224
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_ReleaseFrame')
+	.sect	'.debug_loc'
+.L533:
+	.word	-1,.L230,.L664-.L230,.L665-.L230
+	.half	1
+	.byte	95
+	.word	.L150-.L230,.L151-.L230
+	.half	1
+	.byte	95
+	.word	0,0
+.L532:
+	.word	-1,.L230,0,.L662-.L230
+	.half	1
+	.byte	101
+	.word	.L150-.L230,.L151-.L230
+	.half	1
+	.byte	101
+	.word	0,0
+.L530:
+	.word	-1,.L230,0,.L663-.L230
+	.half	1
+	.byte	100
+	.word	.L150-.L230,.L151-.L230
+	.half	1
+	.byte	100
+	.word	0,0
+.L229:
+	.word	-1,.L230,0,.L528-.L230
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_RemovePort')
+	.sect	'.debug_loc'
+.L449:
+	.word	-1,.L210,.L601-.L210,.L92-.L210
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L450:
+	.word	-1,.L210,.L451-.L210,.L446-.L210
+	.half	1
+	.byte	88
+	.word	.L603-.L210,.L446-.L210
+	.half	1
+	.byte	82
+	.word	0,0
+.L452:
+	.word	-1,.L210,.L602-.L210,.L92-.L210
+	.half	1
+	.byte	81
+	.word	0,0
+.L448:
+	.word	-1,.L210,0,.L92-.L210
+	.half	1
+	.byte	100
+	.word	0,0
+.L209:
+	.word	-1,.L210,0,.L446-.L210
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_SubmitFrame')
+	.sect	'.debug_loc'
+.L436:
+	.word	-1,.L194,.L561-.L194,.L29-.L194
+	.half	1
+	.byte	82
+	.word	0,0
+.L434:
+	.word	-1,.L194,0,.L561-.L194
+	.half	1
+	.byte	101
+	.word	.L564-.L194,.L430-.L194
+	.half	1
+	.byte	109
+	.word	0,0
+.L432:
+	.word	-1,.L194,0,.L562-.L194
+	.half	1
+	.byte	100
+	.word	.L563-.L194,.L430-.L194
+	.half	1
+	.byte	108
+	.word	0,0
+.L437:
+	.word	-1,.L194,.L565-.L194,.L28-.L194
+	.half	1
+	.byte	82
+	.word	.L566-.L194,.L31-.L194
+	.half	1
+	.byte	82
+	.word	.L29-.L194,.L430-.L194
+	.half	1
+	.byte	82
+	.word	0,0
+.L193:
+	.word	-1,.L194,0,.L430-.L194
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_Terminate')
+	.sect	'.debug_loc'
+.L395:
+	.word	-1,.L188,.L549-.L188,.L11-.L188
+	.half	1
+	.byte	82
+	.word	.L550-.L188,.L13-.L188
+	.half	1
+	.byte	82
+	.word	.L12-.L188,.L394-.L188
+	.half	1
+	.byte	82
+	.word	0,0
+.L187:
+	.word	-1,.L188,0,.L394-.L188
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_TimerCb')
+	.sect	'.debug_loc'
+.L231:
+	.word	-1,.L232,0,.L453-.L232
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_Transmit')
+	.sect	'.debug_loc'
+.L471:
+	.word	-1,.L218,0,.L606-.L218
+	.half	1
+	.byte	100
+	.word	.L607-.L218,.L469-.L218
+	.half	1
+	.byte	111
+	.word	.L608-.L218,.L609-.L218
+	.half	1
+	.byte	100
+	.word	.L610-.L218,.L611-.L218
+	.half	1
+	.byte	100
+	.word	0,0
+.L217:
+	.word	-1,.L218,0,.L469-.L218
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_TransmitOnAvailableDevices')
+	.sect	'.debug_loc'
+.L460:
+	.word	-1,.L234,.L667-.L234,.L454-.L234
+	.half	1
+	.byte	89
+	.word	0,0
+.L457:
+	.word	-1,.L234,.L458-.L234,.L454-.L234
+	.half	1
+	.byte	88
+	.word	.L668-.L234,.L669-.L234
+	.half	1
+	.byte	84
+	.word	0,0
+.L456:
+	.word	-1,.L234,0,.L454-.L234
+	.half	2
+	.byte	145,112
+	.word	0,0
+.L233:
+	.word	-1,.L234,0,.L666-.L234
+	.half	2
+	.byte	138,0
+	.word	.L666-.L234,.L454-.L234
+	.half	2
+	.byte	138,16
+	.word	.L454-.L234,.L454-.L234
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_TxDoneCb')
+	.sect	'.debug_loc'
+.L495:
+	.word	-1,.L200,.L583-.L200,.L492-.L200
+	.half	1
+	.byte	88
+	.word	0,0
+.L494:
+	.word	-1,.L200,0,.L582-.L200
+	.half	1
+	.byte	85
+	.word	.L46-.L200,.L50-.L200
+	.half	1
+	.byte	85
+	.word	0,0
+.L493:
+	.word	-1,.L200,0,.L582-.L200
+	.half	1
+	.byte	84
+	.word	.L46-.L200,.L50-.L200
+	.half	1
+	.byte	84
+	.word	0,0
+.L199:
+	.word	-1,.L200,0,.L492-.L200
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_nil_ValidateFrameMetadata')
+	.sect	'.debug_loc'
+.L514:
+	.word	-1,.L226,.L639-.L226,.L640-.L226
+	.half	1
+	.byte	82
+	.word	0,0
+.L515:
+	.word	-1,.L226,.L641-.L226,.L636-.L226
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L642-.L226,.L510-.L226
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L513:
+	.word	-1,.L226,0,.L635-.L226
+	.half	1
+	.byte	84
+	.word	.L638-.L226,.L510-.L226
+	.half	1
+	.byte	88
+	.word	0,0
+.L512:
+	.word	-1,.L226,0,.L636-.L226
+	.half	1
+	.byte	100
+	.word	.L637-.L226,.L510-.L226
+	.half	1
+	.byte	111
+	.word	0,0
+.L225:
+	.word	-1,.L226,0,.L510-.L226
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_wil_SetupRxTransmission')
+	.sect	'.debug_loc'
+.L479:
+	.word	-1,.L222,.L612-.L222,.L613-.L222
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L121-.L222,.L122-.L222
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L477:
+	.word	-1,.L222,0,.L475-.L222
+	.half	1
+	.byte	100
+	.word	0,0
+.L221:
+	.word	-1,.L222,0,.L475-.L222
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_wil_SetupTxTransmission')
+	.sect	'.debug_loc'
+.L474:
+	.word	-1,.L220,0,.L472-.L220
+	.half	1
+	.byte	100
+	.word	0,0
+.L219:
+	.word	-1,.L220,0,.L472-.L220
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L1280:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_Initialize')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L186,.L392-.L186
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_Terminate')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L188,.L394-.L188
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_Process')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L190,.L414-.L190
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_ProcessAllPorts')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L192,.L420-.L192
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_SubmitFrame')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L194,.L430-.L194
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_InitPort')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L196,.L396-.L196
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_ClosePort')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L198,.L402-.L198
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_TxDoneCb')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L200,.L492-.L200
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_MarkTxFrameAsTransmitted')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L1280,.L202,.L496-.L202
+	.byte	8,19,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_MarkRxFrameForProcessing')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L1280,.L204,.L499-.L204
+	.byte	8,19,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_CheckLinkStatus')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L206,.L534-.L206
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_AddPort')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L208,.L438-.L208
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_RemovePort')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L210,.L446-.L210
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_CheckForPort')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L1280,.L212,.L407-.L212
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_Login')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L1280,.L214,.L423-.L214
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_Logout')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L1280,.L216,.L427-.L216
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_Transmit')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L218,.L469-.L218
+	.sdecl	'.debug_frame',debug,cluster('wb_wil_SetupTxTransmission')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L1280,.L220,.L472-.L220
+	.byte	8,19,8,21,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('wb_wil_SetupRxTransmission')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L1280,.L222,.L475-.L222
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_ReadFrame')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L224,.L503-.L224
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_ValidateFrameMetadata')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L226,.L510-.L226
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_ProcessFramePayload')
+	.sect	'.debug_frame'
+	.word	36
+	.word	.L1280,.L228,.L516-.L228
+	.byte	4
+	.word	(.L643-.L228)/2
+	.byte	19,24,22,26,3,19,138,24,4
+	.word	(.L516-.L643)/2
+	.byte	19,0,8,26,0,0
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_ReleaseFrame')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L230,.L528-.L230
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_TimerCb')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L232,.L453-.L232
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_TransmitOnAvailableDevices')
+	.sect	'.debug_frame'
+	.word	36
+	.word	.L1280,.L234,.L454-.L234
+	.byte	4
+	.word	(.L666-.L234)/2
+	.byte	19,16,22,26,3,19,138,16,4
+	.word	(.L454-.L666)/2
+	.byte	19,0,8,26,0,0
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_CheckTransmittedList')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L1280,.L236,.L461-.L236
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_CheckTransmissibleStatus')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L1280,.L238,.L480-.L238
+	.sdecl	'.debug_frame',debug,cluster('wb_nil_CheckSPIForTransmissibleStatusReset')
+	.sect	'.debug_frame'
+	.word	44
+	.word	.L1280,.L240,.L483-.L240
+	.byte	8,19,8,20,8,21,8,22,8,23,4
+	.word	(.L672-.L240)/2
+	.byte	19,16,22,26,3,19,138,16,4
+	.word	(.L483-.L672)/2
+	.byte	19,0,8,26
+	; Module end

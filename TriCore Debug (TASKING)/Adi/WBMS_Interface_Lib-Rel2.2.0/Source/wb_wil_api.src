@@ -1,0 +1,2615 @@
+	; Module start
+	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
+	.compiler_invocation	"ctc -f cc12284a --dep-file=Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc38x -D__CPU_TC38X__ --core=tc1.6.2 --fp-model=+float -D__CPU__=tc38x -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0 -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\API -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\Include -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\inc -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\inc\\\\HAL -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\inc\\\\application -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\configuration_files -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\container_files -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\container_files\\\\bms_scripts -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\src\\\\otap_files -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Cmic -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Configurations -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Platform -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Sfr -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Sfr\\\\TC38A -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Sfr\\\\TC38A\\\\_Reg -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Ssw -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Ssw\\\\TC38A -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Infra\\\\Ssw\\\\TC38A\\\\Tricore -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\If -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Asclin -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Asclin\\\\Asc -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Asclin\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu\\\\Irq -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Cpu\\\\Trap -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Dma -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Dma\\\\Dma -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Dma\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Gtm -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Gtm\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Mtu -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Mtu\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Pms -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Pms\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Port -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Port\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Qspi -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Qspi\\\\SpiMaster -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Qspi\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Scu -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Scu\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Src -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Src\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Stm -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\Stm\\\\Std -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_Impl -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_Lib -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_Lib\\\\DataHandling -IC:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Libraries\\\\iLLD\\\\TC38A\\\\Tricore\\\\_PinMap -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.src ../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c"
+	.compiler_name		"ctc"
+	;source	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c'
+
+	
+$TC162
+	
+	.sdecl	'.text.wb_wil_api.adi_wil_CheckConnected',code,cluster('adi_wil_CheckConnected')
+	.sect	'.text.wb_wil_api.adi_wil_CheckConnected'
+	.align	2
+	
+; Function adi_wil_CheckConnected
+.L52:
+adi_wil_CheckConnected:	.type	func
+	mov.a	a15,#0
+.L281:
+	jne.a	a15,a4,.L2
+.L282:
+	mov	d2,#5
+.L171:
+	j	.L3
+.L2:
+	ld.w	d15,[a4]1712
+.L283:
+	jne	d15,#0,.L4
+.L284:
+	mov	d2,#4
+.L172:
+	j	.L5
+.L4:
+	ld.a	a15,[a4]1712
+.L285:
+	ld.bu	d15,[a15]1455
+.L173:
+	ld.w	d0,[a4]1716
+.L286:
+	jeq	d0,#0,.L6
+.L287:
+	mov	d0,#0
+.L288:
+	jne	d15,#0,.L7
+.L289:
+	ld.a	a15,[a4]1716
+.L290:
+	ld.bu	d15,[a15]1455
+.L174:
+	jeq	d15,#0,.L8
+.L7:
+	mov	d0,#1
+.L8:
+	mov	d15,d0
+.L6:
+	jne	d15,#0,.L9
+.L291:
+	mov	d2,#4
+.L175:
+	j	.L10
+.L9:
+	mov	d2,#0
+.L10:
+.L5:
+.L3:
+	j	.L11
+.L11:
+	ret
+.L166:
+	
+__adi_wil_CheckConnected_function_end:
+	.size	adi_wil_CheckConnected,__adi_wil_CheckConnected_function_end-adi_wil_CheckConnected
+.L110:
+	; End of function
+	
+	.sdecl	'.text.wb_wil_api.adi_wil_ValidateInstance',code,cluster('adi_wil_ValidateInstance')
+	.sect	'.text.wb_wil_api.adi_wil_ValidateInstance'
+	.align	2
+	
+	.global	adi_wil_ValidateInstance
+; Function adi_wil_ValidateInstance
+.L54:
+adi_wil_ValidateInstance:	.type	func
+	mov.a	a15,#0
+.L208:
+	jne.a	a15,a4,.L12
+.L209:
+	mov	d2,#5
+.L177:
+	j	.L13
+.L12:
+	jeq	d4,#0,.L14
+.L210:
+	call	adi_wil_CheckConnected
+.L176:
+	j	.L15
+.L14:
+	mov	d2,#0
+.L15:
+.L13:
+	j	.L16
+.L16:
+	ret
+.L112:
+	
+__adi_wil_ValidateInstance_function_end:
+	.size	adi_wil_ValidateInstance,__adi_wil_ValidateInstance_function_end-adi_wil_ValidateInstance
+.L75:
+	; End of function
+	
+	.sdecl	'.text.wb_wil_api.adi_wil_CheckNullableParams',code,cluster('adi_wil_CheckNullableParams')
+	.sect	'.text.wb_wil_api.adi_wil_CheckNullableParams'
+	.align	2
+	
+	.global	adi_wil_CheckNullableParams
+; Function adi_wil_CheckNullableParams
+.L56:
+adi_wil_CheckNullableParams:	.type	func
+	mov	d2,#0
+.L124:
+	mov	d0,#0
+.L178:
+	j	.L17
+.L18:
+	mul	d15,d0,#4
+	addsc.a	a15,a4,d15,#0
+	ld.w	d15,[a15]
+.L215:
+	jne	d15,#0,.L19
+.L216:
+	mov	d2,#5
+.L217:
+	j	.L20
+.L19:
+	add	d0,#1
+.L179:
+	extr.u	d0,d0,#0,#8
+.L17:
+	jlt.u	d0,d4,.L18
+.L20:
+	j	.L21
+.L21:
+	ret
+.L118:
+	
+__adi_wil_CheckNullableParams_function_end:
+	.size	adi_wil_CheckNullableParams,__adi_wil_CheckNullableParams_function_end-adi_wil_CheckNullableParams
+.L80:
+	; End of function
+	
+	.sdecl	'.text.wb_wil_api.adi_wil_CheckSystemMode',code,cluster('adi_wil_CheckSystemMode')
+	.sect	'.text.wb_wil_api.adi_wil_CheckSystemMode'
+	.align	2
+	
+	.global	adi_wil_CheckSystemMode
+; Function adi_wil_CheckSystemMode
+.L58:
+adi_wil_CheckSystemMode:	.type	func
+	mov	d2,#9
+.L133:
+	mov	d15,#0
+.L180:
+	j	.L22
+.L23:
+	addsc.a	a15,a5,d15,#0
+	ld.bu	d0,[a15]
+.L222:
+	ld.bu	d1,[a4]1728
+.L223:
+	jne	d0,d1,.L24
+.L224:
+	mov	d2,#0
+.L225:
+	j	.L25
+.L24:
+	add	d15,#1
+.L181:
+	extr.u	d15,d15,#0,#8
+.L22:
+	jlt.u	d15,d4,.L23
+.L25:
+	j	.L26
+.L26:
+	ret
+.L126:
+	
+__adi_wil_CheckSystemMode_function_end:
+	.size	adi_wil_CheckSystemMode,__adi_wil_CheckSystemMode_function_end-adi_wil_CheckSystemMode
+.L85:
+	; End of function
+	
+	.sdecl	'.text.wb_wil_api.adi_wil_CheckFileType',code,cluster('adi_wil_CheckFileType')
+	.sect	'.text.wb_wil_api.adi_wil_CheckFileType'
+	.align	2
+	
+	.global	adi_wil_CheckFileType
+; Function adi_wil_CheckFileType
+.L60:
+adi_wil_CheckFileType:	.type	func
+	mov	d2,#5
+.L144:
+	mov	d15,#0
+.L182:
+	j	.L27
+.L28:
+	addsc.a	a15,a5,d15,#0
+	ld.bu	d0,[a15]
+.L230:
+	jne	d0,d4,.L29
+.L231:
+	mov	d2,#0
+.L232:
+	j	.L30
+.L29:
+	add	d15,#1
+.L183:
+	extr.u	d15,d15,#0,#8
+.L27:
+	jlt.u	d15,d5,.L28
+.L30:
+	j	.L31
+.L31:
+	ret
+.L135:
+	
+__adi_wil_CheckFileType_function_end:
+	.size	adi_wil_CheckFileType,__adi_wil_CheckFileType_function_end-adi_wil_CheckFileType
+.L90:
+	; End of function
+	
+	.sdecl	'.text.wb_wil_api.wb_wil_api_StartTimer',code,cluster('wb_wil_api_StartTimer')
+	.sect	'.text.wb_wil_api.wb_wil_api_StartTimer'
+	.align	2
+	
+	.global	wb_wil_api_StartTimer
+; Function wb_wil_api_StartTimer
+.L62:
+wb_wil_api_StartTimer:	.type	func
+	mov.aa	a15,a4
+.L185:
+	mov.aa	a12,a5
+.L186:
+	mov	d15,d4
+.L187:
+	mov.a	a2,#0
+.L255:
+	jeq.a	a2,a15,.L32
+.L256:
+	mov.a	a2,#0
+.L257:
+	jne.a	a2,a12,.L33
+.L32:
+	mov	d2,#5
+.L189:
+	j	.L34
+.L33:
+	jeq	d15,#0,.L35
+.L258:
+	mov	d0,#-6
+.L259:
+	jlt.u	d15,d0,.L36
+.L35:
+	mov	d2,#5
+.L190:
+	j	.L37
+.L36:
+	call	adi_wil_hal_TickerGetTimestamp
+.L184:
+	st.w	[a15]22,d2
+.L260:
+	st.w	[a15]26,d15
+.L261:
+	mov	d15,#1
+.L188:
+	st.b	[a15]34,d15
+.L262:
+	ld.hu	d15,[a15]30
+.L263:
+	st.h	[a12],d15
+.L264:
+	mov	d2,#0
+.L37:
+.L34:
+	j	.L38
+.L38:
+	ret
+.L152:
+	
+__wb_wil_api_StartTimer_function_end:
+	.size	wb_wil_api_StartTimer,__wb_wil_api_StartTimer_function_end-wb_wil_api_StartTimer
+.L100:
+	; End of function
+	
+	.sdecl	'.text.wb_wil_api.wb_wil_api_CheckToken',code,cluster('wb_wil_api_CheckToken')
+	.sect	'.text.wb_wil_api.wb_wil_api_CheckToken'
+	.align	2
+	
+	.global	wb_wil_api_CheckToken
+; Function wb_wil_api_CheckToken
+.L64:
+wb_wil_api_CheckToken:	.type	func
+	mov.a	a15,#0
+.L269:
+	jne.a	a15,a4,.L39
+.L270:
+	mov	d2,#5
+.L191:
+	j	.L40
+.L39:
+	ld.bu	d15,[a4]34
+.L271:
+	jeq	d15,#0,.L41
+.L272:
+	ld.hu	d15,[a4]30
+.L273:
+	jne	d15,d4,.L42
+.L274:
+	eq	d15,d5,#0
+.L275:
+	st.b	[a4]34,d15
+.L276:
+	mov	d2,#0
+.L192:
+	j	.L43
+.L42:
+.L41:
+	mov	d2,#1
+.L43:
+.L40:
+	j	.L44
+.L44:
+	ret
+.L159:
+	
+__wb_wil_api_CheckToken_function_end:
+	.size	wb_wil_api_CheckToken,__wb_wil_api_CheckToken_function_end-wb_wil_api_CheckToken
+.L105:
+	; End of function
+	
+	.sdecl	'.text.wb_wil_api.wb_wil_api_CheckForTimeout',code,cluster('wb_wil_api_CheckForTimeout')
+	.sect	'.text.wb_wil_api.wb_wil_api_CheckForTimeout'
+	.align	2
+	
+	.global	wb_wil_api_CheckForTimeout
+; Function wb_wil_api_CheckForTimeout
+.L66:
+wb_wil_api_CheckForTimeout:	.type	func
+	mov.aa	a12,a4
+.L195:
+	mov.a	a15,#0
+.L237:
+	jeq.a	a15,a12,.L45
+.L238:
+	ld.bu	d15,[a12]34
+.L239:
+	jeq	d15,#0,.L46
+.L240:
+	ld.w	d15,[a12]22
+.L241:
+	sub	d15,d4,d15
+.L196:
+	jge.u	d15,d4,.L47
+.L47:
+	ld.w	d0,[a12]26
+.L242:
+	jge.u	d0,d15,.L48
+.L243:
+	mov	d0,#-6
+.L244:
+	jge.u	d15,d0,.L49
+.L245:
+	mov	d15,#0
+.L197:
+	st.b	[a12]34,d15
+.L246:
+	lea	a4,[a12]32
+.L194:
+	call	wb_wil_IncrementWithRollover8
+.L193:
+	mov.a	a15,#0
+.L247:
+	ld.a	a2,[a12]
+.L248:
+	jeq.a	a15,a2,.L50
+.L249:
+	ld.a	a15,[a12]
+.L250:
+	mov.aa	a4,a12
+.L198:
+	calli	a15
+.L50:
+.L49:
+.L48:
+.L46:
+.L45:
+	ret
+.L146:
+	
+__wb_wil_api_CheckForTimeout_function_end:
+	.size	wb_wil_api_CheckForTimeout,__wb_wil_api_CheckForTimeout_function_end-wb_wil_api_CheckForTimeout
+.L95:
+	; End of function
+	
+	.calls	'adi_wil_ValidateInstance','adi_wil_CheckConnected'
+	.calls	'wb_wil_api_StartTimer','adi_wil_hal_TickerGetTimestamp'
+	.calls	'wb_wil_api_CheckForTimeout','wb_wil_IncrementWithRollover8'
+	.calls	'wb_wil_api_CheckForTimeout','__INDIRECT__'
+	.calls	'adi_wil_CheckConnected','',0
+	.calls	'adi_wil_ValidateInstance','',0
+	.calls	'adi_wil_CheckNullableParams','',0
+	.calls	'adi_wil_CheckSystemMode','',0
+	.calls	'adi_wil_CheckFileType','',0
+	.calls	'wb_wil_api_StartTimer','',0
+	.calls	'wb_wil_api_CheckToken','',0
+	.extern	adi_wil_hal_TickerGetTimestamp
+	.extern	wb_wil_IncrementWithRollover8
+	.extern	__INDIRECT__
+	.calls	'wb_wil_api_CheckForTimeout','',0
+	.sdecl	'.debug_info',debug
+	.sect	'.debug_info'
+.L68:
+	.word	10541
+	.half	3
+	.word	.L69
+	.byte	4
+.L67:
+	.byte	1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L70
+.L111:
+	.byte	2,1,177,2,9,1,3
+	.byte	'ADI_WIL_ERR_SUCCESS',0,0,3
+	.byte	'ADI_WIL_ERR_FAIL',0,1,3
+	.byte	'ADI_WIL_ERR_API_IN_PROGRESS',0,2,3
+	.byte	'ADI_WIL_ERR_TIMEOUT',0,3,3
+	.byte	'ADI_WIL_ERR_NOT_CONNECTED',0,4,3
+	.byte	'ADI_WIL_ERR_INVALID_PARAMETER',0,5,3
+	.byte	'ADI_WIL_ERR_INVALID_STATE',0,6,3
+	.byte	'ADI_WIL_ERR_NOT_SUPPORTED',0,7,3
+	.byte	'ADI_WIL_ERR_EXTERNAL',0,8,3
+	.byte	'ADI_WIL_ERR_INVALID_MODE',0,9,3
+	.byte	'ADI_WIL_ERR_IN_PROGRESS',0,10,3
+	.byte	'ADI_WIL_ERR_CONFIGURATION_MISMATCH',0,11,3
+	.byte	'ADI_WIL_ERR_CRC',0,12,3
+	.byte	'ADI_WIL_ERR_FILE_REJECTED',0,13,3
+	.byte	'ADI_WIL_ERR_PARTIAL_SUCCESS',0,14,0,4
+	.word	.L199-.L68
+	.byte	5
+	.word	620
+	.byte	6,1,1,7
+	.word	625
+	.byte	0,4
+	.word	630
+	.byte	8
+	.byte	'adi_wil_api_process_func_t',0,1,165,5,16
+	.word	639
+	.byte	9
+	.byte	'unsigned long long int',0,8,7,2,1,223,2,9,1,3
+	.byte	'ADI_WIL_TARGET_SINGLE_MANAGER',0,0,3
+	.byte	'ADI_WIL_TARGET_SINGLE_NODE',0,1,3
+	.byte	'ADI_WIL_TARGET_ALL_MANAGERS',0,2,3
+	.byte	'ADI_WIL_TARGET_ALL_NODES',0,3,0
+.L149:
+	.byte	9
+	.byte	'unsigned int',0,4,7
+.L162:
+	.byte	9
+	.byte	'unsigned short int',0,2,7
+.L119:
+	.byte	9
+	.byte	'unsigned char',0,1,8
+.L115:
+	.byte	9
+	.byte	'_Bool',0,1,2,10,2,83,9,36,11
+	.byte	'pfRequestFunc',0
+	.word	644
+	.byte	4,2,35,0,11
+	.byte	'iDeviceId',0
+	.word	680
+	.byte	8,2,35,4,11
+	.byte	'iPendingResponses',0
+	.word	680
+	.byte	8,2,35,12,11
+	.byte	'eTarget',0
+	.word	706
+	.byte	1,2,35,20,11
+	.byte	'iStartTime',0
+	.word	831
+	.byte	4,2,35,22,11
+	.byte	'iTimeout',0
+	.word	831
+	.byte	4,2,35,26,11
+	.byte	'iToken',0
+	.word	847
+	.byte	2,2,35,30,11
+	.byte	'iRetries',0
+	.word	869
+	.byte	1,2,35,32,11
+	.byte	'iRequestCount',0
+	.word	869
+	.byte	1,2,35,33,11
+	.byte	'bValid',0
+	.word	886
+	.byte	1,2,35,34,11
+	.byte	'bPartialSuccess',0
+	.word	886
+	.byte	1,2,35,35,0,10,2,45,9,12,11
+	.byte	'iConnectState',0
+	.word	680
+	.byte	8,2,35,0,11
+	.byte	'iCount',0
+	.word	869
+	.byte	1,2,35,8,0,10,2,54,9,20,11
+	.byte	'iManager0ConfigurationHash',0
+	.word	831
+	.byte	4,2,35,0,11
+	.byte	'iManager1ConfigurationHash',0
+	.word	831
+	.byte	4,2,35,4,11
+	.byte	'iTimeStamp',0
+	.word	831
+	.byte	4,2,35,8,11
+	.byte	'iToken',0
+	.word	847
+	.byte	2,2,35,12,11
+	.byte	'iRetries',0
+	.word	869
+	.byte	1,2,35,14,11
+	.byte	'bDMHActive',0
+	.word	886
+	.byte	1,2,35,15,11
+	.byte	'bInProgress',0
+	.word	886
+	.byte	1,2,35,16,11
+	.byte	'bReconnection',0
+	.word	886
+	.byte	1,2,35,17,0,2,1,207,2,9,1,3
+	.byte	'ADI_WIL_MODE_STANDBY',0,1,3
+	.byte	'ADI_WIL_MODE_COMMISSIONING',0,2,3
+	.byte	'ADI_WIL_MODE_ACTIVE',0,3,3
+	.byte	'ADI_WIL_MODE_MONITORING',0,4,3
+	.byte	'ADI_WIL_MODE_OTAP',0,5,3
+	.byte	'ADI_WIL_MODE_SLEEP',0,6,0,10,2,69,9,16,11
+	.byte	'iNodeModeMask',0
+	.word	680
+	.byte	8,2,35,0,11
+	.byte	'eMode',0
+	.word	1364
+	.byte	1,2,35,8,11
+	.byte	'bExpectManager0Response',0
+	.word	886
+	.byte	1,2,35,9,11
+	.byte	'bExpectManager1Response',0
+	.word	886
+	.byte	1,2,35,10,11
+	.byte	'bPendingManager0Response',0
+	.word	886
+	.byte	1,2,35,11,11
+	.byte	'bPendingManager1Response',0
+	.word	886
+	.byte	1,2,35,12,0,2,2,30,9,1,3
+	.byte	'ADI_WIL_LOAD_FILE_STATE_NO_TRANSFER',0,0,3
+	.byte	'ADI_WIL_LOAD_FILE_STATE_DOWNLOAD',0,1,3
+	.byte	'ADI_WIL_LOAD_FILE_STATE_RETRANSMIT',0,2,3
+	.byte	'ADI_WIL_LOAD_FILE_STATE_HANDSHAKING',0,3,3
+	.byte	'ADI_WIL_LOAD_FILE_STATE_TRANSFER',0,4,0,5
+	.word	869
+	.byte	4
+	.word	1879
+	.byte	10,2,101,9,84,11
+	.byte	'iMissingBlockMask1',0
+	.word	680
+	.byte	8,2,35,0,11
+	.byte	'iMissingBlockMask2',0
+	.word	680
+	.byte	8,2,35,8,11
+	.byte	'iDeviceActiveBitmask',0
+	.word	680
+	.byte	8,2,35,16,11
+	.byte	'iDeviceBitMaskInternalNodeCopy',0
+	.word	680
+	.byte	8,2,35,24,11
+	.byte	'iDeviceBitMaskSentUnicastHS',0
+	.word	680
+	.byte	8,2,35,32,11
+	.byte	'iDeviceBitMaskReceivedUnicastHS',0
+	.word	680
+	.byte	8,2,35,40,11
+	.byte	'iUpdateMap',0
+	.word	680
+	.byte	8,2,35,48,11
+	.byte	'eState',0
+	.word	1690
+	.byte	1,2,35,56,11
+	.byte	'iFileSize',0
+	.word	831
+	.byte	4,2,35,58,11
+	.byte	'pData',0
+	.word	1884
+	.byte	4,2,35,64,11
+	.byte	'iTotalBlocks',0
+	.word	847
+	.byte	2,2,35,68,11
+	.byte	'iBaseBlockIdx',0
+	.word	847
+	.byte	2,2,35,70,11
+	.byte	'iPreviouslyRequestedBlockNumber',0
+	.word	847
+	.byte	2,2,35,72,11
+	.byte	'iNumberOfBlkNumberRetry',0
+	.word	847
+	.byte	2,2,35,74,11
+	.byte	'iFileType',0
+	.word	869
+	.byte	1,2,35,76,11
+	.byte	'iBlockIdx',0
+	.word	869
+	.byte	1,2,35,77,11
+	.byte	'iBlocksInSector',0
+	.word	869
+	.byte	1,2,35,78,11
+	.byte	'iRetransmissionCount',0
+	.word	869
+	.byte	1,2,35,79,11
+	.byte	'bWaitReceived',0
+	.word	886
+	.byte	1,2,35,80,11
+	.byte	'bDeviceRemoved',0
+	.word	886
+	.byte	1,2,35,81,11
+	.byte	'bUnicastHandshaking',0
+	.word	886
+	.byte	1,2,35,82,11
+	.byte	'bBroadcastHandshaking',0
+	.word	886
+	.byte	1,2,35,83,0,2,1,161,3,9,1,3
+	.byte	'ADI_WIL_GPIO_0',0,0,3
+	.byte	'ADI_WIL_GPIO_2',0,1,3
+	.byte	'ADI_WIL_GPIO_7',0,2,3
+	.byte	'ADI_WIL_GPIO_8',0,3,3
+	.byte	'ADI_WIL_GPIO_9',0,4,3
+	.byte	'ADI_WIL_GPIO_10',0,5,0,2,1,177,3,9,1,3
+	.byte	'ADI_WIL_GPIO_LOW',0,0,3
+	.byte	'ADI_WIL_GPIO_HIGH',0,1,0,10,2,130,1,9,2,11
+	.byte	'GpioId',0
+	.word	2488
+	.byte	1,2,35,0,11
+	.byte	'GpioValue',0
+	.word	2598
+	.byte	1,2,35,1,0,10,2,138,1,9,2,11
+	.byte	'iScriptId',0
+	.word	869
+	.byte	1,2,35,0,11
+	.byte	'iSensorId',0
+	.word	869
+	.byte	1,2,35,1,0,12,64
+	.word	869
+	.byte	13,63,0,14
+	.byte	'adi_wil_script_change_t',0,3,29,8,72,11
+	.byte	'iActivationTime',0
+	.word	847
+	.byte	2,2,35,0,11
+	.byte	'iEntryOffset',0
+	.word	847
+	.byte	2,2,35,2,11
+	.byte	'iChangeDataLength',0
+	.word	869
+	.byte	1,2,35,4,11
+	.byte	'iChangeData',0
+	.word	2731
+	.byte	64,2,35,5,0,10,2,146,1,9,76,11
+	.byte	'ScriptChange',0
+	.word	2740
+	.byte	72,2,35,0,11
+	.byte	'iSensorId',0
+	.word	869
+	.byte	1,2,35,72,0,12,75
+	.word	869
+	.byte	13,74,0,14
+	.byte	'adi_wil_contextual_data_t',0,4,21,8,76,11
+	.byte	'iLength',0
+	.word	869
+	.byte	1,2,35,0,11
+	.byte	'Data',0
+	.word	2913
+	.byte	75,2,35,1,0,10,2,154,1,9,80,11
+	.byte	'ContextualData',0
+	.word	2922
+	.byte	76,2,35,0,11
+	.byte	'iContextualId',0
+	.word	869
+	.byte	1,2,35,76,0,10,2,162,1,9,1,11
+	.byte	'iDeviceId',0
+	.word	869
+	.byte	1,2,35,0,0,10,2,169,1,9,1,11
+	.byte	'iPercentage',0
+	.word	869
+	.byte	1,2,35,0,0,15
+	.byte	'adi_wil_network_data_t',0,1,215,4,16,1,4
+	.word	3093
+	.byte	14
+	.byte	'adi_wil_network_data_buffer_t',0,5,21,8,8,11
+	.byte	'pData',0
+	.word	3122
+	.byte	4,2,35,0,11
+	.byte	'iDataBufferCount',0
+	.word	847
+	.byte	2,2,35,4,11
+	.byte	'iCount',0
+	.word	847
+	.byte	2,2,35,6,0,10,2,176,1,9,12,11
+	.byte	'iDeviceId',0
+	.word	680
+	.byte	8,2,35,0,11
+	.byte	'iOffset',0
+	.word	847
+	.byte	2,2,35,8,11
+	.byte	'iFileType',0
+	.word	869
+	.byte	1,2,35,10,11
+	.byte	'bInProgress',0
+	.word	886
+	.byte	1,2,35,11,0,10,2,186,1,9,1,11
+	.byte	'iFileType',0
+	.word	869
+	.byte	1,2,35,0,0,10,2,193,1,9,12,11
+	.byte	'iCurrentTime',0
+	.word	680
+	.byte	8,2,35,0,11
+	.byte	'iExitInventoryStateFlag',0
+	.word	869
+	.byte	1,2,35,8,0,12,128,2
+	.word	831
+	.byte	13,63,0,14
+	.byte	'adi_wil_file_crc_list_t',0,6,23,8,136,2,11
+	.byte	'eFileExists',0
+	.word	680
+	.byte	8,2,35,0,11
+	.byte	'iCRC',0
+	.word	3391
+	.byte	128,2,2,35,8,0,10,2,201,1,9,140,2,11
+	.byte	'FileCRCList',0
+	.word	3401
+	.byte	136,2,2,35,0,11
+	.byte	'iFileType',0
+	.word	869
+	.byte	1,3,35,136,2,0,12,31
+	.word	869
+	.byte	13,30,0,10,2,216,1,9,36,11
+	.byte	'Data',0
+	.word	3518
+	.byte	31,2,35,0,11
+	.byte	'iCustomerIdentifier',0
+	.word	869
+	.byte	1,2,35,31,11
+	.byte	'iLength',0
+	.word	869
+	.byte	1,2,35,32,0,10,2,209,1,9,2,11
+	.byte	'iToken',0
+	.word	847
+	.byte	2,2,35,0,0,10,2,225,1,9,1,11
+	.byte	'bEnableFaultServicing',0
+	.word	886
+	.byte	1,2,35,0,0,4
+	.word	869
+	.byte	10,2,232,1,9,20,11
+	.byte	'iUpdateMap',0
+	.word	680
+	.byte	8,2,35,0,11
+	.byte	'pData',0
+	.word	3655
+	.byte	4,2,35,8,11
+	.byte	'iOffset',0
+	.word	847
+	.byte	2,2,35,12,11
+	.byte	'iLength',0
+	.word	847
+	.byte	2,2,35,14,11
+	.byte	'iPreviousRequestLength',0
+	.word	869
+	.byte	1,2,35,16,0,2,1,139,4,9,1,3
+	.byte	'ADI_WIL_TOPOLOGY_SAVED',0,0,3
+	.byte	'ADI_WIL_TOPOLOGY_NEW',0,1,3
+	.byte	'ADI_WIL_TOPOLOGY_STAR',0,2,0,10,2,243,1,9,1,11
+	.byte	'eTopology',0
+	.word	3768
+	.byte	1,2,35,0,0,12,240,3
+	.word	869
+	.byte	13,239,3,0,14
+	.byte	'adi_wil_acl_t',0,7,20,8,244,3,11
+	.byte	'Data',0
+	.word	3873
+	.byte	240,3,2,35,0,11
+	.byte	'iCount',0
+	.word	869
+	.byte	1,3,35,240,3,0,10,8,22,9,28,11
+	.byte	'iBMSDevices',0
+	.word	680
+	.byte	8,2,35,0,11
+	.byte	'iPMSDevices',0
+	.word	680
+	.byte	8,2,35,8,11
+	.byte	'iEMSDevices',0
+	.word	680
+	.byte	8,2,35,16,11
+	.byte	'iBMSPackets',0
+	.word	869
+	.byte	1,2,35,24,11
+	.byte	'iPMSPackets',0
+	.word	869
+	.byte	1,2,35,25,11
+	.byte	'iEMSPackets',0
+	.word	869
+	.byte	1,2,35,26,0,10,2,250,1,9,6,11
+	.byte	'iTimestamp',0
+	.word	831
+	.byte	4,2,35,0,11
+	.byte	'bInitialized',0
+	.word	886
+	.byte	1,2,35,4,11
+	.byte	'bPendingChange',0
+	.word	886
+	.byte	1,2,35,5,0,12,12
+	.word	4069
+	.byte	13,1,0,10,2,131,2,9,80,11
+	.byte	'TimestampState',0
+	.word	4142
+	.byte	12,2,35,0,11
+	.byte	'iMeasurementsReceived',0
+	.word	2731
+	.byte	64,2,35,12,11
+	.byte	'iBaseSequenceNumber',0
+	.word	869
+	.byte	1,2,35,76,11
+	.byte	'bFlushRequired',0
+	.word	886
+	.byte	1,2,35,77,0,10,2,141,2,9,12,11
+	.byte	'iManager0PktCount',0
+	.word	831
+	.byte	4,2,35,0,11
+	.byte	'iManager1PktCount',0
+	.word	831
+	.byte	4,2,35,4,11
+	.byte	'iRejectedPktCount',0
+	.word	831
+	.byte	4,2,35,8,0,10,2,150,2,9,12,11
+	.byte	'iPktReceivedCount',0
+	.word	831
+	.byte	4,2,35,0,11
+	.byte	'iPktCapturedCount',0
+	.word	831
+	.byte	4,2,35,4,11
+	.byte	'iNwkDataRdyNotifCount',0
+	.word	831
+	.byte	4,2,35,8,0,10,2,159,2,9,28,11
+	.byte	'iHandshakeRequests',0
+	.word	847
+	.byte	2,2,35,0,11
+	.byte	'iStatusRequests',0
+	.word	847
+	.byte	2,2,35,2,11
+	.byte	'iCommitRequests',0
+	.word	847
+	.byte	2,2,35,4,11
+	.byte	'iHandshakeMaxRetries',0
+	.word	847
+	.byte	2,2,35,6,11
+	.byte	'iStatusMaxRetries',0
+	.word	847
+	.byte	2,2,35,8,11
+	.byte	'iCommitMaxRetries',0
+	.word	847
+	.byte	2,2,35,10,11
+	.byte	'iDataBlocks',0
+	.word	847
+	.byte	2,2,35,12,11
+	.byte	'iRetransmittedBlocks',0
+	.word	847
+	.byte	2,2,35,14,11
+	.byte	'iHandshakePhaseFails',0
+	.word	847
+	.byte	2,2,35,16,11
+	.byte	'iDataPhaseFails',0
+	.word	847
+	.byte	2,2,35,18,11
+	.byte	'iStatusPhaseFails',0
+	.word	847
+	.byte	2,2,35,20,11
+	.byte	'iCommitPhaseFails',0
+	.word	847
+	.byte	2,2,35,22,11
+	.byte	'iCommitCrcFails',0
+	.word	847
+	.byte	2,2,35,24,11
+	.byte	'iCommitFileRejected',0
+	.word	847
+	.byte	2,2,35,26,0,10,2,179,2,9,84,11
+	.byte	'iDeviceId',0
+	.word	869
+	.byte	1,2,35,0,11
+	.byte	'iPacketGenerationTime',0
+	.word	680
+	.byte	8,2,35,4,11
+	.byte	'iSWVersionMajor',0
+	.word	847
+	.byte	2,2,35,12,11
+	.byte	'iSWVersionMinor',0
+	.word	847
+	.byte	2,2,35,14,11
+	.byte	'iSpiTxQueueOFCount',0
+	.word	831
+	.byte	4,2,35,16,11
+	.byte	'iSpiRxCrcErrorCount',0
+	.word	831
+	.byte	4,2,35,20,11
+	.byte	'iSpiDevXferErrorCount',0
+	.word	831
+	.byte	4,2,35,24,11
+	.byte	'iSpiSWXferErrorCount',0
+	.word	831
+	.byte	4,2,35,28,11
+	.byte	'iSpiAbortCount',0
+	.word	831
+	.byte	4,2,35,32,11
+	.byte	'iSpiTxFrameAllocErrorCount',0
+	.word	831
+	.byte	4,2,35,36,11
+	.byte	'iSpiTxMsgAllocErrorCount',0
+	.word	831
+	.byte	4,2,35,40,11
+	.byte	'iSpiRxFrameAllocErrorCount',0
+	.word	831
+	.byte	4,2,35,44,11
+	.byte	'iSpiRxMsgAllocErrorCount',0
+	.word	831
+	.byte	4,2,35,48,11
+	.byte	'iIdleFramesSinceLastMsg',0
+	.word	831
+	.byte	4,2,35,52,11
+	.byte	'iFlash0OneBitEccErrCount',0
+	.word	847
+	.byte	2,2,35,56,11
+	.byte	'iFlash0TwoBitEccErrCount',0
+	.word	847
+	.byte	2,2,35,58,11
+	.byte	'iFlash0LastEccErrAddr',0
+	.word	831
+	.byte	4,2,35,60,11
+	.byte	'iFlash1OneBitEccErrCount',0
+	.word	847
+	.byte	2,2,35,64,11
+	.byte	'iFlash1TwoBitEccErrCount',0
+	.word	847
+	.byte	2,2,35,66,11
+	.byte	'iFlash1LastEccErrAddr',0
+	.word	831
+	.byte	4,2,35,68,11
+	.byte	'iFlashWriteErrCount',0
+	.word	847
+	.byte	2,2,35,72,11
+	.byte	'iLffsFreePercent',0
+	.word	869
+	.byte	1,2,35,74,11
+	.byte	'iLffsDefragCount',0
+	.word	847
+	.byte	2,2,35,76,11
+	.byte	'iLffsStatus',0
+	.word	831
+	.byte	4,2,35,78,0,10,2,209,2,9,168,1,11
+	.byte	'Manager0StatusMsg',0
+	.word	4829
+	.byte	84,2,35,0,11
+	.byte	'Manager1StatusMsg',0
+	.word	4829
+	.byte	84,2,35,84,0,10,2,217,2,9,244,1,11
+	.byte	'PmsPktStats',0
+	.word	4266
+	.byte	12,2,35,0,11
+	.byte	'BmsPktStats',0
+	.word	4266
+	.byte	12,2,35,12,11
+	.byte	'EmsPktStats',0
+	.word	4266
+	.byte	12,2,35,24,11
+	.byte	'NetworkPktStats',0
+	.word	4354
+	.byte	12,2,35,36,11
+	.byte	'OTAPStats',0
+	.word	4446
+	.byte	28,2,35,48,11
+	.byte	'MgrStats',0
+	.word	5551
+	.byte	168,1,2,35,76,0,12,64
+	.word	847
+	.byte	13,31,0,12,32
+	.word	869
+	.byte	13,31,0,10,9,65,9,100,11
+	.byte	'iValue',0
+	.word	5747
+	.byte	64,2,35,0,11
+	.byte	'iCommandId',0
+	.word	5756
+	.byte	32,2,35,64,11
+	.byte	'iHead',0
+	.word	869
+	.byte	1,2,35,96,11
+	.byte	'iTail',0
+	.word	869
+	.byte	1,2,35,97,0,10,9,26,9,40,11
+	.byte	'iTxFrameCount',0
+	.word	831
+	.byte	4,2,35,0,11
+	.byte	'iRxFrameCount',0
+	.word	831
+	.byte	4,2,35,4,11
+	.byte	'iTxErrorCount',0
+	.word	831
+	.byte	4,2,35,8,11
+	.byte	'iRxErrorCount',0
+	.word	831
+	.byte	4,2,35,12,11
+	.byte	'iRxBuffAllocErrCount',0
+	.word	831
+	.byte	4,2,35,16,11
+	.byte	'iRunningRxErrorCount',0
+	.word	831
+	.byte	4,2,35,20,11
+	.byte	'iRunningLoggedOutFrameCount',0
+	.word	831
+	.byte	4,2,35,24,11
+	.byte	'iRunningValidFrameCount',0
+	.word	831
+	.byte	4,2,35,28,11
+	.byte	'iAckLostCount',0
+	.word	831
+	.byte	4,2,35,32,11
+	.byte	'iAckTxFailCount',0
+	.word	831
+	.byte	4,2,35,36,0,10,9,53,9,8,11
+	.byte	'iTimeStamp',0
+	.word	831
+	.byte	4,2,35,0,11
+	.byte	'iRetries',0
+	.word	869
+	.byte	1,2,35,4,11
+	.byte	'bInProgress',0
+	.word	886
+	.byte	1,2,35,5,11
+	.byte	'bDeviceExists',0
+	.word	886
+	.byte	1,2,35,6,11
+	.byte	'bPackLockAcquired',0
+	.word	886
+	.byte	1,2,35,7,0,12,128,2
+	.word	869
+	.byte	13,255,1,0,16
+	.word	886
+	.byte	16
+	.word	886
+	.byte	10,9,77,9,132,2,11
+	.byte	'iData',0
+	.word	6228
+	.byte	128,2,2,35,0,11
+	.byte	'bInUse',0
+	.word	6239
+	.byte	1,3,35,128,2,11
+	.byte	'bReadyForProcessing',0
+	.word	6244
+	.byte	1,3,35,129,2,0,12,136,4
+	.word	6249
+	.byte	13,1,0,4
+	.word	.L199-.L68
+	.byte	2,9,43,9,1,3
+	.byte	'ADI_WIL_MGR_UNKNOWN',0,0,3
+	.byte	'ADI_WIL_MGR_PRIMARY',0,1,3
+	.byte	'ADI_WIL_MGR_SECONDARY',0,2,0,16
+	.word	886
+	.byte	16
+	.word	886
+	.byte	16
+	.word	886
+	.byte	16
+	.word	886
+	.byte	10,9,91,9,180,11,11
+	.byte	'AckQueue',0
+	.word	5765
+	.byte	100,2,35,0,11
+	.byte	'PortStatistics',0
+	.word	5837
+	.byte	40,2,35,100,11
+	.byte	'QueryDeviceState',0
+	.word	6113
+	.byte	8,3,35,140,1,11
+	.byte	'RxBuffer',0
+	.word	6319
+	.byte	136,4,3,35,148,1,11
+	.byte	'pPackInternals',0
+	.word	6329
+	.byte	4,3,35,156,5,11
+	.byte	'pTx',0
+	.word	3655
+	.byte	4,3,35,160,5,11
+	.byte	'pRx',0
+	.word	3655
+	.byte	4,3,35,164,5,11
+	.byte	'Role',0
+	.word	6334
+	.byte	1,3,35,168,5,11
+	.byte	'UserRequestFrame',0
+	.word	6228
+	.byte	128,2,3,35,169,5,11
+	.byte	'ProcessTaskRequestFrame',0
+	.word	6228
+	.byte	128,2,3,35,169,7,11
+	.byte	'IdleFrame',0
+	.word	6228
+	.byte	128,2,3,35,169,9,11
+	.byte	'iSessionId',0
+	.word	869
+	.byte	1,3,35,169,11,11
+	.byte	'iProtocolVersion',0
+	.word	869
+	.byte	1,3,35,170,11,11
+	.byte	'bUserRequestFramePending',0
+	.word	6408
+	.byte	1,3,35,171,11,11
+	.byte	'bProcessTaskRequestFramePending',0
+	.word	6413
+	.byte	1,3,35,172,11,11
+	.byte	'bConnectionRequestPending',0
+	.word	6418
+	.byte	1,3,35,173,11,11
+	.byte	'bInUse',0
+	.word	6423
+	.byte	1,3,35,174,11,11
+	.byte	'bConnected',0
+	.word	886
+	.byte	1,3,35,175,11,11
+	.byte	'bPreviousTxWasUserFrame',0
+	.word	886
+	.byte	1,3,35,176,11,11
+	.byte	'bInitialized',0
+	.word	886
+	.byte	1,3,35,177,11,11
+	.byte	'bLinkAvailable',0
+	.word	886
+	.byte	1,3,35,178,11,11
+	.byte	'bTransmitted',0
+	.word	886
+	.byte	1,3,35,179,11,0,14
+	.byte	'adi_wil_port_t',0,9,120,8,184,11,11
+	.byte	'Internals',0
+	.word	6428
+	.byte	180,11,2,35,0,11
+	.byte	'iSPIDevice',0
+	.word	869
+	.byte	1,3,35,180,11,11
+	.byte	'iChipSelect',0
+	.word	869
+	.byte	1,3,35,181,11,0,4
+	.word	6980
+	.byte	15
+	.byte	'adi_wil_pack_t',0,1,250,4,16,1,5
+	.word	7070
+	.byte	4
+	.word	7091
+.L199:
+	.byte	14
+	.byte	'adi_wil_pack_internals_t',0,2,229,2,8,200,13,11
+	.byte	'UserRequestState',0
+	.word	895
+	.byte	36,2,35,0,11
+	.byte	'NodeState',0
+	.word	1123
+	.byte	12,2,35,36,11
+	.byte	'ConnectState',0
+	.word	1168
+	.byte	20,2,35,48,11
+	.byte	'SetModeState',0
+	.word	1512
+	.byte	16,2,35,68,11
+	.byte	'LoadFileState',0
+	.word	1889
+	.byte	84,2,35,84,11
+	.byte	'GpioState',0
+	.word	2644
+	.byte	2,3,35,168,1,11
+	.byte	'SelectScriptState',0
+	.word	2686
+	.byte	2,3,35,170,1,11
+	.byte	'ModifyScriptState',0
+	.word	2865
+	.byte	76,3,35,172,1,11
+	.byte	'ContextualState',0
+	.word	2985
+	.byte	80,3,35,248,1,11
+	.byte	'RotateKeyState',0
+	.word	3039
+	.byte	1,3,35,200,2,11
+	.byte	'StateOfHealthState',0
+	.word	3065
+	.byte	1,3,35,201,2,11
+	.byte	'NetDataBuffer',0
+	.word	3127
+	.byte	8,3,35,204,2,11
+	.byte	'GetFileState',0
+	.word	3220
+	.byte	12,3,35,212,2,11
+	.byte	'EraseFileState',0
+	.word	3303
+	.byte	1,3,35,224,2,11
+	.byte	'InventoryTransitionState',0
+	.word	3329
+	.byte	12,3,35,228,2,11
+	.byte	'GetFileCRCState',0
+	.word	3468
+	.byte	140,2,3,35,240,2,11
+	.byte	'CustomerIdentifierState',0
+	.word	3527
+	.byte	36,3,35,252,4,11
+	.byte	'ResetDeviceState',0
+	.word	3594
+	.byte	2,3,35,160,5,11
+	.byte	'EnvMonState',0
+	.word	3617
+	.byte	1,3,35,162,5,11
+	.byte	'UpdateMonParamsState',0
+	.word	3660
+	.byte	20,3,35,164,5,11
+	.byte	'ApplyNetworkTopologyState',0
+	.word	3847
+	.byte	1,3,35,184,5,11
+	.byte	'ACLState',0
+	.word	3884
+	.byte	244,3,3,35,188,5,11
+	.byte	'XmsMeasurementParameters',0
+	.word	3937
+	.byte	28,3,35,176,9,11
+	.byte	'BmsTimestampConversionState',0
+	.word	4151
+	.byte	80,3,35,204,9,11
+	.byte	'PmsTimestampConversionState',0
+	.word	4151
+	.byte	80,3,35,156,10,11
+	.byte	'EmsTimestampConversionState',0
+	.word	4151
+	.byte	80,3,35,236,10,11
+	.byte	'Stats',0
+	.word	5613
+	.byte	244,1,3,35,188,11,11
+	.byte	'pManager0Port',0
+	.word	7065
+	.byte	4,3,35,176,13,11
+	.byte	'pManager1Port',0
+	.word	7065
+	.byte	4,3,35,180,13,11
+	.byte	'pCurrentPort',0
+	.word	7065
+	.byte	4,3,35,184,13,11
+	.byte	'pPack',0
+	.word	7096
+	.byte	4,3,35,188,13,11
+	.byte	'eMode',0
+	.word	1364
+	.byte	1,3,35,192,13,11
+	.byte	'iMaxNodeCount',0
+	.word	869
+	.byte	1,3,35,193,13,11
+	.byte	'bMaintainConnection',0
+	.word	886
+	.byte	1,3,35,194,13,11
+	.byte	'bReconnectPending',0
+	.word	886
+	.byte	1,3,35,195,13,11
+	.byte	'bInvalidState',0
+	.word	886
+	.byte	1,3,35,196,13,0,5
+	.word	7101
+	.byte	4
+	.word	8081
+.L113:
+	.byte	5
+	.word	8086
+	.byte	4
+	.word	630
+	.byte	17
+	.byte	'void',0,5
+	.word	8101
+	.byte	4
+	.word	8107
+	.byte	5
+	.word	8112
+.L121:
+	.byte	4
+	.word	8117
+.L127:
+	.byte	5
+	.word	8086
+	.byte	5
+	.word	1364
+.L130:
+	.byte	4
+	.word	8132
+.L136:
+	.byte	5
+	.word	8086
+.L138:
+	.byte	2,1,197,3,9,1,3
+	.byte	'ADI_WIL_FILE_TYPE_FIRMWARE',0,0,3
+	.byte	'ADI_WIL_FILE_TYPE_BMS_CONTAINER',0,1,3
+	.byte	'ADI_WIL_FILE_TYPE_CONFIGURATION',0,2,3
+	.byte	'ADI_WIL_FILE_TYPE_BLACK_BOX_LOG',0,3,3
+	.byte	'ADI_WIL_FILE_TYPE_INVENTORY_LOG',0,4,3
+	.byte	'ADI_WIL_FILE_TYPE_ENV_MON',0,5,3
+	.byte	'ADI_WIL_FILE_TYPE_PMS_CONTAINER',0,6,3
+	.byte	'ADI_WIL_FILE_TYPE_EMS_CONTAINER',0,7,0,5
+	.word	8147
+.L141:
+	.byte	4
+	.word	8415
+.L147:
+	.byte	5
+	.word	6329
+.L153:
+	.byte	5
+	.word	6329
+	.byte	4
+	.word	847
+.L155:
+	.byte	5
+	.word	8435
+.L160:
+	.byte	5
+	.word	6329
+	.byte	18
+	.byte	'adi_wil_hal_TickerGetTimestamp',0,10,62,10
+	.word	831
+	.byte	1,1,1,1,19
+	.byte	'wb_wil_IncrementWithRollover8',0,11,42,6,1,1,1,1,20
+	.byte	'pValue',0,11,42,46
+	.word	3655
+	.byte	0
+.L167:
+	.byte	5
+	.word	8086
+	.byte	21
+	.byte	'__INDIRECT__',0,12,1,1,1,1,1,22,1,4
+	.word	8572
+	.byte	8
+	.byte	'__codeptr',0,12,1,1
+	.word	8574
+	.byte	9
+	.byte	'int',0,4,5,8
+	.byte	'__intptr_t',0,12,1,1
+	.word	8597
+	.byte	8
+	.byte	'__uintptr_t',0,12,1,1
+	.word	831
+	.byte	8
+	.byte	'uint8_t',0,13,242,1,41
+	.word	869
+	.byte	8
+	.byte	'uint16_t',0,13,246,1,41
+	.word	847
+	.byte	8
+	.byte	'uint32_t',0,13,254,1,41
+	.word	831
+	.byte	8
+	.byte	'uint64_t',0,13,134,2,41
+	.word	680
+	.byte	8
+	.byte	'adi_wil_err_t',0,1,194,2,3
+	.word	215
+	.byte	8
+	.byte	'adi_wil_mode_t',0,1,215,2,3
+	.word	1364
+	.byte	8
+	.byte	'adi_wil_target_t',0,1,229,2,3
+	.word	706
+	.byte	8
+	.byte	'adi_wil_gpio_id_t',0,1,169,3,3
+	.word	2488
+	.byte	8
+	.byte	'adi_wil_gpio_value_t',0,1,181,3,3
+	.word	2598
+	.byte	8
+	.byte	'adi_wil_device_t',0,1,191,3,18
+	.word	680
+	.byte	8
+	.byte	'adi_wil_file_type_t',0,1,207,3,3
+	.word	8147
+	.byte	8
+	.byte	'adi_wil_topology_t',0,1,144,4,3
+	.word	3768
+	.byte	15
+	.byte	'adi_wil_sensor_data_t',0,1,170,4,16,1,8
+	.byte	'adi_wil_sensor_data_t',0,1,170,4,38
+	.word	8927
+	.byte	8
+	.byte	'adi_wil_script_change_t',0,1,180,4,40
+	.word	2740
+	.byte	8
+	.byte	'adi_wil_contextual_data_t',0,1,200,4,42
+	.word	2922
+	.byte	8
+	.byte	'adi_wil_network_data_t',0,1,215,4,39
+	.word	3093
+	.byte	8
+	.byte	'adi_wil_network_data_buffer_t',0,1,220,4,46
+	.word	3127
+	.byte	8
+	.byte	'adi_wil_acl_t',0,1,225,4,30
+	.word	3884
+	.byte	8
+	.byte	'adi_wil_port_t',0,1,245,4,31
+	.word	6980
+	.byte	8
+	.byte	'adi_wil_pack_t',0,1,250,4,31
+	.word	7070
+	.byte	8
+	.byte	'adi_wil_pack_internals_t',0,1,255,4,41
+	.word	7101
+	.byte	8
+	.byte	'adi_wil_file_crc_list_t',0,1,147,5,40
+	.word	3401
+	.byte	8
+	.byte	'adi_wil_port_stats_t',0,9,38,3
+	.word	5837
+	.byte	8
+	.byte	'adi_wil_mgr_id_t',0,9,48,3
+	.word	6334
+	.byte	8
+	.byte	'adi_wil_query_device_state_t',0,9,60,3
+	.word	6113
+	.byte	8
+	.byte	'adi_wil_ack_queue_t',0,9,72,3
+	.word	5765
+	.byte	8
+	.byte	'adi_wil_rx_buffer_t',0,9,82,3
+	.word	6249
+	.byte	8
+	.byte	'adi_wil_port_internal_t',0,9,115,3
+	.word	6428
+	.byte	8
+	.byte	'adi_wil_xms_parameters_t',0,8,29,3
+	.word	3937
+	.byte	8
+	.byte	'adi_wil_transfer_state_t',0,2,37,3
+	.word	1690
+	.byte	8
+	.byte	'adi_wil_node_state_t',0,2,49,3
+	.word	1123
+	.byte	8
+	.byte	'adi_wil_connect_state_t',0,2,64,3
+	.word	1168
+	.byte	8
+	.byte	'adi_wil_setmode_state_t',0,2,77,3
+	.word	1512
+	.byte	8
+	.byte	'adi_wil_cmd_state_t',0,2,96,3
+	.word	895
+	.byte	8
+	.byte	'adi_wil_loadfile_state_t',0,2,125,3
+	.word	1889
+	.byte	8
+	.byte	'adi_wil_gpio_state_t',0,2,133,1,3
+	.word	2644
+	.byte	8
+	.byte	'adi_wil_selectscript_state_t',0,2,141,1,3
+	.word	2686
+	.byte	8
+	.byte	'adi_wil_modifyscript_state_t',0,2,149,1,3
+	.word	2865
+	.byte	8
+	.byte	'adi_wil_contextual_state_t',0,2,157,1,3
+	.word	2985
+	.byte	8
+	.byte	'adi_wil_rotate_key_state_t',0,2,164,1,3
+	.word	3039
+	.byte	8
+	.byte	'adi_wil_state_of_health_state_t',0,2,171,1,3
+	.word	3065
+	.byte	8
+	.byte	'adi_wil_get_file_state_t',0,2,181,1,3
+	.word	3220
+	.byte	8
+	.byte	'adi_wil_erase_file_state_t',0,2,188,1,3
+	.word	3303
+	.byte	8
+	.byte	'adi_wil_inventory_transition_state_t',0,2,196,1,3
+	.word	3329
+	.byte	8
+	.byte	'adi_wil_get_file_crc_state_t',0,2,204,1,3
+	.word	3468
+	.byte	8
+	.byte	'adi_wil_reset_device_state_t',0,2,211,1,3
+	.word	3594
+	.byte	8
+	.byte	'adi_wil_customer_identifier_state_t',0,2,220,1,3
+	.word	3527
+	.byte	8
+	.byte	'adi_wil_env_mon_state_t',0,2,227,1,3
+	.word	3617
+	.byte	8
+	.byte	'adi_wil_update_monitor_params_state_t',0,2,238,1,3
+	.word	3660
+	.byte	8
+	.byte	'adi_wil_apply_network_topology_state_t',0,2,245,1,3
+	.word	3847
+	.byte	8
+	.byte	'adi_wil_xms_timestamp_state_t',0,2,254,1,3
+	.word	4069
+	.byte	8
+	.byte	'adi_wil_xms_timestamp_conversion_state_t',0,2,136,2,3
+	.word	4151
+	.byte	8
+	.byte	'adi_wil_xms_pkt_statistics_t',0,2,145,2,3
+	.word	4266
+	.byte	8
+	.byte	'adi_wil_nwk_pkt_statistics_t',0,2,154,2,3
+	.word	4354
+	.byte	8
+	.byte	'adi_wil_otap_statistics_t',0,2,174,2,3
+	.word	4446
+	.byte	8
+	.byte	'adi_wil_mgr_status_msg_t',0,2,204,2,3
+	.word	4829
+	.byte	8
+	.byte	'adi_wil_mgr_statistics_t',0,2,212,2,3
+	.word	5551
+	.byte	8
+	.byte	'adi_wil_statistics_t',0,2,224,2,3
+	.word	5613
+	.byte	0
+	.sdecl	'.debug_abbrev',debug
+	.sect	'.debug_abbrev'
+.L69:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,4,1,58,15,59,15,57,15,11,15,0,0,3,40,0,3,8,28,13,0,0,4
+	.byte	15,0,73,19,0,0,5,38,0,73,19,0,0,6,21,1,54,15,39,12,0,0,7,5,0,73,19,0,0,8,22,0,3,8,58,15,59,15,57,15,73
+	.byte	19,0,0,9,36,0,3,8,11,15,62,15,0,0,10,19,1,58,15,59,15,57,15,11,15,0,0,11,13,0,3,8,73,19,11,15,56,9,0,0
+	.byte	12,1,1,11,15,73,19,0,0,13,33,0,47,15,0,0,14,19,1,3,8,58,15,59,15,57,15,11,15,0,0,15,19,0,3,8,58,15,59
+	.byte	15,57,15,60,12,0,0,16,53,0,73,19,0,0,17,59,0,3,8,0,0,18,46,0,3,8,58,15,59,15,57,15,73,19,54,15,39,12,63
+	.byte	12,60,12,0,0,19,46,1,3,8,58,15,59,15,57,15,54,15,39,12,63,12,60,12,0,0,20,5,0,3,8,58,15,59,15,57,15,73
+	.byte	19,0,0,21,46,0,3,8,58,15,59,15,57,15,54,15,63,12,60,12,0,0,22,21,0,54,15,0,0,0
+	.sdecl	'.debug_line',debug
+	.sect	'.debug_line'
+.L70:
+	.word	.L201-.L200
+.L200:
+	.half	3
+	.word	.L203-.L202
+.L202:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
+	.byte	'C:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\API',0
+	.byte	'C:\\\\WORK\\\\AURIX-Workspace_JG_TSW\\\\WBMS_CDD\\\\Adi\\\\WBMS_Interface_Lib-Rel2.2.0\\\\Include',0
+	.byte	'C:\\Infineon\\AURIX-Studio-1.9.8\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0,0
+	.byte	'adi_wil_types.h',0,1,0,0
+	.byte	'adi_wil_pack_internals.h',0,1,0,0
+	.byte	'adi_wil_script_change.h',0,1,0,0
+	.byte	'adi_wil_contextual_data.h',0,1,0,0
+	.byte	'adi_wil_network_data_buffer.h',0,1,0,0
+	.byte	'adi_wil_file_crc.h',0,1,0,0
+	.byte	'adi_wil_acl.h',0,1,0,0
+	.byte	'adi_wil_xms_parameters.h',0,1,0,0
+	.byte	'adi_wil_port.h',0,1,0,0
+	.byte	'adi_wil_hal_ticker.h',0,1,0,0
+	.byte	'wb_wil_utils.h',0,2,0,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0,0,0,0
+	.byte	'stdint.h',0,3,0,0,0
+.L203:
+.L201:
+	.sdecl	'.debug_info',debug,cluster('adi_wil_ValidateInstance')
+	.sect	'.debug_info'
+.L71:
+	.word	346
+	.half	3
+	.word	.L72
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L74,.L73
+	.byte	2
+	.word	.L67
+	.byte	3
+	.byte	'adi_wil_ValidateInstance',0,1,77,15
+	.word	.L111
+	.byte	1,1,1
+	.word	.L54,.L112,.L53
+	.byte	4
+	.byte	'pInternals',0,1,77,80
+	.word	.L113,.L114
+	.byte	4
+	.byte	'bCheckConnected',0,1,77,97
+	.word	.L115,.L116
+	.byte	5
+	.word	.L54,.L112
+	.byte	6
+	.byte	'rc',0,1,79,19
+	.word	.L111,.L117
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('adi_wil_ValidateInstance')
+	.sect	'.debug_abbrev'
+.L72:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('adi_wil_ValidateInstance')
+	.sect	'.debug_line'
+.L73:
+	.word	.L205-.L204
+.L204:
+	.half	3
+	.word	.L207-.L206
+.L206:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0,0,0,0,0
+.L207:
+	.byte	5,9,7,0,5,2
+	.word	.L54
+	.byte	3,209,0,1,5,5,9
+	.half	.L208-.L54
+	.byte	1,5,12,7,9
+	.half	.L209-.L208
+	.byte	3,2,1,5,43,9
+	.half	.L177-.L209
+	.byte	1,5,10,9
+	.half	.L12-.L177
+	.byte	3,2,1,5,38,7,9
+	.half	.L210-.L12
+	.byte	3,3,1,5,49,9
+	.half	.L176-.L210
+	.byte	1,5,12,9
+	.half	.L14-.L176
+	.byte	3,5,1,5,5,9
+	.half	.L13-.L14
+	.byte	3,3,1,5,1,9
+	.half	.L16-.L13
+	.byte	3,1,1,7,9
+	.half	.L75-.L16
+	.byte	0,1,1
+.L205:
+	.sdecl	'.debug_ranges',debug,cluster('adi_wil_ValidateInstance')
+	.sect	'.debug_ranges'
+.L74:
+	.word	-1,.L54,0,.L75-.L54,0,0
+	.sdecl	'.debug_info',debug,cluster('adi_wil_CheckNullableParams')
+	.sect	'.debug_info'
+.L76:
+	.word	365
+	.half	3
+	.word	.L77
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L79,.L78
+	.byte	2
+	.word	.L67
+	.byte	3
+	.byte	'adi_wil_CheckNullableParams',0,1,100,15
+	.word	.L111
+	.byte	1,1,1
+	.word	.L56,.L118,.L55
+	.byte	4
+	.byte	'iParamCount',0,1,100,52
+	.word	.L119,.L120
+	.byte	4
+	.byte	'Params',0,1,100,84
+	.word	.L121,.L122
+	.byte	5
+	.word	.L56,.L118
+	.byte	6
+	.byte	'rc',0,1,102,19
+	.word	.L111,.L123
+	.byte	5
+	.word	.L124,.L20
+	.byte	6
+	.byte	'i',0,1,107,18
+	.word	.L119,.L125
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('adi_wil_CheckNullableParams')
+	.sect	'.debug_abbrev'
+.L77:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('adi_wil_CheckNullableParams')
+	.sect	'.debug_line'
+.L78:
+	.word	.L212-.L211
+.L211:
+	.half	3
+	.word	.L214-.L213
+.L213:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0,0,0,0,0
+.L214:
+	.byte	5,8,7,0,5,2
+	.word	.L56
+	.byte	3,232,0,1,5,20,9
+	.half	.L124-.L56
+	.byte	3,2,1,5,41,9
+	.half	.L178-.L124
+	.byte	1,5,20,9
+	.half	.L18-.L178
+	.byte	3,3,1,5,9,9
+	.half	.L215-.L18
+	.byte	1,5,16,7,9
+	.half	.L216-.L215
+	.byte	3,2,1,5,13,9
+	.half	.L217-.L216
+	.byte	3,1,1,5,44,9
+	.half	.L19-.L217
+	.byte	3,122,1,5,41,9
+	.half	.L17-.L19
+	.byte	1,5,5,7,9
+	.half	.L20-.L17
+	.byte	3,10,1,5,1,9
+	.half	.L21-.L20
+	.byte	3,1,1,7,9
+	.half	.L80-.L21
+	.byte	0,1,1
+.L212:
+	.sdecl	'.debug_ranges',debug,cluster('adi_wil_CheckNullableParams')
+	.sect	'.debug_ranges'
+.L79:
+	.word	-1,.L56,0,.L80-.L56,0,0
+	.sdecl	'.debug_info',debug,cluster('adi_wil_CheckSystemMode')
+	.sect	'.debug_info'
+.L81:
+	.word	388
+	.half	3
+	.word	.L82
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L84,.L83
+	.byte	2
+	.word	.L67
+	.byte	3
+	.byte	'adi_wil_CheckSystemMode',0,1,120,15
+	.word	.L111
+	.byte	1,1,1
+	.word	.L58,.L126,.L57
+	.byte	4
+	.byte	'pInternals',0,1,120,79
+	.word	.L127,.L128
+	.byte	4
+	.byte	'iModeCount',0,1,120,99
+	.word	.L119,.L129
+	.byte	4
+	.byte	'ValidModes',0,1,120,132,1
+	.word	.L130,.L131
+	.byte	5
+	.word	.L58,.L126
+	.byte	6
+	.byte	'rc',0,1,122,19
+	.word	.L111,.L132
+	.byte	5
+	.word	.L133,.L25
+	.byte	6
+	.byte	'i',0,1,127,18
+	.word	.L119,.L134
+	.byte	0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('adi_wil_CheckSystemMode')
+	.sect	'.debug_abbrev'
+.L82:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('adi_wil_CheckSystemMode')
+	.sect	'.debug_line'
+.L83:
+	.word	.L219-.L218
+.L218:
+	.half	3
+	.word	.L221-.L220
+.L220:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0,0,0,0,0
+.L221:
+	.byte	5,8,7,0,5,2
+	.word	.L58
+	.byte	3,252,0,1,5,20,9
+	.half	.L133-.L58
+	.byte	3,2,1,5,40,9
+	.half	.L180-.L133
+	.byte	1,5,24,9
+	.half	.L23-.L180
+	.byte	3,2,1,5,41,9
+	.half	.L222-.L23
+	.byte	1,5,9,9
+	.half	.L223-.L222
+	.byte	1,5,16,7,9
+	.half	.L224-.L223
+	.byte	3,2,1,5,13,9
+	.half	.L225-.L224
+	.byte	3,1,1,5,43,9
+	.half	.L24-.L225
+	.byte	3,123,1,5,40,9
+	.half	.L22-.L24
+	.byte	1,5,5,7,9
+	.half	.L25-.L22
+	.byte	3,10,1,5,1,9
+	.half	.L26-.L25
+	.byte	3,1,1,7,9
+	.half	.L85-.L26
+	.byte	0,1,1
+.L219:
+	.sdecl	'.debug_ranges',debug,cluster('adi_wil_CheckSystemMode')
+	.sect	'.debug_ranges'
+.L84:
+	.word	-1,.L58,0,.L85-.L58,0,0
+	.sdecl	'.debug_info',debug,cluster('adi_wil_CheckFileType')
+	.sect	'.debug_info'
+.L86:
+	.word	422
+	.half	3
+	.word	.L87
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L89,.L88
+	.byte	2
+	.word	.L67
+	.byte	3
+	.byte	'adi_wil_CheckFileType',0,1,140,1,15
+	.word	.L111
+	.byte	1,1,1
+	.word	.L60,.L135,.L59
+	.byte	4
+	.byte	'pInternals',0,1,140,1,77
+	.word	.L136,.L137
+	.byte	4
+	.byte	'eFileType',0,1,140,1,109
+	.word	.L138,.L139
+	.byte	4
+	.byte	'iCount',0,1,140,1,128,1
+	.word	.L119,.L140
+	.byte	4
+	.byte	'ValidTypes',0,1,140,1,162,1
+	.word	.L141,.L142
+	.byte	5
+	.word	.L60,.L135
+	.byte	5
+	.word	.L60,.L135
+	.byte	6
+	.byte	'rc',0,1,144,1,19
+	.word	.L111,.L143
+	.byte	5
+	.word	.L144,.L30
+	.byte	6
+	.byte	'i',0,1,149,1,18
+	.word	.L119,.L145
+	.byte	0,0,0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('adi_wil_CheckFileType')
+	.sect	'.debug_abbrev'
+.L87:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('adi_wil_CheckFileType')
+	.sect	'.debug_line'
+.L88:
+	.word	.L227-.L226
+.L226:
+	.half	3
+	.word	.L229-.L228
+.L228:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0,0,0,0,0
+.L229:
+	.byte	5,8,7,0,5,2
+	.word	.L60
+	.byte	3,146,1,1,5,20,9
+	.half	.L144-.L60
+	.byte	3,2,1,5,36,9
+	.half	.L182-.L144
+	.byte	1,5,24,9
+	.half	.L28-.L182
+	.byte	3,2,1,5,9,9
+	.half	.L230-.L28
+	.byte	1,5,16,7,9
+	.half	.L231-.L230
+	.byte	3,3,1,5,13,9
+	.half	.L232-.L231
+	.byte	3,1,1,5,39,9
+	.half	.L29-.L232
+	.byte	3,122,1,5,36,9
+	.half	.L27-.L29
+	.byte	1,5,5,7,9
+	.half	.L30-.L27
+	.byte	3,10,1,5,1,9
+	.half	.L31-.L30
+	.byte	3,1,1,7,9
+	.half	.L90-.L31
+	.byte	0,1,1
+.L227:
+	.sdecl	'.debug_ranges',debug,cluster('adi_wil_CheckFileType')
+	.sect	'.debug_ranges'
+.L89:
+	.word	-1,.L60,0,.L90-.L60,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_wil_api_CheckForTimeout')
+	.sect	'.debug_info'
+.L91:
+	.word	355
+	.half	3
+	.word	.L92
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L94,.L93
+	.byte	2
+	.word	.L67
+	.byte	3
+	.byte	'wb_wil_api_CheckForTimeout',0,1,219,1,6,1,1,1
+	.word	.L66,.L146,.L65
+	.byte	4
+	.byte	'pInternals',0,1,219,1,67
+	.word	.L147,.L148
+	.byte	4
+	.byte	'iCurrentTime',0,1,220,1,43
+	.word	.L149,.L150
+	.byte	5
+	.word	.L66,.L146
+	.byte	6
+	.byte	'iElapsedTime',0,1,222,1,14
+	.word	.L149,.L151
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_wil_api_CheckForTimeout')
+	.sect	'.debug_abbrev'
+.L92:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
+	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_wil_api_CheckForTimeout')
+	.sect	'.debug_line'
+.L93:
+	.word	.L234-.L233
+.L233:
+	.half	3
+	.word	.L236-.L235
+.L235:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0,0,0,0,0
+.L236:
+	.byte	5,6,7,0,5,2
+	.word	.L66
+	.byte	3,218,1,1,5,9,9
+	.half	.L195-.L66
+	.byte	3,5,1,5,5,9
+	.half	.L237-.L195
+	.byte	1,5,41,7,9
+	.half	.L238-.L237
+	.byte	3,2,1,5,9,9
+	.half	.L239-.L238
+	.byte	1,5,72,7,9
+	.half	.L240-.L239
+	.byte	3,2,1,5,42,9
+	.half	.L241-.L240
+	.byte	1,5,13,9
+	.half	.L196-.L241
+	.byte	3,2,1,5,61,7,9
+	.half	.L47-.L196
+	.byte	3,8,1,5,17,9
+	.half	.L242-.L47
+	.byte	1,5,45,7,9
+	.half	.L243-.L242
+	.byte	3,1,1,5,31,9
+	.half	.L244-.L243
+	.byte	1,5,55,7,9
+	.half	.L245-.L244
+	.byte	3,3,1,5,53,9
+	.half	.L197-.L245
+	.byte	1,5,77,9
+	.half	.L246-.L197
+	.byte	3,2,1,5,21,9
+	.half	.L193-.L246
+	.byte	3,4,1,5,63,9
+	.half	.L247-.L193
+	.byte	1,5,17,9
+	.half	.L248-.L247
+	.byte	1,5,49,7,9
+	.half	.L249-.L248
+	.byte	3,2,1,5,65,9
+	.half	.L250-.L249
+	.byte	1,5,1,9
+	.half	.L45-.L250
+	.byte	3,5,1,7,9
+	.half	.L95-.L45
+	.byte	0,1,1
+.L234:
+	.sdecl	'.debug_ranges',debug,cluster('wb_wil_api_CheckForTimeout')
+	.sect	'.debug_ranges'
+.L94:
+	.word	-1,.L66,0,.L95-.L66,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_wil_api_StartTimer')
+	.sect	'.debug_info'
+.L96:
+	.word	360
+	.half	3
+	.word	.L97
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L99,.L98
+	.byte	2
+	.word	.L67
+	.byte	3
+	.byte	'wb_wil_api_StartTimer',0,1,162,1,15
+	.word	.L111
+	.byte	1,1,1
+	.word	.L62,.L152,.L61
+	.byte	4
+	.byte	'pInternals',0,1,162,1,71
+	.word	.L153,.L154
+	.byte	4
+	.byte	'pToken',0,1,162,1,100
+	.word	.L155,.L156
+	.byte	4
+	.byte	'iTimeout',0,1,162,1,117
+	.word	.L149,.L157
+	.byte	5
+	.word	.L62,.L152
+	.byte	6
+	.byte	'rc',0,1,164,1,19
+	.word	.L111,.L158
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_wil_api_StartTimer')
+	.sect	'.debug_abbrev'
+.L97:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_wil_api_StartTimer')
+	.sect	'.debug_line'
+.L98:
+	.word	.L252-.L251
+.L251:
+	.half	3
+	.word	.L254-.L253
+.L253:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0,0,0,0,0
+.L254:
+	.byte	5,15,7,0,5,2
+	.word	.L62
+	.byte	3,161,1,1,5,10,9
+	.half	.L187-.L62
+	.byte	3,5,1,5,9,9
+	.half	.L255-.L187
+	.byte	1,5,40,7,9
+	.half	.L256-.L255
+	.byte	1,5,51,9
+	.half	.L257-.L256
+	.byte	1,5,12,7,9
+	.half	.L32-.L257
+	.byte	3,2,1,5,43,9
+	.half	.L189-.L32
+	.byte	1,5,14,9
+	.half	.L33-.L189
+	.byte	3,4,1,5,39,7,9
+	.half	.L258-.L33
+	.byte	3,1,1,5,24,9
+	.half	.L259-.L258
+	.byte	1,5,12,7,9
+	.half	.L35-.L259
+	.byte	3,2,1,5,43,9
+	.half	.L190-.L35
+	.byte	1,5,82,9
+	.half	.L36-.L190
+	.byte	3,4,1,5,49,9
+	.half	.L184-.L36
+	.byte	1,5,47,9
+	.half	.L260-.L184
+	.byte	3,1,1,9
+	.half	.L261-.L260
+	.byte	3,1,1,5,45,9
+	.half	.L188-.L261
+	.byte	1,5,47,9
+	.half	.L262-.L188
+	.byte	3,2,1,5,17,9
+	.half	.L263-.L262
+	.byte	1,5,12,9
+	.half	.L264-.L263
+	.byte	3,2,1,5,5,9
+	.half	.L34-.L264
+	.byte	3,3,1,5,1,9
+	.half	.L38-.L34
+	.byte	3,1,1,7,9
+	.half	.L100-.L38
+	.byte	0,1,1
+.L252:
+	.sdecl	'.debug_ranges',debug,cluster('wb_wil_api_StartTimer')
+	.sect	'.debug_ranges'
+.L99:
+	.word	-1,.L62,0,.L100-.L62,0,0
+	.sdecl	'.debug_info',debug,cluster('wb_wil_api_CheckToken')
+	.sect	'.debug_info'
+.L101:
+	.word	358
+	.half	3
+	.word	.L102
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L104,.L103
+	.byte	2
+	.word	.L67
+	.byte	3
+	.byte	'wb_wil_api_CheckToken',0,1,192,1,15
+	.word	.L111
+	.byte	1,1,1
+	.word	.L64,.L159,.L63
+	.byte	4
+	.byte	'pInternals',0,1,192,1,71
+	.word	.L160,.L161
+	.byte	4
+	.byte	'iToken',0,1,192,1,92
+	.word	.L162,.L163
+	.byte	4
+	.byte	'bClear',0,1,192,1,105
+	.word	.L115,.L164
+	.byte	5
+	.word	.L64,.L159
+	.byte	6
+	.byte	'rc',0,1,194,1,19
+	.word	.L111,.L165
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('wb_wil_api_CheckToken')
+	.sect	'.debug_abbrev'
+.L102:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6
+	.byte	52,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('wb_wil_api_CheckToken')
+	.sect	'.debug_line'
+.L103:
+	.word	.L266-.L265
+.L265:
+	.half	3
+	.word	.L268-.L267
+.L267:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0,0,0,0,0
+.L268:
+	.byte	5,9,7,0,5,2
+	.word	.L64
+	.byte	3,196,1,1,5,5,9
+	.half	.L269-.L64
+	.byte	1,5,12,7,9
+	.half	.L270-.L269
+	.byte	3,2,1,5,43,9
+	.half	.L191-.L270
+	.byte	1,5,42,9
+	.half	.L39-.L191
+	.byte	3,2,1,5,14,9
+	.half	.L271-.L39
+	.byte	1,5,92,7,9
+	.half	.L272-.L271
+	.byte	1,5,61,9
+	.half	.L273-.L272
+	.byte	1,5,47,7,9
+	.half	.L274-.L273
+	.byte	3,4,1,5,45,9
+	.half	.L275-.L274
+	.byte	1,5,12,9
+	.half	.L276-.L275
+	.byte	3,2,1,5,54,9
+	.half	.L192-.L276
+	.byte	3,126,1,5,12,9
+	.half	.L41-.L192
+	.byte	3,8,1,5,5,9
+	.half	.L40-.L41
+	.byte	3,3,1,5,1,9
+	.half	.L44-.L40
+	.byte	3,1,1,7,9
+	.half	.L105-.L44
+	.byte	0,1,1
+.L266:
+	.sdecl	'.debug_ranges',debug,cluster('wb_wil_api_CheckToken')
+	.sect	'.debug_ranges'
+.L104:
+	.word	-1,.L64,0,.L105-.L64,0,0
+	.sdecl	'.debug_info',debug,cluster('adi_wil_CheckConnected')
+	.sect	'.debug_info'
+.L106:
+	.word	338
+	.half	3
+	.word	.L107
+	.byte	4,1
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'C:\\WORK\\AURIX-Workspace_JG_TSW\\WBMS_CDD\\TriCore Debug (TASKING)\\',0,12,1
+	.word	.L109,.L108
+	.byte	2
+	.word	.L67
+	.byte	3
+	.byte	'adi_wil_CheckConnected',0,1,36,22
+	.word	.L111
+	.byte	1,1
+	.word	.L52,.L166,.L51
+	.byte	4
+	.byte	'pInternals',0,1,36,85
+	.word	.L167,.L168
+	.byte	5
+	.word	.L52,.L166
+	.byte	6
+	.byte	'rc',0,1,38,19
+	.word	.L111,.L169
+	.byte	6
+	.byte	'bConnected',0,1,39,10
+	.word	.L115,.L170
+	.byte	0,0,0
+	.sdecl	'.debug_abbrev',debug,cluster('adi_wil_CheckConnected')
+	.sect	'.debug_abbrev'
+.L107:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,73,16
+	.byte	54,15,39,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,1,17,1,18,1,0,0,6,52,0,3
+	.byte	8,58,15,59,15,57,15,73,16,2,6,0,0,0
+	.sdecl	'.debug_line',debug,cluster('adi_wil_CheckConnected')
+	.sect	'.debug_line'
+.L108:
+	.word	.L278-.L277
+.L277:
+	.half	3
+	.word	.L280-.L279
+.L279:
+	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
+	.byte	'../Adi/WBMS_Interface_Lib-Rel2.2.0/Source/wb_wil_api.c',0,0,0,0,0
+.L280:
+	.byte	5,9,7,0,5,2
+	.word	.L52
+	.byte	3,41,1,5,5,9
+	.half	.L281-.L52
+	.byte	1,5,12,7,9
+	.half	.L282-.L281
+	.byte	3,2,1,5,43,9
+	.half	.L171-.L282
+	.byte	1,5,24,9
+	.half	.L2-.L171
+	.byte	3,2,1,5,10,9
+	.half	.L283-.L2
+	.byte	1,5,12,7,9
+	.half	.L284-.L283
+	.byte	3,3,1,5,39,9
+	.half	.L172-.L284
+	.byte	1,5,32,9
+	.half	.L4-.L172
+	.byte	3,4,1,5,58,9
+	.half	.L285-.L4
+	.byte	1,5,23,9
+	.half	.L173-.L285
+	.byte	3,2,1,5,9,9
+	.half	.L286-.L173
+	.byte	1,5,37,7,9
+	.half	.L287-.L286
+	.byte	3,2,1,5,26,9
+	.half	.L288-.L287
+	.byte	1,5,50,7,9
+	.half	.L289-.L288
+	.byte	1,5,76,9
+	.half	.L290-.L289
+	.byte	1,5,37,9
+	.half	.L7-.L290
+	.byte	1,5,24,9
+	.half	.L8-.L7
+	.byte	1,5,14,9
+	.half	.L6-.L8
+	.byte	3,3,1,5,16,7,9
+	.half	.L291-.L6
+	.byte	3,2,1,5,43,9
+	.half	.L175-.L291
+	.byte	1,5,16,9
+	.half	.L9-.L175
+	.byte	3,4,1,5,5,9
+	.half	.L3-.L9
+	.byte	3,4,1,5,1,9
+	.half	.L11-.L3
+	.byte	3,1,1,7,9
+	.half	.L110-.L11
+	.byte	0,1,1
+.L278:
+	.sdecl	'.debug_ranges',debug,cluster('adi_wil_CheckConnected')
+	.sect	'.debug_ranges'
+.L109:
+	.word	-1,.L52,0,.L110-.L52,0,0
+	.sdecl	'.debug_loc',debug,cluster('adi_wil_CheckConnected')
+	.sect	'.debug_loc'
+.L51:
+	.word	-1,.L52,0,.L166-.L52
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L170:
+	.word	-1,.L52,.L173-.L52,.L174-.L52
+	.half	1
+	.byte	95
+	.word	.L6-.L52,.L3-.L52
+	.half	1
+	.byte	95
+	.word	0,0
+.L168:
+	.word	-1,.L52,0,.L166-.L52
+	.half	1
+	.byte	100
+	.word	0,0
+.L169:
+	.word	-1,.L52,.L171-.L52,.L2-.L52
+	.half	1
+	.byte	82
+	.word	.L172-.L52,.L4-.L52
+	.half	1
+	.byte	82
+	.word	.L175-.L52,.L9-.L52
+	.half	1
+	.byte	82
+	.word	.L3-.L52,.L166-.L52
+	.half	1
+	.byte	82
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('adi_wil_CheckFileType')
+	.sect	'.debug_loc'
+.L142:
+	.word	-1,.L60,0,.L135-.L60
+	.half	1
+	.byte	101
+	.word	0,0
+.L59:
+	.word	-1,.L60,0,.L135-.L60
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L139:
+	.word	-1,.L60,0,.L135-.L60
+	.half	1
+	.byte	84
+	.word	0,0
+.L145:
+	.word	-1,.L60,.L182-.L60,.L183-.L60
+	.half	1
+	.byte	95
+	.word	.L27-.L60,.L135-.L60
+	.half	1
+	.byte	95
+	.word	0,0
+.L140:
+	.word	-1,.L60,0,.L135-.L60
+	.half	1
+	.byte	85
+	.word	0,0
+.L137:
+	.word	-1,.L60,0,.L135-.L60
+	.half	1
+	.byte	100
+	.word	0,0
+.L143:
+	.word	-1,.L60,.L144-.L60,.L135-.L60
+	.half	1
+	.byte	82
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('adi_wil_CheckNullableParams')
+	.sect	'.debug_loc'
+.L122:
+	.word	-1,.L56,0,.L118-.L56
+	.half	1
+	.byte	100
+	.word	0,0
+.L55:
+	.word	-1,.L56,0,.L118-.L56
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L125:
+	.word	-1,.L56,.L178-.L56,.L179-.L56
+	.half	5
+	.byte	144,32,157,32,0
+	.word	.L17-.L56,.L118-.L56
+	.half	5
+	.byte	144,32,157,32,0
+	.word	0,0
+.L120:
+	.word	-1,.L56,0,.L118-.L56
+	.half	1
+	.byte	84
+	.word	0,0
+.L123:
+	.word	-1,.L56,.L124-.L56,.L118-.L56
+	.half	1
+	.byte	82
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('adi_wil_CheckSystemMode')
+	.sect	'.debug_loc'
+.L131:
+	.word	-1,.L58,0,.L126-.L58
+	.half	1
+	.byte	101
+	.word	0,0
+.L57:
+	.word	-1,.L58,0,.L126-.L58
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L134:
+	.word	-1,.L58,.L180-.L58,.L181-.L58
+	.half	1
+	.byte	95
+	.word	.L22-.L58,.L126-.L58
+	.half	1
+	.byte	95
+	.word	0,0
+.L129:
+	.word	-1,.L58,0,.L126-.L58
+	.half	1
+	.byte	84
+	.word	0,0
+.L128:
+	.word	-1,.L58,0,.L126-.L58
+	.half	1
+	.byte	100
+	.word	0,0
+.L132:
+	.word	-1,.L58,.L133-.L58,.L126-.L58
+	.half	1
+	.byte	82
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('adi_wil_ValidateInstance')
+	.sect	'.debug_loc'
+.L53:
+	.word	-1,.L54,0,.L112-.L54
+	.half	2
+	.byte	138,0
+	.word	0,0
+.L116:
+	.word	-1,.L54,0,.L176-.L54
+	.half	1
+	.byte	84
+	.word	.L14-.L54,.L13-.L54
+	.half	1
+	.byte	84
+	.word	0,0
+.L114:
+	.word	-1,.L54,0,.L176-.L54
+	.half	1
+	.byte	100
+	.word	.L14-.L54,.L13-.L54
+	.half	1
+	.byte	100
+	.word	0,0
+.L117:
+	.word	-1,.L54,.L177-.L54,.L12-.L54
+	.half	1
+	.byte	82
+	.word	.L176-.L54,.L14-.L54
+	.half	1
+	.byte	82
+	.word	.L13-.L54,.L112-.L54
+	.half	1
+	.byte	82
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_wil_api_CheckForTimeout')
+	.sect	'.debug_loc'
+.L150:
+	.word	-1,.L66,0,.L193-.L66
+	.half	1
+	.byte	84
+	.word	0,0
+.L151:
+	.word	-1,.L66,.L196-.L66,.L197-.L66
+	.half	1
+	.byte	95
+	.word	0,0
+.L148:
+	.word	-1,.L66,0,.L194-.L66
+	.half	1
+	.byte	100
+	.word	.L195-.L66,.L146-.L66
+	.half	1
+	.byte	108
+	.word	.L198-.L66,.L45-.L66
+	.half	1
+	.byte	100
+	.word	0,0
+.L65:
+	.word	-1,.L66,0,.L146-.L66
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_wil_api_CheckToken')
+	.sect	'.debug_loc'
+.L164:
+	.word	-1,.L64,0,.L159-.L64
+	.half	1
+	.byte	85
+	.word	0,0
+.L163:
+	.word	-1,.L64,0,.L159-.L64
+	.half	1
+	.byte	84
+	.word	0,0
+.L161:
+	.word	-1,.L64,0,.L159-.L64
+	.half	1
+	.byte	100
+	.word	0,0
+.L165:
+	.word	-1,.L64,.L191-.L64,.L39-.L64
+	.half	1
+	.byte	82
+	.word	.L192-.L64,.L41-.L64
+	.half	1
+	.byte	82
+	.word	.L40-.L64,.L159-.L64
+	.half	1
+	.byte	82
+	.word	0,0
+.L63:
+	.word	-1,.L64,0,.L159-.L64
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_loc',debug,cluster('wb_wil_api_StartTimer')
+	.sect	'.debug_loc'
+.L157:
+	.word	-1,.L62,0,.L184-.L62
+	.half	1
+	.byte	84
+	.word	.L187-.L62,.L188-.L62
+	.half	1
+	.byte	95
+	.word	0,0
+.L154:
+	.word	-1,.L62,0,.L184-.L62
+	.half	1
+	.byte	100
+	.word	.L185-.L62,.L152-.L62
+	.half	1
+	.byte	111
+	.word	0,0
+.L156:
+	.word	-1,.L62,0,.L184-.L62
+	.half	1
+	.byte	101
+	.word	.L186-.L62,.L152-.L62
+	.half	1
+	.byte	108
+	.word	0,0
+.L158:
+	.word	-1,.L62,.L189-.L62,.L33-.L62
+	.half	1
+	.byte	82
+	.word	.L190-.L62,.L36-.L62
+	.half	1
+	.byte	82
+	.word	.L34-.L62,.L152-.L62
+	.half	1
+	.byte	82
+	.word	0,0
+.L61:
+	.word	-1,.L62,0,.L152-.L62
+	.half	2
+	.byte	138,0
+	.word	0,0
+	.sdecl	'.debug_frame',debug
+	.sect	'.debug_frame'
+.L292:
+	.word	48
+	.word	-1
+	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
+	.byte	8,39
+	.sdecl	'.debug_frame',debug,cluster('adi_wil_CheckConnected')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L292,.L52,.L166-.L52
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('adi_wil_ValidateInstance')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L292,.L54,.L112-.L54
+	.sdecl	'.debug_frame',debug,cluster('adi_wil_CheckNullableParams')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L292,.L56,.L118-.L56
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('adi_wil_CheckSystemMode')
+	.sect	'.debug_frame'
+	.word	20
+	.word	.L292,.L58,.L126-.L58
+	.byte	8,18,8,19,8,22,8,23
+	.sdecl	'.debug_frame',debug,cluster('adi_wil_CheckFileType')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L292,.L60,.L135-.L60
+	.byte	8,18,8,19,8,20,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('wb_wil_api_StartTimer')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L292,.L62,.L152-.L62
+	.sdecl	'.debug_frame',debug,cluster('wb_wil_api_CheckToken')
+	.sect	'.debug_frame'
+	.word	24
+	.word	.L292,.L64,.L159-.L64
+	.byte	8,18,8,19,8,21,8,22,8,23,0,0
+	.sdecl	'.debug_frame',debug,cluster('wb_wil_api_CheckForTimeout')
+	.sect	'.debug_frame'
+	.word	12
+	.word	.L292,.L66,.L146-.L66
+	; Module end

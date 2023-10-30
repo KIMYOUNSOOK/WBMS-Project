@@ -1,0 +1,310 @@
+/*******************************************************************************
+ * @brief    HAL SPI layer
+ *
+ * @details  Implements low-level SPI operations required by WIL
+ *
+ * Copyright (c) 2021 Analog Devices, Inc. All Rights Reserved.
+ * This software is proprietary and confidential to Analog Devices, Inc. and its licensors.
+ *******************************************************************************/
+#include "adi_wil_hal.h"
+#include "adi_wil_hal_spi.h"
+#include "IfxQspi_SpiMaster.h"
+#include "IfxPort.h"
+#include "adi_wil_example_isr_priorities.h"
+#include "adi_wil_example_wil_config.h"
+
+
+#define SPI0_MASTER                 &MODULE_QSPI1               /* Hardware module for SPI 0 */
+#define SPI1_MASTER                 &MODULE_QSPI0               /* Hardware module for SPI 1 */
+
+#define ISR_PROVIDER                IfxSrc_Tos_cpu0             /* Define the QSPI interrupt provider */
+
+
+/* SPI protocol timings per WIL Integration Guide
+ * Delays must be defined in units of half SCLK cycle => 0.5us for SCLK speed of 1MHz */
+#define SCLK_1MHZ                   1000000u                    /* Master channel SCLK speed               */
+#define LEAD_DELAY                  2u                          /* Lead delay for SPI transaction (1us)    */
+#define TRAIL_DELAY                 2u                          /* Trail delay for SPI transaction (1us)   */
+#define WAIT_DELAY                  400u                        /* Delay between SPI transactions (200us)  */
+#define BIG_ENDIAN_SWAP             2u                          /* Special register value for permute enable
+                                                                   register, enables hardware-level swap of
+                                                                   bytes to/from 32-bit big-endian format */
+
+typedef struct {
+    IfxQspi_SpiMaster               spiMaster;                  /* QSPI Master handle         */
+    IfxQspi_SpiMaster_Channel       spiMasterChannel;           /* QSPI Master Channel handle */
+    adi_wil_hal_spi_cb_t            cbPtr;                      /* SPI callback function ptr  */
+} spi_port_state_t;
+
+typedef struct {
+    IfxQspi_SpiMaster_Pins          portPins;                   /* Port pins                         */
+    IfxQspi_SpiMaster_Output        csPin;                      /* Chip Select pin                   */
+    IfxDma_ChannelId                txDMACh;                    /* Tx DMA Channel No.                */
+    IfxDma_ChannelId                rxDMACh;                    /* Rx DMA Channel No.                */
+    uint8                           txPrio;                     /* Tx DMA Channel Interrupt Priority */
+    uint8                           rxPrio;                     /* Rx DMA Channel Interrupt Priority */
+    uint8                           erPrio;                     /* Er DMA Channel Interrupt Priority */
+    IfxQspi_ChannelId               channelId;                  /* The transfer channel used         */
+} spi_port_config_t;
+
+
+/* A port instance for each port needed */
+static spi_port_state_t spiPort[PORT_COUNT];
+
+/* Array of configuration data, one element for each port which will be instantiated */
+const spi_port_config_t spiPortConfig[PORT_COUNT] = {
+    /* SPI 0 */
+    {
+        .portPins = {
+            &IfxQspi1_SCLK_P11_6_OUT, IfxPort_OutputMode_pushPull,             /* SCLK Pin                          (CLK)  */
+            &IfxQspi1_MTSR_P11_9_OUT, IfxPort_OutputMode_pushPull,             /* Master Transmit Slave Receive Pin (MOSI) */
+            &IfxQspi1_MRSTB_P11_3_IN, IfxPort_InputMode_pullDown,              /* Master Receive Slave Transmit Pin (MISO) */
+            IfxPort_PadDriver_cmosAutomotiveSpeed3                             /* Pad driver mode                          */
+        },
+        .csPin = {
+            &IfxQspi1_SLSO5_P11_2_OUT, IfxPort_OutputMode_pushPull,            /* Slave Select Pin (CS)                    */
+            IfxPort_PadDriver_cmosAutomotiveSpeed1                             /* Pad driver mode                          */
+        },
+        .txDMACh = IfxDma_ChannelId_1,
+        .rxDMACh = IfxDma_ChannelId_2,
+        .txPrio  = ISR_PRIORITY_DMA_CH1,
+        .rxPrio  = ISR_PRIORITY_DMA_CH2,
+        .erPrio  = ISR_PRIORITY_QSPI1_ER,
+        .channelId = IfxQspi_ChannelId_9,                                      /* SPI 0 uses SLSO9 therefore channel is 9 */
+    },
+    /* SPI 1 */
+    {
+        .portPins = {
+            &IfxQspi0_SCLK_P22_7_OUT, IfxPort_OutputMode_pushPull,             /* SCLK Pin                          (CLK)  */
+            &IfxQspi0_MTSR_P22_5_OUT, IfxPort_OutputMode_pushPull,             /* Master Transmit Slave Receive Pin (MOSI) */
+            &IfxQspi0_MRSTC_P22_6_IN, IfxPort_InputMode_pullDown,              /* Master Receive Slave Transmit Pin (MISO) */
+            IfxPort_PadDriver_cmosAutomotiveSpeed3
+        },
+        .csPin = {
+            &IfxQspi0_SLSO12_P22_4_OUT, IfxPort_OutputMode_pushPull,           /* Slave Select Pin (CS)  */
+            IfxPort_PadDriver_cmosAutomotiveSpeed1                            /* Pad driver mode       */
+        },
+        .txDMACh = IfxDma_ChannelId_3,
+        .rxDMACh = IfxDma_ChannelId_4,
+        .txPrio  = ISR_PRIORITY_DMA_CH3,
+        .rxPrio  = ISR_PRIORITY_DMA_CH4,
+        .erPrio  = ISR_PRIORITY_QSPI3_ER,
+        .channelId = IfxQspi_ChannelId_0,                                      /* SPI 1 uses SLSO0 therefore channel is 0 */
+    }
+};
+
+
+IFX_INTERRUPT(QSPI1ErrorISR, 0, ISR_PRIORITY_QSPI1_ER);         /* SPI Master Error Interrupt definition */
+IFX_INTERRUPT(QSPI3ErrorISR, 0, ISR_PRIORITY_QSPI3_ER);         /* SPI Slave Error Interrupt definition  */
+IFX_INTERRUPT(DMAChn1ISR, 0, ISR_PRIORITY_DMA_CH1);             /* DMA Channel 1 Interrupt definition    */
+IFX_INTERRUPT(DMAChn2ISR, 0, ISR_PRIORITY_DMA_CH2);             /* DMA Channel 2 Interrupt definition    */
+IFX_INTERRUPT(DMAChn3ISR, 0, ISR_PRIORITY_DMA_CH3);             /* DMA Channel 3 Interrupt definition    */
+IFX_INTERRUPT(DMAChn4ISR, 0, ISR_PRIORITY_DMA_CH4);             /* DMA Channel 4 Interrupt definition    */
+
+
+/* Handle SPI0 Error interrupt */
+void QSPI1ErrorISR(void)
+{
+    IfxQspi_SpiMaster_isrError(&spiPort[0].spiMaster);
+}
+
+
+/* Handle SPI1 Error interrupt */
+void QSPI3ErrorISR(void)
+{
+    IfxQspi_SpiMaster_isrError(&spiPort[1].spiMaster);
+}
+
+
+/* Handle DMA Ch 1 (SPI0 Tx) interrupt */
+void DMAChn1ISR(void)
+{
+    IfxQspi_SpiMaster_isrDmaTransmit(&spiPort[0].spiMaster);
+}
+
+
+/* Handle DMA Ch 2 (SPI0 Rx) interrupt */
+void DMAChn2ISR(void)
+{
+    IfxQspi_SpiMaster_isrDmaReceive(&spiPort[0].spiMaster);
+    /* This ISR signifies the end of a SPI transaction (SPI 0), hence the callback func. is called */
+    if (spiPort[0].cbPtr != (void *)0)
+    {
+        spiPort[0].cbPtr(PORT0_SPI_DEVICE, PORT0_CHIP_SELECT);
+    }
+}
+
+
+/* Handle DMA Ch 3 (SPI1 Tx) interrupt */
+void DMAChn3ISR(void)
+{
+    IfxQspi_SpiMaster_isrDmaTransmit(&spiPort[1].spiMaster);
+}
+
+
+/* Handle DMA Ch 4 (SPI1 Rx) interrupt */
+void DMAChn4ISR(void)
+{
+    IfxQspi_SpiMaster_isrDmaReceive(&spiPort[1].spiMaster);
+    /* This ISR signifies the end of a SPI transaction (SPI 1), hence the callback func. is called */
+    if (spiPort[1].cbPtr != (void *)0)
+    {
+        spiPort[1].cbPtr(PORT1_SPI_DEVICE, PORT1_CHIP_SELECT);
+    }
+}
+
+
+SpiIf_Status SpiInitHelper(Ifx_QSPI *qspi, spi_port_config_t const * pSpiPortConfig, spi_port_state_t * pSpiPort)
+{
+    IfxQspi_SpiMaster_Config spiMasterConfig;
+
+    /* Use QSPI1 module for SPI Port 0 */
+    IfxQspi_SpiMaster_initModuleConfig(&spiMasterConfig, qspi);
+
+    /* Assign SPI pins */
+    spiMasterConfig.pins = &pSpiPortConfig->portPins;
+
+    /* Assign DMA channels */
+    spiMasterConfig.dma.useDma = TRUE;
+    spiMasterConfig.dma.txDmaChannelId = pSpiPortConfig->txDMACh;
+    spiMasterConfig.dma.rxDmaChannelId = pSpiPortConfig->rxDMACh;
+
+    /* Assign DMA interrupt priorities */
+    spiMasterConfig.base.txPriority = pSpiPortConfig->txPrio;
+    spiMasterConfig.base.rxPriority = pSpiPortConfig->rxPrio;
+    spiMasterConfig.base.erPriority = pSpiPortConfig->erPrio;
+    spiMasterConfig.base.isrProvider = ISR_PROVIDER;
+
+    /* Initialize the QSPI Master module using the user configuration structure */
+    IfxQspi_SpiMaster_initModule(&pSpiPort->spiMaster, &spiMasterConfig);
+
+
+    /* Define the Master Channel Configuration Structure */
+    IfxQspi_SpiMaster_ChannelConfig spiMasterChannelConfig;
+
+    /* Initialize structure with default values */
+    IfxQspi_SpiMaster_initChannelConfig(&spiMasterChannelConfig, &pSpiPort->spiMaster);
+
+    spiMasterChannelConfig.mode = IfxQspi_SpiMaster_Mode_xxl;                                           /* Use XXL mode - required to transmit 256 bytes in a single frame */
+    spiMasterChannelConfig.sls.output = pSpiPortConfig->csPin;                                          /* Assign CS pin for this channel                                  */
+    spiMasterChannelConfig.base.baudrate = SCLK_1MHZ;                                                   /* Set SCLK frequency to 1 MHz                                     */
+    spiMasterChannelConfig.base.mode.dataHeading = SpiIf_DataHeading_msbFirst;                          /* Transmit MSB first                                              */
+    spiMasterChannelConfig.base.mode.shiftClock = SpiIf_ShiftClock_shiftTransmitDataOnTrailingEdge;     /* Samples at SCLK leading edge (CPHA = 0)                         */
+    spiMasterChannelConfig.base.mode.clockPolarity = SpiIf_ClockPolarity_idleLow;                       /* Clock idles low (CPOL = 0)                                      */
+    spiMasterChannelConfig.base.mode.csLeadDelay = LEAD_DELAY;                                          /* Delay = SPI SCLK cycle                                          */
+    spiMasterChannelConfig.base.mode.csTrailDelay = TRAIL_DELAY;                                        /* Delay = SPI SCLK cycle                                          */
+    spiMasterChannelConfig.base.mode.csInactiveDelay = WAIT_DELAY;                                      /* Delay = 200us                                                   */
+    spiMasterChannelConfig.channelBasedCs = IfxQspi_SpiMaster_ChannelBasedCs_disabled;                  /* CS signal remains low for entire frame                          */
+
+    /* Initialize the QSPI Master channel using the user configuration */
+    SpiIf_Status status = IfxQspi_SpiMaster_initChannel(&pSpiPort->spiMasterChannel, &spiMasterChannelConfig);
+
+
+    /* Set the BIG ENDIAN bit in the QSPI Extended Configuration (ECON) Register.
+     * This ensures data is shifted out in the correct byte order.
+     * QSPI channel id is determined by choice of Slave Select Pin. */
+    IfxQspi_permutateBigEndian(qspi, pSpiPortConfig->channelId, BIG_ENDIAN_SWAP);
+
+    return status;
+}
+
+
+adi_wil_hal_err_t adi_wil_hal_SpiInit(uint8 iSPIDevice, adi_wil_hal_spi_cb_t pfCb)
+{
+        SpiIf_Status status;
+
+    adi_wil_hal_err_t rc = ADI_WIL_HAL_ERR_FAILURE;
+
+        switch(iSPIDevice)
+        {
+            case PORT0_SPI_DEVICE:
+                status = SpiInitHelper(SPI0_MASTER, &spiPortConfig[0], &spiPort[0]);
+                rc = (status == SpiIf_Status_ok) ? ADI_WIL_HAL_ERR_SUCCESS : ADI_WIL_HAL_ERR_FAILURE;
+                /* Save callback function pointer */
+                spiPort[0].cbPtr = pfCb;
+                break;
+
+            case PORT1_SPI_DEVICE:
+                status = SpiInitHelper(SPI1_MASTER, &spiPortConfig[1], &spiPort[1]);
+                rc = (status == SpiIf_Status_ok) ? ADI_WIL_HAL_ERR_SUCCESS : ADI_WIL_HAL_ERR_FAILURE;
+                /* Save callback function pointer */
+                spiPort[1].cbPtr = pfCb;
+                break;
+
+            default:
+                rc = ADI_WIL_HAL_ERR_FAILURE;
+                break;
+        }
+
+    return rc;
+}
+
+
+adi_wil_hal_err_t adi_wil_hal_SpiTransmit(uint8 iSPIDevice,
+                                          uint8 iChipSelect,
+                                          uint8 * const pTx,
+                                          uint8 * const pRx,
+                                          uint16 iLength)
+{
+    SpiIf_Status status;
+    adi_wil_hal_err_t rc = ADI_WIL_HAL_ERR_FAILURE;
+    (void)iChipSelect; /* chip select not used as there is only one device on each port */
+
+    switch(iSPIDevice)
+    {
+        case PORT0_SPI_DEVICE:
+            status = IfxQspi_SpiMaster_exchange(&spiPort[0].spiMasterChannel, pTx, pRx, iLength);
+            rc = (status == SpiIf_Status_ok) ? ADI_WIL_HAL_ERR_SUCCESS : ADI_WIL_HAL_ERR_FAILURE;
+
+            break;
+
+        case PORT1_SPI_DEVICE:
+            status = IfxQspi_SpiMaster_exchange(&spiPort[1].spiMasterChannel, pTx, pRx, iLength);
+            rc = (status == SpiIf_Status_ok) ? ADI_WIL_HAL_ERR_SUCCESS : ADI_WIL_HAL_ERR_FAILURE;
+            break;
+
+        default:
+            rc = ADI_WIL_HAL_ERR_FAILURE;
+            break;
+    }
+
+    return rc;
+}
+
+
+adi_wil_hal_err_t adi_wil_hal_SpiClose(uint8 iSpiDevice)
+{
+    adi_wil_hal_err_t rc = ADI_WIL_HAL_ERR_FAILURE;
+
+    switch(iSpiDevice)
+    {
+        case PORT0_SPI_DEVICE:
+            IfxQspi_setDisableModuleRequest(SPI0_MASTER);
+            /* disable interrupts configured this SPI module as a precaution */
+            IfxSrc_disable(IfxQspi_getErrorSrc(SPI0_MASTER));
+            IfxSrc_disable(IfxQspi_getReceiveSrc(SPI0_MASTER));
+            IfxSrc_disable(IfxQspi_getTransmitSrc(SPI0_MASTER));
+            /* clear the callback pointer */
+            spiPort[0].cbPtr = (void *)0;
+            rc = ADI_WIL_HAL_ERR_SUCCESS;
+            break;
+
+        case PORT1_SPI_DEVICE:
+            IfxQspi_setDisableModuleRequest(SPI1_MASTER);
+            /* disable interrupts configured this SPI module as a precaution */
+            IfxSrc_disable(IfxQspi_getErrorSrc(SPI1_MASTER));
+            IfxSrc_disable(IfxQspi_getReceiveSrc(SPI1_MASTER));
+            IfxSrc_disable(IfxQspi_getTransmitSrc(SPI1_MASTER));
+            /* clear the callback pointer */
+            spiPort[1].cbPtr = (void *)0;
+            rc = ADI_WIL_HAL_ERR_SUCCESS;
+            break;
+
+        default:
+            rc = ADI_WIL_HAL_ERR_FAILURE;
+            break;
+    }
+
+    return rc;
+}
+

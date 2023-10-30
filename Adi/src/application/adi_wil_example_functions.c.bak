@@ -1,0 +1,937 @@
+/*******************************************************************************
+ * @brief    WIL support
+ *
+ * @details  Wrapper functions for WIL functionality.
+ *
+ * Copyright (c) 2021 Analog Devices, Inc. All Rights Reserved.
+ * This software is proprietary and confidential to Analog Devices, Inc. and its licensors.
+ *******************************************************************************/
+#include "adi_wil_example_functions.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+#include "adi_wil.h"
+#include "adi_wil_api.h"
+#include "adi_wil_example_utilities.h" //C:\Users\NJUNG\AURIX-v1.6.0-workspace\IFX_TC387_ADRF8850\Include\application
+#include "adi_wil_example_wil_config.h" //C:\Users\NJUNG\AURIX-v1.6.0-workspace\IFX_TC387_ADRF8850\Include\application
+#include "adi_wil_example_printf.h" //C:\Users\NJUNG\AURIX-v1.6.0-workspace\IFX_TC387_ADRF8850\Include\application
+#include "adi_wil_hal_task.h" //C:\Users\NJUNG\AURIX-v1.6.0-workspace\IFX_TC387_ADRF8850\Include\HAL
+#include "adi_wil_hal_ticker.h"
+
+
+/* interval in microseconds between calls to adi_wil_ProcessTask() */
+#define PROCESS_TASK_INTERVAL_USEC (2500)
+
+/*******************************************************************************/
+/* Global Variable Declarations                                                */
+/*******************************************************************************/
+
+adi_wil_err_t gNotifRc;
+
+/******************************************************************************
+ * Static variable declarations
+ *****************************************************************************/
+
+static adi_wil_pack_t               packInstance;                                  /* pack state instance */
+static adi_wil_sensor_data_t        sensorDataBuffer[SENSOR_DATA_ELEMENT_COUNT];   /* Buffer passed to WIL for it store sensor (BMS) data */
+static adi_wil_network_data_t       WilNetworkBuffer[NETWORK_DATA_ELEMENT_COUNT];  /* Buffer passed to WIL for it to build up network data reports */
+static adi_wil_port_t portArray[PORT_COUNT] = {
+    [0]= {
+        .iSPIDevice = PORT0_SPI_DEVICE,
+        .iChipSelect = PORT0_CHIP_SELECT,
+        .Internals = { 0 },
+    },
+    [1] = {
+        .iSPIDevice = PORT1_SPI_DEVICE,
+        .iChipSelect = PORT1_CHIP_SELECT,
+        .Internals = { 0 },
+    }
+};
+
+static adi_wil_configuration_t * pConfiguration; /* used by QueryDevice process, points to location configuration data should be stored */
+static adi_wil_acl_t             systemAcl;      /* buffer to store ACL information returned by GetACL API */
+static adi_wil_dev_version_t     deviceVersion;  /* buffer to store device version information returned by GetDeviceVersion API */
+static adi_wil_err_t             notifRc;        /* stores return code passed in to API callback */
+static bool                      bNotifyNetworkMeta;   /* flag, indicates that fresh network data has been received */
+
+void*  logAPIInProgress;
+
+volatile uint8_t iMgrConnectCount = 0, iMgrDisconnectCount = 0;
+
+/* count output number of records printed so far. if there are any gaps in output, this could help identify them */
+static uint32_t iRecordIndex = 0;
+
+volatile uint8_t iMgrConnectCount = 0;
+volatile uint16_t iNetworkDataBufferCount = 0;
+volatile adi_wil_network_data_t appNetworkDataBuffer[NETWORK_DATA_ELEMENT_COUNT]; /*  */
+
+
+extern void WaitForWilAPI(void const * const pPack);
+
+
+/**
+ * @brief    Example function that processes the BMS buffer
+ *
+ * @details  Processes the BMS buffer
+ *
+ * @param    void               No arguments.
+ *
+ * @return   none
+ */
+void adi_wil_example_ProcessNetworkBuffer(void);
+
+
+/* API and event notification handlers */
+static void QueryDeviceCallback(adi_wil_port_t const * const pPort,
+                                adi_wil_err_t rc,
+                                void const * const pData);
+
+void ApiCallback(adi_wil_pack_t const* const pPack, void* pClientData, void const* const pAPIFunction,
+                 adi_wil_err_t rc, void const* const pData);
+
+void EventCallback(adi_wil_pack_t const* const pPack, void* const pClientData, adi_wil_event_id_t EventCode,
+                   void const* const pData);
+
+
+
+adi_wil_err_t adi_wil_example_ExecuteInitialize(void)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+
+    /* Initialize the WIL */
+    if ((errorCode = adi_wil_Initialize()) != ADI_WIL_ERR_SUCCESS)
+    {
+        adi_wil_ex_error("%s returned with error: %s", __func__, adi_wil_ErrorToString(errorCode));
+    }
+    else
+    {
+        adi_wil_ex_info("%s", "WIL initialization successful!");
+    }
+
+    return errorCode;
+}
+
+
+adi_wil_err_t adi_wil_example_ExecuteTerminate(void)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+
+    if ((errorCode = adi_wil_Terminate()) != ADI_WIL_ERR_SUCCESS)
+    {
+        adi_wil_ex_error("%s returned with error: %s", __func__, adi_wil_ErrorToString(errorCode));
+    }
+    else
+    {
+        adi_wil_ex_info("%s", "WIL termination successful!");
+    }
+
+    return errorCode;
+}
+
+
+adi_wil_err_t adi_wil_example_ExecuteQueryDevice(adi_wil_configuration_t* pPortConfig)
+{
+    /* Dummy pack instance */
+    adi_wil_pack_t *pPackLock;
+    (void)memset(&pPackLock, 0xFF, sizeof(void*));
+    char macBuffer[ADI_WIL_MAC_ADDR_SIZE * 3];
+
+    /* Call QueryDevice for all the ports */
+    /**
+     * @remark  Neo Jung : 
+     *  for(int i = 1; i < PORT_COUNT; i++) --> SPI_B only
+     *  for(int i = 0; i < 1; i++) --> SPI_A only
+     */
+    for(int i = 0; i < PORT_COUNT; i++)
+    {
+        pConfiguration = &pPortConfig[i];
+
+        returnOnWilError(adi_wil_QueryDevice(&portArray[i], QueryDeviceCallback));
+
+        /* Wait for non-blocking API to complete */
+        WaitForWilAPI(pPackLock);
+
+        if (notifRc != ADI_WIL_ERR_SUCCESS)
+        {
+            adi_wil_ex_error("%s returned with error: %s", __func__, adi_wil_ErrorToString(notifRc));
+            return notifRc;
+        }
+        else
+        {
+            adi_wil_ex_info("adi_wil_QueryDevice returned result code = %s", adi_wil_ErrorToString(notifRc));
+            adi_wil_SprintMAC(macBuffer, pConfiguration->MAC);
+            adi_wil_ex_info("  Port %d MAC = %s", i, macBuffer);
+            adi_wil_SprintMAC(macBuffer, pConfiguration->PeerMAC);
+            adi_wil_ex_info("  Port %d PeerMAC = %s", i, macBuffer);
+            adi_wil_ex_info("  Port %d Sensor Packet Count = %u", i, pConfiguration->iSensorPacketCount);
+            adi_wil_ex_info("  Port %d Configuration Hash = %u", i, pConfiguration->iConfigurationHash);
+            adi_wil_ex_info("  Port %d Software Version : %s", i, adi_wil_VersionToString(&pConfiguration->MainProcSWVersion));
+        }
+    }
+
+    return ADI_WIL_ERR_SUCCESS;
+}
+
+
+static void QueryDeviceCallback(adi_wil_port_t const * const pPort,
+                                adi_wil_err_t rc, void const * const pData)
+{
+    if ((rc == ADI_WIL_ERR_SUCCESS) && (pData != (void*)0) && (pConfiguration != (void*)0))
+    {
+        memcpy(pConfiguration, pData, sizeof(adi_wil_configuration_t));
+    }
+
+    notifRc = rc;
+}
+
+
+adi_wil_err_t adi_wil_example_ExecuteConnect(adi_wil_pack_t * const pPack,
+                                             adi_wil_sensor_data_t *SensorData, uint8_t sysSensorPktCnt)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+    static adi_wil_port_t PortA, PortB;
+    static adi_wil_port_t *pMgr1, *pMgr2;
+    uint8_t mgrConnectionCount = 0;
+    iMgrConnectCount = 0;
+
+    PortA.iSPIDevice = 0;
+    PortA.iChipSelect = 0;
+    PortB.iSPIDevice = 1;
+    PortB.iChipSelect = 0;
+    mgrConnectionCount = 2;
+    pMgr1 = &PortA;
+    pMgr2 = &PortB;
+
+    /* Save the API function pointer */
+    logAPIInProgress = (void*)&adi_wil_Connect;
+
+    /* Connect to the system */
+    errorCode = adi_wil_Connect(&packInstance, NULL, &portArray[0], &portArray[1],
+        sensorDataBuffer, SENSOR_DATA_ELEMENT_COUNT, &ApiCallback, &EventCallback);
+    
+    errorCode = adi_wil_Connect(pPack, NULL, pMgr1, pMgr2, &SensorData[0], sysSensorPktCnt, &ApiCallback, &EventCallback);
+
+    if (errorCode != ADI_WIL_ERR_SUCCESS){
+        adi_wil_ex_error("WIL Function Connect returned with error code = %s", adi_wil_ErrorToString(errorCode));
+        return errorCode;
+    }
+    else
+    {
+        /* Wait for non-blocking API to complete */
+        WaitForWilAPI(&packInstance);
+
+        while(iMgrConnectCount < mgrConnectionCount)
+        {
+            /* wait for adi_wil_Connect() call to finish processing */
+        }
+        notifRc = errorCode;
+        if((errorCode == ADI_WIL_ERR_INVALID_STATE) || (errorCode == ADI_WIL_ERR_CONFIGURATION_MISMATCH))
+            adi_wil_ex_error("%s returned with error: %s", __func__, adi_wil_ErrorToString(errorCode));
+        else
+            adi_wil_ex_info("Connection initiated to Manager connected to SPI device %d"
+                " and Manager connected to SPI device %d successful!",
+                pMgr1->iSPIDevice, pMgr2->iSPIDevice);
+    }
+    return errorCode;
+}
+
+
+adi_wil_err_t adi_wil_example_ExecuteDisconnect(adi_wil_pack_t * const pPack)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+
+    adi_wil_ex_info("%s", "Initiating disconnect from pack...");
+
+    /* Disconnect the pack from the system. This is a blocking call so no API
+       callback is generated. */
+    errorCode = adi_wil_Disconnect(&packInstance);
+
+    if (errorCode != ADI_WIL_ERR_SUCCESS)
+    {
+        adi_wil_ex_error("WIL Function Disconnect returned with error code = %s",
+              adi_wil_ErrorToString(errorCode));
+    }
+    else
+    {
+        adi_wil_ex_info("%s", "Disconnect from pack successful!");
+    }
+
+    return errorCode;
+}
+
+/******************************************************************************
+ * Helper function to adi_wil_SetMode.
+ *****************************************************************************/
+static adi_wil_err_t adi_wil_example_RetrySetMode(adi_wil_pack_t * const pPack, adi_wil_mode_t mode){
+    uint8_t setModeRetries = 0;
+    while((setModeRetries < ADI_WIL_SET_MODE_MAX_RETRIES) && (gNotifRc == ADI_WIL_ERR_PARTIAL_SUCCESS)){
+        returnOnWilError(adi_wil_SetMode(pPack, mode));
+        /* Wait for non-blocking API to complete */
+        WaitForWilAPI(pPack);
+    }
+    return gNotifRc;
+}
+
+
+adi_wil_err_t adi_wil_example_ExecuteSetMode(adi_wil_pack_t * const pPack, adi_wil_mode_t mode) {
+{
+
+    adi_wil_mode_t currentMode;
+
+    /*****************************Get Network Mode*****************************/
+    adi_wil_ex_info("%s", "Retrieving network mode...");
+    returnOnWilError(adi_wil_example_ExecuteGetMode(&currentMode));
+
+    if(currentMode ==  mode) {
+        adi_wil_ex_info("Network Mode already in desired state = %s", adi_wil_SystemModeToString(currentMode));
+        return ADI_WIL_ERR_SUCCESS;
+    }
+    else {
+        if( currentMode != ADI_WIL_MODE_STANDBY) {
+            logAPIInProgress = (void*)&adi_wil_SetMode;
+
+            /* Set to Standby mode */
+            adi_wil_ex_info("%s", "Transitioning to Standby Mode");
+            returnOnWilError(adi_wil_SetMode(&packInstance, ADI_WIL_MODE_STANDBY));
+
+            /* Wait for non-blocking API to complete */
+            WaitForWilAPI(pPack);
+
+            if(gNotifRc == ADI_WIL_ERR_PARTIAL_SUCCESS) {
+                returnOnWilError(adi_wil_example_RetrySetMode(pPack, ADI_WIL_MODE_STANDBY));
+            }
+
+            adi_wil_ex_info("%s", "Transitioning to Standby Mode successful!");
+            returnOnWilError(adi_wil_example_ExecuteGetMode(&currentMode));
+
+        }
+        if((currentMode == ADI_WIL_MODE_STANDBY) && (mode != ADI_WIL_MODE_STANDBY)) {
+            logAPIInProgress = (void*)&adi_wil_SetMode;
+
+            /* Set to Desired mode */
+            adi_wil_ex_info("Setting Network Mode to %s", adi_wil_SystemModeToString(mode));
+            returnOnWilError(adi_wil_SetMode(&packInstance, mode));
+
+            /* Wait for non-blocking API to complete */
+            WaitForWilAPI(pPack);
+
+            if(gNotifRc == ADI_WIL_ERR_PARTIAL_SUCCESS) {
+                returnOnWilError(adi_wil_example_RetrySetMode(pPack, mode));
+            }
+
+            adi_wil_ex_info("Network Mode set to %s",adi_wil_SystemModeToString(mode));
+        }
+    }
+    return ADI_WIL_ERR_SUCCESS;
+}
+
+
+adi_wil_err_t adi_wil_example_ExecuteGetMode(adi_wil_mode_t *pWilGetMode)
+{
+    returnOnWilError(adi_wil_GetMode(&packInstance, pWilGetMode));
+
+    return ADI_WIL_ERR_SUCCESS;
+}
+
+
+adi_wil_err_t adi_wil_ExecuteEnableNetworkDataCapture(bool bEnable)
+{
+    return adi_wil_EnableNetworkDataCapture(&packInstance, WilNetworkBuffer, NETWORK_DATA_ELEMENT_COUNT, bEnable);
+}
+
+
+adi_wil_err_t adi_wil_example_ExecuteGetACL(adi_wil_pack_t * const pPack)
+{
+    /* Set the Network Mode to STANDBY.                                     */
+    /* Note GetACL can be called from STANDBY, Monitoring and ACTIVE mode   */
+    returnOnWilError(adi_wil_example_ExecuteSetMode(pPack, ADI_WIL_MODE_STANDBY));
+    
+    logAPIInProgress = (void*)&adi_wil_GetACL;
+    returnOnWilError(adi_wil_GetACL(pPack));
+    
+    /* Wait for non-blocking API to complete */
+    WaitForWilAPI(pPack);
+
+    adi_wil_ex_info("%s", "ACL retrieval successful!");
+    return ADI_WIL_ERR_SUCCESS;
+}
+
+
+adi_wil_err_t adi_wil_example_ExecuteSetACL(uint8_t const * const pData, uint8_t iCount)
+{
+    returnOnWilError(adi_wil_SetACL(&packInstance, pData, iCount));
+
+    /* Wait for non-blocking API to complete */
+    WaitForWilAPI(&packInstance);
+
+    /* If for some reason the set ACL did not succeed, display the failure code */
+    returnOnWilError(notifRc);
+
+    adi_wil_ex_info("%s", "Set ACL successful!");
+    return ADI_WIL_ERR_SUCCESS;
+}
+
+
+bool adi_wil_example_ExecuteGetNetworkStatus(adi_wil_pack_t * const pPack,
+                                             adi_wil_network_status_t *pNetworkStatus)
+{
+    bool bAllNodesJoined = false;
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+
+    /* Set the Network Mode to COMMISSIONING */
+    returnOnWilError(adi_wil_example_ExecuteSetMode(pPack, ADI_WIL_MODE_COMMISSIONING));
+
+    adi_wil_ex_info("Waiting for nodes in the ACL list to join the network...");
+    while (!bAllNodesJoined)
+    {
+        /* keep trying to execute command if there's another operation in progress */
+        do {
+            errorCode = adi_wil_GetNetworkStatus(pPack, pNetworkStatus);
+        } while(errorCode == ADI_WIL_ERR_API_IN_PROGRESS);
+
+        if(errorCode != ADI_WIL_ERR_SUCCESS)
+        {
+            error("%s returned with error: %s", __func__, adi_wil_ErrorToString(errorCode));
+            return bAllNodesJoined;
+        }
+        if(pNetworkStatus->iCount == 0)
+        {
+            adi_wil_ex_info("No nodes in the ACL list!");
+             return bAllNodesJoined;
+        }
+        else
+        {
+            bAllNodesJoined = true;
+            for(uint32_t i = 0; i < pNetworkStatus->iCount; i++)
+            {
+                if (!pNetworkStatus->bConnected[i])
+                {
+                    bAllNodesJoined = false;
+                }
+            }
+        }
+    }
+
+    return bAllNodesJoined;
+}
+
+
+bool adi_wil_example_ExecuteJoinNodes(void)
+{
+    bool bAllNodesJoined = false;
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+    adi_wil_mode_t initialMode;
+    adi_wil_network_status_t networkStatus;
+
+    returnOnWilError(adi_wil_example_ExecuteGetMode(&initialMode));
+
+    /* Set the Network Mode to COMMISSIONING which allows nodes to join faster */
+    returnOnWilError(adi_wil_example_ExecuteSetMode(ADI_WIL_MODE_COMMISSIONING));
+
+    adi_wil_ex_info("%s", "Waiting for nodes in the ACL list to join the network...");
+    while (!bAllNodesJoined)
+    {
+        /**
+         * @remark  Neo Jung : "adi_wil_example_ExecuteGetNetworkStatus" is no longer valid since it returns bool type
+         */
+        errorCode = adi_wil_example_ExecuteGetNetworkStatus(&networkStatus);
+
+        if(errorCode != ADI_WIL_ERR_SUCCESS)
+        {
+            adi_wil_ex_error("%s returned with error: %s", __func__, adi_wil_ErrorToString(errorCode));
+            return bAllNodesJoined;
+        }
+
+        if(networkStatus.iCount == 0)
+        {
+            adi_wil_ex_info("%s", "No nodes in the ACL list!");
+            return bAllNodesJoined;
+        }
+        else
+        {
+            bAllNodesJoined = true;
+            for(uint32_t i = 0; i < networkStatus.iCount; i++)
+            {
+                if (!networkStatus.bConnected[i])
+                {
+                    bAllNodesJoined = false;
+                }
+            }
+        }
+    }
+
+    /* Return network to initial mode before returning */
+    returnOnWilError(adi_wil_example_ExecuteSetMode(initialMode));
+
+    return bAllNodesJoined;
+}
+
+
+void adi_wil_example_PrintACL(void)
+{
+    for (int i=0; i < systemAcl.iCount; i++) {
+        adi_wil_ex_info("MAC entry %d : %02X%02X%02X",
+             i,
+             systemAcl.Data[(i*ADI_WIL_MAC_ADDR_SIZE)+5],
+             systemAcl.Data[(i*ADI_WIL_MAC_ADDR_SIZE)+6],
+             systemAcl.Data[(i*ADI_WIL_MAC_ADDR_SIZE)+7]);
+    }
+}
+
+
+uint8_t adi_wil_example_GetNodeCount(void)
+{
+    return systemAcl.iCount;
+}
+
+
+void adi_wil_example_GetWILSoftwareVersion(void)
+{
+
+    adi_wil_version_t version;
+
+    adi_wil_GetWILSoftwareVersion(&version);
+    adi_wil_ex_info("WBMS Interface Library version : %d.%d.%d.%d",
+        version.iVersionMajor, version.iVersionMinor, version.iVersionPatch, version.iVersionBuild);
+}
+
+
+adi_wil_err_t adi_wil_example_GetDeviceVersion(adi_wil_pack_t * const pPack, adi_wil_device_t eDevice)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+    
+    /* Set the Network Mode to STANDBY */
+    adi_wil_example_ExecuteSetMode(pPack, ADI_WIL_MODE_STANDBY);
+
+    /* Save the API function pointer */
+    logAPIInProgress = (void*)&adi_wil_GetDeviceVersion;
+
+    /* Call the adi_wil_GetDeviceVersion API */
+    errorCode = adi_wil_GetDeviceVersion(pPack, eDevice);
+    if (errorCode != ADI_WIL_ERR_SUCCESS)
+    {
+        /* Handle error */
+        adi_wil_ex_error("%s returned with error: %s", __func__, adi_wil_ErrorToString(errorCode));
+    }
+    else
+    {
+        /* Wait for non-blocking API to complete */
+        WaitForWilAPI(&packInstance);
+    }
+
+    /* Check for rc from the API callback and print out the main processor device information and silicon version */
+    if (notifRc == ADI_WIL_ERR_SUCCESS)
+    {
+        adi_wil_ex_info("Device S/W Version Information: %d.%d.%d.%d",
+            deviceVersion.MainProcSWVersion.iVersionMajor,
+            deviceVersion.MainProcSWVersion.iVersionMinor,
+            deviceVersion.MainProcSWVersion.iVersionPatch,
+            deviceVersion.MainProcSWVersion.iVersionBuild);
+        adi_wil_ex_info("Device Silicon Version Information: %d.%d", deviceVersion.iMainProcSiVersion, deviceVersion.iCoProcSiVersion);
+    }
+
+    return errorCode;
+}
+
+
+adi_wil_err_t adi_wil_example_ExecuteResetDevice(adi_wil_pack_t * const pPack, adi_wil_device_t eDeviceId)
+{
+    adi_wil_ex_info("Resetting Device = %s", adi_wil_DeviceToString(eDeviceId));
+
+    logAPIInProgress = (void*)&adi_wil_ResetDevice;
+    returnOnWilError(adi_wil_ResetDevice(&packInstance, eDeviceId));
+
+    /* Wait for non-blocking API to complete */
+    WaitForWilAPI(&packInstance);
+
+    adi_wil_ex_info("Reset device %s successful!", adi_wil_DeviceToString(eDeviceId));
+
+    return ADI_WIL_ERR_SUCCESS;
+}
+
+
+/* service the adi_wil_ProcessTask() call and record result */
+static void adi_task_serviceProcessTask(void)
+{
+    (void)adi_wil_ProcessTask(&packInstance);
+}
+
+
+bool adi_wil_example_PeriodicallyCallProcessTask(void)
+{
+    return adi_wil_hal_TaskStart(PROCESS_TASK_INTERVAL_USEC, adi_task_serviceProcessTask);
+}
+
+
+void adi_wil_example_StopProcessTask(void)
+{
+    adi_wil_hal_TaskStop();
+}
+
+
+
+void adi_task_ProcessNetworkData(void)
+{
+    if(bNotifyNetworkMeta == true)
+    {
+        adi_wil_example_ProcessNetworkBuffer();
+        bNotifyNetworkMeta = false;
+    }
+}
+
+
+void adi_wil_example_ProcessNetworkBuffer(void)
+{
+    for(uint16_t i = 0; i < iNetworkDataBufferCount; i++)
+    {
+        adi_wil_network_data_t volatile const * const pNetworkData = &appNetworkDataBuffer[i];
+
+        /* write out network data in CSV format */
+        /* iPackId (rightmost field) can stay fixed at 0 (as there's only one pack) */
+        iRecordIndex++;
+        adi_wil_ex_printf(LINE_END " %2u, %u, %2d, %llu, %2u, %3u, %2u, %3d, %u, %3d, 0",
+            iRecordIndex,
+            adi_wil_hal_TickerGetTimestamp(),
+            pNetworkData->eSrcDeviceId,
+            pNetworkData->iPacketGenerationTime,
+            pNetworkData->iLatency,
+            pNetworkData->iSequenceNumber,
+            pNetworkData->iChannel,
+            pNetworkData->iRSSI,
+            pNetworkData->iTwoHop,
+            pNetworkData->eSrcManagerId
+        );
+    }
+}
+
+
+
+void ApiCallback(adi_wil_pack_t const* const pPack, void* pClientData, void const* const pAPIFunction,
+                        adi_wil_err_t rc, void const* const pData)
+{
+    if(rc == ADI_WIL_ERR_SUCCESS)
+    {
+        /* Handle API generated data and flags here */
+        if (pAPIFunction == (void*)adi_wil_GetDeviceVersion)
+        {
+            (void)memcpy(&deviceVersion, pData, sizeof(deviceVersion));
+        }
+        else if (pAPIFunction == (void*)adi_wil_GetACL)
+        {
+            (void)memcpy(&systemAcl, pData, sizeof(adi_wil_acl_t));
+        }
+    }
+
+    notifRc = rc;
+}
+
+
+void EventCallback(adi_wil_pack_t const* const pPack, void* const pClientData,
+                        adi_wil_event_id_t EventCode, void const* const pData)
+{
+    switch (EventCode)
+    {
+        case ADI_WIL_EVENT_COMM_MGR_CONNECTED:
+            iMgrConnectCount++;
+            break;
+
+        case ADI_WIL_EVENT_DATA_READY_NETWORK_DATA:
+            {
+                /* Copy out the network data */
+                adi_wil_network_data_buffer_t const * pNetworkData = pData;
+                memcpy((void *)appNetworkDataBuffer, pNetworkData->pData, pNetworkData->iCount * sizeof(adi_wil_network_data_t));
+                iNetworkDataBufferCount = pNetworkData->iCount;
+                bNotifyNetworkMeta = true;
+            }
+            break;
+
+        default: 
+            break;
+    }
+}
+
+/******************************************************************************
+ * Example function using adi_wil_example_ExecuteLoadFile
+ *****************************************************************************/
+adi_wil_err_t adi_wil_example_ExecuteLoadFile(adi_wil_pack_t * const pPack, adi_wil_file_type_t eFileType, adi_wil_device_t eDevice)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+    static uint8_t *pOtapImage;
+    uint32_t iOtapImageLen;
+    static uint8_t buffer[ADI_WIL_LOADFILE_DATA_SIZE];
+    iLoadFileOffset = 0;
+    uint32_t iImageLength = 0;
+
+    /* Set the Network Mode to STANDBY */
+    returnOnWilError(adi_wil_example_ExecuteSetMode(pPack, ADI_WIL_MODE_STANDBY));
+
+    adi_wil_ex_info("File download started...");
+
+    if(eFileType == ADI_WIL_FILE_TYPE_CONTAINER)
+    {
+        if ((eDevice == ADI_WIL_DEV_MANAGER_0) || (eDevice == ADI_WIL_DEV_MANAGER_1) || (eDevice == ADI_WIL_DEV_ALL_MANAGERS ))
+        {
+            if(eDevice == ADI_WIL_DEV_MANAGER_0) {
+                adi_pms_GetContainerPtr(&pOtapImage, &iOtapImageLen);
+                adi_wil_ex_info("PMS OTAP Version : %d.%d", ADI_PMS_VERSION, ADI_PMS_REVISION);
+            }
+            if(eDevice == ADI_WIL_DEV_MANAGER_1) {
+                adi_ems_GetContainerPtr(&pOtapImage, &iOtapImageLen);
+                adi_wil_ex_info("EMS OTAP Version : %d.%d", ADI_EMS_VERSION, ADI_EMS_REVISION);
+            }
+        }
+        if((eDevice <= ADI_WIL_DEV_NODE_63) || ( eDevice == ADI_WIL_DEV_ALL_NODES ))
+        {
+            adi_bms_GetContainerPtr(&pOtapImage, &iOtapImageLen);
+            adi_wil_ex_info("BMS OTAP Version : %d.%d", ADI_BMS_VERSION, ADI_BMS_REVISION);
+        }
+    }
+    if(eFileType == ADI_WIL_FILE_TYPE_CONFIGURATION)
+    {
+        pOtapImage = (uint8_t *)&NwkCfg2m24n100ms;
+        iOtapImageLen =  NwkCfg2m24n100ms_length;
+    }
+
+    /* File transfer loop */
+    iImageLength = iOtapImageLen;
+    do
+    {
+        if(iOtapImageLen > ADI_WIL_LOADFILE_DATA_SIZE)
+            iOtapImageLen = iImageLength - iLoadFileOffset;
+
+        memset(&buffer[0], 0, ADI_WIL_LOADFILE_DATA_SIZE);
+
+        if(iOtapImageLen >= ADI_WIL_LOADFILE_DATA_SIZE)
+        {
+            for (uint32_t i = 0; i < ADI_WIL_LOADFILE_DATA_SIZE; i++) {
+                buffer[i] = pOtapImage[iLoadFileOffset + i];
+            }
+        }
+        else
+        {
+            for (uint32_t i = 0; i < iOtapImageLen; i++) {
+                buffer[i] = pOtapImage[iLoadFileOffset + i];
+            }
+        }
+
+        /* WIL API Call */
+        logAPIInProgress = (void*)&adi_wil_LoadFile;
+        do {
+            do {
+                errorCode = adi_gProcessTaskErrorCode;
+            } while(errorCode != ADI_WIL_ERR_SUCCESS);
+
+            errorCode = adi_wil_LoadFile(pPack, eDevice, eFileType, &buffer[0]);
+        } while(errorCode == ADI_WIL_ERR_API_IN_PROGRESS);
+
+        if (errorCode != ADI_WIL_ERR_SUCCESS)
+        {
+            /* Handle error */
+            adi_wil_ex_error("%s returned with error: %s", __func__, adi_wil_ErrorToString(errorCode));
+            if(errorCode == ADI_WIL_ERR_INVALID_PARAMETER)
+                return errorCode;
+            else
+                break;
+        }
+        else
+        {
+            /* Wait for non-blocking API to complete */
+            WaitForWilAPI(pPack);
+
+            if(gNotifRc == ADI_WIL_ERR_FAIL)
+            {
+                /* An error has occurred. The loading process has aborted. */
+                /* No further API callbacks will occur. Re-start the OTAP. */
+                adi_wil_ex_info("%s returned with error: %s", __func__, adi_wil_ErrorToString(gNotifRc));
+                adi_wil_ex_info("Restart OTAP process again.");
+
+                iLoadFileOffset = 0;
+                iOtapImageLen = iImageLength;
+                gNotifRc = ADI_WIL_ERR_IN_PROGRESS;
+            }
+            else if ((gNotifRc != ADI_WIL_ERR_SUCCESS) && (gNotifRc != ADI_WIL_ERR_IN_PROGRESS)) {
+                adi_wil_ex_error("%s returned with error: %s", __func__, adi_wil_ErrorToString(gNotifRc));
+                return gNotifRc;
+            }
+        }
+    } while (ADI_WIL_ERR_IN_PROGRESS == gNotifRc);
+
+    adi_wil_ex_info("File Type = %s loading completed successfully on device = %s!",adi_wil_FileTypeToString(eFileType),adi_wil_DeviceToString(eDevice));
+
+    return errorCode;
+}
+
+adi_wil_err_t adi_wil_example_ExecuteGetGpio(adi_wil_pack_t * const pPack, 
+                                            adi_wil_device_t eDeviceId,
+                                            adi_wil_gpio_id_t eGPIOId)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+    /* Set the Network Mode to STANDBY, GetGPIO functionality works in active and monitoring mode as well*/
+    returnOnWilError(adi_wil_example_ExecuteSetMode(pPack, ADI_WIL_MODE_STANDBY));
+
+    logAPIInProgress = (void*)&adi_wil_GetGPIO;
+    adi_wil_ex_info("Getting %s value for device %s",adi_wil_GpioIdTypeToString(eGPIOId),adi_wil_DeviceToString(eDeviceId));
+    errorCode = adi_wil_GetGPIO(pPack,
+                                eDeviceId,
+                                eGPIOId);
+    if(errorCode != ADI_WIL_ERR_SUCCESS) {
+        adi_wil_ex_error("%s returned with error: %s for device %s", __func__, adi_wil_ErrorToString(errorCode),adi_wil_DeviceToString(eDeviceId));
+    }
+    else {
+        
+        /* Wait for non-blocking API to complete */
+        WaitForWilAPI(pPack);
+
+        errorCode = gNotifRc;
+        if (gNotifRc == ADI_WIL_ERR_SUCCESS) {
+            adi_wil_ex_info("%s value of device %s = %s", adi_wil_GpioIdTypeToString(eGPIOId), adi_wil_DeviceToString(eDeviceId), adi_wil_GpioValueTypeToString(returnedGpioValue));
+            }
+        else {
+             adi_wil_ex_error("%s returned with error: %s for device %s", __func__, adi_wil_ErrorToString(errorCode),adi_wil_DeviceToString(eDeviceId));
+        }
+    }
+    return errorCode;
+}
+
+/******************************************************************************
+ * Example function using adi_wil_SetContextualData
+ *****************************************************************************/
+adi_wil_err_t adi_wil_example_ExecuteSetContextualData(adi_wil_pack_t * const pPack, 
+                                                      adi_wil_device_t eDeviceId,
+                                                      adi_wil_contextual_id_t eContextualId,
+                                                      adi_wil_contextual_data_t * pContextualData)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+    /* Set the Network Mode to STANDBY */
+    returnOnWilError(adi_wil_example_ExecuteSetMode(pPack, ADI_WIL_MODE_STANDBY));
+
+    logAPIInProgress = (void*)&adi_wil_SetContextualData;
+    adi_wil_ex_info("Setting contextual data for device = %s", adi_wil_DeviceToString(eDeviceId));
+    errorCode = adi_wil_SetContextualData(pPack,
+                                          eDeviceId,
+                                          eContextualId,
+                                          pContextualData);
+    if(errorCode != ADI_WIL_ERR_SUCCESS) {
+        adi_wil_ex_error("%s returned with error: %s for device %s", __func__, adi_wil_ErrorToString(errorCode),adi_wil_DeviceToString(eDeviceId));
+    }
+    else {
+        
+        /* Wait for non-blocking API to complete */
+        WaitForWilAPI(pPack);
+        
+        errorCode = gNotifRc;
+        if (gNotifRc != ADI_WIL_ERR_SUCCESS) {
+            adi_wil_ex_error("%s returned with error: %s for device %s", __func__, adi_wil_ErrorToString(errorCode),adi_wil_DeviceToString(eDeviceId));
+            }
+        }
+    return errorCode;
+}
+/******************************************************************************
+ * Example function using adi_wil_GetContextualData
+ *****************************************************************************/
+adi_wil_err_t adi_wil_example_ExecuteGetContextualData(adi_wil_pack_t * const pPack, 
+                                                      adi_wil_device_t eDeviceId,
+                                                      adi_wil_contextual_id_t eContextualId)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+    /* Set the Network Mode to STANDBY */
+    returnOnWilError(adi_wil_example_ExecuteSetMode(pPack, ADI_WIL_MODE_STANDBY));
+
+    logAPIInProgress = (void*)&adi_wil_GetContextualData;
+    adi_wil_ex_info("Getting contextual data for device = %s", adi_wil_DeviceToString(eDeviceId));
+    errorCode = adi_wil_GetContextualData(pPack,
+                                       eDeviceId,
+                                       eContextualId);
+    if(errorCode != ADI_WIL_ERR_SUCCESS) {
+        adi_wil_ex_error("%s returned with error: %s for device %s", __func__, adi_wil_ErrorToString(errorCode),adi_wil_DeviceToString(eDeviceId));
+    }
+    else {
+        
+        /* Wait for non-blocking API to complete */
+        WaitForWilAPI(pPack);
+
+        errorCode = gNotifRc;
+        if (gNotifRc == ADI_WIL_ERR_SUCCESS) {
+            adi_wil_ex_info("Printing contextual data for Device %s", adi_wil_DeviceToString(eDeviceId));
+            for(int j=0; j<returnedContextualData.iLength; j++) {
+                adi_wil_ex_info("Contextual data returned of index %d = %d",j, returnedContextualData.Data[j]);
+                }
+            }
+        else {
+            adi_wil_ex_error("%s returned with error: %s for device %s", __func__, adi_wil_ErrorToString(errorCode),adi_wil_DeviceToString(eDeviceId));
+        }
+    }
+    return errorCode;
+}
+
+/******************************************************************************
+ * Example function using adi_wil_SetGPIO
+ *****************************************************************************/
+adi_wil_err_t adi_wil_example_ExecuteSetGpio(adi_wil_pack_t * const pPack, 
+                                            adi_wil_device_t eDeviceId,
+                                            adi_wil_gpio_id_t eGPIOId,
+                                            adi_wil_gpio_value_t eGPIOValue)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+    /* Set the Network Mode to STANDBY, SetGPIO functionality works in active and monitoring mode as well*/
+    returnOnWilError(adi_wil_example_ExecuteSetMode(pPack, ADI_WIL_MODE_STANDBY));
+
+    logAPIInProgress = (void*)&adi_wil_SetGPIO;
+    adi_wil_ex_info("Setting %s of device %s to value %s",adi_wil_GpioIdTypeToString(eGPIOId), adi_wil_DeviceToString(eDeviceId), adi_wil_GpioValueTypeToString(eGPIOValue));
+    errorCode = adi_wil_SetGPIO(pPack,
+                                eDeviceId,
+                                eGPIOId,
+                                eGPIOValue);
+    if(errorCode != ADI_WIL_ERR_SUCCESS) {
+        adi_wil_ex_error("Setting %s value to %s returned for device %s = %s", adi_wil_GpioIdTypeToString(eGPIOId), adi_wil_GpioValueTypeToString(eGPIOValue),
+              adi_wil_DeviceToString(eDeviceId), adi_wil_ErrorToString(errorCode));
+    }
+    else {
+        
+        /* Wait for non-blocking API to complete */
+        WaitForWilAPI(pPack);
+
+        errorCode = gNotifRc;
+        if (gNotifRc != ADI_WIL_ERR_SUCCESS) {
+            adi_wil_ex_error("Setting %s value to %s returned for device %s = %s", adi_wil_GpioIdTypeToString(eGPIOId), adi_wil_GpioValueTypeToString(eGPIOValue),
+                  adi_wil_DeviceToString(eDeviceId), adi_wil_ErrorToString(errorCode));
+            }
+        }
+    return errorCode;
+}
+/******************************************************************************
+ * Example function using adi_wil_GetGPIO
+ *****************************************************************************/
+adi_wil_err_t adi_wil_example_ExecuteGetGpio(adi_wil_pack_t * const pPack, 
+                                            adi_wil_device_t eDeviceId,
+                                            adi_wil_gpio_id_t eGPIOId)
+{
+    adi_wil_err_t errorCode = ADI_WIL_ERR_SUCCESS;
+    /* Set the Network Mode to STANDBY, GetGPIO functionality works in active and monitoring mode as well*/
+    returnOnWilError(adi_wil_example_ExecuteSetMode(pPack, ADI_WIL_MODE_STANDBY));
+
+    logAPIInProgress = (void*)&adi_wil_GetGPIO;
+    adi_wil_ex_info("Getting %s value for device %s",adi_wil_GpioIdTypeToString(eGPIOId),adi_wil_DeviceToString(eDeviceId));
+    errorCode = adi_wil_GetGPIO(pPack,
+                                eDeviceId,
+                                eGPIOId);
+    if(errorCode != ADI_WIL_ERR_SUCCESS) {
+        adi_wil_ex_error("%s returned with error: %s for device %s", __func__, adi_wil_ErrorToString(errorCode),adi_wil_DeviceToString(eDeviceId));
+    }
+    else {
+        
+        /* Wait for non-blocking API to complete */
+        WaitForWilAPI(pPack);
+
+        errorCode = gNotifRc;
+        if (gNotifRc == ADI_WIL_ERR_SUCCESS) {
+            adi_wil_ex_info("%s value of device %s = %s", adi_wil_GpioIdTypeToString(eGPIOId), adi_wil_DeviceToString(eDeviceId), adi_wil_GpioValueTypeToString(returnedGpioValue));
+            }
+        else {
+             adi_wil_ex_error("%s returned with error: %s for device %s", __func__, adi_wil_ErrorToString(errorCode),adi_wil_DeviceToString(eDeviceId));
+        }
+    }
+    return errorCode;
+}

@@ -1,0 +1,1375 @@
+; --------------------------------------------------------------------------------
+; @Title: Generic FLASH script file for TC38x devices
+; @Description:
+;   Script for flash declaration and programming of Infineon TriCore TC38x
+;   internal flash.
+; @Keywords: AURIX, AURIX2G, FLASH, internal, Infineon, TriCore
+; @Author: MAX, MEI
+; @Chip: TC38*
+; @Copyright: (C) 1989-2020 Lauterbach GmbH, licensed for use with TRACE32(R) only
+; --------------------------------------------------------------------------------
+; $Id: tc38x.cmm 8098 2020-03-20 15:57:40Z mobermaier $
+
+
+; Important information, read this before using this script:
+;
+;   Do not edit this script. Instead, call this script from your project using the
+;   command line arguments described below. See the TriBoard demo scripts for an
+;   example.
+;
+;   If changing the sector type from NOP to TARGET is required, use the command
+;   FLASH.CHANGETYPE instead of modifying this script.
+;
+;   This script checks the programmed application to avoid permanent locking of the
+;   device. This script is constantly improved, but it is not guaranteed that all
+;   cases are covered.
+;
+; Script arguments:
+;
+;   DO tc38x.cmm [PREPAREONLY] [CPU=<cpu>] [DUALPORT=0|1]
+;
+;     PREPAREONLY only declares flash but does not execute flash programming
+;
+;     CPU=<cpu> selects CPU derivative <cpu>
+;
+;     DUALPORT default value is 0 (disabled). If DualPort mode is enabled
+;              flash algorithm stays running until flash programming is
+;              finished. Data is tranferred via dual port memory access.
+;
+; Example:
+;
+;   DO ~~/demo/tricore/flash/tc38x.cmm CPU=TC387QP PREPAREONLY
+;
+; Supported devices:
+;
+;   All TC38x devices, e.g. TC387QP
+;
+; Program FLASH:
+;   FSIZE=0xC: 10 MB PFLASH at 0x80000000--0x809FFFFF (cached)
+;                           or 0xA0000000--0xA09FFFFF (non cached)
+;   FSIZE=0xB:  8 MB PFLASH at 0x80000000--0x803FFFFF (cached)
+;                              0x80600000--0x809FFFFF (cached)
+;                           or 0xA0000000--0xA03FFFFF (non cached)
+;                              0xA0600000--0xA09FFFFF (non cached)
+;
+; Data FLASH (single-ended mode):
+;   512 KByte DFLASH at 0xAF000000--0xAF07FFFF (EEPROM)
+;   128 KByte DFLASH at 0xAFC00000--0xAFC1FFFF (EEPROM or HSM)
+;   Complement-sensing mode reduces size to the half.
+;
+; Configuration FLASH sectors:
+;   UCB sectors at 0xAF400000--0xAF405FFF
+;   CFS sectors at 0xAF800000--0xAF80FFFF
+;
+; RAM (minimum Scratch-Pad RAM):
+;    96 KByte DSPR (Data Scratch-Pad RAM)        at 0xD0000000--0xD0017FFF
+;    64 KByte PSPR (Instruction Scratch-Pad RAM) at 0xC0000000--0xC000FFFF
+;
+; CAUTION:
+;
+;   Do not enable HSM boot when no valid HSM code is present. This will lock
+;   your device permanently. See the Infineon documentation and contact your
+;   Infineon FAE for more information on HSM.
+;
+;   Pay special attention when modifying the UCB. An invalid or erroneous
+;   content will lock your device permanently. This also happens in case the
+;   confirmation code is neither "unlocked" nor "confirmed". See the Infineon
+;   documentation for more information.
+;   See ~~/demo/tricore/flash/tc3xx-ucb.cmm for programming the UCB.
+;
+; HINTS:
+;
+;   Erased PFLASH is showing bus error caused by ECC error. The ECC width of
+;   PFLASH an aligned group of 32 bytes.
+;
+;   The flash algorithm is programming PFLASH in an aligned group of 32 bytes.
+;   When using FLASH.Program command the download has to care about this
+;   alignment.
+;
+;   Pre-FLASH-Checks:
+;     This script will install automatic checkers that warn about dangerous
+;     operations and block fatal operations. However, there is no guarantee
+;     that these chekers are complete. It is the responsibility of the user to
+;     supply valid flash content.
+;
+;     The behavior of the checkers can be modified by a local or global
+;     PRACTICE macro "&TC_PreFlashCheckConfig". The macro consists of a list of
+;     white space separated option=value pairs.
+;
+;     Options to control user confirmations:
+;       Some checks will ask the user for confirmation. For each of these
+;       checks there is an option to continue anyway (value ALLOW) or abort the
+;       flash operation (DENY). The value for the default behavior is CONFIRM.
+;       Options:
+;
+;       WDEFAULT                 Default behavior for all checks.
+;       WPROGRAM                 Warning of FLASH.PROGRAM.
+;       WUCB_ORIG_COPY_MISMATCH  Attempt to program different values in ORIG
+;                                and COPY UCB.
+;       WUCB_OTHER_ERRORED       Attempt to program UCB while corresponding
+;                                ORIG or COPY is in state errored.
+;       WBMHD_BMHDID             Attempt to program BMHD without valid ID.
+;       WBMHD_HWCFG              Attempt to program invalid HWCFG value in
+;                                BMHD.
+;       WBMHD_STAD               Attempt to program invalid STAD value in BMHD.
+;       WBMHD_CRC                Attempt to program invalid CRC in BMHD.
+;       WBMHD_STAD_SEGM8         Attempt to program BMHD violating errata
+;                                BROM_TC.009.
+;       WABMHD_PFLASH0           Attempt to prgram BMHD violating errata
+;                                BROM_TC.011.
+;       WDBG_LOCK                Debug interface will be locked by UCB_DBG.
+
+LOCAL &parameters &param_prepareonly &param_cpu &param_dualport &param_hook &this_file
+ENTRY %LINE &parameters
+
+IF (VERSION.BUILD()<89310.)
+(
+  PRINT %ERROR "This flash script requires at least R.2017.09 or S.2017.11"
+  ENDDO "UNSUPPORTED"
+)
+
+&this_file='"'+OS.PPF()+'"'
+&param_prepareonly=(STRing.SCAN(STRing.UPpeR("&parameters"),"PREPAREONLY",0)!=-1)
+&param_cpu=STRing.SCANAndExtract(STRing.UPpeR("&parameters"),"CPU=","")
+&param_dualport=STRing.SCANAndExtract(STRing.UPpeR("&parameters"),"DUALPORT=","0")
+&param_hook=STRing.SCANAndExtract(STRing.UPpeR("&parameters"),"HOOKCMD=","")
+
+LOCAL &SCU_CHIPID &CHREV &FSIZE
+&SCU_CHIPID=0x0
+&CHREV=0x0
+&FSIZE=0x0
+
+LOCAL &HFMODE &SFMODE
+&HFMODE=0x0
+&SFMODE=0x0
+
+LOCAL &SOTA_EN &SWAP_ACTIVE
+&SOTA_EN=FALSE()
+&SWAP_ACTIVE=FALSE()
+
+IF "&param_hook"!=""
+(
+  PRIVATE &result_hook
+  &param_hook=&param_hook
+  GOSUB ExecuteSafe &param_hook
+  STOP %ERROR "Invalid exit of ExecuteSafe"
+)
+
+; --------------------------------------------------------------------------------
+; Initialize
+
+IF SYStem.MODE()<5.
+(
+  IF !interface.HOSTMCI()
+    SYStem.RESet
+
+  IF "&param_cpu"!=""
+    SYStem.CPU &param_cpu
+  IF !CPUIS(TC38*)
+    SYStem.CPU TC38*
+
+  IF (!CPUIS("TC3??S*"))&&(!CPUIS("TC3??L*"))
+    CORE.select 0.  ; CPU0 is selected for flash programming.
+  SYSTEM.O.DUALPORT ON
+  SYStem.Up
+)
+
+; Disable Watchdog Timers on TC38x
+
+; Disable Safety Watchdog Timer (overall system level watchdog)
+PER.Set.simple D:0xF00362AC %Long 0x00000008  ; SCU_WDTSCON1, Request to disable the WDT
+; Disable CPU Watchdog Timer
+PER.Set.simple D:0xF0036250 %Long 0x00000008  ; SCU_WDTCPU0CON1, Request to disable the WDT
+PER.Set.simple D:0xF003625C %Long 0x00000008  ; SCU_WDTCPU1CON1, Request to disable the WDT
+PER.Set.simple D:0xF0036268 %Long 0x00000008  ; SCU_WDTCPU2CON1, Request to disable the WDT
+IF (CPUIS("TC38?Q*"))
+  PER.Set.simple D:0xF0036274 %Long 0x00000008  ; SCU_WDTCPU3CON1, Request to disable the WDT
+
+; --------------------------------------------------------------------------------
+; FLASH Declaration
+
+; Get FLASH sizes from chip
+GOSUB ReadChipId
+GOSUB ReadProConUsr
+GOSUB ReadSwapConfig
+
+IF (&SWAP_ACTIVE)
+(
+  ; SOTA currently not fully supported by TRACE32:
+  ; - SOTA with standard address map is possible
+  ; - SOTA with alternate address map is not possible
+  PRINT %ERROR "SOTA not supported for alternate address map"
+  ENDDO FAIL
+)
+
+FLASH.RESet
+
+; Program FLASH
+IF (&FSIZE==0xC) ; 10 MB PFLASH - TC38x 160F
+(
+  ; Program FLASH PF0
+  FLASH.Create  1. 0xA0000000--0xA00FFFFF 0x4000 TARGET Long 0.  ; PS0, S0..S63
+  FLASH.Create  2. 0xA0100000--0xA01FFFFF 0x4000 TARGET Long 0.  ; PS1, S64..S127
+  FLASH.Create  3. 0xA0200000--0xA02FFFFF 0x4000 TARGET Long 0.  ; PS2, S128..S191
+  ; Program FLASH PF1
+  FLASH.Create  4. 0xA0300000--0xA03FFFFF 0x4000 TARGET Long 1.  ; PS0, S0..S63
+  FLASH.Create  5. 0xA0400000--0xA04FFFFF 0x4000 TARGET Long 1.  ; PS1, S64..S127
+  FLASH.Create  6. 0xA0500000--0xA05FFFFF 0x4000 TARGET Long 1.  ; PS2, S128..S191
+  ; Program FLASH PF2
+  FLASH.Create  7. 0xA0600000--0xA06FFFFF 0x4000 TARGET Long 2.  ; PS0, S0..S63
+  FLASH.Create  8. 0xA0700000--0xA07FFFFF 0x4000 TARGET Long 2.  ; PS1, S64..S127
+  FLASH.Create  9. 0xA0800000--0xA08FFFFF 0x4000 TARGET Long 2.  ; PS2, S128..S191
+  ; Program FLASH PF3
+  FLASH.Create 10. 0xA0900000--0xA09FFFFF 0x4000 TARGET Long 3.  ; PS0, S0..S63
+
+  ; Check for protected PFLASH sectors (special handling required, see documentation)
+  GOSUB CheckProtectedPFLASH "PFLASH0" "C:0xA0000000" "192."
+  GOSUB CheckProtectedPFLASH "PFLASH1" "C:0xA0300000" "192."
+  GOSUB CheckProtectedPFLASH "PFLASH2" "C:0xA0600000" "192."
+  GOSUB CheckProtectedPFLASH "PFLASH3" "C:0xA0900000" "64."
+)
+ELSE IF (&FSIZE==0xB) ; 8 MB PFLASH - TC38x 128F
+(
+  ; Program FLASH PF0
+  FLASH.Create  1. 0xA0000000--0xA00FFFFF 0x4000 TARGET Long 0.  ; PS0, S0..S63
+  FLASH.Create  2. 0xA0100000--0xA01FFFFF 0x4000 TARGET Long 0.  ; PS1, S64..S127
+  FLASH.Create  3. 0xA0200000--0xA02FFFFF 0x4000 TARGET Long 0.  ; PS2, S128..S191
+  ; Program FLASH PF1
+  FLASH.Create  4. 0xA0300000--0xA03FFFFF 0x4000 TARGET Long 1.  ; PS0, S0..S63
+  ; Program FLASH PF2
+  FLASH.Create  7. 0xA0600000--0xA06FFFFF 0x4000 TARGET Long 2.  ; PS0, S0..S63
+  FLASH.Create  8. 0xA0700000--0xA07FFFFF 0x4000 TARGET Long 2.  ; PS1, S64..S127
+  FLASH.Create  9. 0xA0800000--0xA08FFFFF 0x4000 TARGET Long 2.  ; PS2, S128..S191
+  ; Program FLASH PF3
+  FLASH.Create 10. 0xA0900000--0xA09FFFFF 0x4000 TARGET Long 3.  ; PS0, S0..S63
+
+  ; Check for protected PFLASH sectors (special handling required, see documentation)
+  GOSUB CheckProtectedPFLASH "PFLASH0" "C:0xA0000000" "192."
+  GOSUB CheckProtectedPFLASH "PFLASH1" "C:0xA0300000" "64."
+  GOSUB CheckProtectedPFLASH "PFLASH2" "C:0xA0600000" "192."
+  GOSUB CheckProtectedPFLASH "PFLASH3" "C:0xA0900000" "64."
+)
+ELSE
+(
+  PRINT %ERROR "unsupported PFLASH size &FSIZE"
+  ENDDO "UNSUPPORTED"
+)
+
+; Cached program flash address range
+FLASH.CreateALIAS 0x80000000--0x80FFFFFF 0xA0000000
+
+; Data FLASH DF0
+;IF (&HFMODE==0x0) ; single ended mode       - 512 KB EEPROM
+  FLASH.Create 20. 0xAF000000--0xAF07FFFF 0x1000 TARGET Long /INFO "EEPROM"       ; DF0, DF0_EEPROM0..DF0_EEPROM127
+;ELSE              ; complement sensing mode - 256 KB EEPROM
+;  FLASH.Create 20. 0xAF000000--0xAF03FFFF 0x0800 TARGET Long /INFO "EEPROM"       ; DF0, DF0_EEPROM0..DF0_EEPROM127
+FLASH.Create 21. 0xAF400000--0xAF4001FF 0x0200 TARGET    Long /INFO "UCB00 BMHD0 ORIG"    ; DF0, DF0_UCB0
+FLASH.Create 21. 0xAF400200--0xAF4003FF 0x0200 NOP    Long /INFO "UCB01 BMHD1 ORIG"    ; DF0, DF0_UCB1
+FLASH.Create 21. 0xAF400400--0xAF4005FF 0x0200 NOP    Long /INFO "UCB02 BMHD2 ORIG"    ; DF0, DF0_UCB2
+FLASH.Create 21. 0xAF400600--0xAF4007FF 0x0200 NOP    Long /INFO "UCB03 BMHD3 ORIG"    ; DF0, DF0_UCB3
+FLASH.Create 21. 0xAF400800--0xAF4009FF 0x0200 NOP    Long /INFO "UCB04 SSW"           ; DF0, DF0_UCB4
+FLASH.Create 21. 0xAF400A00--0xAF400BFF 0x0200 NOP    Long /INFO "UCB05 USER"          ; DF0, DF0_UCB5
+FLASH.Create 21. 0xAF400C00--0xAF400DFF 0x0200 NOP    Long /INFO "UCB06 TEST"          ; DF0, DF0_UCB6
+FLASH.Create 21. 0xAF400E00--0xAF400FFF 0x0200 NOP    Long /INFO "UCB07 HSMCFG"        ; DF0, DF0_UCB7
+FLASH.Create 21. 0xAF401000--0xAF4011FF 0x0200 TARGET    Long /INFO "UCB08 BMHD0 COPY"    ; DF0, DF0_UCB8
+FLASH.Create 21. 0xAF401200--0xAF4013FF 0x0200 NOP    Long /INFO "UCB09 BMHD1 COPY"    ; DF0, DF0_UCB9
+FLASH.Create 21. 0xAF401400--0xAF4015FF 0x0200 NOP    Long /INFO "UCB10 BMHD2 COPY"    ; DF0, DF0_UCB10
+FLASH.Create 21. 0xAF401600--0xAF4017FF 0x0200 NOP    Long /INFO "UCB11 BMHD3 COPY"    ; DF0, DF0_UCB11
+FLASH.Create 21. 0xAF401800--0xAF4019FF 0x0200 NOP    Long /INFO "UCB12 REDSEC"        ; DF0, DF0_UCB12
+FLASH.Create 21. 0xAF401A00--0xAF401BFF 0x0200 NOP    Long /INFO "UCB13 reserved"      ; DF0, DF0_UCB13
+FLASH.Create 21. 0xAF401C00--0xAF401DFF 0x0200 NOP    Long /INFO "UCB14 reserved"      ; DF0, DF0_UCB14
+FLASH.Create 21. 0xAF401E00--0xAF401FFF 0x0200 NOP    Long /INFO "UCB15 RETEST"        ; DF0, DF0_UCB15
+FLASH.Create 21. 0xAF402000--0xAF4021FF 0x0200 NOP    Long /INFO "UCB16 PFLASH ORIG"   ; DF0, DF0_UCB16
+FLASH.Create 21. 0xAF402200--0xAF4023FF 0x0200 NOP    Long /INFO "UCB17 DFLASH ORIG"   ; DF0, DF0_UCB17
+FLASH.Create 21. 0xAF402400--0xAF4025FF 0x0200 NOP    Long /INFO "UCB18 DBG ORIG"      ; DF0, DF0_UCB18
+FLASH.Create 21. 0xAF402600--0xAF4027FF 0x0200 NOP    Long /INFO "UCB19 HSM ORIG"      ; DF0, DF0_UCB19
+FLASH.Create 21. 0xAF402800--0xAF4029FF 0x0200 NOP    Long /INFO "UCB20 HSMCOTP0 ORIG" ; DF0, DF0_UCB20
+FLASH.Create 21. 0xAF402A00--0xAF402BFF 0x0200 NOP    Long /INFO "UCB21 HSMCOTP1 ORIG" ; DF0, DF0_UCB21
+FLASH.Create 21. 0xAF402C00--0xAF402DFF 0x0200 NOP    Long /INFO "UCB22 ECPRIO ORIG"   ; DF0, DF0_UCB22
+FLASH.Create 21. 0xAF402E00--0xAF402FFF 0x0200 NOP    Long /INFO "UCB23 SWAP ORIG"     ; DF0, DF0_UCB23
+FLASH.Create 21. 0xAF403000--0xAF4031FF 0x0200 NOP    Long /INFO "UCB24 PFLASH COPY"   ; DF0, DF0_UCB24
+FLASH.Create 21. 0xAF403200--0xAF4033FF 0x0200 NOP    Long /INFO "UCB25 DFLASH COPY"   ; DF0, DF0_UCB25
+FLASH.Create 21. 0xAF403400--0xAF4035FF 0x0200 NOP    Long /INFO "UCB26 DBG COPY"      ; DF0, DF0_UCB26
+FLASH.Create 21. 0xAF403600--0xAF4037FF 0x0200 NOP    Long /INFO "UCB27 HSM COPY"      ; DF0, DF0_UCB27
+FLASH.Create 21. 0xAF403800--0xAF4039FF 0x0200 NOP    Long /INFO "UCB28 HSMCOTP0 COPY" ; DF0, DF0_UCB28
+FLASH.Create 21. 0xAF403A00--0xAF403BFF 0x0200 NOP    Long /INFO "UCB29 HSMCOTP1 COPY" ; DF0, DF0_UCB29
+FLASH.Create 21. 0xAF403C00--0xAF403DFF 0x0200 NOP    Long /INFO "UCB30 ECPRIO COPY"   ; DF0, DF0_UCB30
+FLASH.Create 21. 0xAF403E00--0xAF403FFF 0x0200 NOP    Long /INFO "UCB31 SWAP COPY"     ; DF0, DF0_UCB31
+FLASH.Create 21. 0xAF404000--0xAF4041FF 0x0200 NOP    Long /INFO "UCB32 OTP0 ORIG"     ; DF0, DF0_UCB32
+FLASH.Create 21. 0xAF404200--0xAF4043FF 0x0200 NOP    Long /INFO "UCB33 OTP1 ORIG"     ; DF0, DF0_UCB33
+FLASH.Create 21. 0xAF404400--0xAF4045FF 0x0200 NOP    Long /INFO "UCB34 OTP2 ORIG"     ; DF0, DF0_UCB34
+FLASH.Create 21. 0xAF404600--0xAF4047FF 0x0200 NOP    Long /INFO "UCB35 OTP3 ORIG"     ; DF0, DF0_UCB35
+FLASH.Create 21. 0xAF404800--0xAF4049FF 0x0200 NOP    Long /INFO "UCB36 OTP4 ORIG"     ; DF0, DF0_UCB35
+FLASH.Create 21. 0xAF404A00--0xAF404BFF 0x0200 NOP    Long /INFO "UCB37 OTP5 ORIG"     ; DF0, DF0_UCB37
+FLASH.Create 21. 0xAF404C00--0xAF404DFF 0x0200 NOP    Long /INFO "UCB38 OTP6 ORIG"     ; DF0, DF0_UCB38
+FLASH.Create 21. 0xAF404E00--0xAF404FFF 0x0200 NOP    Long /INFO "UCB39 OTP7 ORIG"     ; DF0, DF0_UCB39
+FLASH.Create 21. 0xAF405000--0xAF4051FF 0x0200 NOP    Long /INFO "UCB40 OTP0 COPY"     ; DF0, DF0_UCB40
+FLASH.Create 21. 0xAF405200--0xAF4053FF 0x0200 NOP    Long /INFO "UCB41 OTP1 COPY"     ; DF0, DF0_UCB41
+FLASH.Create 21. 0xAF405400--0xAF4055FF 0x0200 NOP    Long /INFO "UCB42 OTP2 COPY"     ; DF0, DF0_UCB42
+FLASH.Create 21. 0xAF405600--0xAF4057FF 0x0200 NOP    Long /INFO "UCB43 OTP3 COPY"     ; DF0, DF0_UCB43
+FLASH.Create 21. 0xAF405800--0xAF4059FF 0x0200 NOP    Long /INFO "UCB44 OTP4 COPY"     ; DF0, DF0_UCB44
+FLASH.Create 21. 0xAF405A00--0xAF405BFF 0x0200 NOP    Long /INFO "UCB45 OTP5 COPY"     ; DF0, DF0_UCB45
+FLASH.Create 21. 0xAF405C00--0xAF405DFF 0x0200 NOP    Long /INFO "UCB46 OTP6 COPY"     ; DF0, DF0_UCB46
+FLASH.Create 21. 0xAF405E00--0xAF405FFF 0x0200 NOP    Long /INFO "UCB47 OTP7 COPY"     ; DF0, DF0_UCB47
+FLASH.Create 22. 0xAF800000--0xAF80FFFF 0x0200 NOP    Long /INFO "CFS" ; DF0, DF0_CFS0..DF0_CFS127
+
+; Data FLASH DF1
+IF (&SFMODE==0x0) ; single ended mode       - 128 KB EEPROM
+  FLASH.Create 23. 0xAFC00000--0xAFC1FFFF 0x1000 TARGET Long /INFO "EEPROM/HSM"   ; DF1, DF1_EEPROM (HSM)
+ELSE              ; complement sensing mode -  64 KB EEPROM
+  FLASH.Create 23. 0xAFC00000--0xAFC0FFFF 0x0800 TARGET Long /INFO "EEPROM/HSM"   ; DF1, DF1_EEPROM (HSM)
+
+IF &param_dualport==0
+  FLASH.TARGET 0xC0000000 0xD0000000 0x4000 ~~/demo/tricore/flash/long/tc3.bin
+ELSE
+  FLASH.TARGET 0xC0000000 0xD0000000 0x4000 ~~/demo/tricore/flash/long/tc3.bin /DualPort
+
+; Check for protected DFLASH sectors (special handling required, see documentation)
+GOSUB CheckProtection_DFLASH
+
+FLASH.HOOKSCRIPT &this_file
+
+; Initialize PSPR & DSPR ECC (if required)
+GOSUB InitSPR
+
+; FLASH script ends here if called with parameter PREPAREONLY
+IF &param_prepareonly
+  ENDDO PREPARE_WITH_HOOKSCRIPT_DONE
+
+; --------------------------------------------------------------------------------
+; download application
+
+DIALOG.YESNO "Program internal flash memory?"
+LOCAL &progflash
+ENTRY &progflash
+IF &progflash
+(
+  ; Enable flash programming
+  FLASH.ReProgram.ALL
+
+  Data.LOAD.auto *
+
+  ; Finally program flash memory
+  FLASH.ReProgram.off
+)
+
+ENDDO
+
+; --------------------------------------------------------------------------------
+; Check if a physical PFLASH sector is configured as OTP, WOP, HSMOTP or HSMX
+; sector and protect.
+; OTP sectors must not be erased or programmed, otherwise a flash programming
+; error will be reported by hardware.
+; Mark all OTP sectors as NOP to prevent TRACE32 from programming.
+; WOP sectors must not be erased and can only be programmed if erased.
+; Otherwise a flash programming error will be reported by hardware.
+; Mark all WOP sectors as OTP to enable special WOP handling by TRACE32.
+;
+; Arguments:
+;   &PFLASH   Program flash to be checked, e.g. PF0.
+;   &Address  Start address of program flash, including access class.
+;   &Sectors  Numbers of physical flash sectors in program flash.
+
+CheckProtectedPFLASH:
+(
+  PARAMS &PFLASH &Address &Sectors
+  &PFLASH=STRing.SCANAndExtract(STRing.UPpeR("&PFLASH"),"PFLASH","0.")
+
+  PRIVATE &DMU_HF_PROCONOTP &DMU_HF_PROCONWOP &DMU_SP_PROCONHSMX &DMU_SP_PROCONHSMOTP
+  &DMU_HF_PROCONOTP=D:0xF8050040+(0x100*&PFLASH)
+  &DMU_HF_PROCONWOP=D:0xF8050080+(0x100*&PFLASH)
+  &DMU_SP_PROCONHSMX=D:0xF8070008
+  &DMU_SP_PROCONHSMOTP=D:0xF8070010
+
+  PRIVATE &Sector &SectorSize
+  &Sector=0.
+  &SectorSize=FLASH.SECTOR.SIZE(&Address)
+
+  ; each PFLASH bank supports up to 6 PROCON<type> registers
+  ; each PROCON<type> register covers up to 32 physical sectors
+  PRIVATE &PROCONOTP &PROCONWOP &PROCONHSMX &PROCONHSMOTP &Mask
+  WHILE &Sector<&Sectors
+  (
+    IF (&Sector%32.)==0.
+    (
+      &PROCONOTP=Data.Long(&DMU_HF_PROCONOTP) ; read PROCONOTP register
+      &PROCONWOP=Data.Long(&DMU_HF_PROCONWOP) ; read PROCONWOP register
+      &Mask=0x00000001
+
+      ; prepare to switch to next PROCON<type> register within PFLASH bank
+      &DMU_HF_PROCONOTP=&DMU_HF_PROCONOTP+4.
+      &DMU_HF_PROCONWOP=&DMU_HF_PROCONWOP+4.
+    )
+
+    IF (&PROCONOTP&&Mask)!=0x00000000
+       FLASH.CHANGEtype (&Address+(&SectorSize*&Sector))++(&SectorSize-1.) NOP /INFO "OTP protection active"
+    ELSE IF (&PROCONWOP&&Mask)!=0x00000000
+       FLASH.CHANGEtype (&Address+(&SectorSize*&Sector))++(&SectorSize-1.) /OTP /INFO "WOP protection active"
+
+    IF (&PFLASH==0.)&&(&Sector<=39.)
+    (
+      ; check for HSM protection
+      ; overrides regular protection
+
+      IF (&Sector%32.)==0.
+      (
+        &PROCONHSMX=Data.Long(&DMU_SP_PROCONHSMX) ; read PROCONHSMXregister
+        &PROCONHSMOTP=Data.Long(&DMU_SP_PROCONHSMOTP) ; read PROCONHSMOTP register
+        &Mask=0x00000001
+
+        ; prepare to switch to next PROCONHSM<type> register within PFLASH bank
+        &DMU_SP_PROCONHSMX=&DMU_SP_PROCONHSMX+4.
+        &DMU_SP_PROCONHSMOTP=&DMU_SP_PROCONHSMOTP+4.
+      )
+
+      IF (&PROCONHSMX&&Mask)!=0x00000000
+         FLASH.CHANGEtype (&Address+(&SectorSize*&Sector))++(&SectorSize-1.) NOP /INFO "HSM exclusive protection active"
+      ELSE IF (&PROCONHSMOTP&&Mask)!=0x00000000
+         FLASH.CHANGEtype (&Address+(&SectorSize*&Sector))++(&SectorSize-1.) NOP /INFO "HSM OTP protection active"
+    )
+
+    &Sector=&Sector+1.
+    &Mask=&Mask<<1.
+  )
+
+  RETURN
+)
+
+; --------------------------------------------------------------------------------
+; Check if a physical DFLASH sector is configured as HSM-exclusive sector and
+; protect by changing the type to NOP.
+; The HSM-exclusive protection can only be enabled for the entire DFLASH.
+;
+; Arguments:
+;   <none>
+
+CheckProtection_DFLASH:
+(
+  PRIVATE &DMU_SP_PROCONHSMCFG &PROCONHSMCFG
+  &DMU_SP_PROCONHSMCFG=D:0xF8070000
+  &PROCONHSMCFG=Data.Long(&DMU_SP_PROCONHSMCFG) ; read PROCONHSMCFG register
+
+  IF ((&PROCONHSMCFG)&(0x00000004))!=0x00000000
+     FLASH.CHANGEtype 20. NOP /INFO "EEPROM/HSM exclusive protection active"
+
+  RETURN
+)
+
+; --------------------------------------------------------------------------------
+; Initialize Program- and Data Scratch Pad RAM
+; Initialization of PSRR and/or DSPR can be disabeld by UCB, which causes bus
+; errors when loading the FLASH algorithm and contents to these RAMs.
+
+InitSPR:
+(
+  PRIVATE &DMU_HF_PROCONRAM &DMU_HF_PROCONRAM_RAMIN &DMU_HF_PROCONRAM_RAMINSEL
+  &DMU_HF_PROCONRAM=Data.Long(D:0xF804008C)
+  &DMU_HF_PROCONRAM_RAMIN=&DMU_HF_PROCONRAM&0x3
+  &DMU_HF_PROCONRAM_RAMINSEL=(&DMU_HF_PROCONRAM>>16.)&0x3F
+
+  IF (&DMU_HF_PROCONRAM_RAMIN!=0x3)&&((&DMU_HF_PROCONRAM_RAMINSEL&(1.<<CORE.LOGICALTOPHYSICAL(CORE())))==0.)
+  (
+    ; RAM was already initialized at reset -> no need for extra initialization
+    RETURN
+  )
+
+  ; initialize PSPR and DSPR using MTU mechanisms
+
+  ; enable MTU by MTU_CLC.DISR = 0x0
+  PRIVATE &MTU_CLC_Addr &MTU_CLC
+  &MTU_CLC_Addr="D:0xF0060000"
+  &MTU_CLC=Data.Long(&MTU_CLC_Addr)
+  PER.Set.simple &MTU_CLC_Addr %Long (&MTU_CLC)&(~0x1)
+
+  ; SSH enable registers
+  PRIVATE &MTU_MEMTEST0_Addr &MTU_MEMTEST0
+  PRIVATE &MTU_MEMTEST1_Addr &MTU_MEMTEST1
+  &MTU_MEMTEST0_Addr="D:0xF0060010"
+  &MTU_MEMTEST0=Data.Long(&MTU_MEMTEST0_Addr)
+  &MTU_MEMTEST1_Addr="D:0xF0060014"
+  &MTU_MEMTEST1=Data.Long(&MTU_MEMTEST1_Addr)
+
+; determine register addresses based on selected core
+  IF (CORE.LOGICALTOPHYSICAL(CORE())==0)
+  (
+    ; enable SSH and init DSPR and PSPR
+    ; DSPR is initilized by two independent SSH
+    PER.Set.simple &MTU_MEMTEST0_Addr %Long &MTU_MEMTEST0|0x05 ; MTU_MEMTEST0.CPU0_DMEM_EN, MTU_MEMTEST0.CPU0_PMEM_EN
+    PER.Set.simple &MTU_MEMTEST1_Addr %Long &MTU_MEMTEST1|0x04 ; MTU_MEMTEST1.CPU0_DMEM_EN
+    GOSUB InitRAM_ByMTU "D:0xF0061000" ; CPU0_DMEM
+    GOSUB InitRAM_ByMTU "D:0xF0063200" ; CPU0_DMEM
+    GOSUB InitRAM_ByMTU "D:0xF0061200" ; CPU0_PMEM
+  )
+  ELSE IF (CORE.LOGICALTOPHYSICAL(CORE())==1)
+  (
+    ; enable SSH and init DSPR and PSPR
+    ; DSPR is initilized by two independent SSH
+    PER.Set.simple &MTU_MEMTEST0_Addr %Long &MTU_MEMTEST0|0xA0 ; MTU_MEMTEST0.CPU1_DMEM_EN, MTU_MEMTEST0.CPU1_PMEM_EN
+    PER.Set.simple &MTU_MEMTEST1_Addr %Long &MTU_MEMTEST1|0x08 ; MTU_MEMTEST1.CPU1_DMEM_EN
+    GOSUB InitRAM_ByMTU "D:0xF0061500" ; CPU1_DMEM
+    GOSUB InitRAM_ByMTU "D:0xF0063300" ; CPU1_DMEM
+    GOSUB InitRAM_ByMTU "D:0xF0061700" ; CPU1_PMEM
+  )
+  ELSE IF (CORE.LOGICALTOPHYSICAL(CORE())==2)
+  (
+    ; enable SSH and init DSPR and PSPR
+    PER.Set.simple &MTU_MEMTEST0_Addr %Long &MTU_MEMTEST0|0x1400 ; MTU_MEMTEST0.CPU2_DMEM_EN, MTU_MEMTEST0.CPU2_PMEM_EN
+    GOSUB InitRAM_ByMTU "D:0xF0061A00" ; CPU2_DMEM
+    GOSUB InitRAM_ByMTU "D:0xF0061C00" ; CPU2_PMEM
+  )
+  ELSE IF (CORE.LOGICALTOPHYSICAL(CORE())==3)
+  (
+    ; enable SSH and init DSPR and PSPR
+    PER.Set.simple &MTU_MEMTEST0_Addr %Long &MTU_MEMTEST0|0x28000 ; MTU_MEMTEST0.CPU3_DMEM_EN, MTU_MEMTEST0.CPU3_PMEM_EN
+    GOSUB InitRAM_ByMTU "D:0xF0061F00" ; CPU3_DMEM
+    GOSUB InitRAM_ByMTU "D:0xF0062100" ; CPU3_PMEM
+  )
+
+  ; restore MTU_MEMTEST0, MTU_MEMTEST1 and MTU_CLC
+  PER.Set.simple &MTU_MEMTEST1_Addr %Long &MTU_MEMTEST1
+  PER.Set.simple &MTU_MEMTEST0_Addr %Long &MTU_MEMTEST0
+  PER.Set.simple &MTU_CLC_Addr %Long &MTU_CLC
+
+  RETURN
+)
+
+; --------------------------------------------------------------------------------
+; Initialize RAM by using the MTU initialition sequence.
+; Helper routine. Requires that SSH is already enabled.
+; Parameters: &SSH_Base Base address of SSH (SDRAM Support Hardware) to use for
+;                       initialization
+
+InitRAM_ByMTU:
+(
+  PARAMETERS &SSH_Base
+
+  PRIVATE &MCONTROL &MSTATUS
+  &MCONTROL=&SSH_Base+0x4
+  &MSTATUS=&SSH_Base+0x6
+
+  PER.Set.simple &MCONTROL %Word Data.Word(&MCONTROL)|0x8000 ; MCONTROL.CLEAR: configure RAM clear
+  PER.Set.simple &MCONTROL %Word Data.Word(&MCONTROL)|0x0001 ; MCONTROL.START: start RAM clear
+  WAIT ((Data.Word(&MSTATUS)&~0x0001)==0x0) 1.ms
+  PER.Set.simple &MCONTROL %Word Data.Word(&MCONTROL)&~0x0001 ; MCONTROL.START: stop RAM clear
+  WAIT ((Data.Word(&MSTATUS)&~0x0001)==0x1) 1.ms
+  PER.Set.simple &MCONTROL %Word Data.Word(&MCONTROL)&~0x8000 ; MCONTROL.CLEAR: unconfigure RAM clear
+
+  RETURN
+)
+
+; --------------------------------------------------------------------------------
+; Read the CHIPID register and get information on revision and FLASH size.
+; Writes results to script-local macros SCU_CHIPID, CHREV and FSIZE.
+
+ReadChipId:
+(
+  &SCU_CHIPID=Data.Long(D:0xF0036140)
+  &CHREV=(&SCU_CHIPID)&(0x3F)
+  &FSIZE=((&SCU_CHIPID)>>24.)&(0xF)
+  RETURN
+)
+
+; --------------------------------------------------------------------------------
+; Read information on DFLASH0 and DFLASH1 mode.
+; Writes results to script-local macros &DMU_HFMODE and &DMU_SFMODE.
+
+ReadProConUsr:
+(
+  &HFMODE=Data.Long(D:0xF8040074)&(0x3) ; DMU_HF_PROCONUSER.MODE - DFLASH0
+  &SFMODE=Data.Long(D:0xF8060074)&(0x3) ; DMU_SF_PROCONUSER.MODE - DFLASH1
+  RETURN
+)
+
+; --------------------------------------------------------------------------------
+; Read the current SWAP configuration from target.
+; Writes results to script-local macros &SOTA_EN and &SWAP_ACTIVE.
+
+ReadSwapConfig:
+(
+  &SOTA_EN=(Data.Long(D:0xF8040084)&(0x30000))==0x30000 ; DMU_HF_PROCONTP.SWAPEN
+  &SWAP_ACTIVE=(Data.Long(D:0xF003614C)&(0x3))==0x2     ; SCU_SWAPCTRL.ADDRCONFIG
+  RETURN
+)
+
+; --------------------------------------------------------------------------------
+
+ExecuteSafe:
+(
+  PRIVATE &cmd &rng &opts &cProgram &cAuto &cReprogram
+  LOCAL &prevAreaSelection
+
+  LOCAL &warnings &result &eraseBegin &eraseEnd &warningDefault
+  ENTRY &cmd &rng %LINE &opts
+
+  IF "&TC_PreFlashCheckConfig"=="&"+"TC_PreFlashCheckConfig"
+    LOCAL &TC_PreFlashCheckConfig
+  ELSE
+    &TC_PreFlashCheckConfig=STRing.UPpeR("&TC_PreFlashCheckConfig")
+
+  &prevAreaSelection=AREA.SELECTed()
+  IF AREA.EXIST("PreFlashCheck")
+    AREA.CLEAR PreFlashCheck
+  ELSE
+    AREA.Create PreFlashCheck 100. 1000.
+  AREA.Select PreFlashCheck
+
+  &warningDefault=STRing.SCANAndExtract("&TC_PreFlashCheckConfig","WDEFAULT=","CONFIRM")
+  IF ("&warningDefault"!="DENY")&&("&warningDefault"!="CONFIRM")
+  (
+    GOSUB PreChk_Info "'&warningDefault' is no valid value for WDEFAULT in TC_PreFlashCheckConfig. Defaulting to CONFIRM."
+    &warningDefault="CONFIRM"
+  )
+
+  &warnings=""
+  &eraseBegin=C:0x0
+  &eraseEnd=C:0x0
+
+  &cProgram=("&cmd"=="FLASH.PROGRAM")
+  &cAuto=("&cmd"=="FLASH.AUTO")
+  &cReprogram=("&cmd"=="FLASH.REPROGRAM")
+
+  IF (&cProgram)||(&cAuto)||(&cReprogram)
+  (
+    PRIVATE &eAutoOrReprog &eAuto
+    IF (VERSION.BUILD.BASE()>=91427.)
+    (
+      PRIVATE &programMode
+      &programMode=STRing.UPpeR(FLASH.ProgramMODE())
+      &eAuto=("&programMode"=="AUTO")
+      &eAutoOrReprog=("&programMode"=="REPROGRAM")||(&eAuto)
+    )
+    ELSE
+    (
+      &eAutoOrReprog=TRUE()
+      &eAuto=FALSE()
+    )
+    IF ("&rng"=="CANCEL")||(("&rng"=="OFF")&&(!&eAutoOrReprog))
+      &result="OK_NOCHK"
+    ELSE IF ("&rng"=="OFF")&&(&eAutoOrReprog)
+      GOSUB PreChk
+    ELSE IF (&cProgram)
+    (
+      IF (&eAutoOrReprog)
+        GOSUB PreChk
+      ELSE
+        &result="OK_NOCHK"
+
+      IF STRing.SCAN("&opts","/OTP",0.)>=0.
+      (
+        ; OTP programming is considered safe since it will only work if ecc line is erased, i.e.,
+        ; - no risk of ECC failures
+        ; - critical sections should never be deleted. If they are, programming them does not make the situation worse.
+      )
+      ELSE
+      (
+        GOSUB PreChk_RequestConfirmation "WPROGRAM" "Using FLASH.PROGRAM is not recommended for TriCore devices." \
+                                                    "Reasons:"\
+                                                    "- this will likely result in ECC errors and"\
+                                                    "- checking of critical sections is not possible"
+      )
+    )
+    ELSE IF ((&cAuto)&&(!&eAutoOrReprog))||((&cReprogram)&&(!&eAuto))
+      &result="OK_NOCHK"
+    ELSE IF ((&cAuto)&&(&eAutoOrReprog))||((&cReprogram)&&(&eAuto))
+      GOSUB PreChk
+    ELSE
+      GOSUB PreChk_Error "UNHANDLED" "Unhandled case &cmd &rng &eAuto &eAutoOrReprog"
+  )
+  ELSE IF ("&cmd &rng"=="FLASH.ERASE OFF")
+  (
+    &result="OK_NOCHK"
+  )
+  ELSE IF ("&cmd"=="FLASH.ERASE")
+  (
+    PRIVATE &type
+    IF ("&rng"=="ALL")
+      &type=-1.
+    ELSE
+    (
+      EVAL &rng
+      &type=EVAL.TYPE()
+    )
+    IF (&type==-1.)
+    (
+      &eraseBegin=C:0x0
+      &eraseEnd=C:0xFFFFFFFF
+    )
+    ELSE IF ((&type&0x0200)>0)
+    (
+      &eraseBegin=ADDRESS.RANGE.BEGIN(&rng)
+      &eraseEnd=ADDRESS.RANGE.END(&rng)
+    )
+    ELSE IF ((&type&0x000C)>0)
+    (
+      &eraseBegin=FLASH.UNIT.BEGIN(&rng)
+      &eraseEnd=FLASH.UNIT.END(&rng)
+    )
+    ELSE
+      GOSUB PreChk_Error "UNHANDLED" "Unknown type of range &rng"
+    GOSUB PreChk
+  )
+  ELSE IF (("&cmd"=="FLASH.LOCK")||("&cmd"=="FLASH.UNLOCK"))
+  (
+    ; no relevance for TriCore
+    &result="OK_NOCHK"
+  )
+  ELSE
+    GOSUB PreChk_Error "UNHANDLED" "Unhandled command &cmd &rng"
+
+  IF "&result"=="CONFIRM"
+    GOSUB PreChk_Confirmation "&cmd &rng &opts"
+
+  IF ("&result"=="OK_NOCHK")
+  (
+    GOSUB PreChk_Msg "Executing &cmd &rng &opts ..."
+    &result="OK"
+    &cmd &rng &opts /NoHOOK
+  )
+  ELSE IF ("&result"=="OK")||("&result"=="OK_USER")
+  (
+    GOSUB PreChk_Info "All ok. Executing &cmd &rng &opts ..."
+    &cmd &rng &opts /NoHOOK
+  )
+  ELSE
+    GOSUB PreChk_Msg "Failed. Command &cmd &rng &opts not executed."
+
+  AREA.Select &prevAreaSelection
+
+  EVAL "&result"
+  ENDDO
+)
+
+PrChk_HSMBOOT:
+(
+  ; HSM boot code goes throught he BOOTSEL settings and checks all four available boot selections (PROCONHSMCBS BOOTSEL0..3).
+  ; The ROM code takes the first boot entry with valid stackpointer location and valid user code. If no valid entry is found the
+  ; device gets locked.
+  ; To prevent the lock, the flash script has to do the same and prevent enableing the HSM, if there is no vaid user code.
+
+  PRIVATE &found &hsmconfig &hsmboot &bootindex &bootsel &vectorbase &stackpointer &resetvector &ucb_offset
+  PRIVATE &hsmflashstart &hsmflashend &hsmsramstart &hsmsramend
+  PRIVATE &changed
+
+  &hsmflashstart=0x80000000
+  &hsmflashend=0x8009CFFF
+  &hsmsramstart=0x20000000
+  &hsmsramend=0x20017FFF
+
+  PRIVATE &DMU_SP_PROCONHSMCFG
+  &DMU_SP_PROCONHSMCFG=C:0xAF402818
+
+  PRIVATE &DMU_SP_PROCONHSMCBS
+  &DMU_SP_PROCONHSMCBS=C:0xAF402804
+
+  ; There are two UCB configurations for the HSM. Both need to be checked for consistency.
+  &ucb_offset=0x0
+  RePeaT 2.
+  (
+    ; Get HSM configuration. No need to check for '?', because this is already done by UCB check.
+    GOSUB PreChk_GetEx "Long" "&DMU_SP_PROCONHSMCFG" "FALSE()"
+    RETURNVALUES &hsmconfig
+
+    ; Get HSM boot configuration. No need to check for '?', because this is already done by UCB check.
+    GOSUB PreChk_GetEx "Long" "&DMU_SP_PROCONHSMCBS" "FALSE()"
+    RETURNVALUES &hsmboot
+
+    IF (&hsmconfig&0x00000001)==0x00000000    ; Check, if HSM is disabled, then return
+      RETURN
+
+    &found=FALSE()
+    &bootindex=0
+
+    WHILE &bootindex<4
+    (
+      ; Get vector table base
+      &bootsel=(&hsmboot>>(&bootindex*8.))&0x3F
+      &vectorbase=0xA0000000+(&bootsel<<14.)
+
+      ; Check for empty flash arround boot address
+      &stackpointer=0
+      &resetvector=0
+
+      GOSUB PreChk_Changes "C:&vectorbase" "C:&vectorbase+0x7"
+      RETURNVALUES &changed
+
+      GOSUB PreChk_GetEx "Long" "C:&vectorbase" "&changed"
+      RETURNVALUES &stackpointer
+
+      GOSUB PreChk_GetEx "Long" "C:&vectorbase+0x4" "&changed"
+      RETURNVALUES &resetvector
+
+      IF ("&stackpointer"=="?")
+        GOTO next      ; Vector table inside emtpy flash location
+
+      IF (&stackpointer&0x3)!=0x0
+        GOTO next      ; Stackpointer is not 4 byte alligned
+
+      IF !((&stackpointer>=&hsmsramstart)&&(&stackpointer<&hsmsramend))
+        GOTO next      ; stack pointer not in SRAM area
+
+      IF ("&resetvector"=="?")
+        GOTO next      ; Vector table inside emtpy flash location
+
+      IF (&resetvector&0x1)!=0x1
+        GOTO next      ; reset vector has even address
+
+      IF !((&resetvector>=&hsmflashstart)&&(&resetvector<&hsmflashend))
+        GOTO next      ; reset vector not in HSM0x to HSM39x PFLASH sector
+
+      &resetvector=&resetvector&0xFFFFFFFE
+      IF (&resetvector&0xF0000000)==0x80000000
+        &resetvector=(&resetvector|0x20000000)   ; remap to segment A for further checks
+      ELSE
+        GOTO next      ; reset vector out of valid flash area
+
+      ; Align PC to Long before checking access
+      &resetvector=&resetvector&0xFFFFFFFC
+
+      ; Dummy read to check for empty flash on reset vector location
+      GOSUB PreChk_Changes "C:&resetvector" "C:&resetvector+0x3"
+      RETURNVALUES &changed
+
+      GOSUB PreChk_GetEx "Long" "C:&resetvector" "&changed"
+      RETURNVALUES &resetvector
+
+      IF ("&resetvector"=="?")
+        GOTO next      ; Empty flash at reset entry.
+
+      ; Valid boot settings found, then exit loop
+      &found=TRUE()
+      GOTO next_ucb
+
+next:
+      &bootindex=&bootindex+1
+    )
+
+    IF &ucb_offset==0x0
+      GOSUB PreChk_Error "HSMBOOT" "No valid HSM boot image found for UBCCOTP0 configuration!"
+    ELSE
+      GOSUB PreChk_Error "HSMBOOT" "No valid HSM boot image found for UBCCOTP1 configuration!"
+
+next_ucb:
+    &ucb_offset=&ucb_offset+0x200
+  )
+
+  RETURN
+)
+
+PreChk_RequestConfirmation:
+(
+  PRIVATE &config
+  PARAMETERS &name &text &text1 &text2 &text3
+
+  &config=STRing.SCANAndExtract("&TC_PreFlashCheckConfig","&(name)=","&warningDefault")
+  IF "&config"=="DENY"
+    GOSUB PreChk_Error "&name" "&text"
+  ELSE IF "&config"=="ALLOW"
+    GOSUB PreChk_Info "&(text) (allowed by user)"
+  ELSE
+  (
+    &warnings="&(warnings)&(text) (&(name))"+CONVERT.CHAR(10.)
+    IF "&text1"!=""
+      &warnings="&(warnings)&(text1)"+CONVERT.CHAR(10.)
+    IF "&text2"!=""
+      &warnings="&(warnings)&(text2)"+CONVERT.CHAR(10.)
+    IF "&text3"!=""
+      &warnings="&(warnings)&(text3)"+CONVERT.CHAR(10.)
+    IF ("&result"=="")||STRing.ComPare("&result","OK*")
+      &result="CONFIRM"
+  )
+  RETURN
+)
+
+PreChk_Error:
+(
+  PARAMETERS &name &text
+  PRINT %ERROR %AREA &prevAreaSelection "[PreFlashCheck] &text"
+  PRINT %ERROR "&text"
+  IF !STRing.ComPare("&result","ERROR*")
+  (
+    ; keep first error
+    &result="ERROR_&name"
+  )
+  RETURN
+)
+
+PreChk_Msg:
+(
+  PRIVATE &text
+  ENTRY %LINE &text
+  PRINT &text
+  RETURN
+)
+
+PreChk_Info:
+(
+  PARAMETERS &text
+  PRINT %AREA &prevAreaSelection "[PreFlashCheck] &text"
+  PRINT "&text"
+  RETURN
+)
+
+PreChk_Confirmation:
+(
+  PARAMETERS &fullCmd
+  DIALOG.view
+  (&+
+    HEADER "Pre-FLASH Check"
+    NAME "DLG_PRE_FLASH_CONFIRMATION"
+    POS 0. 0. 80. 1.
+    LTEXT "Warnings for &fullCmd"
+    POS 0. 1. 80. 10.
+    INFOTEXT "&warnings" STicker
+    POS 0. 11. 80. 1.
+    CHECKBOX "I understood the warnings and want to continue nevertheless"
+    (
+      PRIVATE &state
+      ENTRY &state
+      IF "&state"=="ON"
+        DIALOG.Enable dlgOk
+      ELSE
+        DIALOG.Disable dlgOk
+    )
+    POS 0. 12. 10. 1.
+dlgOk:  BUTTON "OK" "GOTO PreChk_ConfirmationOk"
+    POS 11. 12. 10. 1.
+    DEFBUTTON "Cancel" "GOTO PreChk_ConfirmationCancel"
+  )
+  DIALOG.Disable dlgOk
+  STOP
+PreChk_ConfirmationCancel:
+  DIALOG.END
+  &result="CANCELED_USER"
+  RETURN
+
+PreChk_ConfirmationOk:
+  DIALOG.END
+  &result="OK_USER"
+  RETURN
+)
+
+PreChk_GetEx:
+(
+  LOCAL &res
+  PARAMETERS &access &addr &checkErase
+  IF "&checkErase"==""
+    &checkErase=TRUE()
+  IF (&checkErase)&&(&eraseBegin<=&addr)&&(&addr<&eraseEnd)
+    RETURN "?"
+
+  ON ERROR GOSUB
+  (
+    &res="?"
+    RETURN
+  )
+  &res=Data.&access(&addr)
+  ON ERROR inherit
+  RETURN "&res"
+)
+
+PreChk_Changes:
+(
+  PARAMETERS &addrBegin &addrEnd
+  &addrBegin=FLASH.SECTOR.BEGIN(&addrBegin)
+  &addrEnd=FLASH.SECTOR.END(&addrEnd)
+
+  WHILE &addrBegin<&addrEnd
+  (
+    PRIVATE &type &state
+    &type=FLASH.SECTOR.TYPE(&addrBegin)
+    &state=FLASH.SECTOR.STATE(&addrBegin)
+    IF ("&type"=="NOP")
+    (
+      ; do nothing
+    )
+    ELSE IF ("&type"=="TARGET")&&(&addrBegin<=&eraseEnd)&&(&addrEnd>=&eraseBegin)
+    (
+      ; sector will be deleted by erase operation
+      RETURN "TRUE()"
+    )
+    ELSE IF ("&type"=="TARGET")&&("&state"=="pending")
+    (
+      ; flash reprogram / auto and sector was changed
+      RETURN "TRUE()"
+    )
+    ELSE IF ("&type"=="TARGET")
+    (
+      ; not changed -> do nothing
+    )
+    ELSE
+      STOP "This case is not supported."
+    &addrBegin=FLASH.SECTOR.NEXT(&addrBegin)
+  )
+  RETURN "FALSE()"
+)
+
+PreChk_CheckReserved:
+(
+  PARAMETERS &label &begin &end
+  PRIVATE &x &data &cnt
+  &begin=&begin
+  &end=&end
+  &x=&begin
+  &cnt=0.
+  WHILE &x<&end
+  (
+    GOSUB PreChk_GetEx "Long" "&x" "FALSE()"
+    RETURNVALUES &data
+    IF ("&data"=="?")
+    (
+      ; do nothing
+    )
+    ELSE IF (&data!=0x0)
+      &cnt=&cnt+1
+    &x=&x+0x4
+  )
+  IF &cnt>0.
+    GOSUB PreChk_RequestConfirmation "&label" "&cnt longs in &begin--&end are not 0."
+  RETURN
+)
+
+PreChk_GetUcbAddrAndName:
+(
+  PARAMETERS &nr &name_base &name_suffix
+  PRIVATE &addr &name &changes
+  &addr=C:0xAF400000+&nr*0x200
+  IF "&name_base"!=""
+    &name="UCB_&(name_base)&(name_suffix)"
+  ELSE
+    &name="UCB"+FORMAT.DECIMAL(2.,&nr)
+
+  GOSUB PreChk_Changes "&addr" "&addr+0x1FF"
+  RETURNVALUES &changes
+
+  RETURN "&addr" "&name" "&changes"
+)
+
+PreChk_DualUcbsOne:
+(
+  PARAMETERS &addr &name &changes
+  PRIVATE &x &y &p
+
+  &x=&addr+0x1F0
+  &y=""
+
+  GOSUB PreChk_GetEx "LONG" "&(x)" "&changes"
+  RETURNVALUES &x
+  IF ("&x"=="?")
+  (
+    IF &changes
+      GOSUB PreChk_Error "UCB_ERASE" "&name must not be erased permanently!"
+    RETURN "E"
+  )
+  ELSE IF (&x==0x43211234)
+    RETURN "U"
+  ELSE IF (&x==0x57B5327F)
+    RETURN "C"
+  ELSE
+  (
+    IF &changes
+      GOSUB PreChk_Error "UCB_ERRORED" "&name must not be in ""ERRORED"" state after programming!"
+    RETURN "E"
+  )
+)
+
+PreChk_DualUcbs:
+(
+  PARAMETERS &orig_nr &copy_nr &name
+  PRIVATE &orig_addr &orig_name &orig_changes &orig_state
+  PRIVATE &copy_addr &copy_name &copy_changes &copy_state
+
+  GOSUB PreChk_GetUcbAddrAndName "&orig_nr" "&name" "_ORIG"
+  RETURNVALUES &orig_addr &orig_name &orig_changes
+
+  GOSUB PreChk_GetUcbAddrAndName "&copy_nr" "&name" "_COPY"
+  RETURNVALUES &copy_addr &copy_name &copy_changes
+
+  IF (!&orig_changes)&&(!&copy_changes)
+    RETURN "&orig_addr" "&orig_name" "&orig_changes" "?" "&copy_addr" "&copy_name" "&copy_changes" "?"
+
+  GOSUB PreChk_DualUcbsOne "&orig_addr" "&orig_name" "&orig_changes"
+  RETURNVALUES &orig_state
+
+  GOSUB PreChk_DualUcbsOne "&copy_addr" "&copy_name" "&copy_changes"
+  RETURNVALUES &copy_state
+
+  IF (&orig_changes)&&("&orig_state"!="E")&&(&copy_changes)&&("&copy_state"!="E")
+  (
+    SILENT.Data.ComPare &orig_addr++0x1FF &copy_addr
+    IF FOUND()
+      GOSUB PreChk_RequestConfirmation "WUCB_ORIG_COPY_MISMATCH" "Content of &orig_name and &copy_name will differ after programming!"
+  )
+  ELSE IF (&orig_changes)&&(!&copy_changes)&&("&copy_state"=="E")
+    GOSUB PreChk_RequestConfirmation "WUCB_OTHER_ERRORED" "Altering &orig_name while &copy_name is in state ERRORED! Programming errors will lock the chip forever!"
+  ELSE IF (!&orig_changes)&&(&copy_changes)&&("&orig_state"=="E")
+    GOSUB PreChk_RequestConfirmation "WUCB_OTHER_ERRORED" "Altering &copy_name while &orig_name is in state ERRORED! Programming errors will lock the chip forever!"
+
+  RETURN "&orig_addr" "&orig_name" "&orig_changes" "&orig_state" "&copy_addr" "&copy_name" "&copy_changes" "&copy_state"
+)
+
+PreChk_SingleUcb:
+(
+  PARAMETERS &nr &name_base
+  PRIVATE &addr &name &state &c1 &c2 &y &changes
+
+  GOSUB PreChk_GetUcbAddrAndName "&nr" "&name_base" ""
+  RETURNVALUES &addr &name &changes
+
+  IF !&changes
+    RETURN
+
+  &c1=&addr+0x1F0
+  &c2=&addr+0x1F8
+
+  GOSUB PreChk_GetEx "LONG" "&(c1)" "&changes"
+  RETURNVALUES &c1
+  GOSUB PreChk_GetEx "LONG" "&(c2)" "&changes"
+  RETURNVALUES &c2
+  IF ("&c1"=="?")||("&c2"=="?")
+  (
+    IF &changes
+      GOSUB PreChk_Error "UCB_ERASE" "&name must not be erased permanently!"
+    &state="E"
+  )
+  ELSE IF (&c1==0x43211234)&&(&c2==0x43211234)
+    &state="U"
+  ELSE IF (&c1==0x57B5327F)&&(&c2==0x57B5327F)
+    &state="C"
+  ELSE
+  (
+    IF &changes
+      GOSUB PreChk_Error "UCB_ERRORED" "&name must not be in ""ERRORED"" state after programming!"
+    &state="E"
+  )
+
+  RETURN
+)
+
+PreChk_BmhdsOne:
+(
+  PARAMETERS &addr &name &changes
+  PRIVATE &bmhdid &x &y &abm
+  GOSUB PreChk_GetEx "LONG" "&addr" "&changes"
+  RETURNVALUES &y
+  &bmhdid=(&y>>16.)
+  IF &bmhdid!=0xB359
+  (
+    IF &changes
+      GOSUB PreChk_RequestConfirmation "WBMHD_BMHDID" "BMHDID value 0x&(bmhdid) invalid in &name"
+    RETURN "INVALID"
+  )
+
+  ; check if HWCFG is valid (only specific values are allowed)
+  PRIVATE &bmi_hwcfg
+  &bmi_hwcfg=(&y>>1)&0x7
+  IF ((&bmi_hwcfg!=0x7)&&(&bmi_hwcfg!=0x6)&&(&bmi_hwcfg!=0x4)&&(&bmi_hwcfg!=0x3))
+  (
+    IF &changes
+    (
+      &y=FORMAT.BINary(3.,&bmi_hwcfg)
+      GOSUB PreChk_RequestConfirmation "WBMHD_HWCFG" "BMI_HWCFG value 0y=&(y) invalid in &name"
+    )
+    RETURN "INVALID"
+  )
+
+  ; check if start address (STAD) is word-aligned and in program flash
+  PRIVATE &stad
+  &x=&addr+0x004
+  GOSUB PreChk_GetEx "LONG" "&x" "&changes"
+  RETURNVALUES &stad
+  IF ((&stad&0x3)!=0x0)||((&stad&0xDF000000)!=0x80000000)
+  (
+    IF &changes
+      GOSUB PreChk_RequestConfirmation "WBMHD_STAD" "STAD 0x&(stad) invalid in &name"
+    RETURN "INVALID"
+  )
+
+  ; check if check sum is correct
+  PRIVATE &crcExp &crcbmhd &crcbmhd_n
+  SILENT.Data.SUM &addr++0x7 /Long /ByteSWAP /CRC32
+  &crcExp=Data.SUM()
+  &crcbmhd=Data.Long(D:(&addr+0x008))
+  &crcbmhd_n=Data.Long(D:(&addr+0x00C))
+  IF (&crcbmhd!=&crcExp)||(&crcbmhd_n!=(~&crcExp&0xFFFFFFFF))
+  (
+    IF &changes
+      GOSUB PreChk_RequestConfirmation "WBMHD_CRC" "At least one CRC invalid in &name"
+    RETURN "INVALID"
+  )
+
+  ; check for errata
+  ; Errata BROM_TC.010
+  ; Uncorrectable ECC Error during Evaluation of Alternate Boot Mode Headers
+  ; affected steps: AA
+  IF (&CHREV==0x00)&&(&bmi_hwcfg==0y110)
+  (
+    GOSUB PreChk_GetEx "LONG" "C:&stad"
+    RETURNVALUES &y
+    IF ("&y"=="?")
+      GOSUB PreChk_Error "ABMHD_ERASE" "&name must not point to errased ABMHD (errata BROM_TC.010)"
+  )
+  ; Errata BROM_TC.011
+  ; Use of ABM with PFLASHx banks (x>0)
+  ; affected steps: AA, AB, AC
+  IF (0x00<=&CHREV)&&(&CHREV<=0x02)&&(&bmi_hwcfg==0y110)
+  (
+    IF ((0x80300000<=&stad)&&(&stad<=0x8FFFFFFF))||((0xA0300000<=&stad)&&(&stad<=0xAFFFFFFF))
+      GOSUB PreChk_RequestConfirmation "WABMHD_PFLASH0" "ABMHD (at 0x&(stad)) shall not be outside PFLASH0 (errata BROM_TC.011)"
+  )
+
+  RETURN "VALID" "&stad"
+)
+
+PreChk_Bmhds:
+(
+  PRIVATE &i
+  &i=0
+  WHILE &i<4.
+  (
+    PRIVATE &copy &base_name
+    PRIVATE &orig_addr &orig_name &orig_changes &orig_state &orig_valid
+    PRIVATE &copy_addr &copy_name &copy_changes &copy_state &copy_valid
+    &copy=&i+8
+    &base_name="BMHD"+FORMAT.DECimal(0.,&i)
+    GOSUB PreChk_DualUcbs "&i"  "&copy" "&base_name"
+    RETURNVALUES &orig_addr &orig_name &orig_changes &orig_state &copy_addr &copy_name &copy_changes &copy_state
+
+    IF ("&orig_state"!="E")
+      GOSUB PreChk_BmhdsOne "&orig_addr" "&orig_name" "&orig_changes"
+    IF ("&copy_state"!="E")
+      GOSUB PreChk_BmhdsOne "&copy_addr" "&copy_name" "&copy_changes"
+
+    &i=&i+1
+  )
+  RETURN
+)
+
+PreChk_UcbDbgOne:
+(
+  PARAMETERS &addr &name &changes &warnLock
+  PRIVATE &procondbg
+
+  IF (&changes)
+  (
+    GOSUB PreChk_CheckReserved "WDBG_RES" "&addr+0x004" "(&addr+0x0ff)"
+    GOSUB PreChk_CheckReserved "WDBG_RES" "&addr+0x120" "(&addr+0x1EF)"
+  )
+
+  IF (&warnLock)
+  (
+    GOSUB PreChk_GetEx "LONG" "&addr" "&changes"
+    RETURNVALUES &procondbg
+
+    IF ((&procondbg&0x02)>0)
+      GOSUB PreChk_RequestConfirmation "WDBG_LOCK" "Chip debug interface will be locked from &name."
+  )
+
+  RETURN
+)
+
+PreChk_UcbDbg:
+(
+  PRIVATE &orig_addr &orig_name &orig_changes &orig_state
+  PRIVATE &copy_addr &copy_name &copy_changes &copy_state
+
+  GOSUB PreChk_DualUcbs "18." "26." "DBG"
+  RETURNVALUES &orig_addr &orig_name &orig_changes &orig_state &copy_addr &copy_name &copy_changes &copy_state
+
+  PRIVATE &warnLock
+  IF ("&orig_state"!="E")
+  (
+    GOSUB PreChk_UcbDbgOne "&orig_addr" "&orig_name" "&orig_changes" "&orig_changes"
+    &warnLock=FALSE()
+  )
+  ELSE
+    &warnLock=(&orig_changes)||(&copy_changes)
+
+  IF ("&copy_state"!="E")
+    GOSUB PreChk_UcbDbgOne "&copy_addr" "&copy_name" "&copy_changes" "&warnLock"
+
+  RETURN
+)
+
+PreChk_UcbHsmOne:
+(
+  PARAMETERS &addr &name &changes &warnLock
+  PRIVATE &proconhsm
+
+  IF (&warnLock)
+  (
+    GOSUB PreChk_GetEx "LONG" "&addr" "&changes"
+    RETURNVALUES &proconhsm
+
+    IF ((&proconhsm&0x02)>0)
+      GOSUB PreChk_RequestConfirmation "WHSM_LOCK" "Chip debug interface will be locked from &name. This is NOT supported by SYStem.Option KEYCODE."
+  )
+
+  RETURN
+)
+
+PreChk_UcbHsm:
+(
+  PRIVATE &orig_addr &orig_name &orig_changes &orig_state
+  PRIVATE &copy_addr &copy_name &copy_changes &copy_state
+
+  GOSUB PreChk_DualUcbs "19." "27." "HSM"
+  RETURNVALUES &orig_addr &orig_name &orig_changes &orig_state &copy_addr &copy_name &copy_changes &copy_state
+
+  PRIVATE &warnLock
+  IF ("&orig_state"!="E")
+  (
+    GOSUB PreChk_UcbHsmOne "&orig_addr" "&orig_name" "&orig_changes" "&orig_changes"
+    &warnLock=FALSE()
+  )
+  ELSE
+    &warnLock=(&orig_changes)||(&copy_changes)
+
+  IF ("&copy_state"!="E")
+    GOSUB PreChk_UcbHsmOne "&copy_addr" "&copy_name" "&copy_changes" "&warnLock"
+
+  RETURN
+)
+
+PreChk:
+(
+  &result="OK"
+  IF (&eraseBegin==&eraseEnd)&&(FLASH.List.STATE.PENDING()==0)
+    RETURN
+
+  GOSUB ReadChipId
+  GOSUB PreChk_Msg "SCU_CHIPID       = 0x"+FORMAT.HEX(8.,&SCU_CHIPID)
+  GOSUB PreChk_Msg "SCU_CHIPID.CHREV = 0x"+FORMAT.HEX(2.,&CHREV)
+  GOSUB PreChk_Msg "SCU_CHIPID.FSIZE = 0x"+FORMAT.HEX(1.,&FSIZE)
+
+  GOSUB PreChk_Bmhds  ; covers 0. - 3.
+  GOSUB PreChk_SingleUcb "4."
+  GOSUB PreChk_SingleUcb "5."
+  GOSUB PreChk_SingleUcb "6."
+
+  GOSUB PreChk_SingleUcb "7."
+  ; GOSUB PreChk_Bmhds covers 8.- 11.
+  GOSUB PreChk_SingleUcb "12."
+  GOSUB PreChk_SingleUcb "13."
+  GOSUB PreChk_SingleUcb "14."
+  GOSUB PreChk_SingleUcb "15."
+  GOSUB PreChk_DualUcbs "16." "24." "PFLASH"
+  GOSUB PreChk_DualUcbs "17." "25." "DFLASH"
+  GOSUB PreChk_UcbDbg    ; covers 18. and 26.
+  GOSUB PreChk_UcbHsm    ; covers 19. and 27.
+  GOSUB PreChk_DualUcbs "20." "28."
+  GOSUB PreChk_DualUcbs "21." "29."
+  GOSUB PreChk_DualUcbs "22." "30."
+  GOSUB PreChk_DualUcbs "23." "31."
+  GOSUB PreChk_DualUcbs "32." "40." "OTP0"
+  GOSUB PreChk_DualUcbs "33." "41." "OTP1"
+  GOSUB PreChk_DualUcbs "34." "42." "OTP2"
+  GOSUB PreChk_DualUcbs "35." "43." "OTP3"
+  GOSUB PreChk_DualUcbs "36." "44." "OTP4"
+  GOSUB PreChk_DualUcbs "37." "45." "OTP5"
+  GOSUB PreChk_DualUcbs "38." "46." "OTP6"
+  GOSUB PreChk_DualUcbs "39." "47." "OTP7"
+
+  GOSUB PrChk_HSMBOOT
+
+  RETURN
+)
