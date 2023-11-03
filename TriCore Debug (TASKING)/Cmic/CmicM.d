@@ -18,6 +18,8 @@ Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Re
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/Include/wb_crc_16.h :
 Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/Include/wb_crc_config.h
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/Include/wb_crc_config.h :
+Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/src/container_files/bms_scripts/adi_bms_container.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/src/container_files/bms_scripts/adi_bms_container.h :
 Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_hal_ticker.h
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_hal_ticker.h :
 Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_hal.h
@@ -140,6 +142,10 @@ Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Re
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_fault_safety_cpu.h :
 Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_cell_balancing_status.h
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_cell_balancing_status.h :
+Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Cmic/CmicMConfig.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Cmic/CmicMConfig.h :
+Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Cmic/CmicM.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Cmic/CmicM.h :
 Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_config.h
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_config.h :
 Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_utilities.h
@@ -168,7 +174,5 @@ Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/src/configuration_fil
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/src/configuration_files/adi_wil_example_cfg_profiles.h :
 Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h :
-Cmic/CmicM.o :	../Cmic/CmicMConfig.h
-../Cmic/CmicMConfig.h :
 Cmic/CmicM.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_app_interface.h
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_app_interface.h :

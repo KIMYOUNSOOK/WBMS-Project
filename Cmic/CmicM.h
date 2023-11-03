@@ -11,6 +11,7 @@
 #include "Platform_Types.h"
 //#include "adi_wil_types.h"
 #include "adi_bms_types.h"
+#include "adi_bms_container.h"
 
 #include "adi_wil_hal_ticker.h"
 #include "adi_wil_example_debug_functions.h"
@@ -31,14 +32,17 @@ typedef enum
 	eMAIN_SENSING,
 	eMAIN_BALANCING_EVEN,
 	eMAIN_BALANCING_ODD,
+	eMAIN_KEY_ON_EVENT,
+	eMAIN_KEY_OFF_EVENT,
 }MAIN_STATE_E;
 
 typedef enum
 {
-    eBOOT_INIT , //BOOT START ~ QUERY DEVICE
-    eBOOT_CONNECT , // ~ COMPARE ACL    
-    eBOOT_JOIN , // ~ New Node Joining Case 
-    eBOOT_ACTIVE , // ~  (RUN )
+    eBOOT_INIT      ,
+    eBOOT_CONNECT   ,    
+    eBOOT_JOIN      ,
+	eBOOT_LOAD      ,
+    eBOOT_ACTIVE    ,
     eBOOT_OTA       ,
   
 }BOOT_STATE_E;
@@ -82,10 +86,49 @@ typedef enum
 {
 	eJOIN_st1_REQ, //
 	eJOIN_st1_RES, //
+	eJOIN_st2_REQ, //
+	eJOIN_st2_RES, //
+	eJOIN_st3_REQ, //
+	eJOIN_st3_RES, //
+	eJOIN_st4_REQ, //
+	eJOIN_st4_RES, //
+	eJOIN_st5_REQ, //
+	eJOIN_st5_RES, //
+	eJOIN_st6_REQ, //
+	eJOIN_st6_RES, //
+	eJOIN_st7_REQ, //
+	eJOIN_st7_RES, //
+	eJOIN_st8_REQ, //
+	eJOIN_st8_RES, //
 	
 	eJOIN_stEND,
 
 }BOOTSUB_JOIN_E;
+
+typedef enum
+{
+	eLOAD_st1_REQ, //
+	eLOAD_st1_RES, //
+	eLOAD_st2_REQ, //
+	eLOAD_st2_RES, //
+	eLOAD_st3_REQ, //
+	eLOAD_st3_RES, //
+	eLOAD_st4_REQ, //
+	eLOAD_st4_RES, //
+	eLOAD_st5_REQ, //
+	eLOAD_st5_RES, //
+	eLOAD_st6_REQ, //
+	eLOAD_st6_RES, //
+	eLOAD_st7_REQ, //
+	eLOAD_st7_RES, //
+	eLOAD_st8_REQ, //
+	eLOAD_st8_RES, //
+	eLOAD_st9_REQ, //
+	eLOAD_st9_RES, //
+		
+	eLOAD_stEND,
+
+}BOOTSUB_LOAD_E;
 
 typedef enum
 {
@@ -116,30 +159,79 @@ typedef enum
 typedef enum
 {
 	eSENSING_st0_IDLE,
-	eSENSING_st1_REQ, //REQUEST SENSING
+	eSENSING_st1_REQ, //DCC default rollback
 	eSENSING_st1_RES, //RESPONSE
-}MAINSUB_SENSING_E;
+	eSENSING_st2_REQ, //
+    eSENSING_st2_RES, //RESPONSE
+}SENSING_STATE_E;
 
 typedef enum
 {
 	eBALANCING_st0_IDLE,
-	eBALANCING_st1_REQ, //REQUEST BALANCING
+	eBALANCING_st1_REQ, //REQUEST BALANCING-Write CFGA
 	eBALANCING_st1_RES, //RESPONSE
-}MAINSUB_BALANCING_E;
+	eBALANCING_st2_REQ, //REQUEST BALANCING-Write CFGB
+	eBALANCING_st2_RES, //RESPONSE
+}BALANCING_STATE_E;
 
+typedef enum
+{
+	eKEY_ON_st1_REQ, //Initialize & TaskStart
+	eKEY_ON_st1_RES, 
+	eKEY_ON_st2_REQ, //Connect
+	eKEY_ON_st2_RES,
+	eKEY_ON_st3_REQ, //SetMode(Standby)
+	eKEY_ON_st3_RES,
+	eKEY_ON_st4_REQ, //Get NetworkStatus
+	eKEY_ON_st4_RES,
+	eKEY_ON_st5_REQ, //SetMode(Active)
+	eKEY_ON_st5_RES,
+	eKEY_ON_st6_REQ, //EnableNetworkData & Select script
+	eKEY_ON_st6_RES,	
+}KEY_ON_STATE_E;
 
+typedef enum
+{
+	eKEY_OFF_st0_IDLE,
+	eKEY_OFF_st1_REQ, //Latent0 Script start
+	eKEY_OFF_st1_RES,
+	eKEY_OFF_st2_REQ, //Latent1 Script start
+	eKEY_OFF_st2_RES,
+	eKEY_OFF_st3_REQ, //SetMode(Standby)
+	eKEY_OFF_st3_RES,
+	eKEY_OFF_st4_REQ, //SetMode(Sleep)
+	eKEY_OFF_st4_RES,
+	eKEY_OFF_st5_REQ, //Disconnet&Terminate
+	eKEY_OFF_st5_RES,
+	
+}KEY_OFF_STATE_E;
 
 void CmicM_Init(void);
+void CmicM_IG_Init(void);
 void CmicM_Handler(void);
 
 
-adi_wil_err_t Cmic_RequestLoadFileConfig(adi_wil_device_t eDevice);
+MAIN_STATE_E Cmic_GetMainState(void);
 
+adi_wil_err_t Cmic_RequestLoadFileConfig(adi_wil_file_type_t eFileType, adi_wil_device_t eDevice);
+adi_wil_err_t Cmic_RequestGetFileCRC(adi_wil_pack_t * const pPack,
+                                         adi_wil_device_t eDevice,
+                                         adi_wil_file_type_t eFileType, 
+                                         bool no_set_mode);
 bool Cmic_IsDualConfig(adi_wil_configuration_t * C1, adi_wil_configuration_t * C2);
 bool Cmic_CompareACL(void);
 uint8 Cmic_ConvertDeviceId (adi_wil_device_t WilDeviceId);
 void Cmic_ReadInitPacket(void);
 void Cmic_ReadBMS(void);
 void Cmic_SaveLatencyPkt(void);
-
+void Cmic_PresetModifyData(void);
+bool Cmic_CheckNode(void);
+void Cmic_RequestModifyScript_CFG_A(void);
+void Cmic_RequestModifyScript_CFG_B(void);
+uint16_t Cmic_PEC10_Calc(bool rx_cmd, int offset, int len, uint8_t *data);
+void Cmic_MAC_DeviceID_Return(adi_wil_pack_t *pPack, bool bMacReturn, uint8_t *pMacPtr, uint8_t *pDeviceID);
+void Cmic_ADBMS683x_Monitor_Base_Pkt0(adi_wil_sensor_data_t* BMSBufferPtr);
+void Cmic_ADBMS683x_Monitor_Base_Pkt1(adi_wil_sensor_data_t* BMSBufferPtr);
+void Cmic_ADBMS683x_Monitor_Base_Pkt2(adi_wil_sensor_data_t* BMSBufferPtr);
+void Cmic_ADBMS683x_Monitor_Cell_OWD(adi_wil_device_t eNode);
 #endif /* CMICM_H_ */

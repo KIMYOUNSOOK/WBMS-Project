@@ -238,7 +238,43 @@ Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/Include/wb_crc_16.h :
 Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/Include/wb_crc_config.h
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/Include/wb_crc_config.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Cmic/CmicMConfig.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Cmic/CmicMConfig.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Cmic/CmicM.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Cmic/CmicM.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/src/container_files/bms_scripts/adi_bms_container.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/src/container_files/bms_scripts/adi_bms_container.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_hal_ticker.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/WBMS_Interface_Lib-Rel2.2.0/API/adi_wil_hal_ticker.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_functions.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_functions.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_utilities.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_utilities.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_printf.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_printf.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/Infineon/AURIX-Studio-1.9.8/tools/Compilers/Tasking_1.1r8/ctc/include/stdio.h
+c:/Infineon/AURIX-Studio-1.9.8/tools/Compilers/Tasking_1.1r8/ctc/include/stdio.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/Infineon/AURIX-Studio-1.9.8/tools/Compilers/Tasking_1.1r8/ctc/include/stdarg.h
+c:/Infineon/AURIX-Studio-1.9.8/tools/Compilers/Tasking_1.1r8/ctc/include/stdarg.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_acl.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_acl.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_cell_balance.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_cell_balance.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_owd.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_owd.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/Infineon/AURIX-Studio-1.9.8/tools/Compilers/Tasking_1.1r8/ctc/include/stdlib.h
+c:/Infineon/AURIX-Studio-1.9.8/tools/Compilers/Tasking_1.1r8/ctc/include/stdlib.h :
 Adi/src/HAL/adi_wil_hal_spi.o :	c:/Infineon/AURIX-Studio-1.9.8/tools/Compilers/Tasking_1.1r8/ctc/include/string.h
 c:/Infineon/AURIX-Studio-1.9.8/tools/Compilers/Tasking_1.1r8/ctc/include/string.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/src/configuration_files/adi_wil_example_cfg_profiles.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/src/configuration_files/adi_wil_example_cfg_profiles.h :
+Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h
+c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h :
 Adi/src/HAL/adi_wil_hal_spi.o :	c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h
 c:/WORK/AURIX-Workspace_JG_TSW/WBMS_CDD/Adi/inc/application/adi_wil_example_debug_functions.h :
