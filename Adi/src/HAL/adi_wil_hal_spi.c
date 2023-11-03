@@ -15,6 +15,7 @@
 #include "adi_wil_example_functions.h"
 #include "string.h"
 
+
 #include "adi_wil_example_debug_functions.h"
 
 #if     (ADK_SPI_0 == 4 )
@@ -349,7 +350,11 @@ adi_wil_hal_err_t adi_wil_hal_SpiClose(uint8 iSpiDevice)
     switch(iSpiDevice)
     {
         case PORT0_SPI_DEVICE:
+        #ifdef _ADI_ONLY
             if(ADK_DEMO.DEMO_MODE == KEY_OFF_EVENT){
+        #else
+            if (Cmic_GetMainState() == eMAIN_KEY_OFF_EVENT){
+        #endif
                 while((G_SPI_0_DMA_break == false)||(G_SPI_1_DMA_break == false));
             }
             // IfxQspi_setDisableModuleRequest(SPI0_MASTER);
@@ -373,7 +378,11 @@ adi_wil_hal_err_t adi_wil_hal_SpiClose(uint8 iSpiDevice)
             break;
 
         case PORT1_SPI_DEVICE:
+        #ifdef _ADI_ONLY
             if(ADK_DEMO.DEMO_MODE == KEY_OFF_EVENT){
+        #else
+            if (Cmic_GetMainState() == eMAIN_KEY_OFF_EVENT){
+        #endif
                 while((G_SPI_0_DMA_break == false)||(G_SPI_1_DMA_break == false));
             }
             // IfxQspi_setDisableModuleRequest(SPI1_MASTER);
