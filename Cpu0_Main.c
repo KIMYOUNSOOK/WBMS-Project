@@ -34,7 +34,7 @@ int adi_wil_example_Main(void);
 
 IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 boolean WAKEUP = FALSE;
-
+etewstst
 void core0_main(void)
 {
     IfxCpu_enableInterrupts();
