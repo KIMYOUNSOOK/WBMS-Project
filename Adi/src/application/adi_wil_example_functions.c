@@ -15,7 +15,6 @@
 #include <math.h>
 #include <stdbool.h>
 
-#include "CmicMConfig.h"
 #include "adi_wil.h"
 #include "adi_wil_api.h"
 #include "adi_wil_osal.h"
@@ -46,7 +45,7 @@
 #include "adi_wil_example_PSFromLatency.h"
 
 
-void ReadBMS_balance(void);
+
 /*******************************************************************************/
 /* Embedded WIL Function Declarations                                          */
 /*******************************************************************************/
@@ -1515,79 +1514,7 @@ void adi_wil_example_ADK_ExecuteProcessBMSBuffer(void)
 #endif
 
     adi_wil_example_ADK_readBms();            /* @remark : Read BMS data */
-//    ReadBMS_balance();  //#_SURE_TEST
-}
-void ReadBMS_balance(void)
-{
-#if 0
-   uint8_t BMS_packetId = 0;
-    uint8_t BMS_eNode = 100;
-    int i;
-    adi_bms_balance_pkt_0_t* pPkt0;
-    adi_bms_balance_pkt_1_t* pPkt1;
-    adi_bms_balance_pkt_2_t* pPkt2;
 
-    for(int cnt=0; cnt < nTotalPcktsRcvd; cnt++){
-        if (userBMSBuffer[cnt].iLength == 0) continue; // Adele: skip processing of empty packet
-    
-        BMS_eNode = ADK_ConvertDeviceId(userBMSBuffer[cnt].eDeviceId);
-        BMS_packetId = userBMSBuffer[cnt].Data[0];
-
-        if (BMS_packetId == ADI_BMS_BALANCE_PKT_0_ID ){
-            pPkt0 = (adi_bms_balance_pkt_0_t*) &userBMSBuffer[cnt].iLength;
-
-            temp_buffer[0]  = (signed short int)((pPkt0->Rdaca.iAc2v[1]   << 8) + pPkt0->Rdaca.iAc2v[0]);
-            temp_buffer[1]  = (signed short int)((pPkt0->Rdaca.iAc3v[1]   << 8) + pPkt0->Rdaca.iAc3v[0]);
-            temp_buffer[2]  = (signed short int)((pPkt0->Rdacb.iAc4v[1]   << 8) + pPkt0->Rdacb.iAc4v[0]);
-            temp_buffer[3]  = (signed short int)((pPkt0->Rdacb.iAc5v[1]   << 8) + pPkt0->Rdacb.iAc5v[0]);
-            temp_buffer[4]  = (signed short int)((pPkt0->Rdacb.iAc6v[1]   << 8) + pPkt0->Rdacb.iAc6v[0]);
-            temp_buffer[5]  = (signed short int)((pPkt0->Rdacc.iAc7v[1]   << 8) + pPkt0->Rdacc.iAc7v[0]);
-            temp_buffer[6]  = (signed short int)((pPkt0->Rdacc.iAc8v[1]   << 8) + pPkt0->Rdacc.iAc8v[0]);
-            temp_buffer[7]  = (signed short int)((pPkt0->Rdacc.iAc9v[1]   << 8) + pPkt0->Rdacc.iAc9v[0]);
-            temp_buffer[8]  = (signed short int)((pPkt0->Rdacd.iAc11v[1]  << 8) + pPkt0->Rdacd.iAc11v[0]);
-            temp_buffer[9]  = (signed short int)((pPkt0->Rdacd.iAc12v[1]  << 8) + pPkt0->Rdacd.iAc12v[0]);
-            temp_buffer[10] = (signed short int)((pPkt0->Rdace.iAc13v[1]  << 8) + pPkt0->Rdace.iAc13v[0]);
-            temp_buffer[11] = (signed short int)((pPkt0->Rdace.iAc14v[1]  << 8) + pPkt0->Rdace.iAc14v[0]);
-            temp_buffer[12] = (signed short int)((pPkt0->Rdace.iAc15v[1]  << 8) + pPkt0->Rdace.iAc15v[0]);
-            temp_buffer[13] = (signed short int)((pPkt0->Rdacf.iAc16v[1]  << 8) + pPkt0->Rdacf.iAc16v[0]);
-            temp_buffer[14] = (signed short int)((pPkt0->Rdacf.iAc17v[1]  << 8) + pPkt0->Rdacf.iAc17v[0]);
-            temp_buffer[15] = (signed short int)((pPkt0->Rdacf.iAc18v[1]  << 8) + pPkt0->Rdacf.iAc18v[0]);
-            temp_buffer[16] = (signed short int)((pPkt0->Rdauxa.iG1v[1]   << 8) + pPkt0->Rdauxa.iG1v[0]);
-            temp_buffer[17] = (signed short int)((pPkt0->Rdauxa.iG2v[1]   << 8) + pPkt0->Rdauxa.iG2v[0]);
-            temp_buffer[18] = (signed short int)((pPkt0->Rdauxa.iGa11v[1] << 8) + pPkt0->Rdauxa.iGa11v[0]);
-            temp_buffer[19] = (signed short int)((pPkt0->Rdauxe.iG3v[1]   << 8) + pPkt0->Rdauxe.iG3v[0]);
-             
-            for(i = 0; i < 16; i++){
-                /* @remark : Cell voltage convert (float) */
-                ADK_DEMO.NODE[BMS_eNode].CELL_V[i] = (float)(temp_buffer[i]  * CELL_UNIT / 1000000.0f) + CELL_OFFSET;
-                /* @remark : Cell voltage convert (int16) */
-                ADK_DEMO.NODE[BMS_eNode].CELL_Vi[i] = temp_buffer[i] + 10000;
-            }
-
-            for(i = 0; i < 4; i++){
-                /* @remark : AUX voltage convert (float) */
-                ADK_DEMO.NODE[BMS_eNode].TEMP_V[i]  = (temp_buffer[i + 16] * CELL_UNIT / 1000000.0f) + CELL_OFFSET;
-
-                /* @remark : AUX voltage convert (int16) */
-                ADK_DEMO.NODE[BMS_eNode].TEMP_Vi[i]  = temp_buffer[i + 16] + 10000;  
-
-            }
-             Adbms683x_Monitor_Base_Pkt0(&userBMSBuffer[cnt]);     
-        }else if(BMS_packetId == ADI_BMS_BALANCE_PKT_1_ID ){
-            pPkt1 = (adi_bms_balance_pkt_1_t*) &userBMSBuffer[cnt].iLength;
-
-            ADK_DEMO.NODE[BMS_eNode].CB_STAT = ((pPkt1->Rdcfga.iCfgar2 & BMS_CELLS_1_TO_2_MASK) << 16) + (pPkt1->Rdcfgb.iCfgbr5 << 8) + pPkt1->Rdcfgb.iCfgbr4;
-          
-            Adbms683x_Monitor_Base_Pkt1(&userBMSBuffer[cnt]);     
-
-        }else if(BMS_packetId == ADI_BMS_BALANCE_PKT_2_ID ){
-            pPkt2 = (adi_bms_balance_pkt_2_t*) &userBMSBuffer[cnt].iLength;
-
-            ADK_DEMO.NODE[BMS_eNode].OWD_CS_STAT = ((pPkt2->Rdstatc.iStcr2 & 0xC0) << 10) + (pPkt2->Rdstatc.iStcr1 << 8) + pPkt2->Rdstatc.iStcr0;
-         
-        }
-    }
-#endif
 }
 
 

@@ -18,7 +18,8 @@
 #include "adi_wil_version.h"
 #include "adi_wil.h"
 #include "adi_bms_types.h"
-
+#include "CmicMConfig.h"
+#include "CmicM.h"
 
 /*******************************************************************************
  * #defines                                                                    *

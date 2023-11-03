@@ -34,7 +34,7 @@ int adi_wil_example_Main(void);
 
 IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 boolean WAKEUP = FALSE;
-
+etewstst
 void core0_main(void)
 {
     IfxCpu_enableInterrupts();
@@ -50,7 +50,9 @@ void core0_main(void)
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
 #ifndef _ADI_ONLY
+
     CmicM_Init();
+
 
     while(1)
     {
@@ -58,6 +60,7 @@ void core0_main(void)
     }
 
 #else
-	adi_wil_example_Main();
+    adi_wil_example_Main();
+ 
 #endif
 }
